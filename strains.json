@@ -1,0 +1,3331 @@
+[
+  {
+    "name": "Strawberry Cake",
+    "producer": "4C Labs",
+    "code": "SCK",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Sweet",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "SCK"
+  },
+  {
+    "name": "Cold Creek Kush",
+    "producer": "4C Labs",
+    "code": "CCK",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Hungry"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dizzy"
+    ],
+    "id": "CCK"
+  },
+  {
+    "name": "Bubba Kush",
+    "producer": "4C Labs",
+    "code": "BBK",
+    "tier": "Value",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Happy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Coffee",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Insomnia",
+      "Pain",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Dizzy"
+    ],
+    "id": "BBK"
+  },
+  {
+    "name": "Oaxacan Kush",
+    "producer": "4C Labs",
+    "code": "XK",
+    "tier": "Value",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Pinene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Woody",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Anxiety",
+      "Insomnia"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "XK"
+  },
+  {
+    "name": "Skullcap",
+    "producer": "4C Labs",
+    "code": "SKL",
+    "tier": "Value",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Earthy",
+      "Herbal",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "SKL"
+  },
+  {
+    "name": "Pink Kush",
+    "producer": "4C Labs",
+    "code": "PKS",
+    "tier": "Core",
+    "thc": 33,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Ocimene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Floral",
+      "Sweet",
+      "Vanilla"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Dizzy"
+    ],
+    "id": "PKS"
+  },
+  {
+    "name": "Sun County Kush",
+    "producer": "4C Labs",
+    "code": "SCO",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Muscle Spasms"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "SCO"
+  },
+  {
+    "name": "GMO Animal Cookies",
+    "producer": "4C Labs",
+    "code": "GMO-AC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Garlic",
+      "Earthy",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dizzy"
+    ],
+    "id": "GMO-AC"
+  },
+  {
+    "name": "Kush Cookies",
+    "producer": "4C Labs",
+    "code": "KCO",
+    "tier": "Value",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Hungry"
+    ],
+    "flavours": [
+      "Sweet",
+      "Earthy",
+      "Cookie"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "KCO"
+  },
+  {
+    "name": "Crumbled Lime Ten",
+    "producer": "4C Labs",
+    "code": "CRL",
+    "tier": "Value",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Limonene",
+      "Terpinolene",
+      "Pinene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Focused"
+    ],
+    "flavours": [
+      "Citrus",
+      "Lime",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid"
+    ],
+    "id": "CRL"
+  },
+  {
+    "name": "Lemonatti",
+    "producer": "4C Labs",
+    "code": "LMT",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Uplifted",
+      "Relaxed"
+    ],
+    "flavours": [
+      "Lemon",
+      "Citrus",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "Fatigue"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "LMT"
+  },
+  {
+    "name": "Ultra Sour",
+    "producer": "4C Labs",
+    "code": "ULS",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Ocimene",
+      "Terpinolene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Focused"
+    ],
+    "flavours": [
+      "Sour",
+      "Citrus",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid"
+    ],
+    "id": "ULS"
+  },
+  {
+    "name": "Platinum Garlic",
+    "producer": "4C Labs",
+    "code": "PGL",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Hungry"
+    ],
+    "flavours": [
+      "Garlic",
+      "Earthy",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "PGL"
+  },
+  {
+    "name": "Acai Berry",
+    "producer": "4C Labs",
+    "code": "ACB",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Berry",
+      "Fruity",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "ACB"
+  },
+  {
+    "name": "Miracle Alien Cookies",
+    "producer": "4C Labs",
+    "code": "MC1",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Relaxed",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "MC1"
+  },
+  {
+    "name": "Dawgzilla",
+    "producer": "4C Labs",
+    "code": "DGZ",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Diesel"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dizzy"
+    ],
+    "id": "DGZ"
+  },
+  {
+    "name": "Zkittlez Fuel",
+    "producer": "4C Labs",
+    "code": "ZKF",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Fruity",
+      "Sweet",
+      "Tropical"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "ZKF"
+  },
+  {
+    "name": "Goldberry",
+    "producer": "4C Labs",
+    "code": "GDB",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Uplifted",
+      "Happy",
+      "Relaxed"
+    ],
+    "flavours": [
+      "Berry",
+      "Citrus",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Depression",
+      "Stress",
+      "Fatigue"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "GDB"
+  },
+  {
+    "name": "Moby Dick",
+    "producer": "4C Labs",
+    "code": "MBD",
+    "tier": "Craft",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Myrcene",
+      "Ocimene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Creative"
+    ],
+    "flavours": [
+      "Citrus",
+      "Vanilla",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "MBD"
+  },
+  {
+    "name": "Donkey Butter",
+    "producer": "4C Labs",
+    "code": "DBT",
+    "tier": "Premium",
+    "thc": 31,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Butter"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dizzy",
+      "Couch-lock"
+    ],
+    "id": "DBT"
+  },
+  {
+    "name": "Alaskan Thunder",
+    "producer": "4C Labs",
+    "code": "ATD",
+    "tier": "Premium",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Ocimene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Energetic",
+      "Euphoric",
+      "Focused"
+    ],
+    "flavours": [
+      "Pine",
+      "Earthy",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "ADHD"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "ATD"
+  },
+  {
+    "name": "Khalifa Mints",
+    "producer": "4C Labs",
+    "code": "KM",
+    "tier": "Craft",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Mint",
+      "Citrus",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "KM"
+  },
+  {
+    "name": "Citroli",
+    "producer": "4C Labs",
+    "code": "CTR",
+    "tier": "Craft",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Limonene",
+      "Terpinolene",
+      "Pinene"
+    ],
+    "effects": [
+      "Uplifted",
+      "Energetic",
+      "Happy"
+    ],
+    "flavours": [
+      "Citrus",
+      "Lemon",
+      "Tropical"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "CTR"
+  },
+  {
+    "name": "Beach Wedding",
+    "producer": "4C Labs",
+    "code": "BWD",
+    "tier": "Craft",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Sweet",
+      "Floral",
+      "Vanilla"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Pain"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "BWD"
+  },
+  {
+    "name": "Lucy in the Sky",
+    "producer": "4C Labs",
+    "code": "LIS",
+    "tier": "Craft Organic",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Myrcene",
+      "Ocimene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Creative",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Sweet",
+      "Floral",
+      "Tropical"
+    ],
+    "helpsWith": [
+      "Depression",
+      "Fatigue",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "LIS"
+  },
+  {
+    "name": "A&B Jealousy",
+    "producer": "4C Labs",
+    "code": "JAB",
+    "tier": "Craft",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Fruity",
+      "Sweet",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "JAB"
+  },
+  {
+    "name": "Hawaiian Fanta",
+    "producer": "4C Labs",
+    "code": "HWF",
+    "tier": "Craft Select",
+    "thc": 31,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Limonene",
+      "Terpinolene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Uplifted",
+      "Energetic",
+      "Happy"
+    ],
+    "flavours": [
+      "Tropical",
+      "Citrus",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid"
+    ],
+    "id": "HWF"
+  },
+  {
+    "name": "White Haze",
+    "producer": "4C Labs",
+    "code": "WHZ",
+    "tier": "Craft Select",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Pinene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Energetic",
+      "Focused",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "ADHD",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "WHZ"
+  },
+  {
+    "name": "Gary Busey",
+    "producer": "4C Labs",
+    "code": "GBU",
+    "tier": "Craft Select",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Diesel"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Spasticity",
+      "Insomnia"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dizzy"
+    ],
+    "id": "GBU"
+  },
+  {
+    "name": "Death Bubba",
+    "producer": "4C Labs",
+    "code": "DB",
+    "tier": "Craft Select",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Insomnia",
+      "Pain",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock",
+      "Dizzy"
+    ],
+    "id": "DB"
+  },
+  {
+    "name": "Gastro Pop",
+    "producer": "4C Labs",
+    "code": "GSP",
+    "tier": "Craft Select",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Relaxed",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Sweet",
+      "Fruity",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "GSP"
+  },
+  {
+    "name": "Dante'z Inferno",
+    "producer": "4C Labs",
+    "code": "DZI",
+    "tier": "Craft",
+    "thc": 32,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Spicy",
+      "Earthy",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock",
+      "Dizzy"
+    ],
+    "id": "DZI"
+  },
+  {
+    "name": "Peanut Butter Soufflé",
+    "producer": "4C Labs",
+    "code": "PBS",
+    "tier": "Craft Organic",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Hungry"
+    ],
+    "flavours": [
+      "Nutty",
+      "Earthy",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "PBS"
+  },
+  {
+    "name": "Afghan Lights",
+    "producer": "4C Labs",
+    "code": "AFL",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Pinene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Woody",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "AFL"
+  },
+  {
+    "name": "Galactic Cake",
+    "producer": "4C Labs",
+    "code": "GC",
+    "tier": "Craft Select",
+    "thc": 19,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Sweet",
+      "Earthy",
+      "Vanilla"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Pain"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "GC"
+  },
+  {
+    "name": "Blue Sunset",
+    "producer": "4C Labs",
+    "code": "BLS",
+    "tier": "Craft Select",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Berry",
+      "Citrus",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "BLS"
+  },
+  {
+    "name": "Puffo Gelato",
+    "producer": "4C Labs",
+    "code": "PUG",
+    "tier": "Premium",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Relaxed",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Sweet",
+      "Fruity",
+      "Creamy"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "Pain"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "PUG"
+  },
+  {
+    "name": "Sour Cherry Punch",
+    "producer": "4C Labs",
+    "code": "SCP",
+    "tier": "Premium",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Cherry",
+      "Sour",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "SCP"
+  },
+  {
+    "name": "Super-G Citra",
+    "producer": "4C Labs",
+    "code": "SGC",
+    "tier": "Premium",
+    "thc": 31,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Relaxed",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Citrus",
+      "Tropical",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "SGC"
+  },
+  {
+    "name": "GMO Tropical Reign",
+    "producer": "4C Labs",
+    "code": "GMO-TR",
+    "tier": "Premium",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Humulene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Body"
+    ],
+    "flavours": [
+      "Tropical",
+      "Garlic",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Spasticity",
+      "Insomnia"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "GMO-TR"
+  },
+  {
+    "name": "Moon Berry",
+    "producer": "Aurora (Pedanios)",
+    "code": "MBE",
+    "tier": "Core",
+    "thc": 10,
+    "cbd": 13,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Calmed",
+      "Body"
+    ],
+    "flavours": [
+      "Berry",
+      "Sweet",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Spasticity",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "MBE"
+  },
+  {
+    "name": "Frozen Lemon Haze",
+    "producer": "Aurora (Pedanios)",
+    "code": "FLH",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Limonene",
+      "Terpinolene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Focused"
+    ],
+    "flavours": [
+      "Lemon",
+      "Citrus",
+      "Hazy"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "FLH"
+  },
+  {
+    "name": "Electric Honeydew",
+    "producer": "Aurora (Pedanios)",
+    "code": "EHD",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Limonene",
+      "Ocimene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Creative"
+    ],
+    "flavours": [
+      "Sweet",
+      "Fruity",
+      "Tropical"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "ADHD"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "EHD"
+  },
+  {
+    "name": "Farm Gas",
+    "producer": "Aurora (Pedanios)",
+    "code": "FRG",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Body"
+    ],
+    "flavours": [
+      "Diesel",
+      "Earthy",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dizzy"
+    ],
+    "id": "FRG"
+  },
+  {
+    "name": "Black Jelly",
+    "producer": "Aurora (Pedanios)",
+    "code": "BLY",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Berry",
+      "Grape",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "BLY"
+  },
+  {
+    "name": "Chemango Kush",
+    "producer": "Aurora (Pedanios)",
+    "code": "CMK",
+    "tier": "Core",
+    "thc": 31,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Humulene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Mango",
+      "Tropical",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Spasticity",
+      "Insomnia"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock",
+      "Dizzy"
+    ],
+    "id": "CMK"
+  },
+  {
+    "name": "Cosmic Cream",
+    "producer": "Aurora (Pedanios)",
+    "code": "COS",
+    "tier": "Core",
+    "thc": 31,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Body"
+    ],
+    "flavours": [
+      "Creamy",
+      "Sweet",
+      "Vanilla"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "COS"
+  },
+  {
+    "name": "Cannatonic",
+    "producer": "Aurora (Pedanios)",
+    "code": "CTC",
+    "tier": "Core",
+    "thc": 1,
+    "cbd": 12,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Calmed",
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Pain",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "CTC"
+  },
+  {
+    "name": "Equiposa",
+    "producer": "Aurora (Pedanios)",
+    "code": "EQP",
+    "tier": "Core",
+    "thc": 10,
+    "cbd": 10,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Calmed",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Spasticity",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "EQP"
+  },
+  {
+    "name": "Sour Tangie",
+    "producer": "Aurora (Pedanios)",
+    "code": "STG",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Limonene",
+      "Terpinolene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Happy"
+    ],
+    "flavours": [
+      "Citrus",
+      "Tangerine",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "STG"
+  },
+  {
+    "name": "Ghost Train Haze",
+    "producer": "Aurora (Pedanios)",
+    "code": "GTH",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Ocimene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Energetic",
+      "Creative"
+    ],
+    "flavours": [
+      "Floral",
+      "Citrus",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Chronic Pain"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "GTH"
+  },
+  {
+    "name": "L.A. Confidential",
+    "producer": "Aurora (Pedanios)",
+    "code": "LAC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock",
+      "Dizzy"
+    ],
+    "id": "LAC"
+  },
+  {
+    "name": "Bedrocan",
+    "producer": "Bedrocan",
+    "code": "BDC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 1,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Myrcene",
+      "Ocimene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Hazy",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Spasticity",
+      "Pain"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid"
+    ],
+    "id": "BDC"
+  },
+  {
+    "name": "Bedrobinol",
+    "producer": "Bedrocan",
+    "code": "BDO",
+    "tier": "Core",
+    "thc": 13,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Uplifted",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Spasticity",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "BDO"
+  },
+  {
+    "name": "Bediol",
+    "producer": "Bedrocan",
+    "code": "BDL",
+    "tier": "Core",
+    "thc": 6,
+    "cbd": 8,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Calmed",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Herbal",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Spasticity",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "BDL"
+  },
+  {
+    "name": "Bedrolite",
+    "producer": "Bedrocan",
+    "code": "BDT",
+    "tier": "Core",
+    "thc": 1,
+    "cbd": 9,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Myrcene",
+      "Pinene"
+    ],
+    "effects": [
+      "Calmed",
+      "Focused",
+      "Clear-headed"
+    ],
+    "flavours": [
+      "Earthy",
+      "Herbal",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Spasticity",
+      "Inflammation"
+    ],
+    "negatives": [],
+    "id": "BDT"
+  },
+  {
+    "name": "Bedrica",
+    "producer": "Bedrocan",
+    "code": "BDR",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 22,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [
+      "Calmed",
+      "Body",
+      "Clear-headed"
+    ],
+    "flavours": [
+      "Earthy",
+      "Floral",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Spasticity",
+      "Inflammation"
+    ],
+    "negatives": [],
+    "id": "BDR"
+  },
+  {
+    "name": "Golden Runtz",
+    "producer": "Big Narstie Medical",
+    "code": "GR",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Fruity",
+      "Sweet",
+      "Candy"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "GR"
+  },
+  {
+    "name": "Mango Fuel",
+    "producer": "Big Narstie Medical",
+    "code": "MFL",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Mango",
+      "Tropical",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "MFL"
+  },
+  {
+    "name": "Frosted Pancakes",
+    "producer": "Big Narstie Medical",
+    "code": "FPC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Sweet",
+      "Vanilla",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Insomnia",
+      "Pain",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "FPC"
+  },
+  {
+    "name": "Mule Fuel",
+    "producer": "Big Narstie Medical",
+    "code": "MF",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Myrcene",
+      "Humulene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Body"
+    ],
+    "flavours": [
+      "Diesel",
+      "Earthy",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Spasticity",
+      "Insomnia"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock",
+      "Dizzy"
+    ],
+    "id": "MF"
+  },
+  {
+    "name": "Purple Milk",
+    "producer": "Big Narstie Medical",
+    "code": "PM",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Grape",
+      "Sweet",
+      "Creamy"
+    ],
+    "helpsWith": [
+      "Insomnia",
+      "Pain",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "PM"
+  },
+  {
+    "name": "Gorilla Kush",
+    "producer": "Big Narstie Medical",
+    "code": "GK",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Diesel"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "GK"
+  },
+  {
+    "name": "Jack Kush",
+    "producer": "Big Narstie Medical",
+    "code": "JK",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Terpinolene",
+      "Caryophyllene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Energetic",
+      "Relaxed"
+    ],
+    "flavours": [
+      "Pine",
+      "Citrus",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Fatigue",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "JK"
+  },
+  {
+    "name": "Rainbow Sherbet",
+    "producer": "Big Narstie Medical",
+    "code": "RB",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Berry",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "RB"
+  },
+  {
+    "name": "Candyland",
+    "producer": "Big Narstie Medical",
+    "code": "CL",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "effects": [
+      "Energetic",
+      "Happy",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Sweet",
+      "Candy",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "CL"
+  },
+  {
+    "name": "MAC Daddy",
+    "producer": "All Nations",
+    "code": "MD XE",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Relaxed",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "MD XE"
+  },
+  {
+    "name": "MAC Doughnut",
+    "producer": "All Nations",
+    "code": "MDO",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Relaxed",
+      "Happy"
+    ],
+    "flavours": [
+      "Sweet",
+      "Doughy",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "MDO"
+  },
+  {
+    "name": "Tropic Thunder",
+    "producer": "All Nations",
+    "code": "TT",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Happy"
+    ],
+    "flavours": [
+      "Tropical",
+      "Citrus",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid"
+    ],
+    "id": "TT"
+  },
+  {
+    "name": "Lemon Gelato",
+    "producer": "All Nations",
+    "code": "LG",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Lemon",
+      "Sweet",
+      "Creamy"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "Pain"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "LG"
+  },
+  {
+    "name": "Pineapple Express",
+    "producer": "All Nations",
+    "code": "PNE",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Terpinolene",
+      "Myrcene",
+      "Ocimene"
+    ],
+    "effects": [
+      "Happy",
+      "Uplifted",
+      "Energetic"
+    ],
+    "flavours": [
+      "Pineapple",
+      "Tropical",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Stress",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "PNE"
+  },
+  {
+    "name": "Grey Goose",
+    "producer": "All Nations",
+    "code": "GG",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "GG"
+  },
+  {
+    "name": "Super Lemon Haze",
+    "producer": "Grow Lab Organics",
+    "code": "SLH",
+    "tier": "Craft",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Myrcene",
+      "Ocimene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Happy"
+    ],
+    "flavours": [
+      "Lemon",
+      "Citrus",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid"
+    ],
+    "id": "SLH"
+  },
+  {
+    "name": "Kush Mintz",
+    "producer": "Grow Lab Organics",
+    "code": "KMZ",
+    "tier": "Craft",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Mint",
+      "Earthy",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "KMZ"
+  },
+  {
+    "name": "OG Kush",
+    "producer": "Grow Lab Organics",
+    "code": "OGK",
+    "tier": "Craft",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Paranoid"
+    ],
+    "id": "OGK"
+  },
+  {
+    "name": "Amnesia Haze",
+    "producer": "Grow Lab Organics",
+    "code": "AMH",
+    "tier": "Craft",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Myrcene",
+      "Pinene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Creative"
+    ],
+    "flavours": [
+      "Hazy",
+      "Earthy",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "AMH"
+  },
+  {
+    "name": "Do-Si-Dos",
+    "producer": "Grow Lab Organics",
+    "code": "DSD",
+    "tier": "Craft",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Floral"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "DSD"
+  },
+  {
+    "name": "Wedding Cake (Tilray)",
+    "producer": "Tilray Medical",
+    "code": "WC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 1,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Vanilla",
+      "Sweet",
+      "Pepper"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dizzy",
+      "Paranoid"
+    ],
+    "id": "WC"
+  },
+  {
+    "name": "Jean Guy",
+    "producer": "Tilray Medical",
+    "code": "JG",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Myrcene",
+      "Pinene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid"
+    ],
+    "id": "JG"
+  },
+  {
+    "name": "Shark Shock",
+    "producer": "Tilray Medical",
+    "code": "SS",
+    "tier": "Core",
+    "thc": 9,
+    "cbd": 8,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Calmed",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Spasticity",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "SS"
+  },
+  {
+    "name": "Nordle",
+    "producer": "Tilray Medical",
+    "code": "NOR",
+    "tier": "Core",
+    "thc": 8,
+    "cbd": 8,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Calmed",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Woody",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Spasticity",
+      "Insomnia"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "NOR"
+  },
+  {
+    "name": "Purple Punch",
+    "producer": "Somaí Pharmaceuticals",
+    "code": "PP",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Grape",
+      "Berry",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Insomnia",
+      "Pain",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "PP"
+  },
+  {
+    "name": "Gorilla Glue #4",
+    "producer": "Somaí Pharmaceuticals",
+    "code": "GG4",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Diesel"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Anxious"
+    ],
+    "id": "GG4"
+  },
+  {
+    "name": "Zkittlez",
+    "producer": "Somaí Pharmaceuticals",
+    "code": "ZKT",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Fruity",
+      "Sweet",
+      "Tropical"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Pain"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "ZKT"
+  },
+  {
+    "name": "White Widow",
+    "producer": "Somaí Pharmaceuticals",
+    "code": "WW",
+    "tier": "Core",
+    "thc": 19,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Uplifted"
+    ],
+    "flavours": [
+      "Earthy",
+      "Spicy",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid",
+      "Dry eyes"
+    ],
+    "id": "WW"
+  },
+  {
+    "name": "Northern Lights",
+    "producer": "Northern Leaf",
+    "code": "NL",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Happy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Insomnia",
+      "Pain",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Couch-lock"
+    ],
+    "id": "NL"
+  },
+  {
+    "name": "Blue Cheese",
+    "producer": "Northern Leaf",
+    "code": "BC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 1,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Sleepy",
+      "Hungry",
+      "Giggly"
+    ],
+    "flavours": [
+      "Blue-cheese",
+      "Cheese",
+      "Blueberry"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Pain"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Dizzy"
+    ],
+    "id": "BC"
+  },
+  {
+    "name": "Critical Mass",
+    "producer": "Northern Leaf",
+    "code": "CM",
+    "tier": "Core",
+    "thc": 15,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Happy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "CM"
+  },
+  {
+    "name": "El Jefe",
+    "producer": "ANTG",
+    "code": "Rocky",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Earthy",
+      "Herbal",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "Rocky"
+  },
+  {
+    "name": "Tangie Chem",
+    "producer": "ANTG",
+    "code": "Solace",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Limonene",
+      "Terpinolene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Happy"
+    ],
+    "flavours": [
+      "Citrus",
+      "Tangerine",
+      "Diesel"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "Solace"
+  },
+  {
+    "name": "Libras",
+    "producer": "ANTG",
+    "code": "Juno",
+    "tier": "Core",
+    "thc": 10,
+    "cbd": 11,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Calmed",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Herbal",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Pain",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "Juno"
+  },
+  {
+    "name": "Girl Scout Cookies",
+    "producer": "Little Green Pharma",
+    "code": "GSC",
+    "tier": "Core",
+    "thc": 19,
+    "cbd": 1,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Sweet",
+      "Earthy",
+      "Mint"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Paranoid"
+    ],
+    "id": "GSC"
+  },
+  {
+    "name": "Blue Zkittlez",
+    "producer": "Little Green Pharma",
+    "code": "BZ",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Euphoric"
+    ],
+    "flavours": [
+      "Fruity",
+      "Sweet",
+      "Berry"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Pain"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "BZ"
+  },
+  {
+    "name": "Lemon OG Kush",
+    "producer": "Little Green Pharma",
+    "code": "LOK",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Lemon",
+      "Citrus",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Pain",
+      "Insomnia"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "LOK"
+  },
+  {
+    "name": "Royal Kush",
+    "producer": "Argent BioPharma",
+    "code": "RK",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 1,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Stress",
+      "Pain"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "RK"
+  },
+  {
+    "name": "Sweet Island Skunk",
+    "producer": "Argent BioPharma",
+    "code": "SIS",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Terpinolene",
+      "Myrcene",
+      "Limonene"
+    ],
+    "effects": [
+      "Energetic",
+      "Uplifted",
+      "Happy"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Tropical"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Stress",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "SIS"
+  },
+  {
+    "name": "Kali Kush",
+    "producer": "Linneo Health",
+    "code": "KK",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Spasticity"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Couch-lock"
+    ],
+    "id": "KK"
+  },
+  {
+    "name": "Lemon King",
+    "producer": "Linneo Health",
+    "code": "LK",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Limonene",
+      "Terpinolene",
+      "Myrcene"
+    ],
+    "effects": [
+      "Uplifted",
+      "Energetic",
+      "Happy"
+    ],
+    "flavours": [
+      "Lemon",
+      "Citrus",
+      "Earthy"
+    ],
+    "helpsWith": [
+      "Fatigue",
+      "Depression",
+      "Stress"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Anxious"
+    ],
+    "id": "LK"
+  }
+]
