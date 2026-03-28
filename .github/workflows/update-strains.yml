@@ -1,0 +1,59 @@
+# =============================================================================
+# Bloomy's Bud Log — Auto-Update Strains
+# =============================================================================
+# Runs weekly (Sunday 6am UTC) to scrape the latest strain data from
+# MedBud.wiki and Weedstrain.com, then commits any changes.
+#
+# Can also be triggered manually from the Actions tab.
+# =============================================================================
+
+name: Update Strain Data
+
+on:
+  schedule:
+    # Every Sunday at 06:00 UTC
+    - cron: '0 6 * * 0'
+  
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-strains:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run strain updater
+        run: python scripts/update_strains.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push updates
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "Bloomy's Bot"
+          git config user.email "bot@bloomys-bud-log.github.io"
+          git add strains.json index.html
+          STRAIN_COUNT=$(python -c "import json; print(len(json.load(open('strains.json'))))")
+          git commit -m "🌿 Auto-update strain data ($STRAIN_COUNT strains)"
+          git push
+
+      - name: No changes detected
+        if: steps.changes.outputs.changed == 'false'
+        run: echo "✅ No new strain data — everything is up to date."
