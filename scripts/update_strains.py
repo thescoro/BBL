@@ -142,7 +142,7 @@ async def scrape_strain_page_pw(page, url, producer_name):
             await page.wait_for_selector('text=Cultivar/Strain', timeout=8000)
         except Exception:
             pass  # Some pages may not have this exact text
-        await page.wait_for_timeout(2000)  # Extra buffer for terpene data
+        await page.wait_for_timeout(1500)  # Buffer for terpene data
     except Exception:
         return None
 
@@ -238,7 +238,7 @@ async def scrape_strain_page_pw(page, url, producer_name):
         yt_tab = page.locator('text=YouTube Reviews').first
         if await yt_tab.count() > 0:
             await yt_tab.click()
-            await page.wait_for_timeout(1500)
+            await page.wait_for_timeout(1000)
 
             # Find all YouTube links on the page
             yt_links = await page.eval_on_selector_all(
@@ -401,50 +401,64 @@ async def main():
         print("  ⚠ No pages discovered — keeping existing data")
         return 0
 
-    # 3. Scrape each strain page with Playwright
-    print("\n🌐 Scraping strain pages with headless browser...")
+    # 3. Scrape each strain page with Playwright (parallel)
+    print("\n🌐 Scraping strain pages with headless browser (4 parallel)...")
     new_strains = []
     seen_new = set()
+    results_lock = asyncio.Lock()
+    progress = {"done": 0, "total": len(all_urls)}
+
+    CONCURRENCY = 4  # Number of parallel browser tabs
+
+    async def scrape_one(browser, surl, producer):
+        context = await browser.new_context(user_agent=HTTP_HEADERS["User-Agent"])
+        pg = await context.new_page()
+        try:
+            data = await scrape_strain_page_pw(pg, surl, producer)
+        except Exception:
+            data = None
+        finally:
+            await context.close()
+
+        async with results_lock:
+            progress["done"] += 1
+            if progress["done"] % 50 == 0:
+                print(f"    ... processed {progress['done']}/{progress['total']} pages")
+
+        return data, producer
+
+    async def worker(browser, queue):
+        while True:
+            try:
+                surl, producer = queue.pop(0)
+            except IndexError:
+                break
+            data, prod = await scrape_one(browser, surl, producer)
+            if not data or not data.get("name"):
+                continue
+            async with results_lock:
+                key = (data["name"].lower(), prod.lower())
+                if key in existing_by_key:
+                    ex = existing_by_key[key]
+                    if data["thc"] > 0 and ex.get("thc", 0) == 0:
+                        ex["thc"] = data["thc"]
+                    if data["cbd"] > 0 and ex.get("cbd", 0) == 0:
+                        ex["cbd"] = data["cbd"]
+                    if data["terpenes"] and not ex.get("terpenes"):
+                        ex["terpenes"] = data["terpenes"]
+                    if data.get("youtubeReviews"):
+                        ex["youtubeReviews"] = data["youtubeReviews"]
+                elif key not in seen_new:
+                    seen_new.add(key)
+                    new_strains.append(data)
+                    terp_str = ', '.join(data['terpenes'][:3]) if data['terpenes'] else 'no terpenes yet'
+                    print(f"    ✚ {data['name']} ({prod}, THC {data['thc']}%, {terp_str})")
 
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
-        context = await browser.new_context(user_agent=HTTP_HEADERS["User-Agent"])
-        page = await context.new_page()
-
-        count = 0
-        for surl, producer in all_urls.items():
-            count += 1
-            if count % 50 == 0:
-                print(f"    ... processed {count}/{len(all_urls)} pages")
-
-            data = await scrape_strain_page_pw(page, surl, producer)
-            if not data or not data["name"]:
-                continue
-
-            key = (data["name"].lower(), producer.lower())
-
-            # Update existing
-            if key in existing_by_key:
-                ex = existing_by_key[key]
-                if data["thc"] > 0 and ex.get("thc", 0) == 0:
-                    ex["thc"] = data["thc"]
-                if data["cbd"] > 0 and ex.get("cbd", 0) == 0:
-                    ex["cbd"] = data["cbd"]
-                if data["terpenes"] and not ex.get("terpenes"):
-                    ex["terpenes"] = data["terpenes"]
-                # Always refresh YouTube reviews (they change over time)
-                if data.get("youtubeReviews"):
-                    ex["youtubeReviews"] = data["youtubeReviews"]
-                continue
-
-            if key in seen_new:
-                continue
-            seen_new.add(key)
-
-            new_strains.append(data)
-            terp_str = ', '.join(data['terpenes'][:3]) if data['terpenes'] else 'no terpenes yet'
-            print(f"    ✚ {data['name']} ({producer}, THC {data['thc']}%, {terp_str})")
-
+        queue = list(all_urls.items())
+        workers = [asyncio.create_task(worker(browser, queue)) for _ in range(CONCURRENCY)]
+        await asyncio.gather(*workers)
         await browser.close()
 
     print(f"\n  New unique strains: {len(new_strains)}")
