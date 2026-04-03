@@ -1,8 +1,8 @@
 # =============================================================================
-# Bloomy's Bud Log — Auto-Update Strains
+# Bloomy's Bud Log — Auto-Update Strains (Playwright Edition)
 # =============================================================================
-# Runs weekly (Sunday 6am UTC) to scrape the latest strain data from
-# MedBud.wiki and Weedstrain.com, then commits any changes.
+# Runs weekly (Sunday 6am UTC) using a headless browser to scrape
+# MedBud.wiki's JS-rendered strain pages for full data including terpenes.
 #
 # Can also be triggered manually from the Actions tab.
 # =============================================================================
@@ -11,10 +11,7 @@ name: Update Strain Data
 
 on:
   schedule:
-    # Every Sunday at 06:00 UTC
     - cron: '0 6 * * 0'
-  
-  # Allow manual trigger from GitHub Actions tab
   workflow_dispatch:
 
 permissions:
@@ -23,7 +20,8 @@ permissions:
 jobs:
   update-strains:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 60
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -34,7 +32,10 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install requests beautifulsoup4
+        run: |
+          pip install playwright beautifulsoup4 requests
+          playwright install chromium
+          playwright install-deps chromium
 
       - name: Run strain updater
         run: python scripts/update_strains.py
