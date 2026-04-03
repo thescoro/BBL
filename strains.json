@@ -9781,5 +9781,7166 @@
     "helpsWith": [],
     "negatives": [],
     "id": "S"
+  },
+  {
+    "name": "Alien Koffee",
+    "producer": "4C Labs",
+    "code": "V",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "V"
+  },
+  {
+    "name": "Blue Sherbet",
+    "producer": "4C Labs",
+    "code": "C",
+    "tier": "Core",
+    "thc": 19,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Chemnesia Haze",
+    "producer": "4C Labs",
+    "code": "P",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "P"
+  },
+  {
+    "name": "Huckleberry",
+    "producer": "4C Labs",
+    "code": "C",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Happy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Butter"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "C"
+  },
+  {
+    "name": "Wedding Cake Crash",
+    "producer": "4C Labs",
+    "code": "C",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Terpinolene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Floral",
+      "Herbal",
+      "Butter"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Durban Kush",
+    "producer": "4C Labs",
+    "code": "C",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Ocimene",
+      "Terpinolene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Hollywood",
+    "producer": "4C Labs",
+    "code": "C",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Alien Jelly",
+    "producer": "4C Labs",
+    "code": "C",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Ms. MJR Runtz",
+    "producer": "4C Labs",
+    "code": "C",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Pucker-Up",
+    "producer": "4C Labs",
+    "code": "C",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Pine",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Jokerz",
+    "producer": "4C Labs",
+    "code": "P",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Anxiety"
+    ],
+    "negatives": [],
+    "id": "P"
+  },
+  {
+    "name": "Banana Daddy",
+    "producer": "4C Labs",
+    "code": "C",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Pine",
+      "Herbal",
+      "Butter"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Zero Gravity",
+    "producer": "4C Labs",
+    "code": "C",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Sudz",
+    "producer": "4C Labs",
+    "code": "C",
+    "tier": "Core",
+    "thc": 17,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Tropicana Gold",
+    "producer": "4C Labs",
+    "code": "V",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "V"
+  },
+  {
+    "name": "Unknown Vial",
+    "producer": "4C Labs",
+    "code": "V",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "V"
+  },
+  {
+    "name": "Delahaze",
+    "producer": "Aurora (Pedanios)",
+    "code": "C",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Ocimene",
+      "Terpinolene",
+      "Bisabolol"
+    ],
+    "effects": [
+      "Happy",
+      "Energetic",
+      "Creative"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Sourdough",
+    "producer": "Aurora (Pedanios)",
+    "code": "P",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [],
+    "id": "P"
+  },
+  {
+    "name": "Banana Split",
+    "producer": "Aurora (Pedanios)",
+    "code": "P",
+    "tier": "Core",
+    "thc": 14,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Body"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Depression"
+    ],
+    "negatives": [],
+    "id": "P"
+  },
+  {
+    "name": "Pink Kush",
+    "producer": "Aurora (Pedanios)",
+    "code": "PNK T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PNK T24\nC"
+  },
+  {
+    "name": "Pink Diesel",
+    "producer": "Aurora (Pedanios)",
+    "code": "P",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "P"
+  },
+  {
+    "name": "Talea",
+    "producer": "Bedrocan",
+    "code": "B",
+    "tier": "Core",
+    "thc": 14,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Linalool",
+      "Pinene",
+      "Humulene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "B"
+  },
+  {
+    "name": "Elida",
+    "producer": "Bedrocan",
+    "code": "B",
+    "tier": "Core",
+    "thc": 6,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Pinene",
+      "Humulene",
+      "Ocimene",
+      "Terpinolene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "B"
+  },
+  {
+    "name": "Ludina",
+    "producer": "Bedrocan",
+    "code": "B",
+    "tier": "Core",
+    "thc": 14,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Pinene",
+      "Humulene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "B"
+  },
+  {
+    "name": "Rensina",
+    "producer": "Bedrocan",
+    "code": "B",
+    "tier": "Core",
+    "thc": 1,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Pinene",
+      "Humulene",
+      "Ocimene",
+      "Terpinolene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "B"
+  },
+  {
+    "name": "Jack Herer",
+    "producer": "Bedrocan",
+    "code": "M",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "M"
+  },
+  {
+    "name": "Ammy",
+    "producer": "Big Narstie Medical",
+    "code": "AM T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "AM T23\nC"
+  },
+  {
+    "name": "Carbon Fibre",
+    "producer": "Big Narstie Medical",
+    "code": "CF-S S",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "CF-S S"
+  },
+  {
+    "name": "Hash Burger",
+    "producer": "Big Narstie Medical",
+    "code": "HB T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Bisabolol"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Grape"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry eyes",
+      "Dizzy",
+      "Anxious"
+    ],
+    "id": "HB T24\nC"
+  },
+  {
+    "name": "Minted Grape",
+    "producer": "Big Narstie Medical",
+    "code": "MG T15\nC",
+    "tier": "Core",
+    "thc": 15,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "MG T15\nC"
+  },
+  {
+    "name": "Papaya Bantz",
+    "producer": "Big Narstie Medical",
+    "code": "PB-S S",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PB-S S"
+  },
+  {
+    "name": "Pink Gasoline",
+    "producer": "Big Narstie Medical",
+    "code": "PG T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PG T25\nC"
+  },
+  {
+    "name": "Gelatti",
+    "producer": "Big Narstie Medical",
+    "code": "T21\nC",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [
+      "Happy",
+      "Creative",
+      "Calmed"
+    ],
+    "flavours": [
+      "Grape"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dizzy",
+      "Anxious"
+    ],
+    "id": "T21\nC"
+  },
+  {
+    "name": "Gushers",
+    "producer": "Big Narstie Medical",
+    "code": "T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T22\nC"
+  },
+  {
+    "name": "Glitter Bomb",
+    "producer": "Big Narstie Medical",
+    "code": "GB T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GB T23\nC"
+  },
+  {
+    "name": "Moroccan Peaches",
+    "producer": "Big Narstie Medical",
+    "code": "MP T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "MP T25\nC"
+  },
+  {
+    "name": "Gastro Pop",
+    "producer": "Big Narstie Medical",
+    "code": "GP T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GP T26\nC"
+  },
+  {
+    "name": "Beach Crasher",
+    "producer": "Tilray Medical",
+    "code": "BC T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Bisabolol"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Berry"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "BC T25\nC"
+  },
+  {
+    "name": "Frosted Cherry Cake",
+    "producer": "Tilray Medical",
+    "code": "FCC T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "FCC T25\nC"
+  },
+  {
+    "name": "Ghost Gelato",
+    "producer": "Tilray Medical",
+    "code": "GG T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GG T27\nC"
+  },
+  {
+    "name": "King Sherb",
+    "producer": "Tilray Medical",
+    "code": "KS T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Bisabolol"
+    ],
+    "effects": [
+      "Happy",
+      "Sleepy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [
+      "Dry eyes",
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "KS T28\nC"
+  },
+  {
+    "name": "Alien Dawg",
+    "producer": "Tilray Medical",
+    "code": "S",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "S"
+  },
+  {
+    "name": "Warlock",
+    "producer": "Tilray Medical",
+    "code": "T8",
+    "tier": "Core",
+    "thc": 8,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [],
+    "id": "T8"
+  },
+  {
+    "name": "Master Kush",
+    "producer": "Tilray Medical",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Pink Kush",
+    "producer": "Tilray Medical",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Mango",
+    "producer": "Tilray Medical",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Headband",
+    "producer": "Tilray Medical",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Galaxy Walker OG",
+    "producer": "Tilray Medical",
+    "code": "T19\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T19\nC"
+  },
+  {
+    "name": "Purps",
+    "producer": "Tilray Medical",
+    "code": "T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T20\nC"
+  },
+  {
+    "name": "White Widow",
+    "producer": "Tilray Medical",
+    "code": "T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T22\nC"
+  },
+  {
+    "name": "Island Sweet Skunk",
+    "producer": "Tilray Medical",
+    "code": "ISS T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "ISS T22\nC"
+  },
+  {
+    "name": "Biscuit Runtz",
+    "producer": "Tilray Medical",
+    "code": "T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T30\nC"
+  },
+  {
+    "name": "Wappa",
+    "producer": "Tilray Medical",
+    "code": "WA T29\nC",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dizzy",
+      "Paranoid",
+      "Anxious",
+      "Couch-lock"
+    ],
+    "id": "WA T29\nC"
+  },
+  {
+    "name": "Strawberry Banana",
+    "producer": "Somaí Pharmaceuticals",
+    "code": "SB T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Spicy"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "SB T25\nC"
+  },
+  {
+    "name": "Miracle Alien Cookies",
+    "producer": "Somaí Pharmaceuticals",
+    "code": "T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Nerolidol"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T23\nC"
+  },
+  {
+    "name": "Lemon Skunk",
+    "producer": "Little Green Pharma",
+    "code": "L",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Humulene",
+      "Nerolidol"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "L"
+  },
+  {
+    "name": "Amnesia Haze",
+    "producer": "Little Green Pharma",
+    "code": "D",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Spicy",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "D"
+  },
+  {
+    "name": "Bush Lantern",
+    "producer": "Little Green Pharma",
+    "code": "T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Diesel",
+      "Lemon",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T25\nC"
+  },
+  {
+    "name": "Blue Dream",
+    "producer": "Upstate",
+    "code": "BD T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Berry",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BD T24\nC"
+  },
+  {
+    "name": "Berry Hash Krash",
+    "producer": "Upstate",
+    "code": "BHK T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Berry",
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BHK T26\nC"
+  },
+  {
+    "name": "Berry Cream Puff",
+    "producer": "Upstate",
+    "code": "BP T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Woody"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BP T20\nC"
+  },
+  {
+    "name": "Black Triangle Kush",
+    "producer": "Upstate",
+    "code": "BTK T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BTK T23\nC"
+  },
+  {
+    "name": "Cinderella 99",
+    "producer": "Upstate",
+    "code": "CDR T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "CDR T22\nC"
+  },
+  {
+    "name": "Cap Junky",
+    "producer": "Upstate",
+    "code": "CJK T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "CJK T30\nC"
+  },
+  {
+    "name": "Black Triangle",
+    "producer": "Upstate",
+    "code": "BTR T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BTR T24\nC"
+  },
+  {
+    "name": "Diamond Mintz",
+    "producer": "Upstate",
+    "code": "DMZ T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "DMZ T30\nC"
+  },
+  {
+    "name": "Full Gas",
+    "producer": "Upstate",
+    "code": "FGS T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "FGS T18\nC"
+  },
+  {
+    "name": "Fight Club",
+    "producer": "Upstate",
+    "code": "FTC T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "FTC T30\nC"
+  },
+  {
+    "name": "Grape Burger",
+    "producer": "Upstate",
+    "code": "GB T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GB T23\nC"
+  },
+  {
+    "name": "Ghost Train Haze",
+    "producer": "Upstate",
+    "code": "GTH T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GTH T22\nC"
+  },
+  {
+    "name": "Huckleberry",
+    "producer": "Upstate",
+    "code": "HKB T21\nC",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Happy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Berry",
+      "Grape"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "HKB T21\nC"
+  },
+  {
+    "name": "Imperial Mimosa",
+    "producer": "Upstate",
+    "code": "IMM T15\nC",
+    "tier": "Core",
+    "thc": 15,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "IMM T15\nC"
+  },
+  {
+    "name": "Kush Cookies",
+    "producer": "Upstate",
+    "code": "KSC T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Sweet",
+      "Berry",
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "KSC T25\nC"
+  },
+  {
+    "name": "Mochi Gelato",
+    "producer": "Upstate",
+    "code": "MGT T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "MGT T28\nC"
+  },
+  {
+    "name": "Mellowz",
+    "producer": "Upstate",
+    "code": "MLZ T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Berry",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "MLZ T26\nC"
+  },
+  {
+    "name": "Mimosa Orange Punch",
+    "producer": "Upstate",
+    "code": "MOP T15\nC",
+    "tier": "Core",
+    "thc": 15,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "MOP T15\nC"
+  },
+  {
+    "name": "Pineapple God",
+    "producer": "Upstate",
+    "code": "PGD T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Berry",
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PGD T26\nC"
+  },
+  {
+    "name": "Sky Berry Kush",
+    "producer": "Upstate",
+    "code": "SBK T21\nC",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Humulene",
+      "Nerolidol"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "SBK T21\nC"
+  },
+  {
+    "name": "Purple Octane",
+    "producer": "Upstate",
+    "code": "PO T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PO T28\nC"
+  },
+  {
+    "name": "Pink Wafers",
+    "producer": "Upstate",
+    "code": "PW T11",
+    "tier": "Core",
+    "thc": 11,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Berry",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PW T11"
+  },
+  {
+    "name": "Scout Cake",
+    "producer": "Upstate",
+    "code": "SC T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Berry"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "SC T30\nC"
+  },
+  {
+    "name": "Scoops",
+    "producer": "Upstate",
+    "code": "SS T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "SS T22\nC"
+  },
+  {
+    "name": "Sunset Sherbet",
+    "producer": "Upstate",
+    "code": "SSB T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "SSB T28\nC"
+  },
+  {
+    "name": "Crossbow",
+    "producer": "Upstate",
+    "code": "CBW T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "CBW T26\nC"
+  },
+  {
+    "name": "Tropical Blues",
+    "producer": "Upstate",
+    "code": "TB T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Pinene",
+      "Terpinolene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Berry",
+      "Pine",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "TB T26\nC"
+  },
+  {
+    "name": "Tropical Cherry",
+    "producer": "Upstate",
+    "code": "TC T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "TC T22\nC"
+  },
+  {
+    "name": "White Out",
+    "producer": "Upstate",
+    "code": "WO T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "WO T22\nC"
+  },
+  {
+    "name": "Wedding Pie",
+    "producer": "Upstate",
+    "code": "WP T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Berry",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "WP T22\nC"
+  },
+  {
+    "name": "MK Ultra",
+    "producer": "Noidecs",
+    "code": "MKU T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Dizzy"
+    ],
+    "id": "MKU T20\nC"
+  },
+  {
+    "name": "Polar Kush",
+    "producer": "Noidecs",
+    "code": "PK T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PK T24\nC"
+  },
+  {
+    "name": "Critical Mass CBD",
+    "producer": "Noidecs",
+    "code": "T10",
+    "tier": "Core",
+    "thc": 10,
+    "cbd": 10,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Pine",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T10"
+  },
+  {
+    "name": "Shishkaberry",
+    "producer": "Noidecs",
+    "code": "T14\nC",
+    "tier": "Core",
+    "thc": 14,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Insomnia"
+    ],
+    "negatives": [],
+    "id": "T14\nC"
+  },
+  {
+    "name": "L.A. Amnesia",
+    "producer": "Noidecs",
+    "code": "T16\nC",
+    "tier": "Core",
+    "thc": 16,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T16\nC"
+  },
+  {
+    "name": "Night Queen",
+    "producer": "Noidecs",
+    "code": "T17\nC",
+    "tier": "Core",
+    "thc": 17,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T17\nC"
+  },
+  {
+    "name": "Wappa",
+    "producer": "Noidecs",
+    "code": "T17\nC",
+    "tier": "Core",
+    "thc": 17,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T17\nC"
+  },
+  {
+    "name": "Humble Warrior",
+    "producer": "Noidecs",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Ocimene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Sweet",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Peyote Critical",
+    "producer": "Noidecs",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Sweet",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Delahaze",
+    "producer": "Noidecs",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Pinene",
+      "Terpinolene"
+    ],
+    "effects": [
+      "Happy",
+      "Energetic",
+      "Creative"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Mazar-i-Sharif",
+    "producer": "Noidecs",
+    "code": "T19\nC",
+    "tier": "Core",
+    "thc": 19,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [],
+    "id": "T19\nC"
+  },
+  {
+    "name": "Moby Dick",
+    "producer": "Noidecs",
+    "code": "T20",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Ocimene",
+      "Terpinolene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Sweet",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T20"
+  },
+  {
+    "name": "Murray Sherbet",
+    "producer": "Noidecs",
+    "code": "T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Pinene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T20\nC"
+  },
+  {
+    "name": "Royal Moby",
+    "producer": "Noidecs",
+    "code": "T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Humulene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T20\nC"
+  },
+  {
+    "name": "Kosher Kush",
+    "producer": "Noidecs",
+    "code": "MVA T20",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Focused",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry eyes"
+    ],
+    "id": "MVA T20"
+  },
+  {
+    "name": "Sensi Star",
+    "producer": "Noidecs",
+    "code": "T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T22\nC"
+  },
+  {
+    "name": "Sour Kush",
+    "producer": "Noidecs",
+    "code": "T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Focused"
+    ],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [],
+    "id": "T22\nC"
+  },
+  {
+    "name": "Green Gelato",
+    "producer": "Noidecs",
+    "code": "T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Fatigue"
+    ],
+    "negatives": [],
+    "id": "T23\nC"
+  },
+  {
+    "name": "Jack Herer",
+    "producer": "Noidecs",
+    "code": "T21\nC",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Limonene",
+      "Humulene",
+      "Nerolidol"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T21\nC"
+  },
+  {
+    "name": "Lava Cake",
+    "producer": "Noidecs",
+    "code": "T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Grape",
+      "Mint",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry eyes",
+      "Dizzy",
+      "Paranoid"
+    ],
+    "id": "T25\nC"
+  },
+  {
+    "name": "CBD Kush",
+    "producer": "Noidecs",
+    "code": "T4",
+    "tier": "Core",
+    "thc": 4,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T4"
+  },
+  {
+    "name": "Balanced Kush",
+    "producer": "Noidecs",
+    "code": "T5",
+    "tier": "Core",
+    "thc": 5,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Pinene",
+      "Geraniol"
+    ],
+    "effects": [
+      "Euphoric",
+      "Focused",
+      "Body"
+    ],
+    "flavours": [
+      "Sweet",
+      "Pine",
+      "Floral"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "T5"
+  },
+  {
+    "name": "Balanced Caramel",
+    "producer": "Noidecs",
+    "code": "T8",
+    "tier": "Core",
+    "thc": 8,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T8"
+  },
+  {
+    "name": "Hidden",
+    "producer": "Noidecs",
+    "code": "VF",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "VF"
+  },
+  {
+    "name": "Platinum OG",
+    "producer": "Noidecs",
+    "code": "V",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Diesel"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Dizzy"
+    ],
+    "id": "V"
+  },
+  {
+    "name": "Blackberry CBG",
+    "producer": "Releaf",
+    "code": "BC T17\nC",
+    "tier": "Core",
+    "thc": 17,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia"
+    ],
+    "negatives": [],
+    "id": "BC T17\nC"
+  },
+  {
+    "name": "Frosted Lime",
+    "producer": "Releaf",
+    "code": "FL C13\nC",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia"
+    ],
+    "negatives": [],
+    "id": "FL C13\nC"
+  },
+  {
+    "name": "Gelato",
+    "producer": "Releaf",
+    "code": "GE T19\nC",
+    "tier": "Core",
+    "thc": 19,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia"
+    ],
+    "negatives": [],
+    "id": "GE T19\nC"
+  },
+  {
+    "name": "Green Kush",
+    "producer": "Releaf",
+    "code": "GK T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia"
+    ],
+    "negatives": [],
+    "id": "GK T25\nC"
+  },
+  {
+    "name": "MAC-3",
+    "producer": "Releaf",
+    "code": "MC T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "MC T22\nC"
+  },
+  {
+    "name": "Tangerine Boost",
+    "producer": "Releaf",
+    "code": "TB T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia"
+    ],
+    "negatives": [],
+    "id": "TB T20\nC"
+  },
+  {
+    "name": "Blackberry Balanced",
+    "producer": "Releaf",
+    "code": "BB T7",
+    "tier": "Core",
+    "thc": 7,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia"
+    ],
+    "negatives": [],
+    "id": "BB T7"
+  },
+  {
+    "name": "French Cookies",
+    "producer": "Grow Pharma",
+    "code": "FC T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Creative"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "FC T22\nC"
+  },
+  {
+    "name": "Gelato",
+    "producer": "Grow Pharma",
+    "code": "GEL T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GEL T18\nC"
+  },
+  {
+    "name": "Gary Payton",
+    "producer": "Grow Pharma",
+    "code": "GP T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GP T22\nC"
+  },
+  {
+    "name": "Herijuana",
+    "producer": "Grow Pharma",
+    "code": "HJ T16\nC",
+    "tier": "Core",
+    "thc": 16,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Ocimene"
+    ],
+    "effects": [
+      "Focused",
+      "Body"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [],
+    "id": "HJ T16\nC"
+  },
+  {
+    "name": "Jealousy",
+    "producer": "Grow Pharma",
+    "code": "JEL T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dizzy",
+      "Anxious"
+    ],
+    "id": "JEL T20\nC"
+  },
+  {
+    "name": "Hellfire OG",
+    "producer": "Grow Pharma",
+    "code": "T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Depression"
+    ],
+    "negatives": [],
+    "id": "T20\nC"
+  },
+  {
+    "name": "Blue Haze",
+    "producer": "Grow Pharma",
+    "code": "T14\nC",
+    "tier": "Core",
+    "thc": 14,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Creative",
+      "Focused"
+    ],
+    "flavours": [
+      "Sweet",
+      "Pine",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [],
+    "id": "T14\nC"
+  },
+  {
+    "name": "L.A. S.A.G.E.",
+    "producer": "Grow Pharma",
+    "code": "LAS T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Humulene",
+      "Ocimene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "LAS T22\nC"
+  },
+  {
+    "name": "Warlock",
+    "producer": "Grow Pharma",
+    "code": "T8",
+    "tier": "Core",
+    "thc": 8,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Focused",
+      "Body"
+    ],
+    "flavours": [
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [],
+    "id": "T8"
+  },
+  {
+    "name": "Allium Chem",
+    "producer": "Curaleaf",
+    "code": "ACM T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "ACM T22\nC"
+  },
+  {
+    "name": "High Silver",
+    "producer": "Curaleaf",
+    "code": "HSR T21\nC",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene",
+      "Ocimene",
+      "Terpinolene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "HSR T21\nC"
+  },
+  {
+    "name": "God Bud CBD",
+    "producer": "Curaleaf",
+    "code": "GBD T1",
+    "tier": "Core",
+    "thc": 1,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GBD T1"
+  },
+  {
+    "name": "Green Crack CBD",
+    "producer": "Curaleaf",
+    "code": "GCK T7",
+    "tier": "Core",
+    "thc": 7,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GCK T7"
+  },
+  {
+    "name": "Grapefruit Gift",
+    "producer": "Curaleaf",
+    "code": "GGT T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GGT T18\nC"
+  },
+  {
+    "name": "GMO ZKZ",
+    "producer": "Curaleaf",
+    "code": "GZZ T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene",
+      "Ocimene",
+      "Terpinolene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GZZ T23\nC"
+  },
+  {
+    "name": "Permanent Fumez",
+    "producer": "Curaleaf",
+    "code": "O",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "O"
+  },
+  {
+    "name": "Pennywise",
+    "producer": "Curaleaf",
+    "code": "PWE T11",
+    "tier": "Core",
+    "thc": 11,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PWE T11"
+  },
+  {
+    "name": "Cannatonic",
+    "producer": "Curaleaf",
+    "code": "T12",
+    "tier": "Core",
+    "thc": 12,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T12"
+  },
+  {
+    "name": "Rozay",
+    "producer": "Curaleaf",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [],
+    "effects": [
+      "Creative",
+      "Focused"
+    ],
+    "flavours": [
+      "Sweet",
+      "Floral",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Forbidden Fruit",
+    "producer": "Curaleaf",
+    "code": "T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T20\nC"
+  },
+  {
+    "name": "Lavender Cake",
+    "producer": "Curaleaf",
+    "code": "LCE T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Spicy",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "LCE T20\nC"
+  },
+  {
+    "name": "Murray Sherbet",
+    "producer": "Curaleaf",
+    "code": "T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T20\nC"
+  },
+  {
+    "name": "Tripoli",
+    "producer": "Curaleaf",
+    "code": "TPI T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Spicy"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "TPI T20\nC"
+  },
+  {
+    "name": "Zour Apples",
+    "producer": "Curaleaf",
+    "code": "ZAS T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene",
+      "Terpinolene"
+    ],
+    "effects": [
+      "Happy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [],
+    "id": "ZAS T22\nC"
+  },
+  {
+    "name": "Green Gelato",
+    "producer": "Curaleaf",
+    "code": "O",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Nerolidol"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia",
+      "Fatigue"
+    ],
+    "negatives": [],
+    "id": "O"
+  },
+  {
+    "name": "L.A. Kush",
+    "producer": "Curaleaf",
+    "code": "T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [],
+    "id": "T24\nC"
+  },
+  {
+    "name": "Strawberry OG",
+    "producer": "Curaleaf",
+    "code": "T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Nerolidol"
+    ],
+    "effects": [
+      "Euphoric",
+      "Energetic",
+      "Creative"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Depression"
+    ],
+    "negatives": [],
+    "id": "T25\nC"
+  },
+  {
+    "name": "Royal Moby",
+    "producer": "Curaleaf",
+    "code": "O",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Nerolidol"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "O"
+  },
+  {
+    "name": "Zookies",
+    "producer": "Curaleaf",
+    "code": "ZKS T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "ZKS T26\nC"
+  },
+  {
+    "name": "Lunar Circus",
+    "producer": "Curaleaf",
+    "code": "LCS T8",
+    "tier": "Core",
+    "thc": 8,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "LCS T8"
+  },
+  {
+    "name": "Wedding Pop Triangle",
+    "producer": "Curaleaf",
+    "code": "WPT T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "WPT T24\nC"
+  },
+  {
+    "name": "Blue Pavé",
+    "producer": "Mamedica",
+    "code": "BP T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BP T27\nC"
+  },
+  {
+    "name": "Cherry Blast",
+    "producer": "Mamedica",
+    "code": "CB T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "CB T24\nC"
+  },
+  {
+    "name": "Cookies Gelato",
+    "producer": "Mamedica",
+    "code": "CG T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Bisabolol"
+    ],
+    "effects": [
+      "Euphoric",
+      "Happy",
+      "Energetic"
+    ],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "CG T27\nC"
+  },
+  {
+    "name": "Cap Junky",
+    "producer": "Mamedica",
+    "code": "CJ T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Bisabolol"
+    ],
+    "effects": [
+      "Happy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry eyes",
+      "Dizzy",
+      "Anxious"
+    ],
+    "id": "CJ T30\nC"
+  },
+  {
+    "name": "London Jealousy",
+    "producer": "Mamedica",
+    "code": "CK-HR T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "CK-HR T20\nC"
+  },
+  {
+    "name": "Black Garlic",
+    "producer": "Mamedica",
+    "code": "O",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "O"
+  },
+  {
+    "name": "High Society",
+    "producer": "Mamedica",
+    "code": "HSO T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "HSO T24\nC"
+  },
+  {
+    "name": "Kush Mints",
+    "producer": "Mamedica",
+    "code": "KM T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Calmed"
+    ],
+    "flavours": [
+      "Lemon",
+      "Mint",
+      "Coffee"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry eyes",
+      "Dizzy",
+      "Anxious"
+    ],
+    "id": "KM T25\nC"
+  },
+  {
+    "name": "Lemon Cherry Zkittlez",
+    "producer": "Mamedica",
+    "code": "LCZ T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "LCZ T26\nC"
+  },
+  {
+    "name": "Polar Blaze",
+    "producer": "Mamedica",
+    "code": "PLB T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Herbal",
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PLB T25\nC"
+  },
+  {
+    "name": "Purple Goo",
+    "producer": "Mamedica",
+    "code": "PGO T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Happy",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Dizzy",
+      "Anxious"
+    ],
+    "id": "PGO T25\nC"
+  },
+  {
+    "name": "Wedding Layer",
+    "producer": "Mamedica",
+    "code": "TC T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "TC T24\nC"
+  },
+  {
+    "name": "Pink Kitty",
+    "producer": "Mamedica",
+    "code": "PK T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PK T25\nC"
+  },
+  {
+    "name": "Purple Milk",
+    "producer": "Mamedica",
+    "code": "PM T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Euphoric",
+      "Happy"
+    ],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid"
+    ],
+    "id": "PM T27\nC"
+  },
+  {
+    "name": "Purple Punch",
+    "producer": "Mamedica",
+    "code": "PSL T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Lemon",
+      "Vanilla",
+      "Grape"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Dizzy"
+    ],
+    "id": "PSL T25\nC"
+  },
+  {
+    "name": "Red Velvet",
+    "producer": "Mamedica",
+    "code": "RDV T29\nC",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "RDV T29\nC"
+  },
+  {
+    "name": "Rainbow Pie",
+    "producer": "Mamedica",
+    "code": "RP T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "RP T28\nC"
+  },
+  {
+    "name": "Sherb Master OG",
+    "producer": "Mamedica",
+    "code": "O",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "O"
+  },
+  {
+    "name": "Strawberry Grail",
+    "producer": "Mamedica",
+    "code": "STG T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "STG T30\nC"
+  },
+  {
+    "name": "Miracle Alien Cookies",
+    "producer": "Mamedica",
+    "code": "MA1 T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "MA1 T25\nC"
+  },
+  {
+    "name": "Flawless Victory",
+    "producer": "Mamedica",
+    "code": "FLV T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [
+      "Energetic"
+    ],
+    "flavours": [
+      "Lemon",
+      "Creamy"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "FLV T28\nC"
+  },
+  {
+    "name": "Chatterbox",
+    "producer": "Mamedica",
+    "code": "P",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "P"
+  },
+  {
+    "name": "Cherry Biscotti",
+    "producer": "Doja",
+    "code": "TBC\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Bisabolol"
+    ],
+    "effects": [
+      "Relaxed",
+      "Sleepy",
+      "Focused"
+    ],
+    "flavours": [
+      "Berry",
+      "Fruity",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Anxious"
+    ],
+    "id": "TBC\nC"
+  },
+  {
+    "name": "RS-11",
+    "producer": "Doja",
+    "code": "TBC\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "TBC\nC"
+  },
+  {
+    "name": "Sorbet",
+    "producer": "Adven",
+    "code": "C",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Tally-Mon",
+    "producer": "Adven",
+    "code": "C",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [
+      "Happy",
+      "Creative",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Anxiety",
+      "Depression"
+    ],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Gelato OG",
+    "producer": "Adven",
+    "code": "C",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene",
+      "Nerolidol"
+    ],
+    "effects": [
+      "Happy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "OG Kush",
+    "producer": "Adven",
+    "code": "C",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Three Green Kings",
+    "producer": "Adven",
+    "code": "C",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene",
+      "Nerolidol"
+    ],
+    "effects": [
+      "Happy",
+      "Energetic",
+      "Creative"
+    ],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Floral"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Depression",
+      "Inflammation"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "C"
+  },
+  {
+    "name": "Glory Sum Cookies",
+    "producer": "Adven",
+    "code": "C",
+    "tier": "Core",
+    "thc": 16,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene",
+      "Nerolidol"
+    ],
+    "effects": [
+      "Euphoric",
+      "Creative",
+      "Body"
+    ],
+    "flavours": [
+      "Pine",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Inflammation"
+    ],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Riga",
+    "producer": "Adven",
+    "code": "EMC-1 C13\nC",
+    "tier": "Core",
+    "thc": 1,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "EMC-1 C13\nC"
+  },
+  {
+    "name": "Tripoli",
+    "producer": "Adven",
+    "code": "EMT-1 T19\nC",
+    "tier": "Core",
+    "thc": 19,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Spicy"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "EMT-1 T19\nC"
+  },
+  {
+    "name": "Cairo",
+    "producer": "Adven",
+    "code": "EMT-2 T16\nC",
+    "tier": "Core",
+    "thc": 16,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "EMT-2 T16\nC"
+  },
+  {
+    "name": "Glory Glue",
+    "producer": "Adven",
+    "code": "EMT-3 T17\nC",
+    "tier": "Core",
+    "thc": 17,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "EMT-3 T17\nC"
+  },
+  {
+    "name": "Milky Cake",
+    "producer": "Adven",
+    "code": "EMT-4 T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Hungry"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Inflammation"
+    ],
+    "negatives": [],
+    "id": "EMT-4 T18\nC"
+  },
+  {
+    "name": "Do-Si-Dos",
+    "producer": "Adven",
+    "code": "EMT-6 T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Depression"
+    ],
+    "negatives": [],
+    "id": "EMT-6 T22\nC"
+  },
+  {
+    "name": "Best Choice",
+    "producer": "Adven",
+    "code": "EMB-1 T5",
+    "tier": "Core",
+    "thc": 5,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "EMB-1 T5"
+  },
+  {
+    "name": "Banana Ice Cake",
+    "producer": "Khiron",
+    "code": "BIC T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BIC T18\nC"
+  },
+  {
+    "name": "Biscotti Mintz",
+    "producer": "Khiron",
+    "code": "BM T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Bisabolol"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Butter"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry eyes",
+      "Anxious"
+    ],
+    "id": "BM T22\nC"
+  },
+  {
+    "name": "Peanut Butter Breath",
+    "producer": "Khiron",
+    "code": "PBB T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Butter"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "PBB T23\nC"
+  },
+  {
+    "name": "God Bud CBD",
+    "producer": "Khiron",
+    "code": "C14\nC",
+    "tier": "Core",
+    "thc": 1,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Pine",
+      "Herbal",
+      "Butter"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C14\nC"
+  },
+  {
+    "name": "Hindu Kush",
+    "producer": "Khiron",
+    "code": "HK T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [
+      "Creative",
+      "Body"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth"
+    ],
+    "id": "HK T20\nC"
+  },
+  {
+    "name": "OG Kush",
+    "producer": "Khiron",
+    "code": "OGK T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "OGK T22\nC"
+  },
+  {
+    "name": "Green Knight",
+    "producer": "Khiron",
+    "code": "GK T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GK T24\nC"
+  },
+  {
+    "name": "Strawberry Blitz",
+    "producer": "Khiron",
+    "code": "SBB T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [
+      "Euphoric",
+      "Happy",
+      "Creative"
+    ],
+    "flavours": [
+      "Earthy",
+      "Spicy",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Insomnia"
+    ],
+    "negatives": [],
+    "id": "SBB T25\nC"
+  },
+  {
+    "name": "Caramel CBD",
+    "producer": "Khiron",
+    "code": "T5",
+    "tier": "Core",
+    "thc": 5,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Spicy"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T5"
+  },
+  {
+    "name": "Space Cake",
+    "producer": "Peace Naturals",
+    "code": "SC T34\nC",
+    "tier": "Core",
+    "thc": 34,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "SC T34\nC"
+  },
+  {
+    "name": "Sonic Lemon Fuel",
+    "producer": "Peace Naturals",
+    "code": "SLF T34\nC",
+    "tier": "Core",
+    "thc": 34,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "SLF T34\nC"
+  },
+  {
+    "name": "Blue Thai",
+    "producer": "Peace Naturals",
+    "code": "T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Bisabolol"
+    ],
+    "effects": [
+      "Happy",
+      "Uplifted",
+      "Creative"
+    ],
+    "flavours": [
+      "Lemon",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dizzy"
+    ],
+    "id": "T27\nC"
+  },
+  {
+    "name": "Atomic Sour Grapefruit",
+    "producer": "Peace Naturals",
+    "code": "ASG T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "ASG T30\nC"
+  },
+  {
+    "name": "GMO Cookies",
+    "producer": "Peace Naturals",
+    "code": "GMOC T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GMOC T30\nC"
+  },
+  {
+    "name": "OG Kush",
+    "producer": "Peace Naturals",
+    "code": "T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T30\nC"
+  },
+  {
+    "name": "Wedding Cake",
+    "producer": "Peace Naturals",
+    "code": "WC T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "WC T27\nC"
+  },
+  {
+    "name": "Birthday Cake",
+    "producer": "MedCan",
+    "code": "I",
+    "tier": "Core",
+    "thc": 17,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Hungry"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Inflammation"
+    ],
+    "negatives": [],
+    "id": "I"
+  },
+  {
+    "name": "Tokoloshe Sherbet",
+    "producer": "MedCan",
+    "code": "I",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "I"
+  },
+  {
+    "name": "Blackberry Balanced",
+    "producer": "Glass Pharms",
+    "code": "BB T9",
+    "tier": "Core",
+    "thc": 9,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BB T9"
+  },
+  {
+    "name": "Banjo",
+    "producer": "Glass Pharms",
+    "code": "BN T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Uplifted",
+      "Energetic",
+      "Calmed"
+    ],
+    "flavours": [
+      "Diesel",
+      "Lemon",
+      "Grape"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dizzy",
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "BN T20\nC"
+  },
+  {
+    "name": "Chem de la Chem",
+    "producer": "Glass Pharms",
+    "code": "CC T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "effects": [
+      "Happy"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "CC T23\nC"
+  },
+  {
+    "name": "Chemstar",
+    "producer": "Glass Pharms",
+    "code": "CHS T32\nC",
+    "tier": "Core",
+    "thc": 32,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Diesel",
+      "Herbal",
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "CHS T32\nC"
+  },
+  {
+    "name": "First Class Funk",
+    "producer": "Glass Pharms",
+    "code": "FCF T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "FCF T26\nC"
+  },
+  {
+    "name": "Wedding Cake",
+    "producer": "Glass Pharms",
+    "code": "WC T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "WC T25\nC"
+  },
+  {
+    "name": "Glitter Bomb",
+    "producer": "Glass Pharms",
+    "code": "GB T21\nC",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GB T21\nC"
+  },
+  {
+    "name": "Grape Kush",
+    "producer": "Glass Pharms",
+    "code": "GK T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Happy",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Diesel",
+      "Lemon",
+      "Grape"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "GK T26\nC"
+  },
+  {
+    "name": "Lemon Diesel",
+    "producer": "Glass Pharms",
+    "code": "LD T17\nC",
+    "tier": "Core",
+    "thc": 17,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "LD T17\nC"
+  },
+  {
+    "name": "Grape Pie",
+    "producer": "Glass Pharms",
+    "code": "GP T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [
+      "Euphoric",
+      "Happy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Diesel",
+      "Lemon",
+      "Grape"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "GP T27\nC"
+  },
+  {
+    "name": "Kush Mints",
+    "producer": "Glass Pharms",
+    "code": "KM T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "KM T24\nC"
+  },
+  {
+    "name": "Lemon Cherry Gelato",
+    "producer": "Glass Pharms",
+    "code": "LCG T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "LCG T27\nC"
+  },
+  {
+    "name": "Super M.A.C.",
+    "producer": "Glass Pharms",
+    "code": "MAC T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "MAC T25\nC"
+  },
+  {
+    "name": "Blackberry Sour",
+    "producer": "Glass Pharms",
+    "code": "BS T19\nC",
+    "tier": "Core",
+    "thc": 19,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Ocimene",
+      "Nerolidol"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BS T19\nC"
+  },
+  {
+    "name": "Tangerine Boost",
+    "producer": "Glass Pharms",
+    "code": "TB T20\nC",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Diesel",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "TB T20\nC"
+  },
+  {
+    "name": "Apple Fritter",
+    "producer": "Medicus",
+    "code": "AF T26\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "AF T26\nC"
+  },
+  {
+    "name": "Fire Cookies",
+    "producer": "Medicus",
+    "code": "FC S",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "FC S"
+  },
+  {
+    "name": "Fruity Pebble Kush",
+    "producer": "Medicus",
+    "code": "FPK T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "FPK T27\nC"
+  },
+  {
+    "name": "Berry Cheesecake",
+    "producer": "Craft Botanics",
+    "code": "BCC T32\nC",
+    "tier": "Core",
+    "thc": 32,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Berry",
+      "Floral",
+      "Mint"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BCC T32\nC"
+  },
+  {
+    "name": "Georgia Pie",
+    "producer": "Craft Botanics",
+    "code": "GGP T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GGP T27\nC"
+  },
+  {
+    "name": "Gelonade",
+    "producer": "Craft Botanics",
+    "code": "GLD T25-T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GLD T25-T27\nC"
+  },
+  {
+    "name": "M.A.C. Deluxe",
+    "producer": "Craft Botanics",
+    "code": "MAC T27-T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Terpinolene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "MAC T27-T28\nC"
+  },
+  {
+    "name": "Superboof",
+    "producer": "Craft Botanics",
+    "code": "SBF T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "SBF T30\nC"
+  },
+  {
+    "name": "Strawberry Froyo",
+    "producer": "Craft Botanics",
+    "code": "SFY T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "SFY T28\nC"
+  },
+  {
+    "name": "White Runtz",
+    "producer": "Craft Botanics",
+    "code": "WRZ T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [
+      "Sleepy"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [
+      "Stress"
+    ],
+    "negatives": [],
+    "id": "WRZ T28\nC"
+  },
+  {
+    "name": "Apples & Bananas",
+    "producer": "Sundaze",
+    "code": "AB T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Creative",
+      "Body"
+    ],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "AB T23\nC"
+  },
+  {
+    "name": "Bruce Banner",
+    "producer": "Sundaze",
+    "code": "BB T30-T31\nC",
+    "tier": "Core",
+    "thc": 31,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BB T30-T31\nC"
+  },
+  {
+    "name": "Banana Shortcake",
+    "producer": "Sundaze",
+    "code": "BSC T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BSC T28\nC"
+  },
+  {
+    "name": "Candy Store",
+    "producer": "Sundaze",
+    "code": "CS T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "CS T24\nC"
+  },
+  {
+    "name": "Frosted Cookies",
+    "producer": "Sundaze",
+    "code": "FRC T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "FRC T22\nC"
+  },
+  {
+    "name": "Gold Bud",
+    "producer": "Sundaze",
+    "code": "GBD T30-T32\nC",
+    "tier": "Core",
+    "thc": 32,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GBD T30-T32\nC"
+  },
+  {
+    "name": "Guava Bars",
+    "producer": "Sundaze",
+    "code": "GBZ T29\nC",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GBZ T29\nC"
+  },
+  {
+    "name": "Garlic Cookies",
+    "producer": "Sundaze",
+    "code": "GCS T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Pine",
+      "Spicy"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GCS T30\nC"
+  },
+  {
+    "name": "Jet Fuel Pie",
+    "producer": "Sundaze",
+    "code": "JFP T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "JFP T28\nC"
+  },
+  {
+    "name": "Modified Grapes",
+    "producer": "Sundaze",
+    "code": "MG T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "MG T25\nC"
+  },
+  {
+    "name": "Pink Cookies",
+    "producer": "Sundaze",
+    "code": "PCK T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PCK T27\nC"
+  },
+  {
+    "name": "Permanent Marker",
+    "producer": "Sundaze",
+    "code": "PMK T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PMK T24\nC"
+  },
+  {
+    "name": "Purple Punch",
+    "producer": "Sundaze",
+    "code": "PP T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PP T25\nC"
+  },
+  {
+    "name": "Pink Snowcone",
+    "producer": "Sundaze",
+    "code": "PSC T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Sour",
+      "Candy"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PSC T23\nC"
+  },
+  {
+    "name": "Blue Dream",
+    "producer": "Sundaze",
+    "code": "S",
+    "tier": "Core",
+    "thc": 19,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "S"
+  },
+  {
+    "name": "Apes in Space",
+    "producer": "Phant",
+    "code": "AS S",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Creative",
+      "Calmed"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Nutty"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "AS S"
+  },
+  {
+    "name": "Pink D1",
+    "producer": "Phant",
+    "code": "D1 T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "D1 T28\nC"
+  },
+  {
+    "name": "Ghost Train Haze",
+    "producer": "Phant",
+    "code": "GTH T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Uplifted",
+      "Energetic",
+      "Focused"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dizzy",
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "GTH T22\nC"
+  },
+  {
+    "name": "Intersteller",
+    "producer": "Phant",
+    "code": "INSX T20\nC",
+    "tier": "Core",
+    "thc": 35,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "INSX T20\nC"
+  },
+  {
+    "name": "MAC-1 x Powdered Donuts",
+    "producer": "Phant",
+    "code": "PD T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "PD T25\nC"
+  },
+  {
+    "name": "Strawberry Guava",
+    "producer": "Phant",
+    "code": "SGU T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry eyes",
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "SGU T25\nC"
+  },
+  {
+    "name": "Britz",
+    "producer": "DOE Medical",
+    "code": "BRITZ T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "BRITZ T27\nC"
+  },
+  {
+    "name": "Union Jack Herer",
+    "producer": "DOE Medical",
+    "code": "JH T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Ocimene",
+      "Terpinolene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "JH T28\nC"
+  },
+  {
+    "name": "Glueberry OG",
+    "producer": "Breathing Green",
+    "code": "GOG T23\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "GOG T23\nC"
+  },
+  {
+    "name": "God Bud",
+    "producer": "Breathing Green",
+    "code": "MI T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene",
+      "Nerolidol"
+    ],
+    "effects": [
+      "Euphoric"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Depression",
+      "Insomnia"
+    ],
+    "negatives": [],
+    "id": "MI T25\nC"
+  },
+  {
+    "name": "Bling Blaow",
+    "producer": "Wellford",
+    "code": "A",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "A"
+  },
+  {
+    "name": "Baby Pam",
+    "producer": "Wellford",
+    "code": "A",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "A"
+  },
+  {
+    "name": "Atlantic Glue",
+    "producer": "Wellford",
+    "code": "A",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "A"
+  },
+  {
+    "name": "Ghost Train Haze",
+    "producer": "Wellford",
+    "code": "A",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Terpinolene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "A"
+  },
+  {
+    "name": "Legendary Bozy",
+    "producer": "Wellford",
+    "code": "A",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Terpinolene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "A"
+  },
+  {
+    "name": "Banjo",
+    "producer": "Wellford",
+    "code": "L",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Spicy",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "L"
+  },
+  {
+    "name": "Critical Orange Punch",
+    "producer": "Wellford",
+    "code": "A",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "A"
+  },
+  {
+    "name": "Queen Sangria",
+    "producer": "Wellford",
+    "code": "A",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Diesel"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "A"
+  },
+  {
+    "name": "Black Pineapple",
+    "producer": "Wellford",
+    "code": "L",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "L"
+  },
+  {
+    "name": "Chem de la Chem",
+    "producer": "Lumir",
+    "code": "CC8 T22\nC",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [
+      "Happy",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [
+      "Dizzy",
+      "Paranoid"
+    ],
+    "id": "CC8 T22\nC"
+  },
+  {
+    "name": "Crumbled Lime Ten",
+    "producer": "Lumir",
+    "code": "CBL T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Mint"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "CBL T23\nC"
+  },
+  {
+    "name": "Kush Cookies",
+    "producer": "Lumir",
+    "code": "KSC T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "KSC T26\nC"
+  },
+  {
+    "name": "Legendary Larry",
+    "producer": "Lumir",
+    "code": "LL5 T24-25\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "LL5 T24-25\nC"
+  },
+  {
+    "name": "Mint Sherbet",
+    "producer": "Lumir",
+    "code": "MSB T28\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Nerolidol"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "MSB T28\nC"
+  },
+  {
+    "name": "Strawberry Malawi",
+    "producer": "Lumir",
+    "code": "SM9 T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "SM9 T24\nC"
+  },
+  {
+    "name": "KK Mints",
+    "producer": "Lumir",
+    "code": "KKM T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene",
+      "Nerolidol"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "KKM T27\nC"
+  },
+  {
+    "name": "L.A. Kush Cake",
+    "producer": "Lumir",
+    "code": "KCK T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Nerolidol"
+    ],
+    "effects": [
+      "Euphoric",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [],
+    "id": "KCK T28\nC"
+  },
+  {
+    "name": "Wild Thailand",
+    "producer": "Lumir",
+    "code": "WT2 T21\nC",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Pinene",
+      "Terpinolene"
+    ],
+    "effects": [
+      "Focused",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Berry"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [],
+    "id": "WT2 T21\nC"
+  },
+  {
+    "name": "Banana Ice Cream Cake",
+    "producer": "Althea",
+    "code": "B",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "B"
+  },
+  {
+    "name": "Orange Kush Cake",
+    "producer": "Althea",
+    "code": "B",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [
+      "Happy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Paranoid",
+      "Anxious"
+    ],
+    "id": "B"
+  },
+  {
+    "name": "Cherry Moon Pie",
+    "producer": "Althea",
+    "code": "C",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "C"
+  },
+  {
+    "name": "Alien Dawg",
+    "producer": "Althea",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Girl Scout Cookies",
+    "producer": "Althea",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Creative",
+      "Body"
+    ],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Inflammation"
+    ],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Hollywood",
+    "producer": "Althea",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Skywalker OG",
+    "producer": "Althea",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [
+      "Relaxed",
+      "Happy",
+      "Body"
+    ],
+    "flavours": [
+      "Pine",
+      "Spicy",
+      "Floral"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Huckleberry",
+    "producer": "Althea",
+    "code": "T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Happy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Berry"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes"
+    ],
+    "id": "T25\nC"
+  },
+  {
+    "name": "Powdered Donuts",
+    "producer": "Althea",
+    "code": "T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool",
+      "Pinene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "id": "T25\nC"
+  },
+  {
+    "name": "White Widow",
+    "producer": "Cellen",
+    "code": "S",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "S"
+  },
+  {
+    "name": "Frosted Lemon Angel",
+    "producer": "Cellen",
+    "code": "S",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "id": "S"
   }
 ]
