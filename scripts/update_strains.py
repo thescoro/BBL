@@ -1,21 +1,17 @@
 #!/usr/bin/env python3
 """
-Bloomy's Bud Log — Strain Data Updater (Playwright Edition)
-=============================================================
-Uses a headless browser (Playwright) to scrape MedBud.wiki, which renders
-strain data with JavaScript. This allows extraction of terpene profiles,
-THC/CBD, type, and other data that simple HTTP scrapers cannot see.
+Bloomy's Bud Log — Strain Data Updater (Hybrid Edition)
+=========================================================
+- Step 1: Uses simple HTTP requests to discover strain page URLs from each
+  producer's index page (these links ARE in the static HTML).
+- Step 2: Uses Playwright headless browser to visit each individual strain
+  page and extract the JS-rendered data (terpenes, THC/CBD, type, etc.).
+- Step 3: Falls back to Weedstrain.com for any strains still missing terpenes.
+- Step 4: Merges with existing strains.json (never deletes, only adds/updates).
 
-Falls back to Weedstrain.com for any missing terpene/effect/flavour data.
-
-Designed to run as a GitHub Action on a weekly schedule.
-
-Usage:
-    python scripts/update_strains.py
-
-Requirements:
-    pip install playwright beautifulsoup4
-    playwright install chromium
+Usage:  python scripts/update_strains.py
+Requires: pip install playwright requests beautifulsoup4
+          playwright install chromium
 """
 
 import asyncio
@@ -25,17 +21,15 @@ import sys
 import time
 from pathlib import Path
 
-from playwright.async_api import async_playwright
+import requests
 from bs4 import BeautifulSoup
-
-# We still use requests for Weedstrain (simple static pages)
-try:
-    import requests
-except ImportError:
-    requests = None
+from playwright.async_api import async_playwright
 
 MEDBUD_BASE = "https://medbud.wiki"
 WEEDSTRAIN_BASE = "https://weedstrain.com/uk/weed-strains"
+HTTP_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+}
 
 PRODUCERS = {
     "4c-labs": "4C Labs",
@@ -83,7 +77,6 @@ KNOWN_TERPENES = [
 # Helpers
 # ---------------------------------------------------------------------------
 def clean_strain_name(raw):
-    """Strip MedBud metadata junk from extracted strain names."""
     if not raw:
         return None
     for stop in ['Classification', 'Chemotype', 'Type I', 'Type II', 'Type III',
@@ -115,47 +108,53 @@ def make_code(name, existing_codes):
 
 
 # ---------------------------------------------------------------------------
-# MedBud: Playwright-based scraper
+# Step 1: Discover strain URLs via simple HTTP (links are in static HTML)
 # ---------------------------------------------------------------------------
-async def discover_strain_urls_pw(page, producer_slug):
-    """Navigate to a producer page with Playwright and extract strain subpage links."""
+def discover_strain_urls(producer_slug):
     url = f"{MEDBUD_BASE}/strains/{producer_slug}/"
     try:
-        await page.goto(url, wait_until='networkidle', timeout=30000)
-        await page.wait_for_timeout(3000)  # Let JS render
-    except Exception as e:
-        print(f"    ✗ Could not load {url}: {e}")
+        resp = requests.get(url, headers=HTTP_HEADERS, timeout=30)
+        resp.raise_for_status()
+    except Exception:
         return []
 
-    # Extract all links matching /strains/<producer>/<something>/
-    links = await page.eval_on_selector_all(
-        'a[href]',
-        f"""(els) => els
-            .map(el => el.getAttribute('href'))
-            .filter(h => h && h.match(/^\\/strains\\/{producer_slug}\\/[^/]+\\/?$/))
-        """
+    soup = BeautifulSoup(resp.text, 'html.parser')
+    pattern = re.compile(
+        rf'^(?:https?://medbud\.wiki)?/strains/{re.escape(producer_slug)}/([^/]+)/?$'
     )
     urls = set()
-    for href in links:
-        full = MEDBUD_BASE + href.rstrip('/') + '/'
-        urls.add(full)
+    for link in soup.find_all('a', href=True):
+        href = link['href']
+        if pattern.match(href):
+            full = (MEDBUD_BASE + href if href.startswith('/') else href).rstrip('/') + '/'
+            urls.add(full)
     return sorted(urls)
 
 
+# ---------------------------------------------------------------------------
+# Step 2: Scrape individual strain page with Playwright (JS-rendered data)
+# ---------------------------------------------------------------------------
 async def scrape_strain_page_pw(page, url, producer_name):
-    """Scrape a single MedBud strain page using Playwright (JS-rendered)."""
     try:
-        await page.goto(url, wait_until='networkidle', timeout=30000)
-        await page.wait_for_timeout(2000)
+        await page.goto(url, timeout=30000)
+        # Wait for content to render — look for the Cultivar/Strain text
+        try:
+            await page.wait_for_selector('text=Cultivar/Strain', timeout=8000)
+        except Exception:
+            pass  # Some pages may not have this exact text
+        await page.wait_for_timeout(2000)  # Extra buffer for terpene data
     except Exception:
         return None
 
-    # Get the full rendered page text
     page_text = await page.inner_text('body')
 
-    # --- Extract strain name ---
+    # --- Strain name ---
     strain_name = None
-    m = re.search(r'Cultivar/Strain\s*·?\s*([A-Za-z][\w\s\'\-\&\.\,éèü]+?)(?:\s*Classification|\s*Chemotype|\s*Flower|\s*THC)', page_text)
+    m = re.search(
+        r'Cultivar/Strain\s*·?\s*([A-Za-z][\w\s\'\-\&\.\,éèü]+?)'
+        r'(?:\s*Classification|\s*Chemotype|\s*Flower|\s*THC)',
+        page_text
+    )
     if m:
         strain_name = clean_strain_name(m.group(1))
     if not strain_name or len(strain_name) < 2 or len(strain_name) > 50:
@@ -181,7 +180,8 @@ async def scrape_strain_page_pw(page, url, producer_name):
 
     # --- Type ---
     strain_type = "Hybrid"
-    type_m = re.search(r'Classification\s*·?\s*(Indica|Sativa|Hybrid|Indica Hybrid|Sativa Hybrid)', page_text, re.IGNORECASE)
+    type_m = re.search(r'Classification\s*·?\s*(Indica|Sativa|Hybrid|Indica Hybrid|Sativa Hybrid)',
+                       page_text, re.IGNORECASE)
     if type_m:
         t = type_m.group(1).lower()
         if 'indica' in t:
@@ -189,13 +189,11 @@ async def scrape_strain_page_pw(page, url, producer_name):
         elif 'sativa' in t:
             strain_type = "Sativa"
 
-    # --- Terpenes (the big win from using Playwright!) ---
+    # --- Terpenes (the main reason for Playwright!) ---
     terpenes = []
     for terp in KNOWN_TERPENES:
-        # MedBud shows terpenes in a dedicated section with percentages
         if re.search(rf'\b{terp}\b', page_text) and terp not in terpenes:
             terpenes.append(terp)
-    # Limit to top terpenes (MedBud usually lists them in order)
     terpenes = terpenes[:5]
 
     # --- Effects ---
@@ -214,7 +212,7 @@ async def scrape_strain_page_pw(page, url, producer_name):
         if re.search(rf'\b{flav}\b', page_text, re.IGNORECASE) and flav not in flavours and len(flavours) < 3:
             flavours.append(flav)
 
-    # --- Medical uses ---
+    # --- Medical ---
     helps = []
     for med in ['Pain', 'Stress', 'Anxiety', 'Depression', 'Insomnia', 'Fatigue',
                 'Spasticity', 'ADHD', 'PTSD', 'Inflammation', 'Nausea']:
@@ -227,41 +225,30 @@ async def scrape_strain_page_pw(page, url, producer_name):
         if neg.lower() in page_text.lower() and neg not in negatives:
             negatives.append(neg)
 
-    # --- Code/designation ---
+    # --- Code ---
     code = ""
     code_m = re.search(r'Designation\s*·?\s*([A-Z0-9][A-Z0-9\-\s]*)', page_text)
     if code_m:
         code = code_m.group(1).strip()
 
     return {
-        "name": strain_name,
-        "producer": producer_name,
-        "thc": thc, "cbd": cbd,
-        "type": strain_type,
-        "code": code,
-        "tier": "Core",
-        "terpenes": terpenes,
-        "effects": effects,
-        "flavours": flavours,
-        "helpsWith": helps,
-        "negatives": negatives,
+        "name": strain_name, "producer": producer_name,
+        "thc": thc, "cbd": cbd, "type": strain_type, "code": code, "tier": "Core",
+        "terpenes": terpenes, "effects": effects, "flavours": flavours,
+        "helpsWith": helps, "negatives": negatives,
     }
 
 
 # ---------------------------------------------------------------------------
-# Weedstrain fallback (for strains missing terpene data)
+# Step 3: Weedstrain fallback
 # ---------------------------------------------------------------------------
 def scrape_weedstrain(strain_name):
-    if not requests:
-        return None
     slug = slugify(strain_name)
     if not slug or len(slug) < 2:
         return None
     url = f"{WEEDSTRAIN_BASE}/{slug}-strain"
     try:
-        resp = requests.get(url, timeout=15, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0"
-        })
+        resp = requests.get(url, timeout=15, headers=HTTP_HEADERS)
         if resp.status_code != 200:
             return None
     except Exception:
@@ -273,10 +260,10 @@ def scrape_weedstrain(strain_name):
     for terp in KNOWN_TERPENES:
         if re.search(rf'\b{terp}\b', page_text, re.IGNORECASE) and len(data["terpenes"]) < 3:
             data["terpenes"].append(terp)
-    for eff in ['Relaxed','Euphoric','Happy','Sleepy','Hungry','Uplifted','Energetic','Creative','Focused','Calmed','Body']:
+    for eff in ['Relaxed','Euphoric','Happy','Sleepy','Uplifted','Energetic','Creative','Focused','Calmed']:
         if re.search(rf'\b{eff}\b', page_text, re.IGNORECASE) and len(data["effects"]) < 3:
             data["effects"].append(eff)
-    for flav in ['Earthy','Sweet','Citrus','Berry','Pine','Spicy','Floral','Diesel','Herbal','Woody','Tropical','Fruity','Lemon']:
+    for flav in ['Earthy','Sweet','Citrus','Berry','Pine','Spicy','Floral','Diesel','Herbal','Woody','Fruity','Lemon']:
         if re.search(rf'\b{flav}\b', page_text, re.IGNORECASE) and len(data["flavours"]) < 3:
             data["flavours"].append(flav)
     for med in ['Pain','Stress','Anxiety','Depression','Insomnia','Fatigue','Spasticity','ADHD']:
@@ -285,7 +272,6 @@ def scrape_weedstrain(strain_name):
     for neg in ['Dry mouth','Dry eyes','Dizzy','Paranoid','Anxious','Couch-lock']:
         if neg.lower() in page_text.lower():
             data["negatives"].append(neg)
-
     return data if data["terpenes"] else None
 
 
@@ -327,7 +313,7 @@ async def main():
     html_path = repo_root / "index.html"
 
     print("=" * 60)
-    print("Bloomy's Bud Log — Strain Data Updater (Playwright)")
+    print("Bloomy's Bud Log — Strain Data Updater")
     print("=" * 60)
 
     # 1. Load existing
@@ -341,89 +327,86 @@ async def main():
         existing_codes.add(s.get("code", s.get("id", "")))
     print(f"  Loaded {len(existing)} existing strains")
 
-    # 2. Launch headless browser
-    print("\n🌐 Launching headless browser...")
+    # 2. Discover all strain page URLs via simple HTTP
+    print("\n🔍 Discovering strain pages (HTTP)...")
+    all_urls = {}  # url -> producer_name
+    for slug, producer in PRODUCERS.items():
+        urls = discover_strain_urls(slug)
+        if urls:
+            print(f"  📦 {producer}: {len(urls)} pages")
+            for u in urls:
+                all_urls[u] = producer
+        else:
+            print(f"  📦 {producer}: ✗ not found")
+        time.sleep(0.5)
+
+    print(f"\n  Total strain pages to scrape: {len(all_urls)}")
+
+    if not all_urls:
+        print("  ⚠ No pages discovered — keeping existing data")
+        return 0
+
+    # 3. Scrape each strain page with Playwright
+    print("\n🌐 Scraping strain pages with headless browser...")
+    new_strains = []
+    seen_new = set()
+
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
-        context = await browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        )
+        context = await browser.new_context(user_agent=HTTP_HEADERS["User-Agent"])
         page = await context.new_page()
 
-        new_strains = []
-        seen_new = set()
-        total_pages = 0
+        count = 0
+        for surl, producer in all_urls.items():
+            count += 1
+            if count % 50 == 0:
+                print(f"    ... processed {count}/{len(all_urls)} pages")
 
-        for slug, producer in PRODUCERS.items():
-            print(f"\n  📦 {producer} (/{slug}/)")
-
-            # Discover strain page URLs
-            urls = await discover_strain_urls_pw(page, slug)
-            if not urls:
-                print(f"    ✗ No strain pages found")
+            data = await scrape_strain_page_pw(page, surl, producer)
+            if not data or not data["name"]:
                 continue
 
-            print(f"    Found {len(urls)} strain pages")
-            total_pages += len(urls)
+            key = (data["name"].lower(), producer.lower())
 
-            for surl in urls:
-                data = await scrape_strain_page_pw(page, surl, producer)
-                if not data or not data["name"]:
-                    continue
+            # Update existing
+            if key in existing_by_key:
+                ex = existing_by_key[key]
+                if data["thc"] > 0 and ex.get("thc", 0) == 0:
+                    ex["thc"] = data["thc"]
+                if data["cbd"] > 0 and ex.get("cbd", 0) == 0:
+                    ex["cbd"] = data["cbd"]
+                if data["terpenes"] and not ex.get("terpenes"):
+                    ex["terpenes"] = data["terpenes"]
+                continue
 
-                key = (data["name"].lower(), producer.lower())
+            if key in seen_new:
+                continue
+            seen_new.add(key)
 
-                # Update existing if we have better data
-                if key in existing_by_key:
-                    ex = existing_by_key[key]
-                    if data["thc"] > 0 and ex.get("thc", 0) == 0:
-                        ex["thc"] = data["thc"]
-                    if data["cbd"] > 0 and ex.get("cbd", 0) == 0:
-                        ex["cbd"] = data["cbd"]
-                    # Update terpenes if MedBud now has them
-                    if data["terpenes"] and not ex.get("terpenes"):
-                        ex["terpenes"] = data["terpenes"]
-                    continue
-
-                # Deduplicate within this run
-                if key in seen_new:
-                    continue
-                seen_new.add(key)
-
-                new_strains.append(data)
-                terp_str = ', '.join(data['terpenes'][:3]) if data['terpenes'] else 'no terpenes'
-                print(f"    ✚ {data['name']} (THC {data['thc']}%, {data['type']}, {terp_str})")
-
-            await page.wait_for_timeout(1000)  # Be polite
+            new_strains.append(data)
+            terp_str = ', '.join(data['terpenes'][:3]) if data['terpenes'] else 'no terpenes yet'
+            print(f"    ✚ {data['name']} ({producer}, THC {data['thc']}%, {terp_str})")
 
         await browser.close()
 
-    print(f"\n  Pages checked: {total_pages}")
-    print(f"  New unique strains: {len(new_strains)}")
+    print(f"\n  New unique strains: {len(new_strains)}")
 
-    # 3. Weedstrain fallback for strains still missing terpenes
-    missing_terps = [s for s in new_strains if not s.get("terpenes")]
-    if missing_terps and requests:
-        print(f"\n🔬 Weedstrain fallback for {len(missing_terps)} strains missing terpenes...")
-        for s in missing_terps:
+    # 4. Weedstrain fallback for missing terpenes
+    missing = [s for s in new_strains if not s.get("terpenes")]
+    if missing:
+        print(f"\n🔬 Weedstrain fallback for {len(missing)} strains...")
+        for s in missing:
             ws = scrape_weedstrain(s["name"])
             if ws:
-                if not s["terpenes"]:
-                    s["terpenes"] = ws["terpenes"]
-                if not s["effects"]:
-                    s["effects"] = ws["effects"]
-                if not s["flavours"]:
-                    s["flavours"] = ws["flavours"]
-                if not s["helpsWith"]:
-                    s["helpsWith"] = ws["helpsWith"]
-                if not s["negatives"]:
-                    s["negatives"] = ws["negatives"]
+                for k in ["terpenes", "effects", "flavours", "helpsWith", "negatives"]:
+                    if not s.get(k):
+                        s[k] = ws[k]
                 print(f"  ✓ {s['name']}: {', '.join(ws['terpenes'])}")
             else:
-                print(f"  ✗ {s['name']}: not on Weedstrain either")
+                print(f"  ✗ {s['name']}")
             time.sleep(0.5)
 
-    # 4. Merge
+    # 5. Merge
     result = list(existing)
     for s in new_strains:
         code = s.get("code") or make_code(s["name"], existing_codes)
@@ -438,7 +421,7 @@ async def main():
             "negatives": s.get("negatives", []), "id": code,
         })
 
-    # 5. Save
+    # 6. Save
     print(f"\n💾 Saving {len(result)} strains...")
     with open(strains_path, 'w') as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
