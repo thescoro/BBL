@@ -11527,7 +11527,11 @@
     "thc": 25,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
     "effects": [
       "Body"
     ],
@@ -11711,7 +11715,11 @@
     "thc": 30,
     "cbd": 0,
     "type": "Indica",
-    "terpenes": [],
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
     "effects": [],
     "flavours": [
       "Earthy",
@@ -12501,7 +12509,11 @@
     "thc": 26,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
     "effects": [
       "Focused"
     ],
@@ -16942,5 +16954,343 @@
     ],
     "negatives": [],
     "id": "S"
+  },
+  {
+    "name": "Stólō Haze",
+    "producer": "All Nations",
+    "code": "SH T26\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "SH T26\nC"
+  },
+  {
+    "name": "Apples & Bananas",
+    "producer": "Lot420",
+    "code": "AB T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Creative",
+      "Body"
+    ],
+    "flavours": [
+      "Pine",
+      "Herbal",
+      "Fruity"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "AB T27\nC"
+  },
+  {
+    "name": "Apricot Cream & Cheese",
+    "producer": "Lot420",
+    "code": "ACC T11",
+    "tier": "Core",
+    "thc": 11,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Pinene",
+      "Humulene",
+      "Bisabolol"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "ACC T11"
+  },
+  {
+    "name": "Fruit-Loops & Fuel",
+    "producer": "Lot420",
+    "code": "FLF T29\nC",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Floral",
+      "Herbal",
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "FLF T29\nC"
+  },
+  {
+    "name": "Atomic Apple",
+    "producer": "Lot420",
+    "code": "ATA T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "ATA T26\nC"
+  },
+  {
+    "name": "Gelato Orange Cake",
+    "producer": "Lot420",
+    "code": "GLOC T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GLOC T26\nC"
+  },
+  {
+    "name": "High Society",
+    "producer": "Lot420",
+    "code": "HS T29\nC",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "HS T29\nC"
+  },
+  {
+    "name": "Garlic Zkittlez",
+    "producer": "Lot420",
+    "code": "GZ T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GZ T28\nC"
+  },
+  {
+    "name": "Lemon Cherry Gelato",
+    "producer": "Lot420",
+    "code": "LCG T19\nC",
+    "tier": "Core",
+    "thc": 19,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "LCG T19\nC"
+  },
+  {
+    "name": "Orange Cake",
+    "producer": "Lot420",
+    "code": "OC T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "OC T27\nC"
+  },
+  {
+    "name": "Ripped Off Runtz",
+    "producer": "Lot420",
+    "code": "ROR T26-T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "ROR T26-T28\nC"
+  },
+  {
+    "name": "Chem-Mog",
+    "producer": "Dalgety",
+    "code": "CMOG T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "CMOG T27\nC"
+  },
+  {
+    "name": "Marshmellow OG",
+    "producer": "Dalgety",
+    "code": "MOG T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "MOG T24\nC"
+  },
+  {
+    "name": "Korean BBQ",
+    "producer": "Dalgety",
+    "code": "KBQ T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "KBQ T27\nC"
   }
 ]
