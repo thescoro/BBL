@@ -231,11 +231,66 @@ async def scrape_strain_page_pw(page, url, producer_name):
     if code_m:
         code = code_m.group(1).strip()
 
+    # --- YouTube Reviews ---
+    youtube_reviews = []
+    try:
+        # Click the YouTube Reviews tab if it exists
+        yt_tab = page.locator('text=YouTube Reviews').first
+        if await yt_tab.count() > 0:
+            await yt_tab.click()
+            await page.wait_for_timeout(1500)
+
+            # Find all YouTube links on the page
+            yt_links = await page.eval_on_selector_all(
+                'a[href*="youtube.com"], a[href*="youtu.be"]',
+                """els => els.map(el => ({
+                    url: el.href,
+                    title: (el.closest('[class]')?.querySelector('span, p, div')?.textContent
+                           || el.textContent || '').trim().substring(0, 120)
+                }))"""
+            )
+
+            # Also check for iframes with YouTube embeds
+            yt_iframes = await page.eval_on_selector_all(
+                'iframe[src*="youtube.com"], iframe[src*="youtu.be"]',
+                """els => els.map(el => {
+                    let src = el.src || '';
+                    let m = src.match(/embed\\/([\\w-]+)/);
+                    return m ? { url: 'https://www.youtube.com/watch?v=' + m[1], title: '' } : null;
+                }).filter(Boolean)"""
+            )
+
+            seen_urls = set()
+            for item in yt_links + yt_iframes:
+                url = item.get('url', '')
+                # Normalise: extract video ID and rebuild clean URL
+                vid_m = re.search(r'(?:v=|youtu\.be/|embed/)([\w-]{11})', url)
+                if not vid_m:
+                    continue
+                vid_id = vid_m.group(1)
+                clean_url = f"https://www.youtube.com/watch?v={vid_id}"
+                if clean_url in seen_urls:
+                    continue
+                seen_urls.add(clean_url)
+                title = item.get('title', '').strip()
+                # Skip "View Channel" type links with no real title
+                if len(title) < 5:
+                    title = ""
+                youtube_reviews.append({
+                    "url": clean_url,
+                    "title": title,
+                    "videoId": vid_id,
+                })
+            youtube_reviews = youtube_reviews[:6]  # Cap at 6 reviews per strain
+    except Exception:
+        pass  # YouTube reviews are a bonus — never block on failure
+
     return {
         "name": strain_name, "producer": producer_name,
         "thc": thc, "cbd": cbd, "type": strain_type, "code": code, "tier": "Core",
         "terpenes": terpenes, "effects": effects, "flavours": flavours,
         "helpsWith": helps, "negatives": negatives,
+        "youtubeReviews": youtube_reviews,
     }
 
 
@@ -377,6 +432,9 @@ async def main():
                     ex["cbd"] = data["cbd"]
                 if data["terpenes"] and not ex.get("terpenes"):
                     ex["terpenes"] = data["terpenes"]
+                # Always refresh YouTube reviews (they change over time)
+                if data.get("youtubeReviews"):
+                    ex["youtubeReviews"] = data["youtubeReviews"]
                 continue
 
             if key in seen_new:
@@ -418,7 +476,8 @@ async def main():
             "cbd": s.get("cbd", 0), "type": s.get("type", "Hybrid"),
             "terpenes": s.get("terpenes", []), "effects": s.get("effects", []),
             "flavours": s.get("flavours", []), "helpsWith": s.get("helpsWith", []),
-            "negatives": s.get("negatives", []), "id": code,
+            "negatives": s.get("negatives", []), "youtubeReviews": s.get("youtubeReviews", []),
+            "id": code,
         })
 
     # 6. Save
