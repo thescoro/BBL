@@ -193,18 +193,30 @@ async def scrape_strain_page_pw(page, url, producer_name):
     if m:
         strain_name = clean_strain_name(m.group(1))
 
-    # Approach 2: URL slug as fallback
+    # Approach 2: Try without "Cultivar/Strain" prefix — some pages may format differently
     if not strain_name:
-        url_parts = url.rstrip('/').split('/')
-        if url_parts:
-            slug = url_parts[-1]
-            slug_clean = re.sub(r'^(value|core|craft|premium|craft-organic|craft-select)-', '', slug)
-            slug_clean = re.sub(r'^[a-z]+-smalls?-t\d+-', '', slug_clean)
-            slug_clean = re.sub(r'^[a-z]{2,4}-t\d+-', '', slug_clean)
-            if slug_clean and len(slug_clean) > 2:
-                strain_name = slug_clean.replace('-', ' ').title()
+        # Look for a name followed by Classification near the start of the page
+        m2 = re.search(
+            r'^(.{0,500}?)'  # Within first 500 chars
+            r'([A-Z][a-zA-Z\s\'\-\&\.]{2,40}?)'
+            r'\s*Classification',
+            page_text, re.DOTALL
+        )
+        if m2:
+            strain_name = clean_strain_name(m2.group(2))
+
+    # DISABLED: URL slug fallback creates bad names like "Hb T24"
+    # If we can't extract a proper name, skip this page entirely
 
     if not strain_name or len(strain_name) < 2 or len(strain_name) > 50:
+        # Log diagnostic for first few failures to help debug
+        if not hasattr(scrape_strain_page_pw, '_diag_count'):
+            scrape_strain_page_pw._diag_count = 0
+        if scrape_strain_page_pw._diag_count < 5:
+            scrape_strain_page_pw._diag_count += 1
+            preview = page_text[:300].replace('\n', '\\n')
+            print(f"    [diag] Name extraction failed for {url}")
+            print(f"    [diag] Page text starts with: {preview}")
         return None
 
     # --- THC ---
@@ -381,7 +393,7 @@ async def scrape_youtube_reviews(browser):
             await page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
             await page.wait_for_timeout(800)
 
-        # Extract table rows
+        # Extract table rows — use innerText to preserve line breaks
         data = await page.evaluate("""() => {
             const results = [];
             const rows = document.querySelectorAll('table tbody tr, table tr');
@@ -390,20 +402,52 @@ async def scrape_youtube_reviews(browser):
                 if (cells.length < 4) return;
                 const ytLink = row.querySelector('a[href*="youtube.com"], a[href*="youtu.be"]');
                 if (!ytLink) return;
-                const videoTitle = cells[2] ? cells[2].textContent.trim() : '';
-                const medCell = cells[3] ? cells[3].textContent.trim() : '';
-                const channelName = cells[0] ? cells[0].textContent.trim() : '';
+
+                // Get all cell texts
+                const texts = Array.from(cells).map(c => c.innerText.trim());
+
+                // Find the medication cell — it typically contains a short code like "HB T24"
+                // Try cells[3] first (expected position), then search all cells
+                let medText = '';
+                let videoTitle = '';
+                let channelName = texts[0] || '';
+
+                // Video title is usually the cell containing the YouTube link
+                const linkCell = ytLink.closest('td');
+                if (linkCell) {
+                    videoTitle = linkCell.innerText.trim();
+                }
+
+                // Medication is the cell with CODE T## pattern
+                for (let i = 0; i < cells.length; i++) {
+                    const t = texts[i] || '';
+                    if (t.match(/[A-Z]{2,5}\s+(Smalls?\s+)?T\d+/) || t.match(/T\d+\s+[A-Z]/)) {
+                        medText = t;
+                        break;
+                    }
+                }
+                // Fallback: use cells[3] if it has content
+                if (!medText && texts[3]) {
+                    medText = texts[3];
+                }
+
+                if (!videoTitle) videoTitle = texts[2] || '';
+
                 results.push({
                     url: ytLink.href,
                     title: videoTitle.substring(0, 120),
                     channel: channelName.substring(0, 60),
-                    medication: medCell,
+                    medication: medText,
                 });
             });
             return results;
         }""")
 
         print(f"  Found {len(data)} YouTube review entries")
+
+        # Debug: print first 3 medication fields so we can see the format
+        for i, item in enumerate(data[:3]):
+            print(f"  [debug] Row {i} medication: {repr(item.get('medication', ''))}")
 
         for item in data:
             url = item.get('url', '')
@@ -420,25 +464,34 @@ async def scrape_youtube_reviews(browser):
                 "channel": item.get('channel', ''),
             }
 
-            # Parse medication field, e.g. "BIG NARSTIE\nHB T24 Hash Burger"
             med = item.get('medication', '')
-            lines = [l.strip() for l in med.split('\n') if l.strip()]
-            if len(lines) >= 2:
-                detail = lines[1]
-                # Extract code (first 1-5 uppercase letters)
-                code_m2 = re.match(r'^([A-Z]{1,5})\b', detail)
-                if code_m2:
-                    code = code_m2.group(1)
-                    reviews_by_code.setdefault(code, []).append(review)
 
-                # Extract strain name after CODE [Smalls] T## pattern
-                name_m = re.search(r'[A-Z]{1,5}\s+(?:Smalls?\s+)?T\d+\s+(.+)', detail)
-                if name_m:
-                    name = name_m.group(1).strip().lower()
+            # Try splitting on newlines first (innerText should give us these)
+            lines = [l.strip() for l in med.split('\n') if l.strip()]
+
+            # Parse the detail line (usually 2nd line, or use the whole string)
+            detail = lines[1] if len(lines) >= 2 else med
+
+            # Extract code: 1-5 uppercase letters at start of detail
+            code_m2 = re.search(r'\b([A-Z]{2,5})\s+(?:Smalls?\s+)?T\d+', detail)
+            if code_m2:
+                code = code_m2.group(1)
+                reviews_by_code.setdefault(code, []).append(review)
+
+            # Extract strain name: everything after "CODE [Smalls] T##"
+            name_m = re.search(r'[A-Z]{2,5}\s+(?:Smalls?\s+)?T\d+\s+(.+)', detail)
+            if name_m:
+                name = name_m.group(1).strip().lower()
+                if len(name) >= 3:
                     reviews_by_name.setdefault(name, []).append(review)
-            elif len(lines) == 1:
-                name = lines[0].strip().lower()
-                reviews_by_name.setdefault(name, []).append(review)
+
+            # Also try: everything after the producer name (for single-line format)
+            if not name_m and len(lines) == 1:
+                # Try to find a strain name pattern anywhere
+                all_name_m = re.search(r'T\d+\s+(.{3,})', med)
+                if all_name_m:
+                    name = all_name_m.group(1).strip().lower()
+                    reviews_by_name.setdefault(name, []).append(review)
 
         await context.close()
         print(f"  Mapped to {len(reviews_by_code)} strain codes, {len(reviews_by_name)} strain names")
@@ -450,12 +503,13 @@ async def scrape_youtube_reviews(browser):
 
 
 def match_youtube_reviews(strains, reviews_by_code, reviews_by_name):
-    """Match scraped YouTube reviews to strains by code or name."""
+    """Match scraped YouTube reviews to strains by code or name (with fuzzy matching)."""
     matched = 0
     for s in strains:
         reviews = []
         seen_ids = set()
 
+        # Match by strain code
         code = s.get("code", s.get("id", ""))
         if code and code in reviews_by_code:
             for r in reviews_by_code[code]:
@@ -463,12 +517,24 @@ def match_youtube_reviews(strains, reviews_by_code, reviews_by_name):
                     reviews.append(r)
                     seen_ids.add(r["videoId"])
 
+        # Exact name match
         name_lower = s.get("name", "").lower()
         if name_lower and name_lower in reviews_by_name:
             for r in reviews_by_name[name_lower]:
                 if r["videoId"] not in seen_ids:
                     reviews.append(r)
                     seen_ids.add(r["videoId"])
+
+        # Fuzzy name match: check if any YouTube name is contained in the strain name or vice versa
+        if not reviews and name_lower and len(name_lower) >= 4:
+            for yt_name, yt_reviews in reviews_by_name.items():
+                if len(yt_name) < 4:
+                    continue
+                if yt_name in name_lower or name_lower in yt_name:
+                    for r in yt_reviews:
+                        if r["videoId"] not in seen_ids:
+                            reviews.append(r)
+                            seen_ids.add(r["videoId"])
 
         if reviews:
             s["youtubeReviews"] = reviews[:6]
@@ -534,19 +600,39 @@ def clean_existing_data(strains):
         r'\s*(?:Indica|Sativa|Hybrid)\s+Chemotype.*$',
         r'\s+(?:Indica|Sativa|Hybrid)$',
     ]
+    # Code-like prefixes from URL slugs (e.g. "Hb T24 Hash Burger" → "Hash Burger")
+    code_prefix_patterns = [
+        r'^[A-Z][a-z]?[a-z]?\s+T\d+\s+',      # "Hb T24 ", "Cf T25 ", "Mfl T25 "
+        r'^T\d+\s+C\d+\s+',                      # "T10 C13 Moon Berry"
+        r'^T\d+\s+',                              # "T14 Banana Split"
+        r'^[A-Z]{2,5}\s+T\d+\s+',                # "GCR T27 Gas Cream Cake"
+        r'^Cura\s+\d+\s+T\d+\s+',                # "Cura 13 T22 Gelato Og"
+        r'^Emt?\d?\s+T?\d+\s+(?:\d+\s+)?',       # "Emt1 T19 20 Cairo"
+        r'^Flos\s+T\d+C?\d*\s*',                  # "Flos T21C0"
+        r'^Emc\s+\d+\s+C\d+\s*',                  # "Emc 1 C13"
+    ]
     for s in strains:
         original = s.get("name", "")
         fixed = original
+
+        # Strip page artefacts
         for pat in bad_patterns:
             fixed = re.sub(pat, '', fixed, flags=re.IGNORECASE).strip()
+
+        # Strip code prefixes (only if there's a real name after)
+        for pat in code_prefix_patterns:
+            m = re.match(pat, fixed)
+            if m and len(fixed[m.end():].strip()) >= 3:
+                fixed = fixed[m.end():].strip()
+                break
+
         if fixed != original and len(fixed) >= 2:
             s["name"] = fixed
             cleaned += 1
 
-        # Fix CBD values that are clearly wrong (same as THC = likely scraped wrong)
+        # Fix CBD values that are clearly wrong
         if s.get("cbd", 0) > 0 and s.get("cbd", 0) == s.get("thc", 0):
             s["cbd"] = 0
-        # CBD higher than THC on a non-CBD strain is suspicious
         if s.get("cbd", 0) > 15 and s.get("thc", 0) > 15:
             s["cbd"] = 0
 
@@ -557,11 +643,9 @@ def clean_existing_data(strains):
         key = (s["name"].lower(), s["producer"].lower())
         if key in seen:
             existing = seen[key]
-            # Keep the one with more terpenes, or more data generally
             ex_score = len(existing.get("terpenes", [])) + len(existing.get("effects", []))
             new_score = len(s.get("terpenes", [])) + len(s.get("effects", []))
             if new_score > ex_score:
-                # Replace with the better one
                 idx = deduped.index(existing)
                 deduped[idx] = s
                 seen[key] = s
