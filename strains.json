@@ -17292,5 +17292,887 @@
     "negatives": [],
     "youtubeReviews": [],
     "id": "KBQ T27\nC"
+  },
+  {
+    "name": "Gorilla Glue #4",
+    "producer": "Tilray Medical",
+    "code": "T18\nC",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "T18\nC"
+  },
+  {
+    "name": "Strawberry Banana",
+    "producer": "Somai Pharmaceuticals",
+    "code": "SB T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "SB T25\nC"
+  },
+  {
+    "name": "Miracle Alien Cookies",
+    "producer": "Somai Pharmaceuticals",
+    "code": "T23\nC",
+    "tier": "Craft",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Nerolidol"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Citrus",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "T23\nC"
+  },
+  {
+    "name": "Gorilla Glue #4",
+    "producer": "Upstate",
+    "code": "GRG T29\nC",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GRG T29\nC"
+  },
+  {
+    "name": "Gorilla Glue #4",
+    "producer": "Noidecs",
+    "code": "GG T21\nC",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [
+      "Focused"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GG T21\nC"
+  },
+  {
+    "name": "Gorilla Glue #4",
+    "producer": "Curaleaf",
+    "code": "GG4 T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GG4 T23\nC"
+  },
+  {
+    "name": "Chem Cookies #44",
+    "producer": "Mamedica",
+    "code": "CHC T28\nC",
+    "tier": "Premium",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "CHC T28\nC"
+  },
+  {
+    "name": "Gelato #33",
+    "producer": "Lot420",
+    "code": "GLT T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Cookie"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GLT T26\nC"
+  },
+  {
+    "name": "Cura B2 T4C10",
+    "producer": "Adven",
+    "code": "C",
+    "tier": "Core",
+    "thc": 17,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Herbal",
+      "Fruity"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "C"
+  },
+  {
+    "name": "Gelato #44",
+    "producer": "Khiron",
+    "code": "T19\nC",
+    "tier": "Core",
+    "thc": 19,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Cookie"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "T19\nC"
+  },
+  {
+    "name": "Hsoc High Society Oracle",
+    "producer": "Dalgety",
+    "code": "HSOR T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "HSOR T25\nC"
+  },
+  {
+    "name": "Hsoc Tbc",
+    "producer": "Dalgety",
+    "code": "HSHE T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "HSHE T23\nC"
+  },
+  {
+    "name": "Hsal T30",
+    "producer": "Dalgety",
+    "code": "HSAL T30\nC",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "HSAL T30\nC"
+  },
+  {
+    "name": "High Society Oracle",
+    "producer": "Dalgety",
+    "code": "HSOR T28\nC",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "HSOR T28\nC"
+  },
+  {
+    "name": "C13 Frosted Lime",
+    "producer": "Glass Pharms",
+    "code": "FL C14\nC",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "FL C14\nC"
+  },
+  {
+    "name": "Fl C18",
+    "producer": "Glass Pharms",
+    "code": "FL C15\nC",
+    "tier": "Core",
+    "thc": 1,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "FL C15\nC"
+  },
+  {
+    "name": "Fl C18 Frosted Lime",
+    "producer": "Glass Pharms",
+    "code": "FL C18\nC",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Diesel"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "FL C18\nC"
+  },
+  {
+    "name": "Miracle Alien Cookies #3",
+    "producer": "Wellford",
+    "code": "L",
+    "tier": "Craft",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Sour"
+    ],
+    "helpsWith": [
+      "Pain"
+    ],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "L"
+  },
+  {
+    "name": "Gas Cream Cake",
+    "producer": "Scoops",
+    "code": "GCR T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GCR T27\nC"
+  },
+  {
+    "name": "Dante's Inferno",
+    "producer": "Kasa Verde",
+    "code": "DI T27\nC",
+    "tier": "Craft",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Vanilla"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "DI T27\nC"
+  },
+  {
+    "name": "Fight Club",
+    "producer": "Kasa Verde",
+    "code": "FC T32\nC",
+    "tier": "Core",
+    "thc": 32,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "FC T32\nC"
+  },
+  {
+    "name": "Grease Monkey",
+    "producer": "Kasa Verde",
+    "code": "GMK T24\nC",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GMK T24\nC"
+  },
+  {
+    "name": "Grape Octane",
+    "producer": "Kasa Verde",
+    "code": "GO T27\nC",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GO T27\nC"
+  },
+  {
+    "name": "Halle Berry",
+    "producer": "Kasa Verde",
+    "code": "HBE T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "HBE T25\nC"
+  },
+  {
+    "name": "Gazzurple",
+    "producer": "Kasa Verde",
+    "code": "GZP T26\nC",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GZP T26\nC"
+  },
+  {
+    "name": "Karamel Kandy",
+    "producer": "Kasa Verde",
+    "code": "KKA T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "KKA T25\nC"
+  },
+  {
+    "name": "L.A. Baker",
+    "producer": "Kasa Verde",
+    "code": "LA T29\nC",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "LA T29\nC"
+  },
+  {
+    "name": "Singapore Sling",
+    "producer": "Kasa Verde",
+    "code": "SSG T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "SSG T25\nC"
+  },
+  {
+    "name": "Cadillac Rainbow",
+    "producer": "Humble Bud",
+    "code": "CR S",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "CR S"
+  },
+  {
+    "name": "White Cookies",
+    "producer": "Kasa Verde",
+    "code": "WCK T29\nC",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "WCK T29\nC"
+  },
+  {
+    "name": "Grey Goose",
+    "producer": "Humble Bud",
+    "code": "GG S",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GG S"
+  },
+  {
+    "name": "Pineapple Express",
+    "producer": "Humble Bud",
+    "code": "PNE S",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Pine",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "PNE S"
+  },
+  {
+    "name": "Sticky Cake",
+    "producer": "Humble Bud",
+    "code": "SC S",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "SC S"
+  },
+  {
+    "name": "Gelato",
+    "producer": "Humble Bud",
+    "code": "GM S",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Cookie"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "GM S"
+  },
+  {
+    "name": "Watermelon Zkittlez",
+    "producer": "Humble Bud",
+    "code": "WZ S",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "WZ S"
+  },
+  {
+    "name": "Mount Fuji",
+    "producer": "Kiseki",
+    "code": "MFS T23\nC",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "MFS T23\nC"
+  },
+  {
+    "name": "Tokyo Push-Pop",
+    "producer": "Kiseki",
+    "code": "TP T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "TP T25\nC"
+  },
+  {
+    "name": "Sakura Oreoz",
+    "producer": "Kiseki",
+    "code": "SO T25\nC",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Nerolidol"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Floral",
+      "Woody"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "youtubeReviews": [],
+    "id": "SO T25\nC"
   }
 ]
