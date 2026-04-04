@@ -217,13 +217,23 @@ async def scrape_strain_page_pw(page, url, producer_name):
         if thc_m2:
             thc = round(float(thc_m2.group(1)))
 
-    # --- CBD ---
+    # --- CBD (targeted — avoid grabbing THC values) ---
     cbd = 0
-    cbd_m = re.search(r'CBD.*?(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)\s*%', page_text)
+    # Look specifically for "CBD" followed closely by numbers (within ~30 chars)
+    cbd_m = re.search(r'CBD\s*(?:Potential\s*)?(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)\s*%', page_text)
     if cbd_m:
         val = float(cbd_m.group(2))
         if val >= 1:
             cbd = round(val)
+    else:
+        cbd_m2 = re.search(r'CBD\s*(?:Potential\s*)?[:\s]*(\d+(?:\.\d+)?)\s*%', page_text)
+        if cbd_m2:
+            val = float(cbd_m2.group(1))
+            if val >= 1:
+                cbd = round(val)
+    # Sanity check: CBD shouldn't equal THC (scraping artefact)
+    if cbd > 0 and cbd == thc:
+        cbd = 0
 
     # --- Type ---
     strain_type = "Hybrid"
@@ -508,6 +518,64 @@ def load_existing(path):
         return []
 
 
+def clean_existing_data(strains):
+    """Fix bad strain names and remove duplicates from previous broken scrapes."""
+    cleaned = 0
+    removed = 0
+
+    # 1. Fix strain names that have page artefacts
+    bad_patterns = [
+        r'\s*Classification\s.*$',
+        r'\s*Chemotype\s.*$',
+        r'\s*Type I+\s*$',
+        r'\s*Medication Overview.*$',
+        r'\s*Indica Hybrid.*$',
+        r'\s*Sativa Hybrid.*$',
+        r'\s*(?:Indica|Sativa|Hybrid)\s+Chemotype.*$',
+        r'\s+(?:Indica|Sativa|Hybrid)$',
+    ]
+    for s in strains:
+        original = s.get("name", "")
+        fixed = original
+        for pat in bad_patterns:
+            fixed = re.sub(pat, '', fixed, flags=re.IGNORECASE).strip()
+        if fixed != original and len(fixed) >= 2:
+            s["name"] = fixed
+            cleaned += 1
+
+        # Fix CBD values that are clearly wrong (same as THC = likely scraped wrong)
+        if s.get("cbd", 0) > 0 and s.get("cbd", 0) == s.get("thc", 0):
+            s["cbd"] = 0
+        # CBD higher than THC on a non-CBD strain is suspicious
+        if s.get("cbd", 0) > 15 and s.get("thc", 0) > 15:
+            s["cbd"] = 0
+
+    # 2. Remove duplicates (keep the one with more data)
+    seen = {}
+    deduped = []
+    for s in strains:
+        key = (s["name"].lower(), s["producer"].lower())
+        if key in seen:
+            existing = seen[key]
+            # Keep the one with more terpenes, or more data generally
+            ex_score = len(existing.get("terpenes", [])) + len(existing.get("effects", []))
+            new_score = len(s.get("terpenes", [])) + len(s.get("effects", []))
+            if new_score > ex_score:
+                # Replace with the better one
+                idx = deduped.index(existing)
+                deduped[idx] = s
+                seen[key] = s
+            removed += 1
+        else:
+            seen[key] = s
+            deduped.append(s)
+
+    if cleaned or removed:
+        print(f"  \U0001f9f9 Cleaned {cleaned} names, removed {removed} duplicates")
+
+    return deduped
+
+
 # ---------------------------------------------------------------------------
 # Debug mode
 # ---------------------------------------------------------------------------
@@ -600,6 +668,7 @@ async def main():
     # 1. Load existing
     print("\n\U0001f4c2 Loading existing strains...")
     existing = load_existing(strains_path)
+    existing = clean_existing_data(existing)
     existing_by_key = {}
     existing_codes = set()
     for s in existing:
@@ -668,10 +737,15 @@ async def main():
                         ex["thc"] = data["thc"]
                     if data["cbd"] > 0 and ex.get("cbd", 0) == 0:
                         ex["cbd"] = data["cbd"]
-                    if data["terpenes"] and not ex.get("terpenes"):
+                    # Update terpenes if new data has more
+                    if data["terpenes"] and len(data["terpenes"]) > len(ex.get("terpenes", [])):
                         ex["terpenes"] = data["terpenes"]
                     if data.get("tier") != "Core" and ex.get("tier", "Core") == "Core":
                         ex["tier"] = data["tier"]
+                    # Fill in missing fields
+                    for field in ["effects", "flavours", "helpsWith", "negatives"]:
+                        if data.get(field) and not ex.get(field):
+                            ex[field] = data[field]
                 elif key not in seen_new:
                     seen_new.add(key)
                     new_strains.append(data)
@@ -726,7 +800,10 @@ async def main():
 
         await browser.close()
 
-    # 7. Save
+    # 7. Final deduplication
+    result = clean_existing_data(result)
+
+    # 8. Save
     print(f"\n\U0001f4be Saving {len(result)} strains...")
     with open(strains_path, 'w') as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
