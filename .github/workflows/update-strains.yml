@@ -50,9 +50,10 @@ jobs:
         run: |
           git config user.name "Bloomy's Bot"
           git config user.email "bot@bloomys-bud-log.github.io"
-          git add strains.json index.html
+          git add strains.json reviews.json index.html
           STRAIN_COUNT=$(python -c "import json; print(len(json.load(open('strains.json'))))")
-          git commit -m "🌿 Auto-update strain data ($STRAIN_COUNT strains)"
+          REVIEW_COUNT=$(python -c "import json; print(len(json.load(open('reviews.json'))))" 2>/dev/null || echo "0")
+          git commit -m "🌿 Auto-update: $STRAIN_COUNT strains, $REVIEW_COUNT reviews"
           git push
 
       - name: No changes detected
