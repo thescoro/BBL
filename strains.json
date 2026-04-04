@@ -1419,7 +1419,7 @@
     "name": "Moon Berry",
     "producer": "Aurora (Pedanios)",
     "code": "MBE",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 10,
     "cbd": 13,
     "type": "Hybrid",
@@ -7886,7 +7886,7 @@
     "name": "Lemon Cherry Gelato",
     "producer": "Lot420",
     "code": "LCG T19\nC",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 19,
     "cbd": 0,
     "type": "Hybrid",
@@ -7896,7 +7896,9 @@
       "Limonene",
       "Linalool"
     ],
-    "effects": [],
+    "effects": [
+      "Creative"
+    ],
     "flavours": [
       "Citrus",
       "Floral",
