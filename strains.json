@@ -1083,7 +1083,21 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "GSP"
+    "id": "GSP",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=-JeERd1qYf4",
+        "title": "4c labs - Gastro Pop. Ugly and small for the price but smells lovely",
+        "videoId": "-JeERd1qYf4",
+        "channel": "Geordie Medical\n@GeordieMedical"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=afpeges6v-M",
+        "title": "Four20 Pharma - Gastropop T31",
+        "videoId": "afpeges6v-M",
+        "channel": "Medical UK Cannabis\n@Medicalukcannabis"
+      }
+    ]
   },
   {
     "name": "Dante'z Inferno",
@@ -1412,7 +1426,9 @@
     "terpenes": [
       "Myrcene",
       "Caryophyllene",
-      "Linalool"
+      "Limonene",
+      "Pinene",
+      "Nerolidol"
     ],
     "effects": [
       "Relaxed",
@@ -1625,7 +1641,9 @@
     "terpenes": [
       "Myrcene",
       "Caryophyllene",
-      "Linalool"
+      "Limonene",
+      "Linalool",
+      "Humulene"
     ],
     "effects": [
       "Relaxed",
@@ -1693,8 +1711,9 @@
     "type": "Hybrid",
     "terpenes": [
       "Myrcene",
-      "Caryophyllene",
-      "Limonene"
+      "Limonene",
+      "Linalool",
+      "Pinene"
     ],
     "effects": [
       "Relaxed",
@@ -1992,9 +2011,11 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [
-      "Myrcene",
+      "Caryophyllene",
       "Limonene",
-      "Caryophyllene"
+      "Linalool",
+      "Pinene",
+      "Humulene"
     ],
     "effects": [
       "Relaxed",
@@ -2026,8 +2047,10 @@
     "type": "Hybrid",
     "terpenes": [
       "Myrcene",
+      "Caryophyllene",
       "Limonene",
-      "Caryophyllene"
+      "Linalool",
+      "Humulene"
     ],
     "effects": [
       "Relaxed",
@@ -2059,8 +2082,9 @@
     "cbd": 0,
     "type": "Indica",
     "terpenes": [
-      "Caryophyllene",
       "Myrcene",
+      "Caryophyllene",
+      "Limonene",
       "Linalool"
     ],
     "effects": [
@@ -2093,8 +2117,10 @@
     "cbd": 0,
     "type": "Indica",
     "terpenes": [
-      "Caryophyllene",
       "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
       "Humulene"
     ],
     "effects": [
@@ -2187,7 +2213,15 @@
       "Dry mouth",
       "Couch-lock"
     ],
-    "id": "GK"
+    "id": "GK",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=6Cbtn0blRjI",
+        "title": "Big Narstie Medical - Gorilla Kush that tastes like Peaches?",
+        "videoId": "6Cbtn0blRjI",
+        "channel": "Wakey Wakey\n@WakeyWakeyCC"
+      }
+    ]
   },
   {
     "name": "Jack Kush",
@@ -2426,7 +2460,21 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "LG"
+    "id": "LG",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=OAK0NhwIHdQ",
+        "title": "Lemon Gelato first look dense",
+        "videoId": "OAK0NhwIHdQ",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Zeiyjo1YzdM",
+        "title": "Uklegal lemon gelato t25-1c",
+        "videoId": "Zeiyjo1YzdM",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      }
+    ]
   },
   {
     "name": "Pineapple Express",
@@ -2496,7 +2544,15 @@
       "Dry mouth",
       "Couch-lock"
     ],
-    "id": "GG"
+    "id": "GG",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=bNiwQj9XPBA",
+        "title": "The best uk medical strain right now!!",
+        "videoId": "bNiwQj9XPBA",
+        "channel": "Henry Hemp\n@RAIDERTAM"
+      }
+    ]
   },
   {
     "name": "Super Lemon Haze",
@@ -3011,7 +3067,21 @@
       "Dry eyes",
       "Dizzy"
     ],
-    "id": "BC"
+    "id": "BC",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=Ed4kEIf5_b8",
+        "title": "Carmel: Bananaconda vapour",
+        "videoId": "Ed4kEIf5_b8",
+        "channel": "Doc Green Bud\n@TheDrGreenBud"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Gmp0lgw0Ny0",
+        "title": "Banana Conda This One’s Banging (Carmel)",
+        "videoId": "Gmp0lgw0Ny0",
+        "channel": "Js Medi Lounge\n@Jsmedilounge"
+      }
+    ]
   },
   {
     "name": "Critical Mass",
@@ -3673,7 +3743,15 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "C"
+    "id": "C",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=6QGdkl0PlbY",
+        "title": "Bannana Daddy T26 - Cielo Verde - Sweet gassy Bannana chocolate.",
+        "videoId": "6QGdkl0PlbY",
+        "channel": "Vinnie's Lounge\n@VinniesLounge"
+      }
+    ]
   },
   {
     "name": "Zero Gravity",
@@ -4050,7 +4128,9 @@
     "type": "Hybrid",
     "terpenes": [],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Grape"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "AM T23 C"
@@ -4065,7 +4145,9 @@
     "type": "Hybrid",
     "terpenes": [],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Grape"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "CF-S S"
@@ -4101,7 +4183,21 @@
       "Dizzy",
       "Anxious"
     ],
-    "id": "HB T24\nC"
+    "id": "HB T24\nC",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=zCBu66N9q4o",
+        "title": "April's Prescription Unboxing",
+        "videoId": "zCBu66N9q4o",
+        "channel": "Smokey Mo\n@pLexTulip"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=sXvjmEk04-A",
+        "title": "Leafly strain of the year Hashburger and Gas Cream Cake first opening",
+        "videoId": "sXvjmEk04-A",
+        "channel": "The Slow Draw\n@TheSlowDraw"
+      }
+    ]
   },
   {
     "name": "Minted Grape",
@@ -4113,7 +4209,9 @@
     "type": "Hybrid",
     "terpenes": [],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Grape"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "MG T15 C"
@@ -4274,7 +4372,21 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GP T26\nC"
+    "id": "GP T26\nC",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=afpeges6v-M",
+        "title": "Four20 Pharma - Gastropop T31",
+        "videoId": "afpeges6v-M",
+        "channel": "Medical UK Cannabis\n@Medicalukcannabis"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=-JeERd1qYf4",
+        "title": "4c labs - Gastro Pop. Ugly and small for the price but smells lovely",
+        "videoId": "-JeERd1qYf4",
+        "channel": "Geordie Medical\n@GeordieMedical"
+      }
+    ]
   },
   {
     "name": "St",
@@ -5342,7 +5454,15 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CBW T26\nC"
+    "id": "CBW T26\nC",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=8lOdLpdc3Ao",
+        "title": "UPSTATE ALPHA CROSSBOW STRAIN",
+        "videoId": "8lOdLpdc3Ao",
+        "channel": "Adz Canna\n@ADZCANNA"
+      }
+    ]
   },
   {
     "name": "Tropical Blues",
@@ -5388,7 +5508,15 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "TC T22\nC"
+    "id": "TC T22\nC",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=0Ueq82nQ5eE",
+        "title": "Upstate - Tropical Cherry - UK Medical Flower - First look",
+        "videoId": "0Ueq82nQ5eE",
+        "channel": "VIP THC\n@vipthcsouthwales"
+      }
+    ]
   },
   {
     "name": "White Out",
@@ -6141,7 +6269,21 @@
       "Insomnia"
     ],
     "negatives": [],
-    "id": "GE T19\nC"
+    "id": "GE T19\nC",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=OAK0NhwIHdQ",
+        "title": "Lemon Gelato first look dense",
+        "videoId": "OAK0NhwIHdQ",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Zeiyjo1YzdM",
+        "title": "Uklegal lemon gelato t25-1c",
+        "videoId": "Zeiyjo1YzdM",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      }
+    ]
   },
   {
     "name": "Green Kush",
@@ -6255,7 +6397,21 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GEL T18\nC"
+    "id": "GEL T18\nC",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=OAK0NhwIHdQ",
+        "title": "Lemon Gelato first look dense",
+        "videoId": "OAK0NhwIHdQ",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Zeiyjo1YzdM",
+        "title": "Uklegal lemon gelato t25-1c",
+        "videoId": "Zeiyjo1YzdM",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      }
+    ]
   },
   {
     "name": "Gary Payton",
@@ -6346,7 +6502,21 @@
       "Dizzy",
       "Anxious"
     ],
-    "id": "JEL T20\nC"
+    "id": "JEL T20\nC",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=j_4Rf5hgtgg",
+        "title": "Another Banger Thin Mint Jealousy Review",
+        "videoId": "j_4Rf5hgtgg",
+        "channel": "Js Medi Lounge\n@Jsmedilounge"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Ot-cJ5ZeczA",
+        "title": "Thin Mint Jealousy - Carmel - UK Medical Cannabis Review",
+        "videoId": "Ot-cJ5ZeczA",
+        "channel": "AK87 Reviews\n@ak87reviews"
+      }
+    ]
   },
   {
     "name": "Hellfire OG",
@@ -7644,7 +7814,21 @@
       "Dry eyes",
       "Paranoid"
     ],
-    "id": "GLT T26 C"
+    "id": "GLT T26 C",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=OAK0NhwIHdQ",
+        "title": "Lemon Gelato first look dense",
+        "videoId": "OAK0NhwIHdQ",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Zeiyjo1YzdM",
+        "title": "Uklegal lemon gelato t25-1c",
+        "videoId": "Zeiyjo1YzdM",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      }
+    ]
   },
   {
     "name": "Garlic Zkittlez",
@@ -8309,7 +8493,21 @@
       "Dry eyes",
       "Paranoid"
     ],
-    "id": "T19 C"
+    "id": "T19 C",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=OAK0NhwIHdQ",
+        "title": "Lemon Gelato first look dense",
+        "videoId": "OAK0NhwIHdQ",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Zeiyjo1YzdM",
+        "title": "Uklegal lemon gelato t25-1c",
+        "videoId": "Zeiyjo1YzdM",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      }
+    ]
   },
   {
     "name": "God Bud CBD",
@@ -8942,7 +9140,33 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "LD T17\nC"
+    "id": "LD T17\nC",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=FSgUiUeYzi0",
+        "title": "Lemon Diesel Fritter DAB TEST PART 3",
+        "videoId": "FSgUiUeYzi0",
+        "channel": "Smacksalad\n@smacksalad"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=P8qSHBknom0",
+        "title": "High Greens Lemon Diesel Fritter DAB TEST PART 2 FIXED",
+        "videoId": "P8qSHBknom0",
+        "channel": "Smacksalad\n@smacksalad"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=4QhxX6DopY4",
+        "title": "High Greens Lemon Diesel Fritter DAB TEST PART 1",
+        "videoId": "4QhxX6DopY4",
+        "channel": "Smacksalad\n@smacksalad"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=vxog5MbIZcA",
+        "title": "High Greens Lemon Diesel Fritter 72% Humidity PRESS TEST",
+        "videoId": "vxog5MbIZcA",
+        "channel": "Smacksalad\n@smacksalad"
+      }
+    ]
   },
   {
     "name": "Grape Pie",
@@ -9204,7 +9428,15 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SBF T30\nC"
+    "id": "SBF T30\nC",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=ANpbkR0fKA0",
+        "title": "CRAFT BOTANICS SUPERBOOF 'IRRADIATED' (UK PRESCRIPTION MEDICATION)",
+        "videoId": "ANpbkR0fKA0",
+        "channel": "PrescribedBouquet\n@PrescribedBouquet"
+      }
+    ]
   },
   {
     "name": "Strawberry Froyo",
@@ -9503,7 +9735,15 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PSC T23\nC"
+    "id": "PSC T23\nC",
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=G-xoW5XDpzY",
+        "title": "UK MEDICAL FLOWER - PINK SNOWCONE - SUNDAZE - T23",
+        "videoId": "G-xoW5XDpzY",
+        "channel": "Cannabis Culture\n@Cannabis-Culture"
+      }
+    ]
   },
   {
     "name": "Blue Dream",
@@ -11603,7 +11843,20 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "youtubeReviews": [],
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=sXvjmEk04-A",
+        "title": "Leafly strain of the year Hashburger and Gas Cream Cake first opening",
+        "videoId": "sXvjmEk04-A",
+        "channel": "The Slow Draw\n@TheSlowDraw"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=YL2X6YQwxAo",
+        "title": "Gas Cream Cake (smalls) by Scoops",
+        "videoId": "YL2X6YQwxAo",
+        "channel": "High Jack\n@hij_ck"
+      }
+    ],
     "id": "GCR T27\nC"
   },
   {
@@ -11630,7 +11883,20 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "youtubeReviews": [],
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=23RA-0NMswg",
+        "title": "Kasa Verde Dante’s Inferno UK MEDICAL",
+        "videoId": "23RA-0NMswg",
+        "channel": "GirlScoutCookieWeed420\n@GirlScoutCookieWeed"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Uhbf3DdEpog",
+        "title": "Kasa Verde Dante’s Inferno UK MEDICAL",
+        "videoId": "Uhbf3DdEpog",
+        "channel": "GirlScoutCookieWeed420\n@GirlScoutCookieWeed"
+      }
+    ],
     "id": "DI T27\nC"
   },
   {
@@ -11951,7 +12217,14 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "youtubeReviews": [],
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=zCBu66N9q4o",
+        "title": "April's Prescription Unboxing",
+        "videoId": "zCBu66N9q4o",
+        "channel": "Smokey Mo\n@pLexTulip"
+      }
+    ],
     "id": "SC S"
   },
   {
@@ -11974,7 +12247,20 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "youtubeReviews": [],
+    "youtubeReviews": [
+      {
+        "url": "https://www.youtube.com/watch?v=OAK0NhwIHdQ",
+        "title": "Lemon Gelato first look dense",
+        "videoId": "OAK0NhwIHdQ",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Zeiyjo1YzdM",
+        "title": "Uklegal lemon gelato t25-1c",
+        "videoId": "Zeiyjo1YzdM",
+        "channel": "Sirspliffalot87\n@Sirspliffalot87"
+      }
+    ],
     "id": "GM S"
   },
   {
@@ -12075,55 +12361,7 @@
     "id": "SO T25\nC"
   },
   {
-    "name": "T10 C13 Moon Berry",
-    "producer": "Aurora (Pedanios)",
-    "code": "TCM",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "TCM"
-  },
-  {
-    "name": "T14 Banana Split",
-    "producer": "Aurora (Pedanios)",
-    "code": "TBS",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "TBS"
-  },
-  {
-    "name": "T18 Sour Tangie",
-    "producer": "Aurora (Pedanios)",
-    "code": "TST",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "TST"
-  },
-  {
-    "name": "T20 La Confidential",
+    "name": "La Confidential",
     "producer": "Aurora (Pedanios)",
     "code": "TLC",
     "tier": "Core",
@@ -12137,118 +12375,6 @@
     "negatives": [],
     "youtubeReviews": [],
     "id": "TLC"
-  },
-  {
-    "name": "T20 Pink Kush",
-    "producer": "Aurora (Pedanios)",
-    "code": "TPK",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "TPK"
-  },
-  {
-    "name": "T22 Delahaze",
-    "producer": "Aurora (Pedanios)",
-    "code": "TD",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "TD"
-  },
-  {
-    "name": "T22 Ghost Train Haze",
-    "producer": "Aurora (Pedanios)",
-    "code": "TGT",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "TGT"
-  },
-  {
-    "name": "T27 Pink Diesel",
-    "producer": "Aurora (Pedanios)",
-    "code": "TPD",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "TPD"
-  },
-  {
-    "name": "T31 Cosmic Cream",
-    "producer": "Aurora (Pedanios)",
-    "code": "TCC",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "TCC"
-  },
-  {
-    "name": "T31 Pink Diesel",
-    "producer": "Aurora (Pedanios)",
-    "code": "TPD1",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "TPD1"
-  },
-  {
-    "name": "T8 C8 Equiposa",
-    "producer": "Aurora (Pedanios)",
-    "code": "TCE",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "TCE"
   },
   {
     "name": "Bedica",
@@ -12494,39 +12620,7 @@
     "id": "C1T1"
   },
   {
-    "name": "Cura 13 T22 Gelato Og",
-    "producer": "Adven",
-    "code": "C1T2",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "C1T2"
-  },
-  {
-    "name": "Cura 18 T27 Og Kush",
-    "producer": "Adven",
-    "code": "C1T3",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "C1T3"
-  },
-  {
-    "name": "Cura 5 T18 Three Kings",
+    "name": "Three Kings",
     "producer": "Adven",
     "code": "C5T",
     "tier": "Core",
@@ -12540,22 +12634,6 @@
     "negatives": [],
     "youtubeReviews": [],
     "id": "C5T"
-  },
-  {
-    "name": "Cura 9 T16 Glory Sum Cookies",
-    "producer": "Adven",
-    "code": "C9T",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "C9T"
   },
   {
     "name": "Cura 9 T22",
@@ -12606,7 +12684,7 @@
     "id": "E1C"
   },
   {
-    "name": "Emt 1 T19",
+    "name": "T19",
     "producer": "Adven",
     "code": "E1T",
     "tier": "Core",
@@ -12620,118 +12698,6 @@
     "negatives": [],
     "youtubeReviews": [],
     "id": "E1T"
-  },
-  {
-    "name": "Emt1 T19 20 Cairo",
-    "producer": "Adven",
-    "code": "ET2",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "ET2"
-  },
-  {
-    "name": "Emt2 T16 Tripoli",
-    "producer": "Adven",
-    "code": "ETT",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "ETT"
-  },
-  {
-    "name": "Emt2 T20 Tripoli",
-    "producer": "Adven",
-    "code": "ETT1",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "ETT1"
-  },
-  {
-    "name": "Emt3 T17 Glory Glue",
-    "producer": "Adven",
-    "code": "ETG",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "ETG"
-  },
-  {
-    "name": "Emt3 T20 Glory Glue",
-    "producer": "Adven",
-    "code": "ETG1",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "ETG1"
-  },
-  {
-    "name": "Emt4 T18 Milky Cake",
-    "producer": "Adven",
-    "code": "ETM",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "ETM"
-  },
-  {
-    "name": "Emt4 T24 Milky Cake",
-    "producer": "Adven",
-    "code": "ETM1",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "youtubeReviews": [],
-    "id": "ETM1"
   },
   {
     "name": "Flos T0C14",
