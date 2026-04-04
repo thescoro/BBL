@@ -148,6 +148,25 @@ async def scrape_strain_page_pw(page, url, producer_name):
 
     page_text = await page.inner_text('body')
 
+    # --- Tier (from URL slug and page text) ---
+    tier = "Core"
+    url_lower = url.lower()
+    if '/value-' in url_lower or '-value-' in url_lower:
+        tier = "Value"
+    elif '/premium-' in url_lower or '-premium-' in url_lower:
+        tier = "Premium"
+    elif '/craft-organic-' in url_lower or '-craft-organic-' in url_lower:
+        tier = "Craft Organic"
+    elif '/craft-select-' in url_lower or '-craft-select-' in url_lower:
+        tier = "Craft Select"
+    elif '/craft-' in url_lower or '-craft-' in url_lower:
+        tier = "Craft"
+    # Also try page text if URL didn't give us a tier
+    if tier == "Core":
+        tier_m = re.search(r'\b(Value|Premium|Craft Organic|Craft Select|Craft)\b', page_text)
+        if tier_m:
+            tier = tier_m.group(1)
+
     # --- Strain name ---
     strain_name = None
     m = re.search(
@@ -216,7 +235,7 @@ async def scrape_strain_page_pw(page, url, producer_name):
     helps = []
     for med in ['Pain', 'Stress', 'Anxiety', 'Depression', 'Insomnia', 'Fatigue',
                 'Spasticity', 'ADHD', 'PTSD', 'Inflammation', 'Nausea']:
-        if re.search(rf'\b{med}\b', page_text, re.IGNORECASE) and med not in helps and len(helps) < 3:
+        if re.search(rf'\b{med}\b', page_text, re.IGNORECASE) and med not in helps and len(helps) < 5:
             helps.append(med)
 
     # --- Negatives ---
@@ -287,7 +306,7 @@ async def scrape_strain_page_pw(page, url, producer_name):
 
     return {
         "name": strain_name, "producer": producer_name,
-        "thc": thc, "cbd": cbd, "type": strain_type, "code": code, "tier": "Core",
+        "thc": thc, "cbd": cbd, "type": strain_type, "code": code, "tier": tier,
         "terpenes": terpenes, "effects": effects, "flavours": flavours,
         "helpsWith": helps, "negatives": negatives,
         "youtubeReviews": youtube_reviews,
@@ -343,7 +362,21 @@ def update_html(html_path, strains):
     if start < 0:
         print("  ✗ Could not find STRAINS_JSON in index.html")
         return False
-    end = html.find(';', start) + 1
+    # Find the closing ]; of the array — not just the first semicolon
+    bracket_start = html.find('[', start)
+    depth = 0
+    end = bracket_start
+    for i in range(bracket_start, len(html)):
+        if html[i] == '[':
+            depth += 1
+        elif html[i] == ']':
+            depth -= 1
+            if depth == 0:
+                end = i + 1
+                break
+    # Skip past the semicolon after the array
+    if end < len(html) and html[end] == ';':
+        end += 1
     html = html[:start] + f'const STRAINS_JSON = {js_json};' + html[end:]
     with open(html_path, 'w') as f:
         f.write(html)
@@ -428,12 +461,13 @@ async def main():
         return data, producer
 
     async def worker(browser, queue):
-        while True:
+        while not queue.empty():
             try:
-                surl, producer = queue.pop(0)
-            except IndexError:
+                surl, producer = queue.get_nowait()
+            except asyncio.QueueEmpty:
                 break
             data, prod = await scrape_one(browser, surl, producer)
+            queue.task_done()
             if not data or not data.get("name"):
                 continue
             async with results_lock:
@@ -448,6 +482,9 @@ async def main():
                         ex["terpenes"] = data["terpenes"]
                     if data.get("youtubeReviews"):
                         ex["youtubeReviews"] = data["youtubeReviews"]
+                    # Update tier if we extracted one from the URL
+                    if data.get("tier") != "Core" and ex.get("tier", "Core") == "Core":
+                        ex["tier"] = data["tier"]
                 elif key not in seen_new:
                     seen_new.add(key)
                     new_strains.append(data)
@@ -456,7 +493,9 @@ async def main():
 
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
-        queue = list(all_urls.items())
+        queue = asyncio.Queue()
+        for item in all_urls.items():
+            queue.put_nowait(item)
         workers = [asyncio.create_task(worker(browser, queue)) for _ in range(CONCURRENCY)]
         await asyncio.gather(*workers)
         await browser.close()
