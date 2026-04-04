@@ -7,9 +7,11 @@ Bloomy's Bud Log — Strain Data Updater (Hybrid Edition)
 - Step 2: Uses Playwright headless browser to visit each individual strain
   page and extract the JS-rendered data (terpenes, THC/CBD, type, etc.).
 - Step 3: Falls back to Weedstrain.com for any strains still missing terpenes.
-- Step 4: Merges with existing strains.json (never deletes, only adds/updates).
+- Step 4: Scrapes YouTube reviews from MedBud's central reviews page.
+- Step 5: Merges with existing strains.json (never deletes, only adds/updates).
 
 Usage:  python scripts/update_strains.py
+Debug:  python scripts/update_strains.py --debug <medbud-strain-url>
 Requires: pip install playwright requests beautifulsoup4
           playwright install chromium
 """
@@ -27,6 +29,7 @@ from playwright.async_api import async_playwright
 
 MEDBUD_BASE = "https://medbud.wiki"
 WEEDSTRAIN_BASE = "https://weedstrain.com/uk/weed-strains"
+YOUTUBE_REVIEWS_URL = "https://medbud.wiki/reviews/youtube/"
 HTTP_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
@@ -38,7 +41,7 @@ PRODUCERS = {
     "big-narstie-medical": "Big Narstie Medical",
     "all-nations": "All Nations",
     "tilray": "Tilray Medical",
-    "somai": "Somaí Pharmaceuticals",
+    "somai": "Somai Pharmaceuticals",
     "little-green-pharma": "Little Green Pharma",
     "upstate": "Upstate",
     "noidecs": "Noidecs",
@@ -64,6 +67,15 @@ PRODUCERS = {
     "lumir": "Lumir",
     "althea": "Althea",
     "cellen": "Cellen",
+    "grow-lab-organics": "Grow Lab Organics",
+    "northern-leaf": "Northern Leaf",
+    "antg": "ANTG",
+    "argent-biopharma": "Argent BioPharma",
+    "linneo-health": "Linneo Health",
+    "scoops": "Scoops",
+    "kasa-verde": "Kasa Verde",
+    "humble-bud": "Humble Bud",
+    "kiseki": "Kiseki",
 }
 
 KNOWN_TERPENES = [
@@ -80,11 +92,14 @@ def clean_strain_name(raw):
     if not raw:
         return None
     for stop in ['Classification', 'Chemotype', 'Type I', 'Type II', 'Type III',
-                 'Flower Provided', 'THC Potential', 'CBD Potential', 'Trimmed']:
+                 'Flower Provided', 'THC Potential', 'CBD Potential', 'Trimmed',
+                 'Indica', 'Sativa', 'Hybrid', 'Medication Overview',
+                 'Ratings', 'YouTube', 'Community']:
         idx = raw.find(stop)
         if idx > 0:
             raw = raw[:idx]
-    return raw.strip(' ·\t\n')
+    raw = re.sub(r'\s+', ' ', raw).strip(' \u00b7\t\n')
+    return raw if 2 <= len(raw) <= 50 else None
 
 
 def slugify(name):
@@ -137,18 +152,17 @@ def discover_strain_urls(producer_slug):
 async def scrape_strain_page_pw(page, url, producer_name):
     try:
         await page.goto(url, timeout=30000)
-        # Wait for content to render — look for the Cultivar/Strain text
         try:
             await page.wait_for_selector('text=Cultivar/Strain', timeout=8000)
         except Exception:
-            pass  # Some pages may not have this exact text
-        await page.wait_for_timeout(1500)  # Buffer for terpene data
+            pass
+        await page.wait_for_timeout(1500)
     except Exception:
         return None
 
     page_text = await page.inner_text('body')
 
-    # --- Tier (from URL slug and page text) ---
+    # --- Tier (from URL slug, then page text) ---
     tier = "Core"
     url_lower = url.lower()
     if '/value-' in url_lower or '-value-' in url_lower:
@@ -161,21 +175,35 @@ async def scrape_strain_page_pw(page, url, producer_name):
         tier = "Craft Select"
     elif '/craft-' in url_lower or '-craft-' in url_lower:
         tier = "Craft"
-    # Also try page text if URL didn't give us a tier
     if tier == "Core":
         tier_m = re.search(r'\b(Value|Premium|Craft Organic|Craft Select|Craft)\b', page_text)
         if tier_m:
             tier = tier_m.group(1)
 
-    # --- Strain name ---
+    # --- Strain name (multiple approaches) ---
     strain_name = None
+
+    # Approach 1: Regex — improved with more stop words
     m = re.search(
-        r'Cultivar/Strain\s*·?\s*([A-Za-z][\w\s\'\-\&\.\,éèü]+?)'
-        r'(?:\s*Classification|\s*Chemotype|\s*Flower|\s*THC)',
+        r'Cultivar/Strain\s*\u00b7?\s*'
+        r'([A-Za-z][\w\s\'\-\&\.\,\u00e9\u00e8\u00fc#]+?)'
+        r'\s*(?:Classification|Chemotype|Flower|THC|Indica|Sativa|Hybrid|Medication)',
         page_text
     )
     if m:
         strain_name = clean_strain_name(m.group(1))
+
+    # Approach 2: URL slug as fallback
+    if not strain_name:
+        url_parts = url.rstrip('/').split('/')
+        if url_parts:
+            slug = url_parts[-1]
+            slug_clean = re.sub(r'^(value|core|craft|premium|craft-organic|craft-select)-', '', slug)
+            slug_clean = re.sub(r'^[a-z]+-smalls?-t\d+-', '', slug_clean)
+            slug_clean = re.sub(r'^[a-z]{2,4}-t\d+-', '', slug_clean)
+            if slug_clean and len(slug_clean) > 2:
+                strain_name = slug_clean.replace('-', ' ').title()
+
     if not strain_name or len(strain_name) < 2 or len(strain_name) > 50:
         return None
 
@@ -199,7 +227,7 @@ async def scrape_strain_page_pw(page, url, producer_name):
 
     # --- Type ---
     strain_type = "Hybrid"
-    type_m = re.search(r'Classification\s*·?\s*(Indica|Sativa|Hybrid|Indica Hybrid|Sativa Hybrid)',
+    type_m = re.search(r'Classification\s*\u00b7?\s*(Indica|Sativa|Hybrid|Indica Hybrid|Sativa Hybrid)',
                        page_text, re.IGNORECASE)
     if type_m:
         t = type_m.group(1).lower()
@@ -208,108 +236,82 @@ async def scrape_strain_page_pw(page, url, producer_name):
         elif 'sativa' in t:
             strain_type = "Sativa"
 
-    # --- Terpenes (the main reason for Playwright!) ---
+    # --- Terpenes (targeted to terpene section of page) ---
     terpenes = []
+    terp_section = page_text
+    terp_idx = page_text.find("Terpene Profile")
+    if terp_idx < 0:
+        terp_idx = page_text.lower().find("terpene")
+    if terp_idx >= 0:
+        terp_section = page_text[terp_idx:terp_idx+800]
+
     for terp in KNOWN_TERPENES:
-        if re.search(rf'\b{terp}\b', page_text) and terp not in terpenes:
+        if re.search(rf'\b{terp}\b', terp_section) and terp not in terpenes:
             terpenes.append(terp)
     terpenes = terpenes[:5]
 
-    # --- Effects ---
+    # --- Effects (targeted to effects section) ---
     effects = []
+    eff_section = page_text
+    eff_idx = page_text.lower().find("effect")
+    if eff_idx >= 0:
+        eff_section = page_text[max(0, eff_idx-50):eff_idx+300]
     for eff in ['Relaxed', 'Euphoric', 'Happy', 'Sleepy', 'Hungry', 'Uplifted',
                 'Energetic', 'Creative', 'Focused', 'Calmed', 'Body', 'Giggly']:
-        if re.search(rf'\b{eff}\b', page_text, re.IGNORECASE) and eff not in effects and len(effects) < 3:
+        if re.search(rf'\b{eff}\b', eff_section, re.IGNORECASE) and eff not in effects and len(effects) < 3:
             effects.append(eff)
 
-    # --- Flavours ---
+    # --- Flavours (targeted to flavour section) ---
     flavours = []
+    flav_section = page_text
+    flav_idx = page_text.lower().find("flavo")
+    if flav_idx < 0:
+        flav_idx = page_text.lower().find("taste")
+    if flav_idx >= 0:
+        flav_section = page_text[max(0, flav_idx-50):flav_idx+300]
     for flav in ['Earthy', 'Sweet', 'Citrus', 'Berry', 'Pine', 'Spicy', 'Floral',
                  'Diesel', 'Herbal', 'Woody', 'Tropical', 'Fruity', 'Lemon', 'Vanilla',
                  'Grape', 'Mint', 'Sour', 'Mango', 'Cheese', 'Creamy', 'Pepper',
                  'Nutty', 'Coffee', 'Hazy', 'Candy', 'Cookie', 'Butter', 'Garlic']:
-        if re.search(rf'\b{flav}\b', page_text, re.IGNORECASE) and flav not in flavours and len(flavours) < 3:
+        if re.search(rf'\b{flav}\b', flav_section, re.IGNORECASE) and flav not in flavours and len(flavours) < 3:
             flavours.append(flav)
 
     # --- Medical ---
     helps = []
+    med_section = page_text
+    med_idx = page_text.lower().find("help")
+    if med_idx < 0:
+        med_idx = page_text.lower().find("medical")
+    if med_idx >= 0:
+        med_section = page_text[max(0, med_idx-50):med_idx+300]
     for med in ['Pain', 'Stress', 'Anxiety', 'Depression', 'Insomnia', 'Fatigue',
                 'Spasticity', 'ADHD', 'PTSD', 'Inflammation', 'Nausea']:
-        if re.search(rf'\b{med}\b', page_text, re.IGNORECASE) and med not in helps and len(helps) < 5:
+        if re.search(rf'\b{med}\b', med_section, re.IGNORECASE) and med not in helps and len(helps) < 5:
             helps.append(med)
 
     # --- Negatives ---
     negatives = []
+    neg_section = page_text
+    neg_idx = page_text.lower().find("negative")
+    if neg_idx < 0:
+        neg_idx = page_text.lower().find("side effect")
+    if neg_idx >= 0:
+        neg_section = page_text[max(0, neg_idx-50):neg_idx+300]
     for neg in ['Dry mouth', 'Dry eyes', 'Dizzy', 'Paranoid', 'Anxious', 'Couch-lock']:
-        if neg.lower() in page_text.lower() and neg not in negatives:
+        if neg.lower() in neg_section.lower() and neg not in negatives:
             negatives.append(neg)
 
     # --- Code ---
     code = ""
-    code_m = re.search(r'Designation\s*·?\s*([A-Z0-9][A-Z0-9\-\s]*)', page_text)
+    code_m = re.search(r'Designation\s*\u00b7?\s*([A-Z0-9][A-Z0-9\-\s]*)', page_text)
     if code_m:
         code = code_m.group(1).strip()
-
-    # --- YouTube Reviews ---
-    youtube_reviews = []
-    try:
-        # Click the YouTube Reviews tab if it exists
-        yt_tab = page.locator('text=YouTube Reviews').first
-        if await yt_tab.count() > 0:
-            await yt_tab.click()
-            await page.wait_for_timeout(1000)
-
-            # Find all YouTube links on the page
-            yt_links = await page.eval_on_selector_all(
-                'a[href*="youtube.com"], a[href*="youtu.be"]',
-                """els => els.map(el => ({
-                    url: el.href,
-                    title: (el.closest('[class]')?.querySelector('span, p, div')?.textContent
-                           || el.textContent || '').trim().substring(0, 120)
-                }))"""
-            )
-
-            # Also check for iframes with YouTube embeds
-            yt_iframes = await page.eval_on_selector_all(
-                'iframe[src*="youtube.com"], iframe[src*="youtu.be"]',
-                """els => els.map(el => {
-                    let src = el.src || '';
-                    let m = src.match(/embed\\/([\\w-]+)/);
-                    return m ? { url: 'https://www.youtube.com/watch?v=' + m[1], title: '' } : null;
-                }).filter(Boolean)"""
-            )
-
-            seen_urls = set()
-            for item in yt_links + yt_iframes:
-                url = item.get('url', '')
-                # Normalise: extract video ID and rebuild clean URL
-                vid_m = re.search(r'(?:v=|youtu\.be/|embed/)([\w-]{11})', url)
-                if not vid_m:
-                    continue
-                vid_id = vid_m.group(1)
-                clean_url = f"https://www.youtube.com/watch?v={vid_id}"
-                if clean_url in seen_urls:
-                    continue
-                seen_urls.add(clean_url)
-                title = item.get('title', '').strip()
-                # Skip "View Channel" type links with no real title
-                if len(title) < 5:
-                    title = ""
-                youtube_reviews.append({
-                    "url": clean_url,
-                    "title": title,
-                    "videoId": vid_id,
-                })
-            youtube_reviews = youtube_reviews[:6]  # Cap at 6 reviews per strain
-    except Exception:
-        pass  # YouTube reviews are a bonus — never block on failure
 
     return {
         "name": strain_name, "producer": producer_name,
         "thc": thc, "cbd": cbd, "type": strain_type, "code": code, "tier": tier,
         "terpenes": terpenes, "effects": effects, "flavours": flavours,
         "helpsWith": helps, "negatives": negatives,
-        "youtubeReviews": youtube_reviews,
     }
 
 
@@ -350,6 +352,122 @@ def scrape_weedstrain(strain_name):
 
 
 # ---------------------------------------------------------------------------
+# Step 4: YouTube reviews from central MedBud page
+# ---------------------------------------------------------------------------
+async def scrape_youtube_reviews(browser):
+    """Scrape medbud.wiki/reviews/youtube/ — one page, all reviews."""
+    print("\n\u25b6 Scraping YouTube reviews from central page...")
+    reviews_by_code = {}
+    reviews_by_name = {}
+
+    try:
+        context = await browser.new_context(user_agent=HTTP_HEADERS["User-Agent"])
+        page = await context.new_page()
+        await page.goto(YOUTUBE_REVIEWS_URL, timeout=30000)
+        await page.wait_for_timeout(3000)
+
+        # Scroll to load all rows
+        for _ in range(10):
+            await page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
+            await page.wait_for_timeout(800)
+
+        # Extract table rows
+        data = await page.evaluate("""() => {
+            const results = [];
+            const rows = document.querySelectorAll('table tbody tr, table tr');
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                if (cells.length < 4) return;
+                const ytLink = row.querySelector('a[href*="youtube.com"], a[href*="youtu.be"]');
+                if (!ytLink) return;
+                const videoTitle = cells[2] ? cells[2].textContent.trim() : '';
+                const medCell = cells[3] ? cells[3].textContent.trim() : '';
+                const channelName = cells[0] ? cells[0].textContent.trim() : '';
+                results.push({
+                    url: ytLink.href,
+                    title: videoTitle.substring(0, 120),
+                    channel: channelName.substring(0, 60),
+                    medication: medCell,
+                });
+            });
+            return results;
+        }""")
+
+        print(f"  Found {len(data)} YouTube review entries")
+
+        for item in data:
+            url = item.get('url', '')
+            vid_m = re.search(r'(?:v=|youtu\.be/|embed/)([\w-]{11})', url)
+            if not vid_m:
+                continue
+            vid_id = vid_m.group(1)
+            clean_url = f"https://www.youtube.com/watch?v={vid_id}"
+
+            review = {
+                "url": clean_url,
+                "title": item.get('title', ''),
+                "videoId": vid_id,
+                "channel": item.get('channel', ''),
+            }
+
+            # Parse medication field, e.g. "BIG NARSTIE\nHB T24 Hash Burger"
+            med = item.get('medication', '')
+            lines = [l.strip() for l in med.split('\n') if l.strip()]
+            if len(lines) >= 2:
+                detail = lines[1]
+                # Extract code (first 1-5 uppercase letters)
+                code_m2 = re.match(r'^([A-Z]{1,5})\b', detail)
+                if code_m2:
+                    code = code_m2.group(1)
+                    reviews_by_code.setdefault(code, []).append(review)
+
+                # Extract strain name after CODE [Smalls] T## pattern
+                name_m = re.search(r'[A-Z]{1,5}\s+(?:Smalls?\s+)?T\d+\s+(.+)', detail)
+                if name_m:
+                    name = name_m.group(1).strip().lower()
+                    reviews_by_name.setdefault(name, []).append(review)
+            elif len(lines) == 1:
+                name = lines[0].strip().lower()
+                reviews_by_name.setdefault(name, []).append(review)
+
+        await context.close()
+        print(f"  Mapped to {len(reviews_by_code)} strain codes, {len(reviews_by_name)} strain names")
+
+    except Exception as e:
+        print(f"  \u2717 Failed to scrape YouTube reviews: {e}")
+
+    return reviews_by_code, reviews_by_name
+
+
+def match_youtube_reviews(strains, reviews_by_code, reviews_by_name):
+    """Match scraped YouTube reviews to strains by code or name."""
+    matched = 0
+    for s in strains:
+        reviews = []
+        seen_ids = set()
+
+        code = s.get("code", s.get("id", ""))
+        if code and code in reviews_by_code:
+            for r in reviews_by_code[code]:
+                if r["videoId"] not in seen_ids:
+                    reviews.append(r)
+                    seen_ids.add(r["videoId"])
+
+        name_lower = s.get("name", "").lower()
+        if name_lower and name_lower in reviews_by_name:
+            for r in reviews_by_name[name_lower]:
+                if r["videoId"] not in seen_ids:
+                    reviews.append(r)
+                    seen_ids.add(r["videoId"])
+
+        if reviews:
+            s["youtubeReviews"] = reviews[:6]
+            matched += 1
+
+    print(f"  \u2713 Matched YouTube reviews to {matched} strains")
+
+
+# ---------------------------------------------------------------------------
 # HTML updater
 # ---------------------------------------------------------------------------
 def update_html(html_path, strains):
@@ -360,9 +478,8 @@ def update_html(html_path, strains):
     marker = 'const STRAINS_JSON = '
     start = html.find(marker)
     if start < 0:
-        print("  ✗ Could not find STRAINS_JSON in index.html")
+        print("  \u2717 Could not find STRAINS_JSON in index.html")
         return False
-    # Find the closing ]; of the array — not just the first semicolon
     bracket_start = html.find('[', start)
     depth = 0
     end = bracket_start
@@ -374,13 +491,12 @@ def update_html(html_path, strains):
             if depth == 0:
                 end = i + 1
                 break
-    # Skip past the semicolon after the array
     if end < len(html) and html[end] == ';':
         end += 1
     html = html[:start] + f'const STRAINS_JSON = {js_json};' + html[end:]
     with open(html_path, 'w') as f:
         f.write(html)
-    print(f"  ✓ Updated index.html with {len(strains)} strains")
+    print(f"  \u2713 Updated index.html with {len(strains)} strains")
     return True
 
 
@@ -393,19 +509,96 @@ def load_existing(path):
 
 
 # ---------------------------------------------------------------------------
+# Debug mode
+# ---------------------------------------------------------------------------
+async def debug_page(url):
+    print(f"\U0001f50d Debug mode: {url}\n")
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch(headless=True)
+        context = await browser.new_context(user_agent=HTTP_HEADERS["User-Agent"])
+        page = await context.new_page()
+
+        await page.goto(url, timeout=30000)
+        try:
+            await page.wait_for_selector('text=Cultivar/Strain', timeout=8000)
+        except Exception:
+            print("  (Cultivar/Strain selector not found)")
+        await page.wait_for_timeout(2000)
+
+        page_text = await page.inner_text('body')
+        page_html = await page.content()
+
+        with open('debug_text.txt', 'w') as f:
+            f.write(page_text)
+        with open('debug_html.html', 'w') as f:
+            f.write(page_html)
+
+        print("=" * 60)
+        print("FIRST 3000 CHARS OF inner_text:")
+        print("=" * 60)
+        print(page_text[:3000])
+
+        print("\n" + "=" * 60)
+        print("STRAIN NAME REGEX MATCHES:")
+        print("=" * 60)
+        m = re.search(
+            r'Cultivar/Strain\s*\u00b7?\s*'
+            r'([A-Za-z][\w\s\'\-\&\.\,\u00e9\u00e8\u00fc#]+?)'
+            r'\s*(?:Classification|Chemotype|Flower|THC|Indica|Sativa|Hybrid|Medication)',
+            page_text
+        )
+        if m:
+            print(f"  Matched: '{m.group(1)}'")
+            print(f"  Cleaned: '{clean_strain_name(m.group(1))}'")
+        else:
+            print("  No match found!")
+
+        print("\n" + "=" * 60)
+        print("TERPENE SECTION:")
+        print("=" * 60)
+        terp_idx = page_text.find("Terpene Profile")
+        if terp_idx >= 0:
+            print(page_text[terp_idx:terp_idx+500])
+        else:
+            terp_idx2 = page_text.lower().find("terpene")
+            if terp_idx2 >= 0:
+                print(f"  Found at pos {terp_idx2}:")
+                print(page_text[terp_idx2:terp_idx2+500])
+            else:
+                print("  Not found in page text!")
+
+        print("\n" + "=" * 60)
+        print("SCRAPE RESULT:")
+        print("=" * 60)
+        data = await scrape_strain_page_pw(page, url, "DEBUG")
+        if data:
+            for k, v in data.items():
+                print(f"  {k}: {v}")
+        else:
+            print("  FAILED - returned None")
+
+        print(f"\n\U0001f4c4 Full dumps saved to debug_text.txt and debug_html.html")
+        await browser.close()
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 async def main():
+    if len(sys.argv) >= 3 and sys.argv[1] == '--debug':
+        await debug_page(sys.argv[2])
+        return 0
+
     repo_root = Path(__file__).parent.parent
     strains_path = repo_root / "strains.json"
     html_path = repo_root / "index.html"
 
     print("=" * 60)
-    print("Bloomy's Bud Log — Strain Data Updater")
+    print("Bloomy\u0027s Bud Log \u2014 Strain Data Updater")
     print("=" * 60)
 
     # 1. Load existing
-    print("\n📂 Loading existing strains...")
+    print("\n\U0001f4c2 Loading existing strains...")
     existing = load_existing(strains_path)
     existing_by_key = {}
     existing_codes = set()
@@ -415,33 +608,32 @@ async def main():
         existing_codes.add(s.get("code", s.get("id", "")))
     print(f"  Loaded {len(existing)} existing strains")
 
-    # 2. Discover all strain page URLs via simple HTTP
-    print("\n🔍 Discovering strain pages (HTTP)...")
-    all_urls = {}  # url -> producer_name
+    # 2. Discover strain page URLs via HTTP
+    print("\n\U0001f50d Discovering strain pages (HTTP)...")
+    all_urls = {}
     for slug, producer in PRODUCERS.items():
         urls = discover_strain_urls(slug)
         if urls:
-            print(f"  📦 {producer}: {len(urls)} pages")
+            print(f"  \U0001f4e6 {producer}: {len(urls)} pages")
             for u in urls:
                 all_urls[u] = producer
         else:
-            print(f"  📦 {producer}: ✗ not found")
+            print(f"  \U0001f4e6 {producer}: \u2717 not found")
         time.sleep(0.5)
 
     print(f"\n  Total strain pages to scrape: {len(all_urls)}")
 
     if not all_urls:
-        print("  ⚠ No pages discovered — keeping existing data")
+        print("  \u26a0 No pages discovered \u2014 keeping existing data")
         return 0
 
-    # 3. Scrape each strain page with Playwright (parallel)
-    print("\n🌐 Scraping strain pages with headless browser (4 parallel)...")
+    # 3. Scrape with Playwright (parallel)
+    print("\n\U0001f310 Scraping strain pages with headless browser (4 parallel)...")
     new_strains = []
     seen_new = set()
     results_lock = asyncio.Lock()
     progress = {"done": 0, "total": len(all_urls)}
-
-    CONCURRENCY = 4  # Number of parallel browser tabs
+    CONCURRENCY = 4
 
     async def scrape_one(browser, surl, producer):
         context = await browser.new_context(user_agent=HTTP_HEADERS["User-Agent"])
@@ -452,12 +644,10 @@ async def main():
             data = None
         finally:
             await context.close()
-
         async with results_lock:
             progress["done"] += 1
             if progress["done"] % 50 == 0:
                 print(f"    ... processed {progress['done']}/{progress['total']} pages")
-
         return data, producer
 
     async def worker(browser, queue):
@@ -480,61 +670,64 @@ async def main():
                         ex["cbd"] = data["cbd"]
                     if data["terpenes"] and not ex.get("terpenes"):
                         ex["terpenes"] = data["terpenes"]
-                    if data.get("youtubeReviews"):
-                        ex["youtubeReviews"] = data["youtubeReviews"]
-                    # Update tier if we extracted one from the URL
                     if data.get("tier") != "Core" and ex.get("tier", "Core") == "Core":
                         ex["tier"] = data["tier"]
                 elif key not in seen_new:
                     seen_new.add(key)
                     new_strains.append(data)
                     terp_str = ', '.join(data['terpenes'][:3]) if data['terpenes'] else 'no terpenes yet'
-                    print(f"    ✚ {data['name']} ({prod}, THC {data['thc']}%, {terp_str})")
+                    print(f"    \u271a {data['name']} ({prod}, THC {data['thc']}%, {terp_str})")
 
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
+
         queue = asyncio.Queue()
         for item in all_urls.items():
             queue.put_nowait(item)
-        workers = [asyncio.create_task(worker(browser, queue)) for _ in range(CONCURRENCY)]
-        await asyncio.gather(*workers)
+        workers_list = [asyncio.create_task(worker(browser, queue)) for _ in range(CONCURRENCY)]
+        await asyncio.gather(*workers_list)
+
+        print(f"\n  New unique strains: {len(new_strains)}")
+
+        # 4. Weedstrain fallback
+        missing = [s for s in new_strains if not s.get("terpenes")]
+        if missing:
+            print(f"\n\U0001f52c Weedstrain fallback for {len(missing)} strains...")
+            for s in missing:
+                ws = scrape_weedstrain(s["name"])
+                if ws:
+                    for k in ["terpenes", "effects", "flavours", "helpsWith", "negatives"]:
+                        if not s.get(k):
+                            s[k] = ws[k]
+                    print(f"  \u2713 {s['name']}: {', '.join(ws['terpenes'])}")
+                else:
+                    print(f"  \u2717 {s['name']}")
+                time.sleep(0.5)
+
+        # 5. Merge
+        result = list(existing)
+        for s in new_strains:
+            code = s.get("code") or make_code(s["name"], existing_codes)
+            if code not in existing_codes:
+                existing_codes.add(code)
+            result.append({
+                "name": s["name"], "producer": s["producer"], "code": code,
+                "tier": s.get("tier", "Core"), "thc": s.get("thc", 0),
+                "cbd": s.get("cbd", 0), "type": s.get("type", "Hybrid"),
+                "terpenes": s.get("terpenes", []), "effects": s.get("effects", []),
+                "flavours": s.get("flavours", []), "helpsWith": s.get("helpsWith", []),
+                "negatives": s.get("negatives", []), "youtubeReviews": [],
+                "id": code,
+            })
+
+        # 6. YouTube reviews (single page scrape)
+        yt_by_code, yt_by_name = await scrape_youtube_reviews(browser)
+        match_youtube_reviews(result, yt_by_code, yt_by_name)
+
         await browser.close()
 
-    print(f"\n  New unique strains: {len(new_strains)}")
-
-    # 4. Weedstrain fallback for missing terpenes
-    missing = [s for s in new_strains if not s.get("terpenes")]
-    if missing:
-        print(f"\n🔬 Weedstrain fallback for {len(missing)} strains...")
-        for s in missing:
-            ws = scrape_weedstrain(s["name"])
-            if ws:
-                for k in ["terpenes", "effects", "flavours", "helpsWith", "negatives"]:
-                    if not s.get(k):
-                        s[k] = ws[k]
-                print(f"  ✓ {s['name']}: {', '.join(ws['terpenes'])}")
-            else:
-                print(f"  ✗ {s['name']}")
-            time.sleep(0.5)
-
-    # 5. Merge
-    result = list(existing)
-    for s in new_strains:
-        code = s.get("code") or make_code(s["name"], existing_codes)
-        if code not in existing_codes:
-            existing_codes.add(code)
-        result.append({
-            "name": s["name"], "producer": s["producer"], "code": code,
-            "tier": s.get("tier", "Core"), "thc": s.get("thc", 0),
-            "cbd": s.get("cbd", 0), "type": s.get("type", "Hybrid"),
-            "terpenes": s.get("terpenes", []), "effects": s.get("effects", []),
-            "flavours": s.get("flavours", []), "helpsWith": s.get("helpsWith", []),
-            "negatives": s.get("negatives", []), "youtubeReviews": s.get("youtubeReviews", []),
-            "id": code,
-        })
-
-    # 6. Save
-    print(f"\n💾 Saving {len(result)} strains...")
+    # 7. Save
+    print(f"\n\U0001f4be Saving {len(result)} strains...")
     with open(strains_path, 'w') as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
     if html_path.exists():
@@ -542,7 +735,7 @@ async def main():
 
     added = len(result) - len(existing)
     print(f"\n{'='*60}")
-    print(f"✅ Done! {len(result)} strains ({'+' if added >= 0 else ''}{added} new)")
+    print(f"\u2705 Done! {len(result)} strains ({'+' if added >= 0 else ''}{added} new)")
     print(f"{'='*60}")
     return 0
 
