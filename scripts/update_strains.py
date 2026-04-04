@@ -377,10 +377,9 @@ def scrape_weedstrain(strain_name):
 # Step 4: YouTube reviews from central MedBud page
 # ---------------------------------------------------------------------------
 async def scrape_youtube_reviews(browser):
-    """Scrape medbud.wiki/reviews/youtube/ — one page, all reviews."""
+    """Scrape medbud.wiki/reviews/youtube/ — returns a flat list of review objects."""
     print("\n\u25b6 Scraping YouTube reviews from central page...")
-    reviews_by_code = {}
-    reviews_by_name = {}
+    reviews = []
 
     try:
         context = await browser.new_context(user_agent=HTTP_HEADERS["User-Agent"])
@@ -406,11 +405,10 @@ async def scrape_youtube_reviews(browser):
                 // Get all cell texts
                 const texts = Array.from(cells).map(c => c.innerText.trim());
 
-                // Find the medication cell — it typically contains a short code like "HB T24"
-                // Try cells[3] first (expected position), then search all cells
                 let medText = '';
                 let videoTitle = '';
                 let channelName = texts[0] || '';
+                let published = '';
 
                 // Video title is usually the cell containing the YouTube link
                 const linkCell = ytLink.closest('td');
@@ -421,7 +419,7 @@ async def scrape_youtube_reviews(browser):
                 // Medication is the cell with CODE T## pattern
                 for (let i = 0; i < cells.length; i++) {
                     const t = texts[i] || '';
-                    if (t.match(/[A-Z]{2,5}\s+(Smalls?\s+)?T\d+/) || t.match(/T\d+\s+[A-Z]/)) {
+                    if (t.match(/[A-Z]{2,5}\\s+(Smalls?\\s+)?T\\d+/) || t.match(/T\\d+\\s+[A-Z]/)) {
                         medText = t;
                         break;
                     }
@@ -433,11 +431,18 @@ async def scrape_youtube_reviews(browser):
 
                 if (!videoTitle) videoTitle = texts[2] || '';
 
+                // Published date — usually last cell
+                const lastText = texts[texts.length - 1] || '';
+                if (lastText.match(/today|yesterday|ago|\\d{1,2}[\\s/.-]/i) || lastText.match(/^\\d{4}/)) {
+                    published = lastText;
+                }
+
                 results.push({
                     url: ytLink.href,
                     title: videoTitle.substring(0, 120),
                     channel: channelName.substring(0, 60),
                     medication: medText,
+                    published: published,
                 });
             });
             return results;
@@ -445,102 +450,48 @@ async def scrape_youtube_reviews(browser):
 
         print(f"  Found {len(data)} YouTube review entries")
 
-        # Debug: print first 3 medication fields so we can see the format
+        # Debug: print first 3 medication fields
         for i, item in enumerate(data[:3]):
             print(f"  [debug] Row {i} medication: {repr(item.get('medication', ''))}")
 
+        seen_ids = set()
         for item in data:
             url = item.get('url', '')
             vid_m = re.search(r'(?:v=|youtu\.be/|embed/)([\w-]{11})', url)
             if not vid_m:
                 continue
             vid_id = vid_m.group(1)
+            if vid_id in seen_ids:
+                continue
+            seen_ids.add(vid_id)
             clean_url = f"https://www.youtube.com/watch?v={vid_id}"
 
-            review = {
-                "url": clean_url,
-                "title": item.get('title', ''),
-                "videoId": vid_id,
-                "channel": item.get('channel', ''),
-            }
-
             med = item.get('medication', '')
-
-            # Try splitting on newlines first (innerText should give us these)
+            # Parse producer from first line
             lines = [l.strip() for l in med.split('\n') if l.strip()]
-
-            # Parse the detail line (usually 2nd line, or use the whole string)
+            producer = lines[0] if len(lines) >= 2 else ''
             detail = lines[1] if len(lines) >= 2 else med
 
-            # Extract code: 1-5 uppercase letters at start of detail
-            code_m2 = re.search(r'\b([A-Z]{2,5})\s+(?:Smalls?\s+)?T\d+', detail)
-            if code_m2:
-                code = code_m2.group(1)
-                reviews_by_code.setdefault(code, []).append(review)
+            # Extract readable medication info (code + name)
+            medication_display = detail.strip()
 
-            # Extract strain name: everything after "CODE [Smalls] T##"
-            name_m = re.search(r'[A-Z]{2,5}\s+(?:Smalls?\s+)?T\d+\s+(.+)', detail)
-            if name_m:
-                name = name_m.group(1).strip().lower()
-                if len(name) >= 3:
-                    reviews_by_name.setdefault(name, []).append(review)
-
-            # Also try: everything after the producer name (for single-line format)
-            if not name_m and len(lines) == 1:
-                # Try to find a strain name pattern anywhere
-                all_name_m = re.search(r'T\d+\s+(.{3,})', med)
-                if all_name_m:
-                    name = all_name_m.group(1).strip().lower()
-                    reviews_by_name.setdefault(name, []).append(review)
+            reviews.append({
+                "url": clean_url,
+                "videoId": vid_id,
+                "title": item.get('title', ''),
+                "channel": item.get('channel', ''),
+                "producer": producer,
+                "medication": medication_display,
+                "published": item.get('published', ''),
+            })
 
         await context.close()
-        print(f"  Mapped to {len(reviews_by_code)} strain codes, {len(reviews_by_name)} strain names")
+        print(f"  \u2713 {len(reviews)} unique reviews extracted")
 
     except Exception as e:
         print(f"  \u2717 Failed to scrape YouTube reviews: {e}")
 
-    return reviews_by_code, reviews_by_name
-
-
-def match_youtube_reviews(strains, reviews_by_code, reviews_by_name):
-    """Match scraped YouTube reviews to strains by code or name (with fuzzy matching)."""
-    matched = 0
-    for s in strains:
-        reviews = []
-        seen_ids = set()
-
-        # Match by strain code
-        code = s.get("code", s.get("id", ""))
-        if code and code in reviews_by_code:
-            for r in reviews_by_code[code]:
-                if r["videoId"] not in seen_ids:
-                    reviews.append(r)
-                    seen_ids.add(r["videoId"])
-
-        # Exact name match
-        name_lower = s.get("name", "").lower()
-        if name_lower and name_lower in reviews_by_name:
-            for r in reviews_by_name[name_lower]:
-                if r["videoId"] not in seen_ids:
-                    reviews.append(r)
-                    seen_ids.add(r["videoId"])
-
-        # Fuzzy name match: check if any YouTube name is contained in the strain name or vice versa
-        if not reviews and name_lower and len(name_lower) >= 4:
-            for yt_name, yt_reviews in reviews_by_name.items():
-                if len(yt_name) < 4:
-                    continue
-                if yt_name in name_lower or name_lower in yt_name:
-                    for r in yt_reviews:
-                        if r["videoId"] not in seen_ids:
-                            reviews.append(r)
-                            seen_ids.add(r["videoId"])
-
-        if reviews:
-            s["youtubeReviews"] = reviews[:6]
-            matched += 1
-
-    print(f"  \u2713 Matched YouTube reviews to {matched} strains")
+    return reviews
 
 
 # ---------------------------------------------------------------------------
@@ -573,6 +524,37 @@ def update_html(html_path, strains):
     with open(html_path, 'w') as f:
         f.write(html)
     print(f"  \u2713 Updated index.html with {len(strains)} strains")
+    return True
+
+
+def update_reviews_html(html_path, reviews):
+    """Inject REVIEWS_JSON into index.html using bracket-depth matching."""
+    with open(html_path) as f:
+        html = f.read()
+    js_json = json.dumps(reviews, ensure_ascii=True, separators=(',', ':'))
+    js_json = js_json.replace("'", "\\u0027")
+    marker = 'const REVIEWS_JSON = '
+    start = html.find(marker)
+    if start < 0:
+        print("  \u2717 Could not find REVIEWS_JSON in index.html")
+        return False
+    bracket_start = html.find('[', start)
+    depth = 0
+    end = bracket_start
+    for i in range(bracket_start, len(html)):
+        if html[i] == '[':
+            depth += 1
+        elif html[i] == ']':
+            depth -= 1
+            if depth == 0:
+                end = i + 1
+                break
+    if end < len(html) and html[end] == ';':
+        end += 1
+    html = html[:start] + f'const REVIEWS_JSON = {js_json};' + html[end:]
+    with open(html_path, 'w') as f:
+        f.write(html)
+    print(f"  \u2713 Updated index.html with {len(reviews)} reviews")
     return True
 
 
@@ -635,6 +617,10 @@ def clean_existing_data(strains):
             s["cbd"] = 0
         if s.get("cbd", 0) > 15 and s.get("thc", 0) > 15:
             s["cbd"] = 0
+
+        # Strip youtubeReviews (now stored separately in reviews.json)
+        if "youtubeReviews" in s:
+            del s["youtubeReviews"]
 
     # 2. Remove duplicates (keep the one with more data)
     seen = {}
@@ -874,25 +860,33 @@ async def main():
                 "cbd": s.get("cbd", 0), "type": s.get("type", "Hybrid"),
                 "terpenes": s.get("terpenes", []), "effects": s.get("effects", []),
                 "flavours": s.get("flavours", []), "helpsWith": s.get("helpsWith", []),
-                "negatives": s.get("negatives", []), "youtubeReviews": [],
+                "negatives": s.get("negatives", []),
                 "id": code,
             })
 
-        # 6. YouTube reviews (single page scrape)
-        yt_by_code, yt_by_name = await scrape_youtube_reviews(browser)
-        match_youtube_reviews(result, yt_by_code, yt_by_name)
+        # 6. YouTube reviews (separate file, not per-strain)
+        yt_reviews = await scrape_youtube_reviews(browser)
 
         await browser.close()
 
     # 7. Final deduplication
     result = clean_existing_data(result)
 
-    # 8. Save
+    # 8. Save strains
     print(f"\n\U0001f4be Saving {len(result)} strains...")
     with open(strains_path, 'w') as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
+
+    # 9. Save reviews
+    reviews_path = strains_path.parent / "reviews.json"
+    print(f"\U0001f4be Saving {len(yt_reviews)} reviews...")
+    with open(reviews_path, 'w') as f:
+        json.dump(yt_reviews, f, indent=2, ensure_ascii=False)
+
+    # 10. Update HTML
     if html_path.exists():
         update_html(str(html_path), result)
+        update_reviews_html(str(html_path), yt_reviews)
 
     added = len(result) - len(existing)
     print(f"\n{'='*60}")
