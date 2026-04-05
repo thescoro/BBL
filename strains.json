@@ -33,8 +33,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "SCK",
-    "genetics": "Chronic × White Widow x Cheese"
+    "id": "SCK"
   },
   {
     "name": "Cold Creek Kush",
@@ -70,8 +69,7 @@
       "Dry mouth",
       "Dizzy"
     ],
-    "id": "CCK",
-    "genetics": "MK Ultra × Chemdawg '91"
+    "id": "CCK"
   },
   {
     "name": "Bubba Kush",
@@ -106,8 +104,7 @@
       "Dry eyes",
       "Dizzy"
     ],
-    "id": "BBK",
-    "genetics": "OG Kush × Afghani Landrace"
+    "id": "BBK"
   },
   {
     "name": "Oaxacan Kush",
@@ -140,8 +137,7 @@
     "negatives": [
       "Dry mouth"
     ],
-    "id": "XK",
-    "genetics": "Mexican Haze × Mazari Black"
+    "id": "XK"
   },
   {
     "name": "Skullcap",
@@ -175,8 +171,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "SKL",
-    "genetics": "Sour Headstash × Biker Kush"
+    "id": "SKL"
   },
   {
     "name": "Pink Kush",
@@ -244,8 +239,7 @@
     "negatives": [
       "Dry mouth"
     ],
-    "id": "SCO",
-    "genetics": "Mexican Haze × Mazari Black"
+    "id": "SCO"
   },
   {
     "name": "GMO Animal Cookies",
@@ -279,8 +273,7 @@
       "Dry mouth",
       "Dizzy"
     ],
-    "id": "GMO-AC",
-    "genetics": "GMO Cookies × Animal Cookies"
+    "id": "GMO-AC"
   },
   {
     "name": "Kush Cookies",
@@ -314,8 +307,7 @@
       "Dry mouth",
       "Anxious"
     ],
-    "id": "KCO",
-    "genetics": "Girl Scout Cookies × OG Kush"
+    "id": "KCO"
   },
   {
     "name": "Crumbled Lime Ten",
@@ -349,8 +341,7 @@
       "Dry mouth",
       "Paranoid"
     ],
-    "id": "CRL",
-    "genetics": "Citron Cookies × Biker Kush"
+    "id": "CRL"
   },
   {
     "name": "Lemonatti",
@@ -384,8 +375,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "LMT",
-    "genetics": "Gelonade × Biscotti"
+    "id": "LMT"
   },
   {
     "name": "Ultra Sour",
@@ -421,8 +411,7 @@
       "Dry mouth",
       "Paranoid"
     ],
-    "id": "ULS",
-    "genetics": "MK Ultra × East Coast Sour Diesel"
+    "id": "ULS"
   },
   {
     "name": "Platinum Garlic",
@@ -457,8 +446,7 @@
     "negatives": [
       "Dry mouth"
     ],
-    "id": "PGL",
-    "genetics": "Platinum × GMO Cookies"
+    "id": "PGL"
   },
   {
     "name": "Acai Berry",
@@ -492,8 +480,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "ACB",
-    "genetics": "Pink Panties × Sunset Sherbet"
+    "id": "ACB"
   },
   {
     "name": "Miracle Alien Cookies",
@@ -529,8 +516,7 @@
       "Dry mouth",
       "Anxious"
     ],
-    "id": "MC1",
-    "genetics": "Alien Cookies x × Columbian"
+    "id": "MC1"
   },
   {
     "name": "Dawgzilla",
@@ -564,8 +550,7 @@
       "Dry mouth",
       "Dizzy"
     ],
-    "id": "DGZ",
-    "genetics": "Godzilla Glue × Chemdawg"
+    "id": "DGZ"
   },
   {
     "name": "Zkittlez Fuel",
@@ -599,8 +584,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "ZKF",
-    "genetics": "Jet Fuel Gelato × Blue Zktlz"
+    "id": "ZKF"
   },
   {
     "name": "Goldberry",
@@ -635,8 +619,7 @@
     "negatives": [
       "Dry mouth"
     ],
-    "id": "GDB",
-    "genetics": "Pot of Gold × Blueberry"
+    "id": "GDB"
   },
   {
     "name": "Moby Dick",
@@ -673,8 +656,7 @@
       "Paranoid",
       "Anxious"
     ],
-    "id": "MBD",
-    "genetics": "White Widow × G13 Haze"
+    "id": "MBD"
   },
   {
     "name": "Donkey Butter",
@@ -711,8 +693,7 @@
       "Dizzy",
       "Couch-lock"
     ],
-    "id": "DBT",
-    "genetics": "Grease Monkey × Triple OG"
+    "id": "DBT"
   },
   {
     "name": "Alaskan Thunder",
@@ -749,7 +730,8 @@
       "Paranoid",
       "Anxious"
     ],
-    "id": "ATD"
+    "id": "ATD",
+    "genetics": "North California Sativa \u00d7 Afghani"
   },
   {
     "name": "Khalifa Mints",
@@ -785,8 +767,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "KM",
-    "genetics": ""
+    "id": "KM"
   },
   {
     "name": "Citroli",
@@ -822,8 +803,7 @@
       "Dry mouth",
       "Anxious"
     ],
-    "id": "CTR",
-    "genetics": "Citral Skunk × Gorilla Glue #4"
+    "id": "CTR"
   },
   {
     "name": "Beach Wedding",
@@ -859,8 +839,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "BWD",
-    "genetics": "Tropicana Punch × Wedding Cake"
+    "id": "BWD"
   },
   {
     "name": "Lucy in the Sky",
@@ -896,8 +875,7 @@
       "Dry mouth",
       "Anxious"
     ],
-    "id": "LIS",
-    "genetics": "Mazar-i-Sharif × Skunk #1"
+    "id": "LIS"
   },
   {
     "name": "A&B Jealousy",
@@ -931,8 +909,7 @@
       "Dry mouth",
       "Anxious"
     ],
-    "id": "JAB",
-    "genetics": "Apples & Bananas × Jealousy"
+    "id": "JAB"
   },
   {
     "name": "Hawaiian Fanta",
@@ -966,8 +943,7 @@
       "Dry mouth",
       "Paranoid"
     ],
-    "id": "HWF",
-    "genetics": "Pineapple Fanta × Grape Gasoline"
+    "id": "HWF"
   },
   {
     "name": "White Haze",
@@ -1037,8 +1013,7 @@
       "Dry mouth",
       "Dizzy"
     ],
-    "id": "GBU",
-    "genetics": "Gary Payton × Georgia Pie"
+    "id": "GBU"
   },
   {
     "name": "Death Bubba",
@@ -1075,8 +1050,7 @@
       "Couch-lock",
       "Dizzy"
     ],
-    "id": "DB",
-    "genetics": "Death Star × Bubba Kush"
+    "id": "DB"
   },
   {
     "name": "Gastro Pop",
@@ -1110,8 +1084,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "GSP",
-    "genetics": "Apples & Bananas × Grape Gas #7"
+    "id": "GSP"
   },
   {
     "name": "Dante'z Inferno",
@@ -1146,11 +1119,10 @@
       "Couch-lock",
       "Dizzy"
     ],
-    "id": "DZI",
-    "genetics": "Oreo Cookies × Devil Driver"
+    "id": "DZI"
   },
   {
-    "name": "Peanut Butter Soufflé",
+    "name": "Peanut Butter Souffl\u00e9",
     "producer": "4C Labs",
     "code": "PBS",
     "tier": "Craft Organic",
@@ -1183,8 +1155,7 @@
       "Dry mouth",
       "Couch-lock"
     ],
-    "id": "PBS",
-    "genetics": "Do-si-dos × Lava Cake"
+    "id": "PBS"
   },
   {
     "name": "Afghan Lights",
@@ -1218,8 +1189,7 @@
       "Dry mouth",
       "Couch-lock"
     ],
-    "id": "AFL",
-    "genetics": "Cactus × Mendo Breath"
+    "id": "AFL"
   },
   {
     "name": "Galactic Cake",
@@ -1254,8 +1224,7 @@
     "negatives": [
       "Dry mouth"
     ],
-    "id": "GC",
-    "genetics": "Lemon Skywalker × Wedding Cake"
+    "id": "GC"
   },
   {
     "name": "Blue Sunset",
@@ -1289,8 +1258,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "BLS",
-    "genetics": "Blue Cookies × Sunset Sherbet"
+    "id": "BLS"
   },
   {
     "name": "Puffo Gelato",
@@ -1326,8 +1294,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "PUG",
-    "genetics": "Blue Sherbet × French Toast"
+    "id": "PUG"
   },
   {
     "name": "Sour Cherry Punch",
@@ -1362,8 +1329,7 @@
     "negatives": [
       "Dry mouth"
     ],
-    "id": "SCP",
-    "genetics": "Sour OG Cheese × Black Cherry Punch"
+    "id": "SCP"
   },
   {
     "name": "Super-G Citra",
@@ -1399,8 +1365,7 @@
       "Dry mouth",
       "Anxious"
     ],
-    "id": "SGC",
-    "genetics": "Ultra Sour #286 × Lemon Margy"
+    "id": "SGC"
   },
   {
     "name": "GMO Tropical Reign",
@@ -1435,8 +1400,7 @@
       "Dry mouth",
       "Couch-lock"
     ],
-    "id": "GMO-TR",
-    "genetics": "GMO Crescendo × Super Tropical #100"
+    "id": "GMO-TR"
   },
   {
     "name": "Moon Berry",
@@ -1471,8 +1435,7 @@
     "negatives": [
       "Dry mouth"
     ],
-    "id": "MBE",
-    "genetics": "Equiposa × Vespera"
+    "id": "MBE"
   },
   {
     "name": "Frozen Lemon Haze",
@@ -1508,8 +1471,7 @@
       "Dry mouth",
       "Anxious"
     ],
-    "id": "FLH",
-    "genetics": "Jet Fuel Gelato × White MAC"
+    "id": "FLH"
   },
   {
     "name": "Electric Honeydew",
@@ -1545,8 +1507,7 @@
       "Dry mouth",
       "Anxious"
     ],
-    "id": "EHD",
-    "genetics": "Girl Scout Cookies × OG Krypt Melon"
+    "id": "EHD"
   },
   {
     "name": "Farm Gas",
@@ -1581,8 +1542,7 @@
       "Dry mouth",
       "Dizzy"
     ],
-    "id": "FRG",
-    "genetics": "Sour Diesel x × Chemdawg"
+    "id": "FRG"
   },
   {
     "name": "Black Jelly",
@@ -1618,8 +1578,7 @@
       "Dry mouth",
       "Couch-lock"
     ],
-    "id": "BLY",
-    "genetics": "Alien Cake 3030 × T037"
+    "id": "BLY"
   },
   {
     "name": "Chemango Kush",
@@ -1727,8 +1686,7 @@
     "negatives": [
       "Dry mouth"
     ],
-    "id": "CTC",
-    "genetics": "MK Ultra × G13 Haze"
+    "id": "CTC"
   },
   {
     "name": "Equiposa",
@@ -1796,8 +1754,7 @@
       "Dry mouth",
       "Anxious"
     ],
-    "id": "STG",
-    "genetics": "Sour Diesel × Tangie"
+    "id": "STG"
   },
   {
     "name": "Ghost Train Haze",
@@ -1868,8 +1825,7 @@
       "Couch-lock",
       "Dizzy"
     ],
-    "id": "LAC",
-    "genetics": "Affie × Afghani"
+    "id": "LAC"
   },
   {
     "name": "Bedrocan",
@@ -2210,8 +2166,7 @@
       "Dry mouth",
       "Couch-lock"
     ],
-    "id": "PM",
-    "genetics": "Horchata × Grape Gas"
+    "id": "PM"
   },
   {
     "name": "Gorilla Kush",
@@ -2312,8 +2267,7 @@
     "negatives": [
       "Dry mouth"
     ],
-    "id": "RB",
-    "genetics": "Champagne Kush × Blackberry"
+    "id": "RB"
   },
   {
     "name": "Candyland",
@@ -2358,10 +2312,9 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [
-      "Myrcene",
+      "Caryophyllene",
       "Limonene",
-      "Humulene",
-      "Farnesene"
+      "Myrcene"
     ],
     "effects": [
       "Euphoric",
@@ -2381,8 +2334,7 @@
     "negatives": [
       "Dry mouth"
     ],
-    "id": "MD",
-    "genetics": "MAC-1 x × Purple Caper"
+    "id": "MD"
   },
   {
     "name": "MAC Doughnut",
@@ -2417,8 +2369,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "MDO",
-    "genetics": "MAC-1 × Powdered Donuts"
+    "id": "MDO"
   },
   {
     "name": "Tropic Thunder",
@@ -2488,8 +2439,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "LG",
-    "genetics": "Thin Mint Cookies × Sunset Sherbet x Lemon Haze"
+    "id": "LG"
   },
   {
     "name": "Pineapple Express",
@@ -2524,8 +2474,7 @@
       "Dry mouth",
       "Anxious"
     ],
-    "id": "PNE",
-    "genetics": "Trainwreck × Hawaiian"
+    "id": "PNE"
   },
   {
     "name": "Grey Goose",
@@ -2560,8 +2509,7 @@
       "Dry mouth",
       "Couch-lock"
     ],
-    "id": "GG",
-    "genetics": "Blue Dream × White Runtz"
+    "id": "GG"
   },
   {
     "name": "Super Lemon Haze",
@@ -2872,7 +2820,7 @@
   },
   {
     "name": "Purple Punch",
-    "producer": "Somaí Pharmaceuticals",
+    "producer": "Soma\u00ed Pharmaceuticals",
     "code": "PP",
     "tier": "Core",
     "thc": 18,
@@ -2906,7 +2854,7 @@
   },
   {
     "name": "Gorilla Glue #4",
-    "producer": "Somaí Pharmaceuticals",
+    "producer": "Soma\u00ed Pharmaceuticals",
     "code": "GG4",
     "tier": "Core",
     "thc": 22,
@@ -2941,7 +2889,7 @@
   },
   {
     "name": "Zkittlez",
-    "producer": "Somaí Pharmaceuticals",
+    "producer": "Soma\u00ed Pharmaceuticals",
     "code": "ZKT",
     "tier": "Core",
     "thc": 20,
@@ -2975,7 +2923,7 @@
   },
   {
     "name": "White Widow",
-    "producer": "Somaí Pharmaceuticals",
+    "producer": "Soma\u00ed Pharmaceuticals",
     "code": "WW",
     "tier": "Core",
     "thc": 19,
@@ -3475,8 +3423,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AK",
-    "genetics": "Alien OG × Alien Kush F2"
+    "id": "AK"
   },
   {
     "name": "Blue Sherbet",
@@ -3499,8 +3446,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BS",
-    "genetics": "Blue Cookies × Sunset Sherbet"
+    "id": "BS"
   },
   {
     "name": "Chemnesia Haze",
@@ -3557,8 +3503,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "HUC",
-    "genetics": "Paradise Punch × Zkittlez"
+    "id": "HUC"
   },
   {
     "name": "Durban Kush",
@@ -3581,8 +3526,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "DK",
-    "genetics": "Durban Poison x × OG Kush"
+    "id": "DK"
   },
   {
     "name": "Hollywood",
@@ -3605,8 +3549,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "HOL",
-    "genetics": "Lemon Cherry Gelato × Runtz"
+    "id": "HOL"
   },
   {
     "name": "Alien Jelly",
@@ -3629,8 +3572,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AJ",
-    "genetics": "Miracle Alien Cookies × Jelly Donut"
+    "id": "AJ"
   },
   {
     "name": "Ms. MJR Runtz",
@@ -3653,8 +3595,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MMR",
-    "genetics": "Kush Mints × Jealousy x Red Runtz"
+    "id": "MMR"
   },
   {
     "name": "Pucker-Up",
@@ -3679,8 +3620,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PUC",
-    "genetics": "Sour Apple × Black Banana"
+    "id": "PUC"
   },
   {
     "name": "Jokerz",
@@ -3694,8 +3634,7 @@
       "Caryophyllene",
       "Limonene",
       "Linalool",
-      "Humulene",
-      "Guaiol"
+      "Humulene"
     ],
     "effects": [
       "Body"
@@ -3709,8 +3648,7 @@
       "Anxiety"
     ],
     "negatives": [],
-    "id": "JOK",
-    "genetics": "Jet Fuel Gelato × White Runtz"
+    "id": "JOK"
   },
   {
     "name": "Peanut Butter Souffl",
@@ -3800,8 +3738,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SUD",
-    "genetics": "The Soap × Runtz"
+    "id": "SUD"
   },
   {
     "name": "Tropicana Gold",
@@ -3826,8 +3763,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "TG",
-    "genetics": "Trainwreck × Secret Weapon"
+    "id": "TG"
   },
   {
     "name": "Unknown Vial",
@@ -3852,8 +3788,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "UV",
-    "genetics": "Confidential × Grapefruit"
+    "id": "UV"
   },
   {
     "name": "Delahaze",
@@ -3884,8 +3819,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "DEL",
-    "genetics": "Mango Haze × Lemon Skunk"
+    "id": "DEL"
   },
   {
     "name": "Sourdough",
@@ -3913,8 +3847,7 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "SOU",
-    "genetics": "Sour Diesel × Wedding Cake x Other"
+    "id": "SOU"
   },
   {
     "name": "Banana Split",
@@ -3944,8 +3877,7 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "BS1",
-    "genetics": "Banana Sherbert × Tangie"
+    "id": "BS1"
   },
   {
     "name": "Pink Kush",
@@ -3961,9 +3893,7 @@
       "Limonene",
       "Pinene"
     ],
-    "effects": [
-      "Creative"
-    ],
+    "effects": [],
     "flavours": [
       "Sweet",
       "Citrus",
@@ -4271,8 +4201,7 @@
       "Dizzy",
       "Anxious"
     ],
-    "id": "GEL",
-    "genetics": "Gelato #42 × Biscotti"
+    "id": "GEL"
   },
   {
     "name": "Gushers",
@@ -4314,8 +4243,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GB",
-    "genetics": "Grape Gas #10 × OGKB Blueberry Headband"
+    "id": "GB"
   },
   {
     "name": "Moroccan Peaches",
@@ -4340,8 +4268,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MP",
-    "genetics": "Barbara x × Skorange #7"
+    "id": "MP"
   },
   {
     "name": "Gastro Pop",
@@ -4366,8 +4293,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GP",
-    "genetics": "Apples & Bananas × Grape Gas #7"
+    "id": "GP"
   },
   {
     "name": "St",
@@ -4503,8 +4429,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AD",
-    "genetics": "Chemdawg × Alien Tech"
+    "id": "AD"
   },
   {
     "name": "Warlock",
@@ -4535,8 +4460,7 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "T8",
-    "genetics": "Skunk #1 × Afghani"
+    "id": "T8"
   },
   {
     "name": "Gorilla Glue",
@@ -4622,8 +4546,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MAN",
-    "genetics": "Afghani × KC33"
+    "id": "MAN"
   },
   {
     "name": "Headband",
@@ -4648,8 +4571,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "HEA",
-    "genetics": "Sour Diesel × OG Kush"
+    "id": "HEA"
   },
   {
     "name": "Galaxy Walker OG",
@@ -4664,8 +4586,7 @@
     "flavours": [],
     "helpsWith": [],
     "negatives": [],
-    "id": "GWO",
-    "genetics": "Skywalker OG × OG Kush"
+    "id": "GWO"
   },
   {
     "name": "Purps",
@@ -4690,8 +4611,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PUR",
-    "genetics": "Indica Landrace × Unknown Sativa"
+    "id": "PUR"
   },
   {
     "name": "White Widow",
@@ -4714,8 +4634,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WW1",
-    "genetics": "Brazilian Landrace × Indian Landrace"
+    "id": "WW1"
   },
   {
     "name": "Island Sweet Skunk",
@@ -4742,8 +4661,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "ISS",
-    "genetics": "Sweet Pink Grapefruit × Skunk #1"
+    "id": "ISS"
   },
   {
     "name": "Biscuit Runtz",
@@ -4795,12 +4713,11 @@
       "Anxious",
       "Couch-lock"
     ],
-    "id": "WAP",
-    "genetics": "Skunk #1 × Unknown"
+    "id": "WAP"
   },
   {
     "name": "Miracle Alien Cookies",
-    "producer": "Somaí Pharmaceuticals",
+    "producer": "Soma\u00ed Pharmaceuticals",
     "code": "MAC",
     "tier": "Craft",
     "thc": 23,
@@ -4870,8 +4787,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AH",
-    "genetics": "G13 × Neville's Haze x Afghani Landrace"
+    "id": "AH"
   },
   {
     "name": "Bush Lantern",
@@ -4913,8 +4829,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BD1",
-    "genetics": "Blueberry × Haze"
+    "id": "BD1"
   },
   {
     "name": "Berry Hash Krash",
@@ -4932,8 +4847,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BHK",
-    "genetics": "Super Mad Sky Floater × Kerosene Krash"
+    "id": "BHK"
   },
   {
     "name": "Cinderella 99",
@@ -4956,8 +4870,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "C9",
-    "genetics": "Jack Herer × Shiva Skunk"
+    "id": "C9"
   },
   {
     "name": "Cap Junky",
@@ -4980,8 +4893,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CJ",
-    "genetics": "Alien Cookies × Kush Mints #11"
+    "id": "CJ"
   },
   {
     "name": "Black Triangle",
@@ -5029,8 +4941,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "DM",
-    "genetics": "Animal Cookies × Platinum Kush Mints"
+    "id": "DM"
   },
   {
     "name": "Full Gas",
@@ -5076,8 +4987,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "FC",
-    "genetics": "The Soap × Velvet Runtz"
+    "id": "FC"
   },
   {
     "name": "Grape Burger",
@@ -5100,8 +5010,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GB1",
-    "genetics": "Donny Burger × Grape Cream Cake"
+    "id": "GB1"
   },
   {
     "name": "Gorilla Glue",
@@ -5127,10 +5036,9 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [
+      "Myrcene",
       "Caryophyllene",
-      "Limonene",
-      "Humulene",
-      "Farnesene"
+      "Pinene"
     ],
     "effects": [
       "Euphoric",
@@ -5150,8 +5058,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "HUC1",
-    "genetics": "Paradise Punch × Zkittlez"
+    "id": "HUC1"
   },
   {
     "name": "Imperial Mimosa",
@@ -5174,8 +5081,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "IM",
-    "genetics": "Imperium X × Mimosa Orange Punch"
+    "id": "IM"
   },
   {
     "name": "Kush Cookies",
@@ -5200,8 +5106,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "KC",
-    "genetics": "Girl Scout Cookies × OG Kush"
+    "id": "KC"
   },
   {
     "name": "Mochi Gelato",
@@ -5225,8 +5130,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MG1",
-    "genetics": "Thin Mint Cookies × Sunset Sherbet"
+    "id": "MG1"
   },
   {
     "name": "Mellowz",
@@ -5249,8 +5153,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MEL",
-    "genetics": "Spritzer × Kerosene Krash"
+    "id": "MEL"
   },
   {
     "name": "Mimosa Orange Punch",
@@ -5273,8 +5176,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MOP",
-    "genetics": "Mimosa Evo × Orange Punch"
+    "id": "MOP"
   },
   {
     "name": "Pineapple God",
@@ -5296,8 +5198,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PG1",
-    "genetics": "God Bud × Black Cherry Punch"
+    "id": "PG1"
   },
   {
     "name": "Sky Berry Kush",
@@ -5322,8 +5223,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SBK",
-    "genetics": "Super Mad Sky Floater × GelatOG"
+    "id": "SBK"
   },
   {
     "name": "Purple Octane",
@@ -5369,8 +5269,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PW",
-    "genetics": "Colombian Gold × Thai Stick x Unknown"
+    "id": "PW"
   },
   {
     "name": "Scout Cake",
@@ -5383,8 +5282,7 @@
     "terpenes": [
       "Caryophyllene",
       "Limonene",
-      "Humulene",
-      "Farnesene"
+      "Humulene"
     ],
     "effects": [],
     "flavours": [
@@ -5394,8 +5292,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SC",
-    "genetics": "Forum Cut Cookies × Snow Lotus"
+    "id": "SC"
   },
   {
     "name": "Scoops",
@@ -5418,8 +5315,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SCO1",
-    "genetics": "Cookies & Cream F2 x × Tina"
+    "id": "SCO1"
   },
   {
     "name": "Sunset Sherbet",
@@ -5442,8 +5338,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SS1",
-    "genetics": "Apples & Bananas × Jealousy"
+    "id": "SS1"
   },
   {
     "name": "Crossbow",
@@ -5466,8 +5361,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CRO",
-    "genetics": "Moonbow #75 × Planet Purple"
+    "id": "CRO"
   },
   {
     "name": "Tropical Blues",
@@ -5536,8 +5430,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WO",
-    "genetics": "Brazilian Landrace × South Indian Landrace"
+    "id": "WO"
   },
   {
     "name": "Wedding Pie",
@@ -5560,8 +5453,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WP",
-    "genetics": "Wedding Pie × Grape Pie"
+    "id": "WP"
   },
   {
     "name": "Gorilla Glue",
@@ -5607,8 +5499,7 @@
       "Dry eyes",
       "Dizzy"
     ],
-    "id": "MU",
-    "genetics": "OG Kush × G13"
+    "id": "MU"
   },
   {
     "name": "Polar Kush",
@@ -5658,8 +5549,7 @@
       "Insomnia"
     ],
     "negatives": [],
-    "id": "SHI",
-    "genetics": "Blueberry × Afghani"
+    "id": "SHI"
   },
   {
     "name": "L.A. Amnesia",
@@ -5678,8 +5568,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "LA",
-    "genetics": "Amnesia Haze × OG Kush"
+    "id": "LA"
   },
   {
     "name": "Night Queen",
@@ -5730,8 +5619,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WAP1",
-    "genetics": "Skunk #1 × Unknown"
+    "id": "WAP1"
   },
   {
     "name": "Humble Warrior",
@@ -5785,8 +5673,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "DEL1",
-    "genetics": "Mango Haze × Lemon Skunk"
+    "id": "DEL1"
   },
   {
     "name": "Mazar-i-Sharif",
@@ -5840,8 +5727,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "T20",
-    "genetics": "White Widow × G13 Haze"
+    "id": "T20"
   },
   {
     "name": "Murray Sherbet",
@@ -5852,8 +5738,7 @@
     "cbd": 0,
     "type": "Indica",
     "terpenes": [
-      "Pinene",
-      "Carene"
+      "Pinene"
     ],
     "effects": [
       "Focused"
@@ -5892,8 +5777,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "RM",
-    "genetics": "Haze × White Widow"
+    "id": "RM"
   },
   {
     "name": "Kosher Kush",
@@ -5925,8 +5809,7 @@
     "negatives": [
       "Dry eyes"
     ],
-    "id": "KK1",
-    "genetics": "OG Kush × Critical Mass"
+    "id": "KK1"
   },
   {
     "name": "Sensi Star",
@@ -5952,8 +5835,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SS2",
-    "genetics": "Afghani × Unknown Sativa"
+    "id": "SS2"
   },
   {
     "name": "Sour Kush",
@@ -5984,8 +5866,7 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "SK",
-    "genetics": "OG Kush × Sour Diesel"
+    "id": "SK"
   },
   {
     "name": "Green Gelato",
@@ -6014,8 +5895,7 @@
       "Fatigue"
     ],
     "negatives": [],
-    "id": "GG6",
-    "genetics": "Thin Mint Cookies × Sunset Sherbet x Unknown"
+    "id": "GG6"
   },
   {
     "name": "Jack Herer",
@@ -6040,8 +5920,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "JH1",
-    "genetics": "Haze × Northern Lights x Shiva Skunk"
+    "id": "JH1"
   },
   {
     "name": "Lava Cake",
@@ -6074,8 +5953,7 @@
       "Dizzy",
       "Paranoid"
     ],
-    "id": "LC",
-    "genetics": "Thin Mint Cookies × Grape Pie"
+    "id": "LC"
   },
   {
     "name": "CBD Kush",
@@ -6100,8 +5978,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "T4",
-    "genetics": "Kandy Kush × Unknown"
+    "id": "T4"
   },
   {
     "name": "Balanced Kush",
@@ -6130,8 +6007,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "T5",
-    "genetics": "Hindu Kush × Unknown"
+    "id": "T5"
   },
   {
     "name": "Balanced Caramel",
@@ -6206,8 +6082,7 @@
       "Dry eyes",
       "Dizzy"
     ],
-    "id": "PO1",
-    "genetics": "Master Kush × OG Kush x Unknown"
+    "id": "PO1"
   },
   {
     "name": "Blackberry CBG",
@@ -6259,8 +6134,7 @@
       "Insomnia"
     ],
     "negatives": [],
-    "id": "FL",
-    "genetics": "Northern Lights × Carmagnola"
+    "id": "FL"
   },
   {
     "name": "Gelato",
@@ -6312,8 +6186,7 @@
       "Insomnia"
     ],
     "negatives": [],
-    "id": "GK1",
-    "genetics": "Bubba Kush × Pink Kush"
+    "id": "GK1"
   },
   {
     "name": "MAC-3",
@@ -6401,8 +6274,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GEL2",
-    "genetics": "Sunset Sherbet × Thin Mint GSC"
+    "id": "GEL2"
   },
   {
     "name": "Gary Payton",
@@ -6429,8 +6301,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GP1",
-    "genetics": "Y Griega × Snowman"
+    "id": "GP1"
   },
   {
     "name": "Herijuana",
@@ -6462,8 +6333,7 @@
       "Anxiety"
     ],
     "negatives": [],
-    "id": "HER",
-    "genetics": "Petrolia Headstash × Killer New Haven"
+    "id": "HER"
   },
   {
     "name": "Jealousy",
@@ -6495,8 +6365,7 @@
       "Dizzy",
       "Anxious"
     ],
-    "id": "JEA",
-    "genetics": "Gelato #41 × Sherbet"
+    "id": "JEA"
   },
   {
     "name": "Hellfire OG",
@@ -6527,8 +6396,7 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "HO",
-    "genetics": "Rascal's OG Kush × SFV OG Kush"
+    "id": "HO"
   },
   {
     "name": "Blue Haze",
@@ -6559,8 +6427,7 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "BH",
-    "genetics": "Haze × Blueberry"
+    "id": "BH"
   },
   {
     "name": "L.A. S.A.G.E.",
@@ -6616,8 +6483,7 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "WAR",
-    "genetics": "Skunk #1 × Afghani"
+    "id": "WAR"
   },
   {
     "name": "Allium Chem",
@@ -6640,8 +6506,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AC",
-    "genetics": "White OG × Modified Grape"
+    "id": "AC"
   },
   {
     "name": "High Silver",
@@ -6666,8 +6531,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "HS",
-    "genetics": "Haze x × Northern Lights #5"
+    "id": "HS"
   },
   {
     "name": "God Bud CBD",
@@ -6713,8 +6577,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GCC",
-    "genetics": "Green Crack × Unknown"
+    "id": "GCC"
   },
   {
     "name": "Gorilla Glue",
@@ -6752,8 +6615,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GG8",
-    "genetics": "Grapefruit Romulan × God's Gift"
+    "id": "GG8"
   },
   {
     "name": "GMO ZKZ",
@@ -6778,8 +6640,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GZ",
-    "genetics": "GMO × Zkittlez"
+    "id": "GZ"
   },
   {
     "name": "Permanent Fumez",
@@ -6804,8 +6665,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PF",
-    "genetics": "Permanent Marker x × Rainbow Belts"
+    "id": "PF"
   },
   {
     "name": "Pennywise",
@@ -6850,8 +6710,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "T12",
-    "genetics": "MK Ultra × G13 Haze"
+    "id": "T12"
   },
   {
     "name": "Rozay",
@@ -6873,8 +6732,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "ROZ",
-    "genetics": "Sunset Sherbet x × Purple Diesel"
+    "id": "ROZ"
   },
   {
     "name": "Forbidden Fruit",
@@ -6897,8 +6755,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "FF",
-    "genetics": "Cherry Pie × Tangie"
+    "id": "FF"
   },
   {
     "name": "Lavender Cake",
@@ -6910,8 +6767,7 @@
     "type": "Indica",
     "terpenes": [
       "Myrcene",
-      "Caryophyllene",
-      "Farnesene"
+      "Caryophyllene"
     ],
     "effects": [],
     "flavours": [
@@ -6921,8 +6777,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "LC1",
-    "genetics": "Super Skunk × Big Skunk Korean x Afghani Hawaiian"
+    "id": "LC1"
   },
   {
     "name": "Murray Sherbet",
@@ -6968,8 +6823,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "TRI",
-    "genetics": "White Widow × Master Kush"
+    "id": "TRI"
   },
   {
     "name": "Zour Apples",
@@ -6999,8 +6853,7 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "ZA",
-    "genetics": "Jack Herer × Ethos Glue"
+    "id": "ZA"
   },
   {
     "name": "Green Gelato",
@@ -7029,8 +6882,7 @@
       "Fatigue"
     ],
     "negatives": [],
-    "id": "GG9",
-    "genetics": "Thin Mint Cookies × Sunset Sherbet x Unknown"
+    "id": "GG9"
   },
   {
     "name": "L.A. Kush",
@@ -7062,8 +6914,7 @@
       "Anxiety"
     ],
     "negatives": [],
-    "id": "LK1",
-    "genetics": "Wedding Cake × Kush Mints"
+    "id": "LK1"
   },
   {
     "name": "Strawberry OG",
@@ -7096,8 +6947,7 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "SO",
-    "genetics": "Bruce Banner × SFV OG"
+    "id": "SO"
   },
   {
     "name": "Royal Moby",
@@ -7122,8 +6972,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "RM1",
-    "genetics": "Haze × White Widow"
+    "id": "RM1"
   },
   {
     "name": "Zookies",
@@ -7147,8 +6996,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "ZOO",
-    "genetics": "Animal Cookies × Gorilla Glue #4"
+    "id": "ZOO"
   },
   {
     "name": "Lunar Circus",
@@ -7170,8 +7018,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "LC2",
-    "genetics": "Harlequin × Jack"
+    "id": "LC2"
   },
   {
     "name": "Blue Pav",
@@ -7203,8 +7050,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CB",
-    "genetics": "Cherry Pie × Blast Cherry"
+    "id": "CB"
   },
   {
     "name": "Cookies Gelato",
@@ -7268,8 +7114,7 @@
       "Dizzy",
       "Anxious"
     ],
-    "id": "CJ1",
-    "genetics": "Alien Cookies × Kush Mints #11"
+    "id": "CJ1"
   },
   {
     "name": "London Jealousy",
@@ -7286,8 +7131,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "LJ",
-    "genetics": "London Pound Cake × Jealousy"
+    "id": "LJ"
   },
   {
     "name": "Black Garlic",
@@ -7310,8 +7154,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BG",
-    "genetics": "GMO Cookies × Sour Dubb"
+    "id": "BG"
   },
   {
     "name": "High Society",
@@ -7334,8 +7177,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "HS1",
-    "genetics": "Biscotti × Jet Fuel Gelato"
+    "id": "HS1"
   },
   {
     "name": "Kush Mints",
@@ -7370,8 +7212,7 @@
       "Dizzy",
       "Anxious"
     ],
-    "id": "KM1",
-    "genetics": "Animal Mints × Bubba Kush"
+    "id": "KM1"
   },
   {
     "name": "Lemon Cherry Zkittlez",
@@ -7400,8 +7241,7 @@
     "type": "Hybrid",
     "terpenes": [
       "Myrcene",
-      "Caryophyllene",
-      "Farnesene"
+      "Caryophyllene"
     ],
     "effects": [],
     "flavours": [
@@ -7410,8 +7250,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PB1",
-    "genetics": "Mandarin Sunset × Ethos Cookies"
+    "id": "PB1"
   },
   {
     "name": "Purple Goo",
@@ -7445,8 +7284,7 @@
       "Dizzy",
       "Anxious"
     ],
-    "id": "PG2",
-    "genetics": "Purple Urkle × Pink Panther"
+    "id": "PG2"
   },
   {
     "name": "Wedding Layer",
@@ -7480,8 +7318,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PK3",
-    "genetics": "WAP × Zoap"
+    "id": "PK3"
   },
   {
     "name": "Purple Milk",
@@ -7513,8 +7350,7 @@
       "Dry mouth",
       "Paranoid"
     ],
-    "id": "PM1",
-    "genetics": "Cereal Milk × Purple"
+    "id": "PM1"
   },
   {
     "name": "Purple Punch",
@@ -7549,8 +7385,7 @@
       "Dry eyes",
       "Dizzy"
     ],
-    "id": "PP1",
-    "genetics": "Granddaddy Purple × Larry OG"
+    "id": "PP1"
   },
   {
     "name": "Red Velvet",
@@ -7573,8 +7408,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "RV",
-    "genetics": "Lemon Cherry Gelato × Pina Acai"
+    "id": "RV"
   },
   {
     "name": "Rainbow Pie",
@@ -7597,8 +7431,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "RP",
-    "genetics": "Grand Blueberry Pie × Zkittlez"
+    "id": "RP"
   },
   {
     "name": "Strawberry Grail",
@@ -7621,8 +7454,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SG",
-    "genetics": "Strawberry Diesel × Holy Grail Kush"
+    "id": "SG"
   },
   {
     "name": "Miracle Alien Cookies",
@@ -7645,8 +7477,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MAC2",
-    "genetics": "Alien Cookies x × Columbian"
+    "id": "MAC2"
   },
   {
     "name": "Chem Cookies",
@@ -7700,8 +7531,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "FV",
-    "genetics": "Ice Cream Cake × Black Cherry Cheesecake"
+    "id": "FV"
   },
   {
     "name": "Chatterbox",
@@ -7724,8 +7554,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CHA",
-    "genetics": "Slurricane × Margy Mints"
+    "id": "CHA"
   },
   {
     "name": "Atomic Apple",
@@ -7749,8 +7578,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AA",
-    "genetics": "Apple Fritter × Triangle Mints"
+    "id": "AA"
   },
   {
     "name": "Fruit-Loops & Fuel",
@@ -7763,8 +7591,7 @@
     "terpenes": [
       "Myrcene",
       "Caryophyllene",
-      "Linalool",
-      "Farnesene"
+      "Linalool"
     ],
     "effects": [],
     "flavours": [
@@ -7774,8 +7601,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "FF1",
-    "genetics": "Wedding Cake × Frosted Fruit Cake"
+    "id": "FF1"
   },
   {
     "name": "Gelato Orange Cake",
@@ -7799,8 +7625,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GOC",
-    "genetics": "Gelato #33 × Orange Cake"
+    "id": "GOC"
   },
   {
     "name": "Gelato",
@@ -8352,8 +8177,7 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "DO-",
-    "genetics": "Girl Scout Cookies × Faceoff OG"
+    "id": "DO-"
   },
   {
     "name": "Best Choice",
@@ -8378,8 +8202,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BC4",
-    "genetics": "GR-4 × EMT-1"
+    "id": "BC4"
   },
   {
     "name": "Banana Ice Cake",
@@ -8404,8 +8227,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BIC",
-    "genetics": "Wedding Cake × Bananas x Gelato #42"
+    "id": "BIC"
   },
   {
     "name": "Biscotti Mintz",
@@ -8435,8 +8257,7 @@
       "Dry eyes",
       "Anxious"
     ],
-    "id": "BM",
-    "genetics": "Biscotti × Mintz"
+    "id": "BM"
   },
   {
     "name": "Peanut Butter Breath",
@@ -8466,8 +8287,7 @@
       "Paranoid",
       "Anxious"
     ],
-    "id": "PBB",
-    "genetics": "Do-si-dos × Mendo Breath"
+    "id": "PBB"
   },
   {
     "name": "Gelato",
@@ -8584,8 +8404,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "OK1",
-    "genetics": "Thai × Hindu Kush x Cali"
+    "id": "OK1"
   },
   {
     "name": "Green Knight",
@@ -8610,8 +8429,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GK2",
-    "genetics": "OG Kush × Gorilla Glue #4 x Jack Herer"
+    "id": "GK2"
   },
   {
     "name": "Strawberry Blitz",
@@ -8637,8 +8455,7 @@
       "Insomnia"
     ],
     "negatives": [],
-    "id": "SB",
-    "genetics": "Strawberry HP × Bounce"
+    "id": "SB"
   },
   {
     "name": "Caramel CBD",
@@ -8663,8 +8480,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CC1",
-    "genetics": "Himalayan × Afghani x Brazilian x Unknown"
+    "id": "CC1"
   },
   {
     "name": "Space Cake",
@@ -8687,8 +8503,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SC1",
-    "genetics": "Forum Cut Cookies × Snow Lotus"
+    "id": "SC1"
   },
   {
     "name": "Sonic Lemon Fuel",
@@ -8700,8 +8515,7 @@
     "type": "Hybrid",
     "terpenes": [
       "Caryophyllene",
-      "Limonene",
-      "Farnesene"
+      "Limonene"
     ],
     "effects": [],
     "flavours": [
@@ -8768,8 +8582,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GC1",
-    "genetics": "Girl Scout Cookies × Chemdawg"
+    "id": "GC1"
   },
   {
     "name": "OG Kush",
@@ -8791,8 +8604,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "OK2",
-    "genetics": "Thai × Hindu Kush x Cali"
+    "id": "OK2"
   },
   {
     "name": "Wedding Cake",
@@ -8817,8 +8629,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WC1",
-    "genetics": "Girl Scout Cookies × Cherry Pie"
+    "id": "WC1"
   },
   {
     "name": "Birthday Cake",
@@ -8849,8 +8660,7 @@
       "Inflammation"
     ],
     "negatives": [],
-    "id": "BC5",
-    "genetics": "Wedding Cake × Cherry Pie"
+    "id": "BC5"
   },
   {
     "name": "Marshmellow OG",
@@ -8942,8 +8752,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "KB",
-    "genetics": "Garlic Sherbet × Cactus Breath"
+    "id": "KB"
   },
   {
     "name": "Banjo",
@@ -8978,8 +8787,7 @@
       "Paranoid",
       "Anxious"
     ],
-    "id": "BAN",
-    "genetics": "Boost × Tangelo"
+    "id": "BAN"
   },
   {
     "name": "Frosted Lime",
@@ -9006,8 +8814,7 @@
     "type": "Hybrid",
     "terpenes": [
       "Myrcene",
-      "Caryophyllene",
-      "Farnesene"
+      "Caryophyllene"
     ],
     "effects": [
       "Happy"
@@ -9021,8 +8828,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "CDL",
-    "genetics": "Chemdawg × I-95"
+    "id": "CDL"
   },
   {
     "name": "Chemstar",
@@ -9034,8 +8840,7 @@
     "type": "Hybrid",
     "terpenes": [
       "Myrcene",
-      "Caryophyllene",
-      "Farnesene"
+      "Caryophyllene"
     ],
     "effects": [],
     "flavours": [
@@ -9045,8 +8850,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CHE1",
-    "genetics": "Chemdawg x × Unknown"
+    "id": "CHE1"
   },
   {
     "name": "Wedding Cake",
@@ -9069,8 +8873,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WC2",
-    "genetics": "Triangle Kush × Animal Mints"
+    "id": "WC2"
   },
   {
     "name": "Glitter Bomb",
@@ -9093,8 +8896,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GB2",
-    "genetics": "Grape Gas #10 × OGKB Blueberry Headband"
+    "id": "GB2"
   },
   {
     "name": "Grape Kush",
@@ -9152,8 +8954,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "LD",
-    "genetics": "California Sour × Lost Coast OG"
+    "id": "LD"
   },
   {
     "name": "Grape Pie",
@@ -9210,8 +9011,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "KM2",
-    "genetics": "Animal Mints × Bubba Kush"
+    "id": "KM2"
   },
   {
     "name": "Lemon Cherry Gelato",
@@ -9257,8 +9057,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SM",
-    "genetics": "Alien Cookies x × Columbian"
+    "id": "SM"
   },
   {
     "name": "Apple Fritter",
@@ -9281,8 +9080,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AF",
-    "genetics": "Sour Apple × Animal Cookies"
+    "id": "AF"
   },
   {
     "name": "Fire Cookies",
@@ -9306,8 +9104,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "FC2",
-    "genetics": "Girl Scout Cookies × Fire OG"
+    "id": "FC2"
   },
   {
     "name": "Fruity Pebble Kush",
@@ -9330,8 +9127,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "FPK",
-    "genetics": "Platinum Kush Breath × Multiple Unknown"
+    "id": "FPK"
   },
   {
     "name": "Georgia Pie",
@@ -9354,8 +9150,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GP3",
-    "genetics": "Kush Mints × Gellati"
+    "id": "GP3"
   },
   {
     "name": "Gelonade",
@@ -9378,8 +9173,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GEL5",
-    "genetics": "Lemon Tree × Gelato #41"
+    "id": "GEL5"
   },
   {
     "name": "M.A.C. Deluxe",
@@ -9392,8 +9186,7 @@
     "terpenes": [
       "Caryophyllene",
       "Limonene",
-      "Terpinolene",
-      "Farnesene"
+      "Terpinolene"
     ],
     "effects": [],
     "flavours": [
@@ -9403,8 +9196,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MD1",
-    "genetics": "Miracle Alien Cookies × OG Deluxe"
+    "id": "MD1"
   },
   {
     "name": "Superboof",
@@ -9415,8 +9207,7 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [
-      "Myrcene",
-      "Farnesene"
+      "Myrcene"
     ],
     "effects": [],
     "flavours": [
@@ -9425,8 +9216,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SUP",
-    "genetics": "Black Cherry Punch × Tropicana Cookies"
+    "id": "SUP"
   },
   {
     "name": "Strawberry Froyo",
@@ -9439,8 +9229,7 @@
     "terpenes": [
       "Myrcene",
       "Limonene",
-      "Linalool",
-      "Farnesene"
+      "Linalool"
     ],
     "effects": [],
     "flavours": [
@@ -9450,8 +9239,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SF",
-    "genetics": "Grape Cream Cake × Grandpa's Gun Chest"
+    "id": "SF"
   },
   {
     "name": "White Runtz",
@@ -9478,8 +9266,7 @@
       "Stress"
     ],
     "negatives": [],
-    "id": "WR",
-    "genetics": "The White × Runtz"
+    "id": "WR"
   },
   {
     "name": "Bruce Banner",
@@ -9525,8 +9312,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BS2",
-    "genetics": "Banana OG × Wedding Cake"
+    "id": "BS2"
   },
   {
     "name": "Candy Store",
@@ -9549,8 +9335,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CS",
-    "genetics": "Lemon Berry Candy OG × Ethos Cookies #16"
+    "id": "CS"
   },
   {
     "name": "Gold Bud",
@@ -9570,8 +9355,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GB3",
-    "genetics": "God Bud × Black Cherry Punch"
+    "id": "GB3"
   },
   {
     "name": "Guava Bars",
@@ -9594,8 +9378,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GB4",
-    "genetics": "Biscotti × Guava Z"
+    "id": "GB4"
   },
   {
     "name": "Garlic Cookies",
@@ -9617,8 +9400,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GC2",
-    "genetics": "Girl Scout Cookies × Chemdawg"
+    "id": "GC2"
   },
   {
     "name": "Jet Fuel Pie",
@@ -9643,8 +9425,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "JFP",
-    "genetics": "Wedding Pie × Jet Fuel Gelato"
+    "id": "JFP"
   },
   {
     "name": "Pink Cookies",
@@ -9666,8 +9447,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PC",
-    "genetics": "Pink Kush × Canuk Cookies"
+    "id": "PC"
   },
   {
     "name": "Permanent Marker",
@@ -9713,8 +9493,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PP2",
-    "genetics": "Black Cherry Punch × Mimosa #27"
+    "id": "PP2"
   },
   {
     "name": "Pink Snowcone",
@@ -9736,8 +9515,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PS",
-    "genetics": "Purple Punch × Do-si-dos"
+    "id": "PS"
   },
   {
     "name": "Blue Dream",
@@ -9762,8 +9540,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BD2",
-    "genetics": "Blueberry × Haze"
+    "id": "BD2"
   },
   {
     "name": "Apes in Space",
@@ -9797,8 +9574,7 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "AIS",
-    "genetics": "Falcon 9 × Grease Monkey"
+    "id": "AIS"
   },
   {
     "name": "Pink D1",
@@ -9822,8 +9598,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PD1",
-    "genetics": "Blackberry Breath × Animal Crasher"
+    "id": "PD1"
   },
   {
     "name": "Intersteller",
@@ -9848,8 +9623,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "INT",
-    "genetics": "Falcon 9 × Grease Monkey"
+    "id": "INT"
   },
   {
     "name": "Britz",
@@ -9862,8 +9636,7 @@
     "terpenes": [
       "Caryophyllene",
       "Limonene",
-      "Linalool",
-      "Farnesene"
+      "Linalool"
     ],
     "effects": [],
     "flavours": [
@@ -9873,8 +9646,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BRI",
-    "genetics": "Zkittlez × Lemon Tree"
+    "id": "BRI"
   },
   {
     "name": "Glueberry OG",
@@ -9898,8 +9670,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GO1",
-    "genetics": "Blueberry × Gorilla Glue #4 x OG Kush"
+    "id": "GO1"
   },
   {
     "name": "God Bud",
@@ -9928,8 +9699,7 @@
       "Insomnia"
     ],
     "negatives": [],
-    "id": "GB5",
-    "genetics": "Purple Skunk × Hawaiian"
+    "id": "GB5"
   },
   {
     "name": "Bling Blaow",
@@ -9954,8 +9724,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "BB1",
-    "genetics": "Glitter Bomb × Gastro Pop"
+    "id": "BB1"
   },
   {
     "name": "Baby Pam",
@@ -9980,8 +9749,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "BP1",
-    "genetics": "Pamela Anderson × SFV Kush"
+    "id": "BP1"
   },
   {
     "name": "Atlantic Glue",
@@ -10006,8 +9774,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "AG",
-    "genetics": "Chem Sis × Sour Dubb x Chocolate Diesel"
+    "id": "AG"
   },
   {
     "name": "Legendary Bozy",
@@ -10057,8 +9824,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "BAN1",
-    "genetics": "Boost × Tangelo"
+    "id": "BAN1"
   },
   {
     "name": "Critical Orange Punch",
@@ -10083,8 +9849,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "COP",
-    "genetics": "Critical Bilbo x × Orange Bud"
+    "id": "COP"
   },
   {
     "name": "Miracle Alien Cookies",
@@ -10123,8 +9888,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "QS",
-    "genetics": "Royal Kush × Mimosa"
+    "id": "QS"
   },
   {
     "name": "Black Pineapple",
@@ -10149,8 +9913,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "BP2",
-    "genetics": "Black Jack × Pineapple Upside-Down Cake"
+    "id": "BP2"
   },
   {
     "name": "Chem de la Chem",
@@ -10181,8 +9944,7 @@
       "Dizzy",
       "Paranoid"
     ],
-    "id": "CDL1",
-    "genetics": "Chemdawg × I-95"
+    "id": "CDL1"
   },
   {
     "name": "Crumbled Lime Ten",
@@ -10201,8 +9963,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CLT",
-    "genetics": "Citron Cookies × Biker Kush"
+    "id": "CLT"
   },
   {
     "name": "Kush Cookies",
@@ -10229,8 +9990,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "KC1",
-    "genetics": "Girl Scout Cookies × OG Kush"
+    "id": "KC1"
   },
   {
     "name": "Mint Sherbet",
@@ -10257,8 +10017,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MS2",
-    "genetics": "Sunset Sherbet × Kush Mints"
+    "id": "MS2"
   },
   {
     "name": "Strawberry Malawi",
@@ -10310,8 +10069,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "KM3",
-    "genetics": ""
+    "id": "KM3"
   },
   {
     "name": "L.A. Kush Cake",
@@ -10343,8 +10101,7 @@
       "Anxiety"
     ],
     "negatives": [],
-    "id": "LKC",
-    "genetics": "Wedding Cake × Kush Mints"
+    "id": "LKC"
   },
   {
     "name": "Wild Thailand",
@@ -10356,8 +10113,7 @@
     "type": "Sativa",
     "terpenes": [
       "Pinene",
-      "Terpinolene",
-      "Carene"
+      "Terpinolene"
     ],
     "effects": [
       "Focused",
@@ -10405,8 +10161,7 @@
       "Paranoid",
       "Anxious"
     ],
-    "id": "OKC",
-    "genetics": "Roze Zkittlez × OG Eddy Lepp"
+    "id": "OKC"
   },
   {
     "name": "Alien Dawg",
@@ -10429,8 +10184,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AD1",
-    "genetics": "Chemdawg × Alien Tech"
+    "id": "AD1"
   },
   {
     "name": "Girl Scout Cookies",
@@ -10461,8 +10215,7 @@
       "Inflammation"
     ],
     "negatives": [],
-    "id": "GSC2",
-    "genetics": "OG Kush × Durban Poison"
+    "id": "GSC2"
   },
   {
     "name": "Hollywood",
@@ -10479,8 +10232,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "HOL1",
-    "genetics": "Lemon Cherry Gelato × Runtz"
+    "id": "HOL1"
   },
   {
     "name": "Skywalker OG",
@@ -10571,8 +10323,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PD2",
-    "genetics": "Jet Fuel Gelato × Orange Cookies"
+    "id": "PD2"
   },
   {
     "name": "White Widow",
@@ -10599,8 +10350,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "WW2",
-    "genetics": "Brazilian Landrace × Indian Landrace"
+    "id": "WW2"
   },
   {
     "name": "Frosted Lemon Angel",
@@ -10627,8 +10377,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "FLA",
-    "genetics": "Lemon Skunk × Kosher Kush"
+    "id": "FLA"
   },
   {
     "name": "Wedding Cake Crash",
@@ -10655,7 +10404,7 @@
   },
   {
     "name": "Strawberry Banana",
-    "producer": "Somaí Pharmaceuticals",
+    "producer": "Soma\u00ed Pharmaceuticals",
     "code": "SB1",
     "tier": "Core",
     "thc": 25,
@@ -10699,8 +10448,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BCP",
-    "genetics": "Cake Crasher × Strawberries & Cream"
+    "id": "BCP"
   },
   {
     "name": "Black Triangle Kush",
@@ -10746,8 +10494,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GTH1",
-    "genetics": "Ghost OG × Nevil's Wreck"
+    "id": "GTH1"
   },
   {
     "name": "Critical Mass CBD",
@@ -10772,8 +10519,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "T10",
-    "genetics": "Critical Mass × Unknown"
+    "id": "T10"
   },
   {
     "name": "Peyote Critical",
@@ -10800,8 +10546,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "PC1",
-    "genetics": "Critical Kush × Peyote Purple"
+    "id": "PC1"
   },
   {
     "name": "Tangerine Boost",
@@ -10827,8 +10572,7 @@
       "Insomnia"
     ],
     "negatives": [],
-    "id": "TB1",
-    "genetics": "Tangerine Sunshine × Boost"
+    "id": "TB1"
   },
   {
     "name": "Blackberry Balanced",
@@ -10854,8 +10598,7 @@
       "Insomnia"
     ],
     "negatives": [],
-    "id": "BB2",
-    "genetics": "Cherry Pie × Unknown"
+    "id": "BB2"
   },
   {
     "name": "Wedding Pop Triangle",
@@ -10880,11 +10623,10 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WPT",
-    "genetics": "Wedding Cake × Triangle Kush"
+    "id": "WPT"
   },
   {
-    "name": "Blue Pavé",
+    "name": "Blue Pav\u00e9",
     "producer": "Mamedica",
     "code": "BP3",
     "tier": "Premium",
@@ -10898,8 +10640,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BP3",
-    "genetics": "Azul Runtz × Pav"
+    "id": "BP3"
   },
   {
     "name": "Sherb Master OG",
@@ -10941,8 +10682,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "ASG",
-    "genetics": "Chemdawg × SFV OG Kush"
+    "id": "ASG"
   },
   {
     "name": "Tokoloshe Sherbet",
@@ -10967,8 +10707,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "TS",
-    "genetics": "Jack of Spades × Biker Kush"
+    "id": "TS"
   },
   {
     "name": "Blackberry Balanced",
@@ -10991,8 +10730,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BB3",
-    "genetics": "Cherry Pie × Unknown"
+    "id": "BB3"
   },
   {
     "name": "First Class Funk",
@@ -11015,8 +10753,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "FCF",
-    "genetics": "GMO × Jet Fuel Gelato"
+    "id": "FCF"
   },
   {
     "name": "Blackberry Sour",
@@ -11040,8 +10777,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BS3",
-    "genetics": "Cherry Pie × Unknown"
+    "id": "BS3"
   },
   {
     "name": "Tangerine Boost",
@@ -11064,8 +10800,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "TB2",
-    "genetics": "Tangerine Sunshine × Boost"
+    "id": "TB2"
   },
   {
     "name": "Berry Cheesecake",
@@ -11077,8 +10812,7 @@
     "type": "Sativa",
     "terpenes": [
       "Caryophyllene",
-      "Linalool",
-      "Eucalyptol"
+      "Linalool"
     ],
     "effects": [],
     "flavours": [
@@ -11114,7 +10848,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AB"
+    "id": "AB",
+    "genetics": "(Platinum Cookies \u00d7 Granddaddy Purple \u00d7 Blue Power) \u00d7 Gelatti"
   },
   {
     "name": "Frosted Cookies",
@@ -11137,8 +10872,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "FC3",
-    "genetics": "Mandarin Cookies Bx × Mandarin Cookies Phenotypes"
+    "id": "FC3"
   },
   {
     "name": "Modified Grapes",
@@ -11161,8 +10895,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MG2",
-    "genetics": "GMO Cookies × Purple Punch"
+    "id": "MG2"
   },
   {
     "name": "Ghost Train Haze",
@@ -11197,8 +10930,7 @@
       "Paranoid",
       "Anxious"
     ],
-    "id": "GTH2",
-    "genetics": "Ghost OG × Nevil's Wreck"
+    "id": "GTH2"
   },
   {
     "name": "MAC-1 x Powdered Donuts",
@@ -11222,8 +10954,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MXP",
-    "genetics": "Powdered Donuts × Miracle Alien Cookies"
+    "id": "MXP"
   },
   {
     "name": "Strawberry Guava",
@@ -11258,8 +10989,7 @@
       "Paranoid",
       "Anxious"
     ],
-    "id": "SG1",
-    "genetics": "Strawberry Banana × Papaya"
+    "id": "SG1"
   },
   {
     "name": "Union Jack Herer",
@@ -11283,8 +11013,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "UJH",
-    "genetics": "Jack Herer × Undisclosed"
+    "id": "UJH"
   },
   {
     "name": "Ghost Train Haze",
@@ -11309,8 +11038,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "GTH3",
-    "genetics": "Ghost OG × Nevil's Wreck"
+    "id": "GTH3"
   },
   {
     "name": "Legendary Larry",
@@ -11337,8 +11065,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "LL",
-    "genetics": "Legend OG × Larry OG"
+    "id": "LL"
   },
   {
     "name": "Banana Ice Cream Cake",
@@ -11363,8 +11090,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "BIC1",
-    "genetics": "Banana OG × Ice Cream Cake"
+    "id": "BIC1"
   },
   {
     "name": "Cherry Moon Pie",
@@ -11389,11 +11115,10 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CMP",
-    "genetics": "Wedding Pie × Grape Pie"
+    "id": "CMP"
   },
   {
-    "name": "Stólō Haze",
+    "name": "St\u00f3l\u014d Haze",
     "producer": "All Nations",
     "code": "SH",
     "tier": "Core",
@@ -11414,8 +11139,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SH",
-    "genetics": "Super Silver Haze × Northern Lights"
+    "id": "SH"
   },
   {
     "name": "Apples & Bananas",
@@ -11441,7 +11165,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AB1"
+    "id": "AB1",
+    "genetics": "(Platinum Cookies \u00d7 Granddaddy Purple \u00d7 Blue Power) \u00d7 Gelatti"
   },
   {
     "name": "Apricot Cream & Cheese",
@@ -11464,8 +11189,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "ACC",
-    "genetics": "UK Cheese × CBD100"
+    "id": "ACC"
   },
   {
     "name": "Gorilla Glue #4",
@@ -11488,8 +11212,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GG41",
-    "genetics": "Chem Sis × Sour Dubb x Chocolate Diesel"
+    "id": "GG41"
   },
   {
     "name": "Strawberry Banana",
@@ -11510,8 +11233,7 @@
     "flavours": [],
     "helpsWith": [],
     "negatives": [],
-    "id": "SB2",
-    "genetics": "Banana Kush × Bubble Gum"
+    "id": "SB2"
   },
   {
     "name": "Miracle Alien Cookies",
@@ -11536,8 +11258,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MAC4",
-    "genetics": "Alien Cookies x × Columbian"
+    "id": "MAC4"
   },
   {
     "name": "Gorilla Glue #4",
@@ -11560,8 +11281,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GG42",
-    "genetics": "Chem Sis × Sour Dubb x Chocolate Diesel"
+    "id": "GG42"
   },
   {
     "name": "Gorilla Glue #4",
@@ -11586,8 +11306,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GG43",
-    "genetics": "Chem Sis × Sour Dubb x Chocolate Diesel"
+    "id": "GG43"
   },
   {
     "name": "Gorilla Glue #4",
@@ -11610,8 +11329,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GG44",
-    "genetics": "Chem Sis × Sour Dubb x Chocolate Diesel"
+    "id": "GG44"
   },
   {
     "name": "Chem Cookies #44",
@@ -11634,8 +11352,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CC4",
-    "genetics": "Chemdawg #4 × Girl Scout Cookies"
+    "id": "CC4"
   },
   {
     "name": "Gelato #33",
@@ -11657,8 +11374,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "G3",
-    "genetics": "Sunset Sherbet × Thin Mint GSC"
+    "id": "G3"
   },
   {
     "name": "Cura B2 T4C10",
@@ -11704,8 +11420,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "G4",
-    "genetics": "Sunset Sherbet × Thin Mint GSC"
+    "id": "G4"
   },
   {
     "name": "Hsoc High Society Oracle",
@@ -11858,8 +11573,7 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "MAC5",
-    "genetics": "Alien Cookies x × Columbian"
+    "id": "MAC5"
   },
   {
     "name": "Gas Cream Cake",
@@ -11883,8 +11597,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GCC1",
-    "genetics": "Wedding Cake × Ice Cream Cake"
+    "id": "GCC1"
   },
   {
     "name": "Dante's Inferno",
@@ -11910,8 +11623,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "DI",
-    "genetics": "Oreo Cookies × Devil Driver"
+    "id": "DI"
   },
   {
     "name": "Fight Club",
@@ -11935,8 +11647,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "FC5",
-    "genetics": "The Soap × Velvet Runtz"
+    "id": "FC5"
   },
   {
     "name": "Grease Monkey",
@@ -11959,8 +11670,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GM",
-    "genetics": "Gorilla Glue #4 × Cookies & Cream"
+    "id": "GM"
   },
   {
     "name": "Grape Octane",
@@ -11983,8 +11693,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GO2",
-    "genetics": "Grape Pie × Hi-Octane"
+    "id": "GO2"
   },
   {
     "name": "Halle Berry",
@@ -11997,8 +11706,7 @@
     "terpenes": [
       "Caryophyllene",
       "Limonene",
-      "Linalool",
-      "Farnesene"
+      "Linalool"
     ],
     "effects": [],
     "flavours": [
@@ -12008,8 +11716,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "HB1",
-    "genetics": "Ice Cream Cake × Blockberry"
+    "id": "HB1"
   },
   {
     "name": "Gazzurple",
@@ -12022,8 +11729,7 @@
     "terpenes": [
       "Myrcene",
       "Caryophyllene",
-      "Limonene",
-      "Farnesene"
+      "Limonene"
     ],
     "effects": [],
     "flavours": [
@@ -12033,8 +11739,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GAZ",
-    "genetics": "Poddy Mouth × Macaroon"
+    "id": "GAZ"
   },
   {
     "name": "Karamel Kandy",
@@ -12058,8 +11763,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "KK2",
-    "genetics": "Lemmings S × Apple Fritter #6"
+    "id": "KK2"
   },
   {
     "name": "L.A. Baker",
@@ -12083,8 +11787,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "LB1",
-    "genetics": "The Cookies × Sorbet"
+    "id": "LB1"
   },
   {
     "name": "Singapore Sling",
@@ -12108,8 +11811,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SS3",
-    "genetics": "Orange Creamsicle × Tiki Cookies"
+    "id": "SS3"
   },
   {
     "name": "Cadillac Rainbow",
@@ -12133,8 +11835,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CR",
-    "genetics": "Pure Michigan × Runtz"
+    "id": "CR"
   },
   {
     "name": "White Cookies",
@@ -12158,8 +11859,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WC3",
-    "genetics": "White Widow × Girl Scout Cookies"
+    "id": "WC3"
   },
   {
     "name": "Grey Goose",
@@ -12183,8 +11883,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GG11",
-    "genetics": "Blue Dream × White Runtz"
+    "id": "GG11"
   },
   {
     "name": "Pineapple Express",
@@ -12208,8 +11907,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "PE",
-    "genetics": "Trainwreck × Hawaiian"
+    "id": "PE"
   },
   {
     "name": "Sticky Cake",
@@ -12233,8 +11931,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SC2",
-    "genetics": "Runtz × Wedding Cake F2 x Slapz F2"
+    "id": "SC2"
   },
   {
     "name": "Gelato",
@@ -12256,8 +11953,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GEL6",
-    "genetics": "Sunset Sherbet × Thin Mint GSC"
+    "id": "GEL6"
   },
   {
     "name": "Watermelon Zkittlez",
@@ -12281,8 +11977,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WZ",
-    "genetics": "Zkittlez × Watermelon"
+    "id": "WZ"
   },
   {
     "name": "Mount Fuji",
@@ -12305,8 +12000,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MF1",
-    "genetics": "Gelato × Sugar Cane"
+    "id": "MF1"
   },
   {
     "name": "Tokyo Push-Pop",
@@ -12352,8 +12046,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SO2",
-    "genetics": "Oreoz × Starfighter"
+    "id": "SO2"
   },
   {
     "name": "La Confidential",
