@@ -1,7 +1,7 @@
 # =============================================================================
 # Bloomy's Bud Log — Auto-Update Strains (Playwright Edition)
 # =============================================================================
-# Runs weekly (Sunday 6am UTC) using a headless browser to scrape
+# Runs daily (6am UTC) using a headless browser to scrape
 # MedBud.wiki's JS-rendered strain pages for full data including terpenes.
 #
 # Can also be triggered manually from the Actions tab.
@@ -11,7 +11,7 @@ name: Update Strain Data
 
 on:
   schedule:
-    - cron: '0 6 * * 0'
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:
