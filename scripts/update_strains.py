@@ -340,65 +340,78 @@ async def scrape_strain_page_pw(page, url, producer_name):
     # --- Genetics / Parent Strains ---
     genetics = ""
 
-    # Find genetics section of the page (near "Genetics" or "Lineage" keyword)
+    # Find genetics/parents section — MedBud typically uses "Parents"
     gen_section = ""
-    for keyword in ["Genetics", "Lineage", "Parentage", "Parent Strain"]:
+    for keyword in ["Parents", "Parent Strains", "Parent Strain", "Genetics",
+                     "Lineage", "Parentage"]:
         gen_idx = page_text.find(keyword)
         if gen_idx < 0:
             gen_idx = page_text.lower().find(keyword.lower())
         if gen_idx >= 0:
-            gen_section = page_text[gen_idx:gen_idx+200]
+            # Skip past the keyword itself so it doesn't get captured
+            start = gen_idx + len(keyword)
+            gen_section = page_text[start:start+300]
             break
 
     if gen_section:
-        # Approach 1: "Name × Name" or "Name x Name" — strict strain name pattern
-        # Each name: starts with uppercase, 2-30 chars of letters/spaces/hyphens/apostrophes/digits
+        # Strip parenthetical annotations: "(sativa hybrid)", "(indica)", "(50/50)" etc.
+        clean = re.sub(r'\([^)]{0,40}\)', '', gen_section)
+        clean = re.sub(r'[ \t]{2,}', ' ', clean)  # Collapse spaces but keep newlines
+
+        # Approach 1: "Name x Name" — use literal space (not \s) so newlines stop the match
         pair_m = re.search(
-            r'([A-Z][A-Za-z0-9\s\'\-\&]{1,29}?)\s*[×xX]\s*([A-Z][A-Za-z0-9\s\'\-\&]{1,29}?)(?:\s*(?:strain|\.|\n|,|Classi|Chemo|Terp|THC|CBD|Type|Flower|Effect|Flavo|\d+\s*%))',
-            gen_section
+            r"([A-Z][A-Za-z0-9 '\-\&\#]{1,35}?)\s*[×xX]\s*"
+            r"([A-Z][A-Za-z0-9 '\-\&\#]{1,35}?)"
+            r"(?:\s*$|\s*[\.\n,]|\s*(?:strain|Classi|Chemo|Terp|THC|CBD|Type|Flower|"
+            r"Effect|Flavo|Medication|Medical|Negative|Side|\d+\s*%))",
+            clean
         )
         if pair_m:
             p1 = pair_m.group(1).strip()
             p2 = pair_m.group(2).strip()
-            # Reject if either side looks like descriptive text
             if len(p1) >= 2 and len(p2) >= 2:
                 genetics = f"{p1} × {p2}"
 
-        # Approach 2: single parent name after keyword (no cross)
+        # Approach 2: looser — first line only, no stop-word requirement
         if not genetics:
-            single_m = re.search(
-                r'(?:Genetics|Lineage|Parentage)\s*[\u00b7:\-]?\s*([A-Z][A-Za-z0-9\s\'\-\&]{2,40}?)(?:\s*(?:strain|\.|\n|,|Classi|Chemo|Terp|THC|CBD|Type|Flower|Effect|\d+\s*%))',
-                gen_section
+            first_line = clean.split('\n')[0].strip() if '\n' in clean else clean[:150]
+            pair_m2 = re.search(
+                r"([A-Z][A-Za-z0-9 '\-\&\#]{1,35}?)\s*[×xX]\s*"
+                r"([A-Z][A-Za-z0-9 '\-\&\#]{2,35})",
+                first_line
             )
-            if single_m:
-                candidate = single_m.group(1).strip()
-                # Only use if it looks like strain names (contains × or short enough)
-                if '×' in candidate or 'x' in candidate.lower():
-                    genetics = re.sub(r'\s+[xX]\s+', ' × ', candidate)
-                elif len(candidate) <= 40:
-                    genetics = candidate
+            if pair_m2:
+                p1 = pair_m2.group(1).strip()
+                p2 = pair_m2.group(2).strip()
+                if len(p1) >= 2 and len(p2) >= 2:
+                    genetics = f"{p1} × {p2}"
 
     # Approach 3: "cross of X and Y" anywhere near top of page
     if not genetics:
+        cross_section = re.sub(r'\([^)]{0,40}\)', '', page_text[:1500])
         cross_m = re.search(
-            r'(?:cross|hybrid)\s+(?:of|between)\s+'
-            r'([A-Z][A-Za-z\s\'\-]{2,25}?)\s+(?:and|&)\s+([A-Z][A-Za-z\s\'\-]{2,25}?)[\.\,\n\s]',
-            page_text[:1500], re.IGNORECASE
+            r"(?:cross|hybrid)\s+(?:of|between)\s+"
+            r"([A-Z][A-Za-z '\-\&]{2,30}?)\s+(?:and|&)\s+"
+            r"([A-Z][A-Za-z '\-\&]{2,30}?)[\.\,\n]",
+            cross_section, re.IGNORECASE
         )
         if cross_m:
             genetics = f"{cross_m.group(1).strip()} × {cross_m.group(2).strip()}"
 
     # Final cleanup
     if genetics:
-        genetics = re.sub(r'\s{2,}', ' ', genetics).strip()
-        # Remove trailing common words that leaked in
-        genetics = re.sub(r'\s+(?:strain|strains|if|is|are|the|a|an|this|which|that|with|from)s?\s*\.?$', '', genetics, flags=re.IGNORECASE).strip()
+        genetics = re.sub(r'  +', ' ', genetics).strip()
+        # Remove trailing leaked descriptive words
+        genetics = re.sub(
+            r'\s+(?:strain|strains|if|is|are|the|a|an|this|which|that|with|from)s?\s*\.?$',
+            '', genetics, flags=re.IGNORECASE
+        ).strip()
         if len(genetics) > 65:
             genetics = genetics[:65].rsplit(' ', 1)[0]
-        # Must contain at least one letter on each side of × to be valid
+        # Validate: both sides of × must have 2+ chars
         if '×' in genetics:
             parts = genetics.split('×')
-            if len(parts) == 2 and len(parts[0].strip()) < 2 or len(parts[1].strip()) < 2:
+            if len(parts) != 2 or len(parts[0].strip()) < 2 or len(parts[1].strip()) < 2:
                 genetics = ""
 
     return {
@@ -427,14 +440,19 @@ def scrape_weedstrain(strain_name):
     page_text = BeautifulSoup(resp.text, 'html.parser').get_text()
     data = {"terpenes": [], "effects": [], "flavours": [], "helpsWith": [], "negatives": [], "genetics": ""}
 
-    # Genetics / Parents
+    # Genetics / Parents — strip parenthetical annotations first
+    clean_text = re.sub(r'\([^)]{0,40}\)', '', page_text)
     gen_m = re.search(
-        r'(?:parent|lineage|genetic|cross)\s*[s:\-]?\s*'
-        r'([A-Za-z][\w\s\'\-\&\.]{2,30}?)\s*(?:×|x|X|and|&)\s*([A-Za-z][\w\s\'\-\&\.]{2,30})',
-        page_text, re.IGNORECASE
+        r'(?:parents?|lineage|genetics?|cross)\s*[s:\-]?\s*'
+        r'([A-Z][A-Za-z0-9\s\'\-\&]{2,35}?)\s*(?:×|x|X|and|&)\s*'
+        r'([A-Z][A-Za-z0-9\s\'\-\&]{2,35}?)(?:\s*$|\s*[\.\,\n]|\s+(?:strain|is|are|the|this|a))',
+        clean_text, re.IGNORECASE
     )
     if gen_m:
-        data["genetics"] = f"{gen_m.group(1).strip()} × {gen_m.group(2).strip()}"
+        p1 = gen_m.group(1).strip()
+        p2 = gen_m.group(2).strip()
+        if len(p1) >= 2 and len(p2) >= 2:
+            data["genetics"] = f"{p1} × {p2}"
 
     for terp in KNOWN_TERPENES:
         if re.search(rf'\b{terp}\b', page_text, re.IGNORECASE) and len(data["terpenes"]) < 3:
