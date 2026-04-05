@@ -339,45 +339,67 @@ async def scrape_strain_page_pw(page, url, producer_name):
 
     # --- Genetics / Parent Strains ---
     genetics = ""
-    # Approach 1: "Genetics · X x Y" or "Genetics · X × Y"
-    gen_m = re.search(
-        r'(?:Genetics|Lineage|Parentage|Parent\s*Strains?)\s*[\u00b7:\-]?\s*'
-        r'([A-Za-z][\w\s\'\-\&\.\,\u00e9\u00e8\u00fc#\u00d7×xX]+?)'
-        r'\s*(?:Classification|Chemotype|Terpene|Type|THC|CBD|Flower|$|\n)',
-        page_text
-    )
-    if gen_m:
-        genetics = gen_m.group(1).strip()
-        # Normalise "x" to "×"
-        genetics = re.sub(r'\s+[xX]\s+', ' × ', genetics)
 
-    # Approach 2: broader — look for "cross of X and Y" near the top of the page
+    # Find genetics section of the page (near "Genetics" or "Lineage" keyword)
+    gen_section = ""
+    for keyword in ["Genetics", "Lineage", "Parentage", "Parent Strain"]:
+        gen_idx = page_text.find(keyword)
+        if gen_idx < 0:
+            gen_idx = page_text.lower().find(keyword.lower())
+        if gen_idx >= 0:
+            gen_section = page_text[gen_idx:gen_idx+200]
+            break
+
+    if gen_section:
+        # Approach 1: "Name × Name" or "Name x Name" — strict strain name pattern
+        # Each name: starts with uppercase, 2-30 chars of letters/spaces/hyphens/apostrophes/digits
+        pair_m = re.search(
+            r'([A-Z][A-Za-z0-9\s\'\-\&]{1,29}?)\s*[×xX]\s*([A-Z][A-Za-z0-9\s\'\-\&]{1,29}?)(?:\s*(?:strain|\.|\n|,|Classi|Chemo|Terp|THC|CBD|Type|Flower|Effect|Flavo|\d+\s*%))',
+            gen_section
+        )
+        if pair_m:
+            p1 = pair_m.group(1).strip()
+            p2 = pair_m.group(2).strip()
+            # Reject if either side looks like descriptive text
+            if len(p1) >= 2 and len(p2) >= 2:
+                genetics = f"{p1} × {p2}"
+
+        # Approach 2: single parent name after keyword (no cross)
+        if not genetics:
+            single_m = re.search(
+                r'(?:Genetics|Lineage|Parentage)\s*[\u00b7:\-]?\s*([A-Z][A-Za-z0-9\s\'\-\&]{2,40}?)(?:\s*(?:strain|\.|\n|,|Classi|Chemo|Terp|THC|CBD|Type|Flower|Effect|\d+\s*%))',
+                gen_section
+            )
+            if single_m:
+                candidate = single_m.group(1).strip()
+                # Only use if it looks like strain names (contains × or short enough)
+                if '×' in candidate or 'x' in candidate.lower():
+                    genetics = re.sub(r'\s+[xX]\s+', ' × ', candidate)
+                elif len(candidate) <= 40:
+                    genetics = candidate
+
+    # Approach 3: "cross of X and Y" anywhere near top of page
     if not genetics:
         cross_m = re.search(
             r'(?:cross|hybrid)\s+(?:of|between)\s+'
-            r'([A-Za-z][\w\s\'\-\&]+?)\s+(?:and|&|×|x)\s+([A-Za-z][\w\s\'\-\&]+?)[\.\,\n]',
+            r'([A-Z][A-Za-z\s\'\-]{2,25}?)\s+(?:and|&)\s+([A-Z][A-Za-z\s\'\-]{2,25}?)[\.\,\n\s]',
             page_text[:1500], re.IGNORECASE
         )
         if cross_m:
             genetics = f"{cross_m.group(1).strip()} × {cross_m.group(2).strip()}"
 
-    # Approach 3: "X × Y" or "X x Y" pattern near "Genetics" keyword
-    if not genetics:
-        gen_idx = page_text.lower().find("genetic")
-        if gen_idx >= 0:
-            gen_section = page_text[gen_idx:gen_idx+300]
-            pair_m = re.search(
-                r'([A-Z][A-Za-z\s\'\-\&\.]{2,30}?)\s*[×xX]\s*([A-Z][A-Za-z\s\'\-\&\.]{2,30})',
-                gen_section
-            )
-            if pair_m:
-                genetics = f"{pair_m.group(1).strip()} × {pair_m.group(2).strip()}"
-
-    # Clean up: remove trailing junk, cap length
+    # Final cleanup
     if genetics:
         genetics = re.sub(r'\s{2,}', ' ', genetics).strip()
-        if len(genetics) > 80:
-            genetics = genetics[:80].rsplit(' ', 1)[0]
+        # Remove trailing common words that leaked in
+        genetics = re.sub(r'\s+(?:strain|strains|if|is|are|the|a|an|this|which|that|with|from)s?\s*\.?$', '', genetics, flags=re.IGNORECASE).strip()
+        if len(genetics) > 65:
+            genetics = genetics[:65].rsplit(' ', 1)[0]
+        # Must contain at least one letter on each side of × to be valid
+        if '×' in genetics:
+            parts = genetics.split('×')
+            if len(parts) == 2 and len(parts[0].strip()) < 2 or len(parts[1].strip()) < 2:
+                genetics = ""
 
     return {
         "name": strain_name, "producer": producer_name,
@@ -680,6 +702,20 @@ def clean_existing_data(strains):
         # Strip youtubeReviews (now stored separately in reviews.json)
         if "youtubeReviews" in s:
             del s["youtubeReviews"]
+
+        # Clean genetics — strip leaked descriptive text
+        g = s.get("genetics", "")
+        if g:
+            g = re.sub(r'\s+(?:strain|strains|if|is|are|the|a|an|this|which|that|with|from)s?\b.*$', '', g, flags=re.IGNORECASE).strip()
+            if '.' in g:
+                g = g[:g.index('.')].strip()
+            if len(g) > 65:
+                g = g[:65].rsplit(' ', 1)[0]
+            if '×' in g:
+                parts = g.split('×')
+                if len(parts) == 2 and (len(parts[0].strip()) < 2 or len(parts[1].strip()) < 2):
+                    g = ''
+            s["genetics"] = g
 
     # 2. Remove duplicates (keep the one with more data)
     seen = {}
