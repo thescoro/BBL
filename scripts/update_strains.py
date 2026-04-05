@@ -122,6 +122,11 @@ def make_code(name, existing_codes):
     return code
 
 
+def is_valid_code(code):
+    """A valid strain code: 2-10 alphanumeric+dash chars, no whitespace."""
+    return bool(code) and 2 <= len(code) <= 10 and bool(re.match(r'^[A-Za-z0-9\-]+$', code))
+
+
 # ---------------------------------------------------------------------------
 # Step 1: Discover strain URLs via simple HTTP (links are in static HTML)
 # ---------------------------------------------------------------------------
@@ -325,9 +330,12 @@ async def scrape_strain_page_pw(page, url, producer_name):
 
     # --- Code ---
     code = ""
-    code_m = re.search(r'Designation\s*\u00b7?\s*([A-Z0-9][A-Z0-9\-\s]*)', page_text)
+    code_m = re.search(r'Designation\s*\u00b7?\s*([A-Z0-9][A-Z0-9\-]{1,9})', page_text)
     if code_m:
-        code = code_m.group(1).strip()
+        candidate = code_m.group(1).strip()
+        # Validate: 2-10 chars, no newlines/spaces, alphanumeric+dash only
+        if 2 <= len(candidate) <= 10 and re.match(r'^[A-Za-z0-9\-]+$', candidate):
+            code = candidate
 
     # --- Genetics / Parent Strains ---
     genetics = ""
@@ -691,8 +699,24 @@ def clean_existing_data(strains):
             seen[key] = s
             deduped.append(s)
 
-    if cleaned or removed:
-        print(f"  \U0001f9f9 Cleaned {cleaned} names, removed {removed} duplicates")
+    # 3. Fix invalid/duplicate codes
+    code_fixed = 0
+    used_codes = set()
+    for s in deduped:
+        code = s.get("code", "")
+        if is_valid_code(code) and code not in used_codes:
+            used_codes.add(code)
+        else:
+            new_code = make_code(s["name"], used_codes)
+            s["code"] = new_code
+            s["id"] = new_code
+            code_fixed += 1
+    # Ensure id always matches code
+    for s in deduped:
+        s["id"] = s["code"]
+
+    if cleaned or removed or code_fixed:
+        print(f"  \U0001f9f9 Cleaned {cleaned} names, removed {removed} duplicates, fixed {code_fixed} codes")
 
     return deduped
 
@@ -909,7 +933,8 @@ async def main():
         # 5. Merge
         result = list(existing)
         for s in new_strains:
-            code = s.get("code") or make_code(s["name"], existing_codes)
+            raw_code = s.get("code", "")
+            code = raw_code if is_valid_code(raw_code) and raw_code not in existing_codes else make_code(s["name"], existing_codes)
             if code not in existing_codes:
                 existing_codes.add(code)
             result.append({
