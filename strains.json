@@ -730,7 +730,8 @@
       "Paranoid",
       "Anxious"
     ],
-    "id": "ATD"
+    "id": "ATD",
+    "genetics": "Alaskan Thunder Fuck, also known as 'Matanuska Thunder Fuck', and as 'Humble"
   },
   {
     "name": "Khalifa Mints",
@@ -766,7 +767,8 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "KM"
+    "id": "KM",
+    "genetics": "Bred by Compound Genetics, Khalifa Mints is the name BLLRDR gave to this strain"
   },
   {
     "name": "Citroli",
@@ -1083,7 +1085,8 @@
       "Dry mouth",
       "Dry eyes"
     ],
-    "id": "GSP"
+    "id": "GSP",
+    "genetics": "Gastro Pop, also known as 'GastroPop,' is an indica dominant hybrid strain"
   },
   {
     "name": "Dante'z Inferno",
@@ -1118,7 +1121,8 @@
       "Couch-lock",
       "Dizzy"
     ],
-    "id": "DZI"
+    "id": "DZI",
+    "genetics": "in Colorado Springs."
   },
   {
     "name": "Peanut Butter Soufflé",
@@ -1541,7 +1545,8 @@
       "Dry mouth",
       "Dizzy"
     ],
-    "id": "FRG"
+    "id": "FRG",
+    "genetics": "and Breeding team. The goal was to create a superior high"
   },
   {
     "name": "Black Jelly",
@@ -1685,7 +1690,8 @@
     "negatives": [
       "Dry mouth"
     ],
-    "id": "CTC"
+    "id": "CTC",
+    "genetics": "As more studies are done on the effects of"
   },
   {
     "name": "Equiposa",
@@ -1824,7 +1830,8 @@
       "Couch-lock",
       "Dizzy"
     ],
-    "id": "LAC"
+    "id": "LAC",
+    "genetics": "L.A. Confidential is a pure Indica strain that has won multiple awards,"
   },
   {
     "name": "Bedrocan",
@@ -2165,7 +2172,8 @@
       "Dry mouth",
       "Couch-lock"
     ],
-    "id": "PM"
+    "id": "PM",
+    "genetics": "Purple Milk is a standout phenotype we selected from Gaschata, which came from"
   },
   {
     "name": "Gorilla Kush",
@@ -3647,7 +3655,8 @@
       "Anxiety"
     ],
     "negatives": [],
-    "id": "JOK"
+    "id": "JOK",
+    "genetics": "released the Jokerz strain, it is relatively popular and even took first place"
   },
   {
     "name": "Peanut Butter Souffl",
@@ -3787,7 +3796,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "UV"
+    "id": "UV",
+    "genetics": "Grapefruit was a high"
   },
   {
     "name": "Delahaze",
@@ -3876,7 +3886,8 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "BS1"
+    "id": "BS1",
+    "genetics": "Tangie × Banana Sherbet strains. If you'"
   },
   {
     "name": "Pink Kush",
@@ -4242,7 +4253,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GB"
+    "id": "GB",
+    "genetics": "Glitter Bomb was bred from a Grape Gas #10 male and an OGKB Blueberry Headband"
   },
   {
     "name": "Moroccan Peaches",
@@ -4267,7 +4279,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "MP"
+    "id": "MP",
+    "genetics": "Little is known about this strain other than its genetic lineage."
   },
   {
     "name": "Gastro Pop",
@@ -4292,7 +4305,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GP"
+    "id": "GP",
+    "genetics": "Gastro Pop, also known as 'GastroPop,' is an indica dominant hybrid strain"
   },
   {
     "name": "St",
@@ -4660,7 +4674,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "ISS"
+    "id": "ISS",
+    "genetics": "Island Sweet Skunk, also known as ISS or Sweet Island Skunk, has been"
   },
   {
     "name": "Biscuit Runtz",
@@ -4712,7 +4727,8 @@
       "Anxious",
       "Couch-lock"
     ],
-    "id": "WAP"
+    "id": "WAP",
+    "genetics": "Indica Hybrid"
   },
   {
     "name": "Miracle Alien Cookies",
@@ -5567,7 +5583,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "LA"
+    "id": "LA",
+    "genetics": "L.A. Amnesia is a potent, high yield sativa with a revved up"
   },
   {
     "name": "Night Queen",
@@ -5592,7 +5609,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "NQ"
+    "id": "NQ",
+    "genetics": "Night Queen has a typical classic 'Afghani-Kush' aroma, very powerful and"
   },
   {
     "name": "Wappa",
@@ -5618,7 +5636,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WAP1"
+    "id": "WAP1",
+    "genetics": "Indica Hybrid"
   },
   {
     "name": "Humble Warrior",
@@ -5643,7 +5662,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "HW"
+    "id": "HW",
+    "genetics": "Alaskan Thunder Fuck, also known as 'Matanuska Thunder Fuck', and as 'Humble"
   },
   {
     "name": "Delahaze",
@@ -5701,7 +5721,8 @@
       "Anxiety"
     ],
     "negatives": [],
-    "id": "MAZ"
+    "id": "MAZ",
+    "genetics": "Mazar, a mostly Indica strain created by Dutch Passion, takes its name from"
   },
   {
     "name": "Moby Dick",
@@ -5977,7 +5998,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "T4"
+    "id": "T4",
+    "genetics": "Along with"
   },
   {
     "name": "Balanced Kush",
@@ -6273,7 +6295,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GEL2"
+    "id": "GEL2",
+    "genetics": "Hybrid"
   },
   {
     "name": "Gary Payton",
@@ -6300,7 +6323,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GP1"
+    "id": "GP1",
+    "genetics": "and named after the NBA Hall of Famer."
   },
   {
     "name": "Herijuana",
@@ -6709,7 +6733,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "T12"
+    "id": "T12",
+    "genetics": "As more studies are done on the effects of"
   },
   {
     "name": "Rozay",
@@ -6852,7 +6877,8 @@
       "Depression"
     ],
     "negatives": [],
-    "id": "ZA"
+    "id": "ZA",
+    "genetics": "Plantman Jack × Ethos Glue strains. Known for i"
   },
   {
     "name": "Green Gelato",
@@ -6913,7 +6939,8 @@
       "Anxiety"
     ],
     "negatives": [],
-    "id": "LK1"
+    "id": "LK1",
+    "genetics": "LA Kush Cake is believed to be a cross between Kush Mints and Wedding Cake, two"
   },
   {
     "name": "Strawberry OG",
@@ -7211,7 +7238,8 @@
       "Dizzy",
       "Anxious"
     ],
-    "id": "KM1"
+    "id": "KM1",
+    "genetics": "A flavourful bud crafted by Seed Junky Genetics, this hybrid strain pulls"
   },
   {
     "name": "Lemon Cherry Zkittlez",
@@ -7855,7 +7883,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "SOR"
+    "id": "SOR",
+    "genetics": "Hybrid"
   },
   {
     "name": "Tally-Mon",
@@ -8479,7 +8508,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CC1"
+    "id": "CC1",
+    "genetics": "CBD Caramel derives from the cross of a Brazilian, a Himalayan, an Afghan and"
   },
   {
     "name": "Space Cake",
@@ -8872,7 +8902,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WC2"
+    "id": "WC2",
+    "genetics": "further information to follow."
   },
   {
     "name": "Glitter Bomb",
@@ -8895,7 +8926,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GB2"
+    "id": "GB2",
+    "genetics": "Glitter Bomb was bred from a Grape Gas #10 male and an OGKB Blueberry Headband"
   },
   {
     "name": "Grape Kush",
@@ -9010,7 +9042,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "KM2"
+    "id": "KM2",
+    "genetics": "A flavourful bud crafted by Seed Junky Genetics, this hybrid strain pulls"
   },
   {
     "name": "Lemon Cherry Gelato",
@@ -9265,7 +9298,8 @@
       "Stress"
     ],
     "negatives": [],
-    "id": "WR"
+    "id": "WR",
+    "genetics": "The balanced hybrid known as White Runtz is a favourite of Runtz fans, fans of"
   },
   {
     "name": "Bruce Banner",
@@ -9698,7 +9732,8 @@
       "Insomnia"
     ],
     "negatives": [],
-    "id": "GB5"
+    "id": "GB5",
+    "genetics": "The God Bud strain is a very euphoric and relaxing, Indica-dominant strain. Its"
   },
   {
     "name": "Bling Blaow",
@@ -9773,7 +9808,8 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "AG"
+    "id": "AG",
+    "genetics": "Stock Availability"
   },
   {
     "name": "Legendary Bozy",
@@ -9798,7 +9834,8 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "LB"
+    "id": "LB",
+    "genetics": "Stock Availability"
   },
   {
     "name": "Banjo",
@@ -9848,7 +9885,8 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "COP"
+    "id": "COP",
+    "genetics": "Stock Availability"
   },
   {
     "name": "Miracle Alien Cookies",
@@ -9887,7 +9925,8 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "QS"
+    "id": "QS",
+    "genetics": "Stock Availability"
   },
   {
     "name": "Black Pineapple",
@@ -10068,7 +10107,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "KM3"
+    "id": "KM3",
+    "genetics": "Bred by Compound Genetics, Khalifa Mints is the name BLLRDR gave to this strain"
   },
   {
     "name": "L.A. Kush Cake",
@@ -10100,7 +10140,8 @@
       "Anxiety"
     ],
     "negatives": [],
-    "id": "LKC"
+    "id": "LKC",
+    "genetics": "LA Kush Cake is believed to be a cross between Kush Mints and Wedding Cake, two"
   },
   {
     "name": "Wild Thailand",
@@ -10263,7 +10304,8 @@
       "Anxiety"
     ],
     "negatives": [],
-    "id": "SO1"
+    "id": "SO1",
+    "genetics": "Mazar-i-Sharif × Blueberry"
   },
   {
     "name": "Huckleberry",
@@ -10517,7 +10559,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "T10"
+    "id": "T10",
+    "genetics": "CBD Critical Mass is a"
   },
   {
     "name": "Peyote Critical",
@@ -10621,7 +10664,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "WPT"
+    "id": "WPT",
+    "genetics": "LA Wedding Pop is an indica-dominant hybrid strain full of earthy notes and"
   },
   {
     "name": "Blue Pavé",
@@ -10705,7 +10749,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "TS"
+    "id": "TS",
+    "genetics": "in South Africa."
   },
   {
     "name": "Blackberry Balanced",
@@ -10846,7 +10891,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AB"
+    "id": "AB",
+    "genetics": "Apples and Bananas may be part of a balanced diet, but also the name of a"
   },
   {
     "name": "Frosted Cookies",
@@ -11035,7 +11081,8 @@
       "Pain"
     ],
     "negatives": [],
-    "id": "GTH3"
+    "id": "GTH3",
+    "genetics": "Stock Availability"
   },
   {
     "name": "Legendary Larry",
@@ -11162,7 +11209,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "AB1"
+    "id": "AB1",
+    "genetics": "Apples and Bananas may be part of a balanced diet, but also the name of a"
   },
   {
     "name": "Apricot Cream & Cheese",
@@ -11348,7 +11396,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "CC4"
+    "id": "CC4",
+    "genetics": "The increased vigour of this strain makes for hardy vigorous plants that resist"
   },
   {
     "name": "Gelato #33",
@@ -11370,7 +11419,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "G3"
+    "id": "G3",
+    "genetics": "Hybrid"
   },
   {
     "name": "Cura B2 T4C10",
@@ -11619,7 +11669,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "DI"
+    "id": "DI",
+    "genetics": "in Colorado Springs."
   },
   {
     "name": "Fight Club",
@@ -11949,7 +12000,8 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "id": "GEL6"
+    "id": "GEL6",
+    "genetics": "Hybrid"
   },
   {
     "name": "Watermelon Zkittlez",
