@@ -343,58 +343,65 @@ async def scrape_strain_page_pw(page, url, producer_name):
     # --- Genetics / Parent Strains ---
     genetics = ""
 
-    # Find genetics/parents section — MedBud typically uses "Parents"
+    # MedBud format examples:
+    #   Parents: 🇦🇺 Cake Crasher (Sativa Hybrid) x 🇦🇺 Strawberries & Cream (Sativa Hybrid)
+    #   Parents: (Blueberry x Hash) x Sour Diesel
+    # Strategy: extract the raw Parents line, strip emoji and type annotations, keep groupings
+
     gen_section = ""
-    for keyword in ["Parents", "Parent Strains", "Parent Strain", "Genetics",
-                     "Lineage", "Parentage"]:
+    for keyword in ["Parents:", "Parents", "Parent Strains:", "Parent Strain:",
+                     "Genetics:", "Lineage:", "Parentage:"]:
         gen_idx = page_text.find(keyword)
         if gen_idx < 0:
             gen_idx = page_text.lower().find(keyword.lower())
         if gen_idx >= 0:
-            # Skip past the keyword itself so it doesn't get captured
             start = gen_idx + len(keyword)
-            gen_section = page_text[start:start+300]
+            gen_section = page_text[start:start+400]
             break
 
     if gen_section:
-        # Strip emoji/non-ASCII chars (flags, markers) that MedBud puts before strain names
-        clean = re.sub(r'[^\x00-\x7F]+', ' ', gen_section)
-        # Strip parenthetical annotations: "(sativa hybrid)", "(indica)", "(50/50)" etc.
-        clean = re.sub(r'\([^)]{0,40}\)', '', clean)
-        clean = re.sub(r'[ \t]{2,}', ' ', clean)  # Collapse spaces but keep newlines
+        # Take only the first meaningful line (stop at newline or next section header)
+        lines = gen_section.split('\n')
+        raw_line = ""
+        for line in lines:
+            stripped = line.strip()
+            if stripped and len(stripped) > 3:
+                raw_line = stripped
+                break
 
-        # Approach 1: "Name x Name" — use literal space (not \s) so newlines stop the match
-        pair_m = re.search(
-            r"([A-Z][A-Za-z0-9 '\-\&\#]{1,35}?)\s*[×xX]\s*"
-            r"([A-Z][A-Za-z0-9 '\-\&\#]{1,35}?)"
-            r"(?:\s*$|\s*[\.\n,]|\s*(?:strain|Classi|Chemo|Terp|THC|CBD|Type|Flower|"
-            r"Effect|Flavo|Medication|Medical|Negative|Side|\d+\s*%))",
-            clean
-        )
-        if pair_m:
-            p1 = pair_m.group(1).strip()
-            p2 = pair_m.group(2).strip()
-            if len(p1) >= 2 and len(p2) >= 2:
-                genetics = f"{p1} × {p2}"
-
-        # Approach 2: looser — first line only, no stop-word requirement
-        if not genetics:
-            first_line = clean.split('\n')[0].strip() if '\n' in clean else clean[:150]
-            pair_m2 = re.search(
-                r"([A-Z][A-Za-z0-9 '\-\&\#]{1,35}?)\s*[×xX]\s*"
-                r"([A-Z][A-Za-z0-9 '\-\&\#]{2,35})",
-                first_line
+        if raw_line:
+            # Strip emoji/non-ASCII (flags like 🇦🇺 before strain names)
+            clean = re.sub(r'[^\x00-\x7F]+', ' ', raw_line)
+            # Strip TYPE annotations like (Sativa Hybrid), (Indica), (Hybrid), (Sativa)
+            # but keep GROUPING parens like (Blueberry x Hash)
+            clean = re.sub(
+                r'\(\s*(?:Sativa|Indica|Hybrid|Sativa Hybrid|Indica Hybrid|'
+                r'Sativa Dominant|Indica Dominant|50/50|Balanced)\s*\)',
+                '', clean, flags=re.IGNORECASE
             )
-            if pair_m2:
-                p1 = pair_m2.group(1).strip()
-                p2 = pair_m2.group(2).strip()
-                if len(p1) >= 2 and len(p2) >= 2:
-                    genetics = f"{p1} × {p2}"
+            # Clean up leading colons, dots, dashes
+            clean = re.sub(r'^[\s:·\-]+', '', clean)
+            # Collapse whitespace
+            clean = re.sub(r'\s{2,}', ' ', clean).strip()
+            # Normalise lowercase 'x' between strain names to ×
+            clean = re.sub(r'\s+[xX×]\s+', ' × ', clean)
+            # Truncate at next-section keywords that leak in
+            for stop in ['Strain Type', 'Classification', 'Chemotype', 'THC', 'CBD',
+                         'Terpene', 'Effect', 'Flavour', 'Flavor', 'Medical',
+                         'Medication', 'Negative', 'Side Effect', 'Please note']:
+                stop_idx = clean.find(stop)
+                if stop_idx > 0:
+                    clean = clean[:stop_idx]
+            clean = clean.strip().rstrip('·').rstrip(',').rstrip('.').strip()
+            if len(clean) >= 3 and '×' in clean:
+                genetics = clean
+            elif len(clean) >= 3:
+                # No × found — might be a single parent or unusual format, store anyway
+                genetics = clean
 
-    # Approach 3: "cross of X and Y" anywhere near top of page
+    # Approach 2: "cross of X and Y" anywhere near top of page
     if not genetics:
         cross_section = re.sub(r'[^\x00-\x7F]+', ' ', page_text[:1500])
-        cross_section = re.sub(r'\([^)]{0,40}\)', '', cross_section)
         cross_m = re.search(
             r"(?:cross|hybrid)\s+(?:of|between)\s+"
             r"([A-Z][A-Za-z '\-\&]{2,30}?)\s+(?:and|&)\s+"
@@ -412,13 +419,11 @@ async def scrape_strain_page_pw(page, url, producer_name):
             r'\s+(?:strain|strains|if|is|are|the|a|an|this|which|that|with|from)s?\s*\.?$',
             '', genetics, flags=re.IGNORECASE
         ).strip()
-        if len(genetics) > 65:
-            genetics = genetics[:65].rsplit(' ', 1)[0]
-        # Validate: both sides of × must have 2+ chars
-        if '×' in genetics:
-            parts = genetics.split('×')
-            if len(parts) != 2 or len(parts[0].strip()) < 2 or len(parts[1].strip()) < 2:
-                genetics = ""
+        if len(genetics) > 80:
+            genetics = genetics[:80].rsplit(' ', 1)[0]
+        # Must be at least 3 chars to be meaningful
+        if len(genetics) < 3:
+            genetics = ""
 
     return {
         "name": strain_name, "producer": producer_name,
