@@ -81,7 +81,10 @@ PRODUCERS = {
 KNOWN_TERPENES = [
     'Myrcene', 'Caryophyllene', 'Limonene', 'Linalool', 'Pinene',
     'Humulene', 'Ocimene', 'Terpinolene', 'Bisabolol', 'Valencene',
-    'Geraniol', 'Terpineol', 'Camphene', 'Nerolidol',
+    'Geraniol', 'Terpineol', 'Camphene', 'Nerolidol', 'Guaiol',
+    'Eucalyptol', 'Borneol', 'Sabinene', 'Phellandrene', 'Phytol',
+    'Carene', 'Fenchol', 'Farnesene', 'Isopulegol', 'Pulegone',
+    'Cedrene', 'Cymene',
 ]
 
 
