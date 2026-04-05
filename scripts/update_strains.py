@@ -414,6 +414,15 @@ async def scrape_strain_page_pw(page, url, producer_name):
     # Final cleanup
     if genetics:
         genetics = re.sub(r'  +', ' ', genetics).strip()
+        # Reject MedBud UI text that leaked through
+        reject_phrases = ['Login', 'Pharmacy', 'Pricing', 'Availability',
+                          'Please note', 'prescription', 'disclaimer',
+                          'consult your doctor', 'localStorage', 'MedBud']
+        if any(rp.lower() in genetics.lower() for rp in reject_phrases):
+            genetics = ""
+        # Fix double separators: "x ×" or "× x"
+        genetics = re.sub(r'\s*x\s*×\s*', ' × ', genetics)
+        genetics = re.sub(r'\s*×\s*x\s*', ' × ', genetics)
         # Remove trailing leaked descriptive words
         genetics = re.sub(
             r'\s+(?:strain|strains|if|is|are|the|a|an|this|which|that|with|from)s?\s*\.?$',
