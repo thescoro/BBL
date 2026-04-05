@@ -357,8 +357,10 @@ async def scrape_strain_page_pw(page, url, producer_name):
             break
 
     if gen_section:
+        # Strip emoji/non-ASCII chars (flags, markers) that MedBud puts before strain names
+        clean = re.sub(r'[^\x00-\x7F]+', ' ', gen_section)
         # Strip parenthetical annotations: "(sativa hybrid)", "(indica)", "(50/50)" etc.
-        clean = re.sub(r'\([^)]{0,40}\)', '', gen_section)
+        clean = re.sub(r'\([^)]{0,40}\)', '', clean)
         clean = re.sub(r'[ \t]{2,}', ' ', clean)  # Collapse spaces but keep newlines
 
         # Approach 1: "Name x Name" — use literal space (not \s) so newlines stop the match
@@ -391,7 +393,8 @@ async def scrape_strain_page_pw(page, url, producer_name):
 
     # Approach 3: "cross of X and Y" anywhere near top of page
     if not genetics:
-        cross_section = re.sub(r'\([^)]{0,40}\)', '', page_text[:1500])
+        cross_section = re.sub(r'[^\x00-\x7F]+', ' ', page_text[:1500])
+        cross_section = re.sub(r'\([^)]{0,40}\)', '', cross_section)
         cross_m = re.search(
             r"(?:cross|hybrid)\s+(?:of|between)\s+"
             r"([A-Z][A-Za-z '\-\&]{2,30}?)\s+(?:and|&)\s+"
