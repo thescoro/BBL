@@ -329,11 +329,53 @@ async def scrape_strain_page_pw(page, url, producer_name):
     if code_m:
         code = code_m.group(1).strip()
 
+    # --- Genetics / Parent Strains ---
+    genetics = ""
+    # Approach 1: "Genetics · X x Y" or "Genetics · X × Y"
+    gen_m = re.search(
+        r'(?:Genetics|Lineage|Parentage|Parent\s*Strains?)\s*[\u00b7:\-]?\s*'
+        r'([A-Za-z][\w\s\'\-\&\.\,\u00e9\u00e8\u00fc#\u00d7×xX]+?)'
+        r'\s*(?:Classification|Chemotype|Terpene|Type|THC|CBD|Flower|$|\n)',
+        page_text
+    )
+    if gen_m:
+        genetics = gen_m.group(1).strip()
+        # Normalise "x" to "×"
+        genetics = re.sub(r'\s+[xX]\s+', ' × ', genetics)
+
+    # Approach 2: broader — look for "cross of X and Y" near the top of the page
+    if not genetics:
+        cross_m = re.search(
+            r'(?:cross|hybrid)\s+(?:of|between)\s+'
+            r'([A-Za-z][\w\s\'\-\&]+?)\s+(?:and|&|×|x)\s+([A-Za-z][\w\s\'\-\&]+?)[\.\,\n]',
+            page_text[:1500], re.IGNORECASE
+        )
+        if cross_m:
+            genetics = f"{cross_m.group(1).strip()} × {cross_m.group(2).strip()}"
+
+    # Approach 3: "X × Y" or "X x Y" pattern near "Genetics" keyword
+    if not genetics:
+        gen_idx = page_text.lower().find("genetic")
+        if gen_idx >= 0:
+            gen_section = page_text[gen_idx:gen_idx+300]
+            pair_m = re.search(
+                r'([A-Z][A-Za-z\s\'\-\&\.]{2,30}?)\s*[×xX]\s*([A-Z][A-Za-z\s\'\-\&\.]{2,30})',
+                gen_section
+            )
+            if pair_m:
+                genetics = f"{pair_m.group(1).strip()} × {pair_m.group(2).strip()}"
+
+    # Clean up: remove trailing junk, cap length
+    if genetics:
+        genetics = re.sub(r'\s{2,}', ' ', genetics).strip()
+        if len(genetics) > 80:
+            genetics = genetics[:80].rsplit(' ', 1)[0]
+
     return {
         "name": strain_name, "producer": producer_name,
         "thc": thc, "cbd": cbd, "type": strain_type, "code": code, "tier": tier,
         "terpenes": terpenes, "effects": effects, "flavours": flavours,
-        "helpsWith": helps, "negatives": negatives,
+        "helpsWith": helps, "negatives": negatives, "genetics": genetics,
     }
 
 
@@ -353,7 +395,16 @@ def scrape_weedstrain(strain_name):
         return None
 
     page_text = BeautifulSoup(resp.text, 'html.parser').get_text()
-    data = {"terpenes": [], "effects": [], "flavours": [], "helpsWith": [], "negatives": []}
+    data = {"terpenes": [], "effects": [], "flavours": [], "helpsWith": [], "negatives": [], "genetics": ""}
+
+    # Genetics / Parents
+    gen_m = re.search(
+        r'(?:parent|lineage|genetic|cross)\s*[s:\-]?\s*'
+        r'([A-Za-z][\w\s\'\-\&\.]{2,30}?)\s*(?:×|x|X|and|&)\s*([A-Za-z][\w\s\'\-\&\.]{2,30})',
+        page_text, re.IGNORECASE
+    )
+    if gen_m:
+        data["genetics"] = f"{gen_m.group(1).strip()} × {gen_m.group(2).strip()}"
 
     for terp in KNOWN_TERPENES:
         if re.search(rf'\b{terp}\b', page_text, re.IGNORECASE) and len(data["terpenes"]) < 3:
@@ -370,7 +421,7 @@ def scrape_weedstrain(strain_name):
     for neg in ['Dry mouth','Dry eyes','Dizzy','Paranoid','Anxious','Couch-lock']:
         if neg.lower() in page_text.lower():
             data["negatives"].append(neg)
-    return data if data["terpenes"] else None
+    return data if (data["terpenes"] or data.get("genetics")) else None
 
 
 # ---------------------------------------------------------------------------
@@ -813,7 +864,7 @@ async def main():
                     if data.get("tier") != "Core" and ex.get("tier", "Core") == "Core":
                         ex["tier"] = data["tier"]
                     # Fill in missing fields
-                    for field in ["effects", "flavours", "helpsWith", "negatives"]:
+                    for field in ["effects", "flavours", "helpsWith", "negatives", "genetics"]:
                         if data.get(field) and not ex.get(field):
                             ex[field] = data[field]
                 elif key not in seen_new:
@@ -833,17 +884,24 @@ async def main():
 
         print(f"\n  New unique strains: {len(new_strains)}")
 
-        # 4. Weedstrain fallback
-        missing = [s for s in new_strains if not s.get("terpenes")]
-        if missing:
-            print(f"\n\U0001f52c Weedstrain fallback for {len(missing)} strains...")
-            for s in missing:
+        # 4. Weedstrain fallback (for terpenes and genetics)
+        missing_terps = [s for s in new_strains if not s.get("terpenes")]
+        missing_genetics = [s for s in new_strains if s.get("terpenes") and not s.get("genetics")]
+        fallback_strains = missing_terps + missing_genetics
+        if fallback_strains:
+            print(f"\n\U0001f52c Weedstrain fallback for {len(fallback_strains)} strains ({len(missing_terps)} missing terpenes, {len(missing_genetics)} missing genetics)...")
+            for s in fallback_strains:
                 ws = scrape_weedstrain(s["name"])
                 if ws:
-                    for k in ["terpenes", "effects", "flavours", "helpsWith", "negatives"]:
-                        if not s.get(k):
+                    for k in ["terpenes", "effects", "flavours", "helpsWith", "negatives", "genetics"]:
+                        if not s.get(k) and ws.get(k):
                             s[k] = ws[k]
-                    print(f"  \u2713 {s['name']}: {', '.join(ws['terpenes'])}")
+                    if ws.get("terpenes"):
+                        print(f"  \u2713 {s['name']}: {', '.join(ws['terpenes'])}{' | ' + ws['genetics'] if ws.get('genetics') else ''}")
+                    elif ws.get("genetics"):
+                        print(f"  \u2713 {s['name']}: genetics={ws['genetics']}")
+                    else:
+                        print(f"  \u2717 {s['name']}")
                 else:
                     print(f"  \u2717 {s['name']}")
                 time.sleep(0.5)
@@ -860,7 +918,7 @@ async def main():
                 "cbd": s.get("cbd", 0), "type": s.get("type", "Hybrid"),
                 "terpenes": s.get("terpenes", []), "effects": s.get("effects", []),
                 "flavours": s.get("flavours", []), "helpsWith": s.get("helpsWith", []),
-                "negatives": s.get("negatives", []),
+                "negatives": s.get("negatives", []), "genetics": s.get("genetics", ""),
                 "id": code,
             })
 
