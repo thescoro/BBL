@@ -4016,7 +4016,7 @@
     "name": "Pink Diesel",
     "producer": "Aurora (Pedanios)",
     "code": "PD",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 27,
     "cbd": 0,
     "type": "Indica",
@@ -4027,7 +4027,9 @@
       "Pinene",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative"
+    ],
     "flavours": [
       "Earthy",
       "Citrus",
