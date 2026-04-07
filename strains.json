@@ -8060,7 +8060,7 @@
     "name": "Cherry Biscotti",
     "producer": "Doja",
     "code": "CB1",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 20,
     "cbd": 0,
     "type": "Hybrid",
@@ -8088,7 +8088,7 @@
       "Anxious"
     ],
     "id": "CB1",
-    "genetics": ""
+    "genetics": "Dosing Look-Up Table (Estimated)"
   },
   {
     "name": "RS-11",
