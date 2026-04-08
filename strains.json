@@ -4722,7 +4722,9 @@
     "type": "Hybrid",
     "terpenes": [],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Mango"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "GWO",
@@ -4816,7 +4818,9 @@
     "type": "Indica",
     "terpenes": [],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Mango"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "BR",
