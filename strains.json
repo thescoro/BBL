@@ -12847,5 +12847,29 @@
     "helpsWith": [],
     "negatives": [],
     "id": "FT2"
+  },
+  {
+    "name": "MJR Runtz",
+    "producer": "4C Labs",
+    "code": "MR",
+    "tier": "Craft Select",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "Kush Mints × Jealousy × Red Runtz",
+    "id": "MR"
   }
 ]
