@@ -12871,5 +12871,75 @@
     "negatives": [],
     "genetics": "Kush Mints × Jealousy × Red Runtz",
     "id": "MR"
+  },
+  {
+    "name": "Blue Dream",
+    "producer": "Phant",
+    "code": "BD3",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Uplifted",
+      "Energetic"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Berry"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Paranoid"
+    ],
+    "genetics": "Blueberry × Haze",
+    "id": "BD3"
+  },
+  {
+    "name": "Pineapple Marker",
+    "producer": "Phant",
+    "code": "PM3",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "id": "PM3"
+  },
+  {
+    "name": "Starburst Pebbles",
+    "producer": "Phant",
+    "code": "SP",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Fruity"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "Fruity Pebbles OG × Stardawg",
+    "id": "SP"
   }
 ]
