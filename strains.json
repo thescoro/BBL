@@ -8795,7 +8795,9 @@
       "Limonene",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Focused"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
@@ -8819,7 +8821,9 @@
       "Limonene",
       "Farnesene"
     ],
-    "effects": [],
+    "effects": [
+      "Focused"
+    ],
     "flavours": [
       "Citrus",
       "Floral",
@@ -8878,7 +8882,9 @@
       "Limonene",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Focused"
+    ],
     "flavours": [
       "Earthy",
       "Citrus",
@@ -8901,7 +8907,9 @@
       "Myrcene",
       "Caryophyllene"
     ],
-    "effects": [],
+    "effects": [
+      "Focused"
+    ],
     "flavours": [
       "Earthy",
       "Citrus",
@@ -8927,7 +8935,9 @@
       "Linalool",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Focused"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
@@ -11069,7 +11079,9 @@
       "Linalool",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Focused"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
@@ -12941,5 +12953,23 @@
     "negatives": [],
     "genetics": "Fruity Pebbles OG × Stardawg",
     "id": "SP"
+  },
+  {
+    "name": "Green Runtz",
+    "producer": "4C Labs",
+    "code": "GR1",
+    "tier": "Craft Select",
+    "thc": 26,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "effects": [],
+    "flavours": [
+      "Butter"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "id": "GR1"
   }
 ]
