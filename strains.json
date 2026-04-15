@@ -12971,5 +12971,29 @@
     "negatives": [],
     "genetics": "",
     "id": "GR1"
+  },
+  {
+    "name": "Slurricane Mimosa",
+    "producer": "Craft Botanics",
+    "code": "SMM",
+    "tier": "Craft",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "Slurricane × Mimosa",
+    "id": "SMM"
   }
 ]
