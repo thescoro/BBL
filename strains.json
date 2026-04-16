@@ -188,8 +188,10 @@
     "type": "Indica",
     "terpenes": [
       "Myrcene",
-      "Ocimene",
-      "Caryophyllene"
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
     ],
     "effects": [
       "Relaxed",
@@ -12995,5 +12997,156 @@
     "negatives": [],
     "genetics": "Slurricane × Mimosa",
     "id": "SMM"
+  },
+  {
+    "name": "Bubble Bath",
+    "producer": "4C Labs",
+    "code": "BB4",
+    "tier": "Craft",
+    "thc": 23,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene",
+      "Terpineol"
+    ],
+    "effects": [],
+    "flavours": [
+      "Candy"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "The Soap × Project 4516",
+    "id": "BB4"
+  },
+  {
+    "name": "Grape Cream Cake",
+    "producer": "4C Labs",
+    "code": "GCC2",
+    "tier": "Craft",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Linalool",
+      "Humulene",
+      "Farnesene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Berry",
+      "Vanilla",
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "Grape Pie × Wedding Crasher × Ice Cream Cake #5",
+    "id": "GCC2"
+  },
+  {
+    "name": "Donny Burger",
+    "producer": "4C Labs",
+    "code": "DBG",
+    "tier": "Craft",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool",
+      "Carene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "GMO Cookies × Han-Solo Burger",
+    "id": "DBG"
+  },
+  {
+    "name": "Jet Fuel Gelato",
+    "producer": "4C Labs",
+    "code": "JFG",
+    "tier": "Craft",
+    "thc": 24,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "Gelato #45 × Hi-Octane × Jet Fuel",
+    "id": "JFG"
+  },
+  {
+    "name": "Grandi Guava",
+    "producer": "4C Labs",
+    "code": "GGU",
+    "tier": "Craft",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Sour"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "Guava × Gelato (TBC)",
+    "id": "GGU"
+  },
+  {
+    "name": "Morning Sun",
+    "producer": "4C Labs",
+    "code": "MSN",
+    "tier": "Craft",
+    "thc": 31,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Ocimene"
+    ],
+    "effects": [],
+    "flavours": [
+      "Sweet",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "Kitsilano Kush Cake × Secret Cookies × Kush Mints #11",
+    "id": "MSN"
   }
 ]
