@@ -154,6 +154,63 @@ def is_valid_code(code):
     return bool(code) and 2 <= len(code) <= 10 and bool(re.match(r'^[A-Za-z0-9\-]+$', code))
 
 
+def parse_cart_designation(designation):
+    """
+    Parse a MedBud cartridge designation string to extract (name, code).
+
+    MedBud cart designations follow patterns like:
+      "QMID WPT T840 Wedding Pop Triangle"   -> ("Wedding Pop Triangle", "WPT")
+      "Rosin T750C50 GMO"                    -> ("GMO", "")
+      "Resin T765 Sourdough"                 -> ("Sourdough", "")
+      "Distillate T800 Blue Dream"           -> ("Blue Dream", "")
+
+    Strategy: strip recognised category-code prefixes (QMID/QMIE/QMIF),
+    extract-type words (Rosin/Resin/Distillate/Live), and T###/C###/T###C###
+    tokens from the front. If a short uppercase acronym then precedes real
+    words, treat it as the product code. What remains is the product name.
+    """
+    parts = designation.split()
+    prefixes_to_strip = {
+        'QMID', 'QMIE', 'QMIF', 'QMIG',
+        'Rosin', 'Resin', 'Distillate', 'Live',
+        'Full', 'Broad', 'Spectrum',
+    }
+    code = ""
+
+    # Keep stripping leading tokens while we match known patterns.
+    # Use a multi-pass loop so token order doesn't matter.
+    changed = True
+    while changed and parts:
+        changed = False
+        # Strip category/extract prefix
+        if parts[0] in prefixes_to_strip:
+            parts.pop(0)
+            changed = True
+            continue
+        # Strip T\d+ / C\d+ / T\d+C\d+ potency tokens
+        if re.match(r'^[TC]\d+([TC]\d+)?$', parts[0]):
+            parts.pop(0)
+            changed = True
+            continue
+        # Capture leading acronym as product code (3-5 uppercase letters).
+        # 3+ chars only, to protect 2-letter name fragments like "OG" in
+        # "OG Kush" or "MK" in "MK Ultra". Only capture if title-case words
+        # follow (rest contains lowercase).
+        if not code and len(parts) >= 2 and re.match(r'^[A-Z]{3,5}$', parts[0]):
+            rest = ' '.join(parts[1:])
+            if re.search(r'[a-z]', rest):
+                code = parts.pop(0)
+                changed = True
+                continue
+
+    # Strip trailing T/C potency tokens that sometimes land after the name
+    while parts and re.match(r'^[TC]\d+([TC]\d+)?$', parts[-1]):
+        parts.pop()
+
+    name = ' '.join(parts).strip()
+    return name, code
+
+
 # ---------------------------------------------------------------------------
 # Step 1: Discover strain URLs via simple HTTP (links are in static HTML)
 # ---------------------------------------------------------------------------
@@ -508,17 +565,52 @@ async def scrape_cart_page_pw(page, url, producer_name):
 
     page_text = await page.inner_text('body')
 
-    # --- Strain name (same logic as flower, with extra stop words) ---
+    # Also grab page title and first h1 — cart pages often put the product
+    # name there rather than in a "Cultivar/Strain · ..." inline label.
+    page_title = ""
+    page_h1 = ""
+    try:
+        page_title = (await page.title()) or ""
+    except Exception:
+        pass
+    try:
+        h1_el = await page.query_selector('h1')
+        if h1_el:
+            page_h1 = (await h1_el.inner_text()) or ""
+    except Exception:
+        pass
+
+    # --- Strain name (layered fallbacks for cart pages) ---
     strain_name = None
-    m = re.search(
-        r'Cultivar/Strain\s*\u00b7?\s*'
-        r'([A-Za-z][\w\s\'\-\&\.\,\u00e9\u00e8\u00fc#]+?)'
-        r'\s*(?:Classification|Chemotype|Flower|THC|Indica|Sativa|Hybrid|'
-        r'Medication|Distillate|Rosin|Resin|Cartridge)',
-        page_text
-    )
-    if m:
-        strain_name = clean_strain_name(m.group(1))
+    designation_code = ""  # filled by parse_cart_designation below, reused as code
+
+    # Approach 1: From "Designation" field in the Medication Details table.
+    # Format: "QMID WPT T840 Wedding Pop Triangle" — parse_cart_designation
+    # peels off category prefixes, T/C potency codes, and 3+ char product-code
+    # acronyms, leaving the human-readable name (and the acronym if any).
+    des_m = re.search(r'Designation\s+([A-Z][^\n]+)', page_text)
+    if des_m:
+        parsed_name, parsed_code = parse_cart_designation(des_m.group(1).strip())
+        if parsed_code:
+            designation_code = parsed_code
+        if parsed_name:
+            cleaned = clean_strain_name(parsed_name)
+            if cleaned and 2 <= len(cleaned) <= 50:
+                strain_name = cleaned
+
+    # Approach 2: Cultivar/Strain regex (same as flower — some cart pages use it)
+    if not strain_name:
+        m = re.search(
+            r'Cultivar/Strain\s*\u00b7?\s*'
+            r'([A-Za-z][\w\s\'\-\&\.\,\u00e9\u00e8\u00fc#]+?)'
+            r'\s*(?:Classification|Chemotype|Flower|THC|Indica|Sativa|Hybrid|'
+            r'Medication|Distillate|Rosin|Resin|Cartridge|Format)',
+            page_text
+        )
+        if m:
+            strain_name = clean_strain_name(m.group(1))
+
+    # Approach 3: name before "Classification" (loose regex)
     if not strain_name:
         m2 = re.search(
             r'^(.{0,500}?)'
@@ -528,7 +620,48 @@ async def scrape_cart_page_pw(page, url, producer_name):
         )
         if m2:
             strain_name = clean_strain_name(m2.group(2))
+
+    # Approach 4: top product line —
+    # "{Producer}® QMID WPT T840 Wedding Pop Triangle Medical Cannabis Cartridge"
+    if not strain_name:
+        producer_clean = producer_name.split("(")[0].strip().rstrip('®').strip()
+        top_m = re.search(
+            rf'{re.escape(producer_clean)}\s*[®\*]*\s*(.+?)\s+'
+            r'(?:Medical Cannabis Cartridge|Medical Cannabis|Cartridge)',
+            page_text, re.IGNORECASE
+        )
+        if top_m:
+            raw = top_m.group(1).strip()
+            parsed_name, parsed_code = parse_cart_designation(raw)
+            if parsed_code and not designation_code:
+                designation_code = parsed_code
+            if parsed_name:
+                cleaned = clean_strain_name(parsed_name)
+                if cleaned and 2 <= len(cleaned) <= 50:
+                    strain_name = cleaned
+
+    # Approach 5: first <h1> — cart pages sometimes put product name here
+    if not strain_name and page_h1:
+        raw = re.sub(r'[^\x00-\x7F]+', ' ', page_h1).strip()
+        raw = re.sub(r'\s*[|\-–—]\s*(MedBud|medbud\.wiki|'
+                     + re.escape(producer_name) + r').*$', '', raw, flags=re.IGNORECASE)
+        strain_name = clean_strain_name(raw)
+
+    # Approach 6: page <title> — last-ditch
+    if not strain_name and page_title:
+        raw = re.sub(r'[^\x00-\x7F]+', ' ', page_title).strip()
+        raw = re.sub(r'\s*[|\-–—]\s*.*$', '', raw)
+        strain_name = clean_strain_name(raw)
+
     if not strain_name or len(strain_name) < 2 or len(strain_name) > 50:
+        if not hasattr(scrape_cart_page_pw, '_diag_count'):
+            scrape_cart_page_pw._diag_count = 0
+        if scrape_cart_page_pw._diag_count < 5:
+            scrape_cart_page_pw._diag_count += 1
+            print(f"    [cart-diag] Name extraction failed for {url}")
+            print(f"    [cart-diag] <title>: {page_title[:120]!r}")
+            print(f"    [cart-diag] <h1>:    {page_h1[:120]!r}")
+            print(f"    [cart-diag] text preview: {page_text[:200].replace(chr(10), chr(92) + 'n')!r}")
         return None
 
     # --- THC in milligrams ---
@@ -552,10 +685,18 @@ async def scrape_cart_page_pw(page, url, producer_name):
     # --- CBD in milligrams ---
     cbd_mg = 0
     cbd_m = re.search(r'CBD[^\d]{0,30}(\d{1,4})\s*mg', page_text, re.IGNORECASE)
+    if not cbd_m:
+        # Reverse order (common on Curaleaf etc.): "50mg CBD" or "<1mg CBD"
+        cbd_m = re.search(r'(\d{1,4})\s*mg[^\n\r\d]{0,20}CBD', page_text, re.IGNORECASE)
     if cbd_m:
+        # Check if the matched number is preceded by a "<" (trace amount marker
+        # like "<1mg CBD" means less than 1mg — treat as effectively zero).
+        start = cbd_m.start(1)
+        preceding = page_text[max(0, start - 5):start]
+        is_trace = '<' in preceding or '≤' in preceding
         val = int(cbd_m.group(1))
         # Sanity: CBD shouldn't equal THC (scraping artefact)
-        if val != thc_mg and 0 < val <= 500:
+        if not is_trace and val != thc_mg and 0 < val <= 500:
             cbd_mg = val
     if cbd_mg == 0:
         url_cbd = re.search(r'[/-][tT]\d{2,4}[cC](\d{1,4})[/-]', url)
@@ -619,12 +760,19 @@ async def scrape_cart_page_pw(page, url, producer_name):
     elif re.search(r'\bProprietary\b', page_text, re.IGNORECASE):
         fitment = "Proprietary"
 
-    # --- Type (same as flower) ---
+    # --- Type (flower has "Classification", carts have "Hybrid • 840mg THC") ---
     strain_type = "Hybrid"
     type_m = re.search(
         r'Classification\s*\u00b7?\s*(Indica|Sativa|Hybrid|Indica Hybrid|Sativa Hybrid)',
         page_text, re.IGNORECASE
     )
+    if not type_m:
+        # Cart layout: "Hybrid  • 840mg THC" or "Indica • 700mg THC"
+        type_m = re.search(
+            r'\b(Indica|Sativa|Hybrid|Indica Hybrid|Sativa Hybrid)\s*[\u2022\u00b7]\s*'
+            r'(?:<?\d+\s*mg|\d+\s*%)',
+            page_text, re.IGNORECASE
+        )
     if type_m:
         t = type_m.group(1).lower()
         if 'indica' in t:
@@ -688,13 +836,11 @@ async def scrape_cart_page_pw(page, url, producer_name):
             if neg.lower() in neg_section.lower() and neg not in negatives:
                 negatives.append(neg)
 
-    # --- Code (same as flower) ---
-    code = ""
-    code_m = re.search(r'Designation\s*\u00b7?\s*([A-Z0-9][A-Z0-9\-]{1,9})', page_text)
-    if code_m:
-        candidate = code_m.group(1).strip()
-        if 2 <= len(candidate) <= 10 and re.match(r'^[A-Za-z0-9\-]+$', candidate):
-            code = candidate
+    # --- Code ---
+    # If parse_cart_designation captured a product-code acronym (e.g. "WPT"
+    # from "QMID WPT T840 Wedding Pop Triangle"), use it. Otherwise leave
+    # empty and let make_code() generate a short code from the strain name.
+    code = designation_code if is_valid_code(designation_code) else ""
 
     # --- Genetics (same logic as flower — parents/lineage extraction) ---
     genetics = ""
@@ -1200,17 +1346,50 @@ async def debug_page(url):
 
         if is_cart:
             print("\n" + "=" * 60)
+            print("CART PAGE TITLE / H1 (used as name fallbacks):")
+            print("=" * 60)
+            try:
+                t = await page.title()
+                print(f"  <title>: {t!r}")
+            except Exception as e:
+                print(f"  <title>: ERROR {e}")
+            try:
+                h1 = await page.query_selector('h1')
+                if h1:
+                    print(f"  <h1>:    {(await h1.inner_text())!r}")
+                else:
+                    print("  <h1>:    (no h1 element found)")
+            except Exception as e:
+                print(f"  <h1>:    ERROR {e}")
+
+            print("\n" + "=" * 60)
+            print("DESIGNATION FIELD + PARSE RESULT:")
+            print("=" * 60)
+            des_m = re.search(r'Designation\s+([A-Z][^\n]+)', page_text)
+            if des_m:
+                raw = des_m.group(1).strip()
+                name, code = parse_cart_designation(raw)
+                print(f"  raw designation: {raw!r}")
+                print(f"  parsed name:     {name!r}")
+                print(f"  parsed code:     {code!r}")
+            else:
+                print("  (Designation field not found)")
+
+            print("\n" + "=" * 60)
             print("CARTRIDGE-SPECIFIC FIELDS:")
             print("=" * 60)
             for label, pat in [
                 ("THC mg", r'THC[^\d]{0,30}\d{2,4}\s*mg|\d{2,4}\s*mg[^\n\r\d]{0,20}THC'),
-                ("CBD mg", r'CBD[^\d]{0,30}\d{1,4}\s*mg'),
+                ("CBD mg (pat1)", r'CBD[^\d]{0,30}\d{1,4}\s*mg'),
+                ("CBD mg (pat2)", r'\d{1,4}\s*mg[^\n\r\d]{0,20}CBD'),
                 ("Volume", r'\d+(?:\.\d+)?\s*ml\b'),
                 ("Extract",
                  r'\b(Distillate|Live Rosin|Hash Rosin|Live Resin|Full Spectrum|Broad Spectrum|Solventless|CO2 Extract)\b'),
                 ("Terp source",
                  r'\b(Botanical Terpenes?|Cannabis[\s-]Derived Terpenes?|Strain[\s-]Specific Terpenes?|No Additives?)\b'),
                 ("Fitment", r'\b(510|Kanabo|Pax[\s-]?Era|Proprietary)\s*(?:Fitment|Thread|Threaded)?'),
+                ("Type (cart)",
+                 r'\b(Indica|Sativa|Hybrid)\s*[\u2022\u00b7]\s*(?:<?\d+\s*mg|\d+\s*%)'),
             ]:
                 found = re.findall(pat, page_text, re.IGNORECASE)
                 print(f"  {label}: {found[:3] if found else 'not found'}")
