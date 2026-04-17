@@ -1,0 +1,62 @@
+# =============================================================================
+# Bloomy's Bud Log — Scraper Debug Runner
+# =============================================================================
+# Manually-triggered workflow for testing the scraper against a specific
+# MedBud URL (flower or cartridge). Prints the debug output to the Actions
+# log and uploads debug_text.txt + debug_html.html as downloadable artifacts.
+#
+# Usage:
+#   1. Go to the Actions tab
+#   2. Pick "Debug Scraper" from the left
+#   3. Click "Run workflow" (top right)
+#   4. Paste a MedBud URL (flower OR cartridge)
+#   5. Watch the log for "SCRAPE RESULT" — that's what the scraper would
+#      actually save. Download artifacts if you want to inspect page HTML.
+# =============================================================================
+
+name: Debug Scraper
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'MedBud URL to test (flower or cartridge)'
+        required: true
+        default: 'https://medbud.wiki/vape-cartridges/curaleaf/t840-wpt/'
+
+permissions:
+  contents: read
+
+jobs:
+  debug-scraper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install playwright beautifulsoup4 requests
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: Run scraper in debug mode
+        run: python scripts/update_strains.py --debug "${{ inputs.url }}"
+
+      - name: Upload debug dumps as artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraper-debug-output
+          path: |
+            debug_text.txt
+            debug_html.html
+          retention-days: 7
+          if-no-files-found: warn
