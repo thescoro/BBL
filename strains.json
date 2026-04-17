@@ -8575,22 +8575,6 @@
     "form": "Flower"
   },
   {
-    "name": "AC",
-    "producer": "Adven",
-    "code": "AC1",
-    "tier": "Core",
-    "thc": 4,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "id": "AC1",
-    "form": "Flower"
-  },
-  {
     "name": "Riga",
     "producer": "Adven",
     "code": "RIG",
@@ -13254,22 +13238,6 @@
     "form": "Flower"
   },
   {
-    "name": "T17 19",
-    "producer": "Adven",
-    "code": "T1",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "id": "T1",
-    "form": "Flower"
-  },
-  {
     "name": "Emc 1 C13",
     "producer": "Adven",
     "code": "E1C",
@@ -13283,22 +13251,6 @@
     "helpsWith": [],
     "negatives": [],
     "id": "E1C",
-    "form": "Flower"
-  },
-  {
-    "name": "T19",
-    "producer": "Adven",
-    "code": "E1T",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "id": "E1T",
     "form": "Flower"
   },
   {
@@ -13633,7 +13585,7 @@
     "form": "Flower"
   },
   {
-    "name": "T600:C200 Jack Herer",
+    "name": "Jack Herer",
     "producer": "Curaleaf",
     "code": "JHR",
     "form": "Cartridge",
@@ -13682,34 +13634,6 @@
     "genetics": "",
     "id": "JH2",
     "thcMg": 420,
-    "cbdMg": 0,
-    "volume": "0.5ml",
-    "extractType": "Distillate",
-    "terpeneSource": "Botanical",
-    "fitment": "Proprietary"
-  },
-  {
-    "name": "T200:C200 Jack Herer",
-    "producer": "Curaleaf",
-    "code": "TJH",
-    "form": "Cartridge",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Sativa",
-    "terpenes": [
-      "Myrcene",
-      "Caryophyllene",
-      "Ocimene",
-      "Terpinolene"
-    ],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "genetics": "",
-    "id": "TJH",
-    "thcMg": 200,
     "cbdMg": 200,
     "volume": "0.5ml",
     "extractType": "Distillate",
@@ -13717,7 +13641,7 @@
     "fitment": "Proprietary"
   },
   {
-    "name": "T100:C200 Plain",
+    "name": "Plain",
     "producer": "Curaleaf",
     "code": "TP1",
     "form": "Cartridge",
@@ -13737,35 +13661,6 @@
     "volume": "0.5ml",
     "extractType": "Distillate",
     "terpeneSource": "",
-    "fitment": "Proprietary"
-  },
-  {
-    "name": "WPT",
-    "producer": "Curaleaf",
-    "code": "WPT1",
-    "form": "Cartridge",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [
-      "Myrcene",
-      "Caryophyllene",
-      "Limonene",
-      "Linalool",
-      "Pinene"
-    ],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "genetics": "",
-    "id": "WPT1",
-    "thcMg": 840,
-    "cbdMg": 0,
-    "volume": "1ml",
-    "extractType": "Distillate",
-    "terpeneSource": "Botanical",
     "fitment": "Proprietary"
   },
   {
@@ -14106,29 +14001,6 @@
     "fitment": "Kanabo"
   },
   {
-    "name": "T194:C194",
-    "producer": "Noidecs",
-    "code": "T19",
-    "form": "Cartridge",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "genetics": "",
-    "id": "T19",
-    "thcMg": 194,
-    "cbdMg": 194,
-    "volume": "1ml",
-    "extractType": "Distillate",
-    "terpeneSource": "Botanical",
-    "fitment": "Kanabo"
-  },
-  {
     "name": "Champagne Kush",
     "producer": "Noidecs",
     "code": "CK",
@@ -14177,33 +14049,6 @@
     "extractType": "Distillate",
     "terpeneSource": "Botanical",
     "fitment": "Kanabo"
-  },
-  {
-    "name": "or All Vape",
-    "producer": "4C Labs",
-    "code": "OAV",
-    "form": "Cartridge",
-    "tier": "Core",
-    "thc": 0,
-    "cbd": 0,
-    "type": "Sativa",
-    "terpenes": [
-      "Caryophyllene",
-      "Limonene",
-      "Linalool"
-    ],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
-    "genetics": "",
-    "id": "OAV",
-    "thcMg": 850,
-    "cbdMg": 0,
-    "volume": "",
-    "extractType": "Distillate",
-    "terpeneSource": "Botanical",
-    "fitment": "510"
   },
   {
     "name": "Cherry Lime",
@@ -14337,7 +14182,7 @@
     "fitment": "510"
   },
   {
-    "name": "T600:C200 Blue Zkittlez",
+    "name": "Blue Zkittlez",
     "producer": "Curo",
     "code": "BSK",
     "form": "Cartridge",
@@ -14376,7 +14221,7 @@
     "genetics": "",
     "id": "GRP",
     "thcMg": 750,
-    "cbdMg": 0,
+    "cbdMg": 450,
     "volume": "",
     "extractType": "Distillate",
     "terpeneSource": "Botanical",
@@ -14399,14 +14244,14 @@
     "genetics": "",
     "id": "MGO",
     "thcMg": 800,
-    "cbdMg": 0,
+    "cbdMg": 450,
     "volume": "",
     "extractType": "Distillate",
     "terpeneSource": "Botanical",
     "fitment": "510"
   },
   {
-    "name": "T450:C450 Lemonade Kush",
+    "name": "Lemonade Kush",
     "producer": "Curo",
     "code": "LMK",
     "form": "Cartridge",
@@ -14452,7 +14297,7 @@
     "fitment": ""
   },
   {
-    "name": "Origins GS T800:C30 Grape Soda",
+    "name": "Grape Soda",
     "producer": "Somai Pharmaceuticals",
     "code": "OGT",
     "form": "Cartridge",
@@ -14475,7 +14320,7 @@
     "fitment": ""
   },
   {
-    "name": "Origins SSC T800:C30 Sour Space Candy",
+    "name": "Sour Space Candy",
     "producer": "Somai Pharmaceuticals",
     "code": "OST",
     "form": "Cartridge",
@@ -14498,7 +14343,7 @@
     "fitment": ""
   },
   {
-    "name": "Origins TW T800:C30 Trainwreck",
+    "name": "Trainwreck",
     "producer": "Somai Pharmaceuticals",
     "code": "OTT",
     "form": "Cartridge",
