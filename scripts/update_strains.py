@@ -273,6 +273,15 @@ async def scrape_strain_page_pw(page, url, producer_name):
 
     page_text = await page.inner_text('body')
 
+    # --- 404 guard ---
+    # MedBud returns HTTP 200 on missing pages but with "404: Not Found" in
+    # the title/body. Catch it before extracting anything.
+    if ("404: Not Found" in page_text
+            or "The resource you\u2019re trying to access" in page_text
+            or "The resource you're trying to access" in page_text):
+        print(f"    [flower-skip] 404 page for {url}")
+        return None
+
     # --- Tier (from URL slug, then page text) ---
     tier = "Core"
     url_lower = url.lower()
@@ -579,6 +588,17 @@ async def scrape_cart_page_pw(page, url, producer_name):
             page_h1 = (await h1_el.inner_text()) or ""
     except Exception:
         pass
+
+    # --- 404 guard ---
+    # MedBud returns HTTP 200 on missing pages but with a "404: Not Found"
+    # title/h1 and a fixed "resource you're trying to access" body message.
+    # Without this, we'd happily persist a "404: Not Found" record with
+    # mg values parsed from the URL slug.
+    if (page_title.startswith('404:') or page_h1.startswith('404:')
+            or "The resource you\u2019re trying to access" in page_text
+            or "The resource you're trying to access" in page_text):
+        print(f"    [cart-skip] 404 page for {url}")
+        return None
 
     # --- Strain name (layered fallbacks for cart pages) ---
     strain_name = None
