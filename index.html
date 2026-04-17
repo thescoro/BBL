@@ -149,6 +149,54 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .pbtn{flex:1;padding:14px;background:var(--ac);color:var(--bg);border:none;border-radius:12px;font-family:var(--fh);font-size:14px;font-weight:800;cursor:pointer;-webkit-appearance:none;letter-spacing:.03em}
 .pbtn:active{opacity:.9}
 .sbtn{padding:14px 16px;background:transparent;color:var(--tx2);border:2px solid var(--b2);border-radius:12px;font-family:var(--fh);font-size:14px;font-weight:700;cursor:pointer;-webkit-appearance:none}
+.pbtn:disabled{opacity:.4;cursor:not-allowed}
+
+/* ONBOARDING (Phase 2) */
+.onb-privacy{background:rgba(60,176,67,.06);border:1px solid var(--b2);border-radius:12px;padding:10px 12px;margin-bottom:4px;font-size:11px;color:var(--tx2);font-family:var(--fm);line-height:1.5}
+.onb-privacy b{color:var(--ac3);font-weight:800}
+.onb-section-hdr{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);font-family:var(--fm);margin:16px 0 8px;font-weight:700}
+.onb-cond-list{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.onb-cond{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;background:var(--s2);border:2px solid var(--b1);border-radius:12px;color:var(--tx);font-family:var(--fh);font-size:14px;font-weight:700;cursor:pointer;text-align:left;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;transition:border-color .15s, background .15s}
+.onb-cond:active{border-color:var(--b2)}
+.onb-cond.selected{border-color:var(--ac);background:rgba(60,176,67,.08);color:var(--ac)}
+.onb-cond-lbl{flex:1;line-height:1.2}
+.onb-cond-chev{font-size:16px;color:var(--tx3);font-family:var(--fm);flex-shrink:0;width:18px;text-align:center}
+.onb-cond.selected .onb-cond-chev{color:var(--ac)}
+.onb-sym-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+@media(max-width:400px){.onb-sym-list{grid-template-columns:1fr}}
+.onb-sym{display:flex;align-items:center;gap:10px;padding:11px 12px;background:var(--s2);border:2px solid var(--b1);border-radius:12px;cursor:pointer;text-align:left;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;transition:border-color .15s, background .15s}
+.onb-sym:active{border-color:var(--b2)}
+.onb-sym.on{border-color:var(--ac);background:rgba(60,176,67,.08)}
+.onb-sym-ico{font-size:18px;width:22px;text-align:center;flex-shrink:0;line-height:1}
+.onb-sym-lbl{font-size:12px;font-weight:700;color:var(--tx);font-family:var(--fh);flex:1;line-height:1.2}
+.onb-sym.on .onb-sym-lbl{color:var(--ac)}
+.onb-sym-check{width:18px;height:18px;border:2px solid var(--tx3);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:transparent;line-height:1}
+.onb-sym.on .onb-sym-check{background:var(--ac);border-color:var(--ac);color:var(--bg)}
+.onb-sym.on .onb-sym-check::after{content:'✓'}
+.onb-skip-wrap{text-align:center;margin-top:12px}
+.onb-skip{background:none;border:none;color:var(--tx3);font-family:var(--fh);font-size:12px;text-decoration:underline;cursor:pointer;padding:8px;-webkit-appearance:none;-webkit-tap-highlight-color:transparent}
+.onb-skip:active{color:var(--tx2)}
+.onb-disclaimer{font-size:10px;color:var(--tx3);font-family:var(--fm);line-height:1.5;margin-top:12px;text-align:center}
+
+/* PROFILE TAB (Phase 3) */
+.prof-card{background:var(--s1);border:2px solid var(--b1);border-radius:20px;padding:18px;margin-bottom:14px}
+.prof-card-hdr{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);font-family:var(--fm);font-weight:700;margin-bottom:10px}
+.prof-cond-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.prof-cond-name{font-size:20px;font-weight:400;font-family:var(--fd);color:var(--ac);letter-spacing:.02em;line-height:1.2;flex:1}
+.prof-cond-change{padding:8px 14px;background:rgba(60,176,67,.12);border:1.5px solid var(--ac);border-radius:8px;color:var(--ac);font-family:var(--fh);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;white-space:nowrap}
+.prof-cond-change:active{background:rgba(60,176,67,.22)}
+.prof-sym-subhdr{font-size:11px;color:var(--tx2);font-family:var(--fh);margin-bottom:10px;line-height:1.4}
+.prof-sym-count{color:var(--ac);font-weight:800}
+.prof-empty{background:rgba(255,107,107,.05);border:1px dashed var(--red);border-radius:12px;padding:12px;font-size:11px;color:var(--red);font-family:var(--fm);line-height:1.5;margin-bottom:12px;text-align:center}
+.prof-confirm{background:rgba(255,107,107,.08);border:2px solid var(--red);border-radius:12px;padding:12px;margin-bottom:12px;display:flex;flex-direction:column;gap:8px}
+.prof-confirm-msg{font-size:12px;color:var(--tx);font-family:var(--fh);line-height:1.4}
+.prof-confirm-msg b{color:var(--red);font-weight:800}
+.prof-confirm-btns{display:flex;gap:8px}
+.prof-confirm-btn{flex:1;padding:10px;border:none;border-radius:8px;font-family:var(--fh);font-size:12px;font-weight:800;cursor:pointer;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;letter-spacing:.03em}
+.prof-confirm-keep{background:var(--s3);color:var(--tx)}
+.prof-confirm-remove{background:var(--red);color:#fff}
+.onb-sym.pending{border-color:var(--red);background:rgba(255,107,107,.08)}
+.onb-sym.pending .onb-sym-lbl{color:var(--red)}
 
 /* JOURNAL */
 .jlist{display:flex;flex-direction:column;gap:14px}
@@ -307,6 +355,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <option value="analysis">Analysis</option>
       <option value="reviews">Reviews</option>
       <option value="backup">Backup</option>
+      <option value="profile">Profile</option>
     </select>
   </div>
 </nav>
@@ -431,6 +480,13 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   </div>
 </div>
 
+<!-- ═══ PROFILE TAB (Phase 3) ═══ -->
+<div id="tab-profile" class="page hidden">
+  <h1 class="h1">Profile</h1>
+  <p class="sub">Your tracking setup — what condition and symptoms BBL tailors itself to.</p>
+  <div id="profileView"><!-- rendered by renderProfile() --></div>
+</div>
+
 <!-- ═══ DETAIL SHEET ═══ -->
 <div id="detailSheet" class="sheet-wrap hidden">
   <div class="sheet-ovl" onclick="closeDetail()"></div>
@@ -458,7 +514,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     </div>
     <div class="frow"><label class="flbl">Dose (grams)</label><input type="number" step="0.1" class="finp" id="fDose" placeholder="e.g. 0.3"></div>
     <div class="frow">
-      <label class="flbl">MS Symptom Relief (0 = none · 10 = excellent)</label>
+      <label class="flbl">Symptom Relief (0 = none · 10 = excellent)</label>
       <div class="slg" id="sliderGroup"></div>
     </div>
     <div class="frow"><label class="flbl">Overall Rating</label><div class="star-row" id="starRow"></div></div>
@@ -468,6 +524,16 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <button class="sbtn" onclick="closeModal()">Cancel</button>
       <button class="pbtn" onclick="saveEntry()">Save Entry</button>
     </div>
+  </div>
+</div>
+
+<!-- ONBOARDING MODAL (Phase 2) -->
+<!-- Shown on first load when !profile.setupComplete. No click-through overlay:
+     users must either complete the flow or use the explicit "Skip for now" link. -->
+<div id="onboardingModal" class="modal-wrap hidden">
+  <div class="modal-ovl"></div>
+  <div class="modal" id="onboardingModalBody">
+    <!-- content rendered by renderOnboardingStep1 / renderOnboardingStep2 -->
   </div>
 </div>
 
@@ -515,6 +581,84 @@ const SYMPTOMS = [
   {key:"cognition", label:"Cognitive Clarity",     icon:"💡"},
 ];
 
+// ═══ MULTI-CONDITION FRAMEWORK ═════════════════════════════════════════════
+// These structures underpin the broader UK-medical-cannabis audience refactor
+// described in PROJECT.md. As of Phase 5 the log modal, journal score pills,
+// analysis tab and recommender all read through getActiveSymptoms() /
+// SYMPTOM_LIBRARY. The legacy SYMPTOMS const above is kept as a fallback for
+// historical entries, empty profiles, and unknown keys.
+
+// Conditions the user can pick during onboarding (Phase 2+).
+const CONDITIONS = {
+  'multiple-sclerosis': { label: 'Multiple Sclerosis',          order: 1  },
+  'chronic-pain':       { label: 'Chronic Pain',                order: 2  },
+  'fibromyalgia':       { label: 'Fibromyalgia',                order: 3  },
+  'neuropathic-pain':   { label: 'Neuropathic Pain',            order: 4  },
+  'endometriosis':      { label: 'Endometriosis',               order: 5  },
+  'cancer':             { label: 'Cancer (supportive care)',    order: 6  },
+  'anxiety':            { label: 'Anxiety',                     order: 7  },
+  'ptsd':               { label: 'PTSD / C-PTSD',               order: 8  },
+  'depression':         { label: 'Depression',                  order: 9  },
+  'adhd':               { label: 'ADHD',                        order: 10 },
+  'autism':             { label: 'Autism',                      order: 11 },
+  'insomnia':           { label: 'Insomnia / Sleep Disorders',  order: 12 },
+  'migraine':           { label: 'Migraine / Cluster Headache', order: 13 },
+  'ibd':                { label: "IBD / Crohn\u0027s / IBS",    order: 14 },
+  'tourettes':          { label: "Tourette\u0027s / Tic Disorders", order: 15 },
+  'other':              { label: 'Other / Custom',              order: 99 }
+};
+
+// Master symptom library. Each entry has label/icon for display and
+// helpsWithPatterns — regex fragments matched case-insensitively against
+// strain .helpsWith[] entries by the recommender (Phase 4 will use this to
+// replace the hard-coded msMap).
+const SYMPTOM_LIBRARY = {
+  pain:          { label:'Pain',                icon:'🔥',  helpsWithPatterns:['pain','chronic pain'] },
+  neuropathic:   { label:'Nerve Pain',          icon:'🪡',  helpsWithPatterns:['nerve','neuropath'] },
+  spasticity:    { label:'Spasticity / Spasms', icon:'💪',  helpsWithPatterns:['spast','spasm','muscle'] },
+  stiffness:     { label:'Stiffness',           icon:'🦴',  helpsWithPatterns:['stiff','tension'] },
+  fatigue:       { label:'Fatigue / Energy',    icon:'🔋',  helpsWithPatterns:['fatigue','tired','energy'] },
+  sleep:         { label:'Sleep Quality',       icon:'😴',  helpsWithPatterns:['insomnia','sleep'] },
+  mood:          { label:'Mood',                icon:'🌤️', helpsWithPatterns:['depress','mood'] },
+  anxiety:       { label:'Anxiety',             icon:'💭',  helpsWithPatterns:['anxiety','stress','worry'] },
+  panic:         { label:'Panic',               icon:'❗',  helpsWithPatterns:['panic','ptsd'] },
+  focus:         { label:'Focus / Attention',   icon:'🎯',  helpsWithPatterns:['focus','adhd','concentration'] },
+  cognition:     { label:'Mental Clarity',      icon:'🧠',  helpsWithPatterns:['fog','clarity','cognition'] },
+  hyperactivity: { label:'Restlessness',        icon:'⚡',  helpsWithPatterns:['hyperact','restless'] },
+  tremor:        { label:'Tremor / Tics',       icon:'🫨',  helpsWithPatterns:['tremor','tic','shake'] },
+  headache:      { label:'Headache / Migraine', icon:'🤕',  helpsWithPatterns:['headache','migraine'] },
+  nausea:        { label:'Nausea',              icon:'🤢',  helpsWithPatterns:['nausea','vomit','sickness'] },
+  appetite:      { label:'Appetite',            icon:'🍽️', helpsWithPatterns:['appetite','hunger','anorex'] },
+  cramping:      { label:'Cramping',            icon:'🌀',  helpsWithPatterns:['cramp','period','menstrual'] },
+  inflammation:  { label:'Inflammation',        icon:'🔴',  helpsWithPatterns:['inflam','swell'] },
+  sensory:       { label:'Sensory Overload',    icon:'🎚️', helpsWithPatterns:['sensory','overstim'] },
+  flashbacks:    { label:'Flashbacks',          icon:'💥',  helpsWithPatterns:['ptsd','flashback','trauma'] },
+  irritability:  { label:'Irritability',        icon:'😠',  helpsWithPatterns:['irritab','anger','agitat'] },
+  social:        { label:'Social Engagement',   icon:'👥',  helpsWithPatterns:['social','isolation'] },
+  creativity:    { label:'Creative Flow',       icon:'🎨',  helpsWithPatterns:['creative','imagin'] },
+  physical:      { label:'Physical Relaxation', icon:'🧘',  helpsWithPatterns:['relax','tension','body'] }
+};
+
+// Default symptom set per condition. Users can tweak after onboarding.
+const DEFAULT_SYMPTOMS_BY_CONDITION = {
+  'multiple-sclerosis': ['pain','spasticity','fatigue','sleep','mood','cognition'],
+  'chronic-pain':       ['pain','sleep','mood','stiffness','fatigue','inflammation'],
+  'fibromyalgia':       ['pain','fatigue','sleep','cognition','mood','stiffness'],
+  'neuropathic-pain':   ['neuropathic','pain','sleep','mood','stiffness'],
+  'endometriosis':      ['cramping','pain','mood','fatigue','sleep','nausea'],
+  'cancer':             ['nausea','appetite','pain','sleep','fatigue','mood'],
+  'anxiety':            ['anxiety','sleep','mood','focus','panic','physical'],
+  'ptsd':               ['anxiety','flashbacks','sleep','mood','panic','irritability'],
+  'depression':         ['mood','fatigue','sleep','focus','social','anxiety'],
+  'adhd':               ['focus','hyperactivity','anxiety','sleep','mood','irritability'],
+  'autism':             ['sensory','anxiety','sleep','social','irritability','focus'],
+  'insomnia':           ['sleep','anxiety','physical','mood','pain'],
+  'migraine':           ['headache','nausea','sleep','sensory','mood'],
+  'ibd':                ['pain','nausea','appetite','inflammation','mood','sleep'],
+  'tourettes':          ['tremor','anxiety','focus','sleep','irritability'],
+  'other':              []
+};
+
 // ═══ STRAINS (loaded from strains.json at runtime) ═════════════════════════
 // To update the catalogue, edit strains.json — do not edit here.
 let STRAINS = []; // populated by loadStrains() on init
@@ -530,6 +674,437 @@ let cbdOnly = false;
 
 function loadData() { try { const d = localStorage.getItem(LS); journal = d ? JSON.parse(d) : []; } catch { journal = []; } }
 function saveData() { try { localStorage.setItem(LS, JSON.stringify(journal)); } catch {} }
+
+// ═══ USER PROFILE (Phase 1 — stored but not yet read by the UI) ════════════
+// The profile records the user's condition and the symptom set they want
+// tracked. Phase 2 adds onboarding UI; Phase 3 adds a Profile tab. For now
+// the profile is silently hydrated on load so future phases can just read it.
+const PROFILE_LS = 'bbl-profile';
+let profile = { condition: null, symptoms: [], setupComplete: false };
+
+function loadProfile() {
+  // 1) Respect an existing profile if one is already saved.
+  let existing = null;
+  try {
+    const d = localStorage.getItem(PROFILE_LS);
+    if (d) existing = JSON.parse(d);
+  } catch { existing = null; }
+
+  if (existing && existing.condition && Array.isArray(existing.symptoms)) {
+    profile = {
+      condition: existing.condition,
+      symptoms: existing.symptoms.slice(),
+      setupComplete: existing.setupComplete !== false
+    };
+    return;
+  }
+
+  // 2) Silent migration for current MS users: a populated journal with no
+  //    profile means they were using the app before this refactor. Assign
+  //    the MS defaults so nothing visible changes for them.
+  if (Array.isArray(journal) && journal.length > 0) {
+    profile = {
+      condition: 'multiple-sclerosis',
+      symptoms: DEFAULT_SYMPTOMS_BY_CONDITION['multiple-sclerosis'].slice(),
+      setupComplete: true
+    };
+    saveProfile();
+    return;
+  }
+
+  // 3) Fresh install — leave empty. Phase 2 onboarding will populate it.
+  profile = { condition: null, symptoms: [], setupComplete: false };
+}
+
+function saveProfile() {
+  try { localStorage.setItem(PROFILE_LS, JSON.stringify(profile)); } catch {}
+}
+
+// Returns the user's active symptoms shaped like the legacy SYMPTOMS const
+// ({key,label,icon}). Falls back to the legacy list when no profile is
+// available so callers never get an empty array. Phase 1 DOES NOT CALL THIS
+// — it is wired up in Phase 3 onwards.
+function getActiveSymptoms() {
+  if (!profile || !Array.isArray(profile.symptoms) || profile.symptoms.length === 0) {
+    return SYMPTOMS.slice();
+  }
+  const out = [];
+  for (const key of profile.symptoms) {
+    const def = SYMPTOM_LIBRARY[key];
+    if (def) out.push({ key, label: def.label, icon: def.icon });
+  }
+  return out.length ? out : SYMPTOMS.slice();
+}
+
+// Resolves any score key on a historical entry back to a {key,label,icon}
+// triple. Used anywhere we render an entry's scores as-stored instead of
+// re-projecting through the current profile — the journal score pills and the
+// log-modal edit path. Fallback order: SYMPTOM_LIBRARY → legacy SYMPTOMS → a
+// capitalised placeholder so unknown keys still render something sensible.
+function symFromScoreKey(k) {
+  const def = SYMPTOM_LIBRARY[k];
+  if (def) return { key: k, label: def.label, icon: def.icon };
+  const legacy = (typeof SYMPTOMS !== 'undefined') ? SYMPTOMS.find(x => x.key === k) : null;
+  if (legacy) return legacy;
+  return { key: k, label: k.charAt(0).toUpperCase() + k.slice(1), icon: '•' };
+}
+
+// ═══ ONBOARDING (Phase 2) ══════════════════════════════════════════════════
+// Two-step modal that fires on first load when !profile.setupComplete.
+//   Step 1: pick a condition (or "Skip for now")
+//   Step 2: confirm/tweak the symptom set pre-filled from condition defaults
+// Existing users with setupComplete=true (including silently-migrated MS
+// users from Phase 1) never see this.
+
+let onboardingStep = 1;
+let onboardingCondition = null;
+let onboardingSymptoms = [];
+let onboardingMode = 'onboarding';  // 'onboarding' | 'change' (Phase 3)
+let _onboardingWired = false;
+
+function checkOnboarding() {
+  if (profile && profile.setupComplete) return;
+  onboardingMode = 'onboarding';
+  onboardingStep = 1;
+  onboardingCondition = (profile && profile.condition) || null;
+  onboardingSymptoms = (profile && Array.isArray(profile.symptoms))
+    ? profile.symptoms.slice()
+    : [];
+  document.getElementById('onboardingModal').classList.remove('hidden');
+  renderOnboardingStep1();
+  wireOnboardingDelegation();
+}
+
+function closeOnboarding() {
+  document.getElementById('onboardingModal').classList.add('hidden');
+}
+
+// Build step 1 HTML: condition picker list + Continue + (Skip|Cancel).
+function renderOnboardingStep1() {
+  onboardingStep = 1;
+  const isChange = onboardingMode === 'change';
+  const ordered = Object.entries(CONDITIONS).sort((a,b) => a[1].order - b[1].order);
+  const btns = ordered.map(([k, def]) => {
+    const sel = onboardingCondition === k;
+    return `<button class="onb-cond${sel?' selected':''}" data-cond="${k}" type="button">
+      <span class="onb-cond-lbl">${def.label}</span>
+      <span class="onb-cond-chev">${sel?'✓':'›'}</span>
+    </button>`;
+  }).join('');
+  const title = isChange ? 'Change your condition' : "Welcome to Bloomy's Bud Log";
+  const subtitle = isChange
+    ? 'Pick a new condition — your symptom list will reset to its defaults.'
+    : "Let's set up tracking for your condition.";
+  const privacy = isChange
+    ? ''
+    : `<div class="onb-privacy"><b>Your data stays on this device.</b> Nothing is uploaded anywhere \u2014 everything lives in your browser.</div>`;
+  const footer = isChange
+    ? `<div class="onb-skip-wrap">
+         <button class="onb-skip" onclick="cancelChangeCondition()" type="button">Cancel</button>
+       </div>`
+    : `<div class="onb-skip-wrap">
+         <button class="onb-skip" onclick="skipOnboarding()" type="button">Skip for now</button>
+       </div>
+       <div class="onb-disclaimer">BBL is a personal tracking tool, not medical advice. Always consult your prescriber for treatment decisions.</div>`;
+  document.getElementById('onboardingModalBody').innerHTML = `
+    <div class="modal-handle"></div>
+    <div class="mtitle">${title}</div>
+    <div class="msub">${subtitle}</div>
+    ${privacy}
+    <div class="onb-section-hdr">${isChange?'Pick a condition':'Your primary condition'}</div>
+    <div class="onb-cond-list">${btns}</div>
+    <div class="macts">
+      <button class="pbtn" id="onbNext" onclick="advanceOnboarding()"${onboardingCondition?'':' disabled'}>Continue</button>
+    </div>
+    ${footer}
+  `;
+  const body = document.getElementById('onboardingModalBody').parentElement;
+  if (body && body.scrollTop !== undefined) body.scrollTop = 0;
+}
+
+// Build step 2 HTML: symptom checkbox grid + Back/Save.
+function renderOnboardingStep2() {
+  onboardingStep = 2;
+  const condLabel = (onboardingCondition && CONDITIONS[onboardingCondition])
+    ? CONDITIONS[onboardingCondition].label.toLowerCase()
+    : 'your condition';
+  const items = Object.entries(SYMPTOM_LIBRARY).map(([k, def]) => {
+    const on = onboardingSymptoms.includes(k);
+    return `<button class="onb-sym${on?' on':''}" data-sym="${k}" type="button">
+      <span class="onb-sym-ico">${def.icon}</span>
+      <span class="onb-sym-lbl">${def.label}</span>
+      <span class="onb-sym-check"></span>
+    </button>`;
+  }).join('');
+  document.getElementById('onboardingModalBody').innerHTML = `
+    <div class="modal-handle"></div>
+    <div class="mtitle">Track these symptoms</div>
+    <div class="msub">Based on ${condLabel} \u2014 tap to add or remove.</div>
+    <div class="onb-section-hdr">What to track \u2014 <span id="onbSymCounter">${onboardingSymptoms.length}</span> selected</div>
+    <div class="onb-sym-list">${items}</div>
+    <div class="macts">
+      <button class="sbtn" onclick="backOnboarding()" type="button">Back</button>
+      <button class="pbtn" onclick="saveOnboarding()" type="button">Save &amp; Start</button>
+    </div>
+  `;
+  const body = document.getElementById('onboardingModalBody').parentElement;
+  if (body && body.scrollTop !== undefined) body.scrollTop = 0;
+}
+
+// Surgically update step-1 DOM when a condition is tapped. Avoids re-rendering
+// the whole list (which would reset scroll position on mobile). Re-tapping
+// the already-selected condition is a no-op, so in change-mode the user's
+// existing symptom tweaks are preserved.
+function selectOnboardingCondition(k) {
+  if (!CONDITIONS[k]) return;
+  if (onboardingCondition === k) return;
+  onboardingCondition = k;
+  // Seed the symptom set from this condition's defaults (copy, not reference).
+  onboardingSymptoms = (DEFAULT_SYMPTOMS_BY_CONDITION[k] || []).slice();
+  document.querySelectorAll('.onb-cond[data-cond]').forEach(btn => {
+    const sel = btn.dataset.cond === k;
+    btn.classList.toggle('selected', sel);
+    const chev = btn.querySelector('.onb-cond-chev');
+    if (chev) chev.textContent = sel ? '\u2713' : '\u203a';
+  });
+  const nextBtn = document.getElementById('onbNext');
+  if (nextBtn) nextBtn.removeAttribute('disabled');
+}
+
+// Surgically toggle a single symptom in step 2.
+function toggleOnboardingSymptom(k) {
+  if (!SYMPTOM_LIBRARY[k]) return;
+  const idx = onboardingSymptoms.indexOf(k);
+  if (idx >= 0) onboardingSymptoms.splice(idx, 1);
+  else onboardingSymptoms.push(k);
+  const btn = document.querySelector(`.onb-sym[data-sym="${k}"]`);
+  if (btn) btn.classList.toggle('on', onboardingSymptoms.includes(k));
+  const counter = document.getElementById('onbSymCounter');
+  if (counter) counter.textContent = onboardingSymptoms.length;
+}
+
+function advanceOnboarding() {
+  if (!onboardingCondition) return;
+  renderOnboardingStep2();
+}
+
+function backOnboarding() {
+  renderOnboardingStep1();
+}
+
+function saveOnboarding() {
+  profile = {
+    condition: onboardingCondition,
+    symptoms: onboardingSymptoms.slice(),
+    setupComplete: true
+  };
+  saveProfile();
+  closeOnboarding();
+  // If this was a change-condition flow from the Profile tab, re-render it
+  // so the new condition and symptom list are reflected immediately.
+  if (onboardingMode === 'change') {
+    onboardingMode = 'onboarding'; // reset
+    if (typeof renderProfile === 'function') renderProfile();
+  }
+}
+
+// Cancel the change-condition flow without touching the profile. (Distinct
+// from skipOnboarding, which exists only for brand-new users.)
+function cancelChangeCondition() {
+  onboardingMode = 'onboarding'; // reset
+  closeOnboarding();
+}
+
+// Entry point for the Profile tab "Change condition" button. Seeds onboarding
+// state from the current profile and opens the modal in change mode.
+function openChangeCondition() {
+  onboardingMode = 'change';
+  onboardingStep = 1;
+  onboardingCondition = (profile && profile.condition) || null;
+  onboardingSymptoms = (profile && Array.isArray(profile.symptoms))
+    ? profile.symptoms.slice()
+    : [];
+  document.getElementById('onboardingModal').classList.remove('hidden');
+  renderOnboardingStep1();
+  wireOnboardingDelegation();
+}
+
+function skipOnboarding() {
+  // "Other" + empty symptom set. getActiveSymptoms() falls back to the legacy
+  // 6-symptom list, so the app stays usable. User can configure later.
+  profile = {
+    condition: 'other',
+    symptoms: [],
+    setupComplete: true
+  };
+  saveProfile();
+  closeOnboarding();
+}
+
+// Single delegated click handler for condition & symptom buttons. Attached
+// once per session to survive re-renders of the modal body.
+function wireOnboardingDelegation() {
+  if (_onboardingWired) return;
+  _onboardingWired = true;
+  document.getElementById('onboardingModalBody').addEventListener('click', (e) => {
+    const condBtn = e.target.closest('[data-cond]');
+    if (condBtn) { selectOnboardingCondition(condBtn.dataset.cond); return; }
+    const symBtn = e.target.closest('[data-sym]');
+    if (symBtn) { toggleOnboardingSymptom(symBtn.dataset.sym); return; }
+  });
+}
+
+// ═══ PROFILE TAB (Phase 3) ═════════════════════════════════════════════════
+// The Profile tab shows the user's current condition + an editable symptom
+// list. Toggling a symptom saves immediately. Removing a symptom that has
+// journal history triggers an inline DOM confirmation (not native confirm(),
+// which iOS Safari silently suppresses in scrollable containers).
+
+let profileConfirmSymptom = null;  // key of symptom pending remove-confirmation
+let _profileWired = false;
+
+// Counts how many journal entries scored the given symptom key.
+function countEntriesWithSymptom(key) {
+  if (!Array.isArray(journal)) return 0;
+  let n = 0;
+  for (const e of journal) {
+    if (e && e.scores && Object.prototype.hasOwnProperty.call(e.scores, key)) n++;
+  }
+  return n;
+}
+
+function renderProfile() {
+  const root = document.getElementById('profileView');
+  if (!root) return;
+  const condKey = (profile && profile.condition) || null;
+  const condLabel = (condKey && CONDITIONS[condKey])
+    ? CONDITIONS[condKey].label
+    : 'Not set';
+  const active = new Set((profile && Array.isArray(profile.symptoms)) ? profile.symptoms : []);
+  const count = active.size;
+
+  // Optional confirmation banner (shown when user taps-to-remove a tracked
+  // symptom that has journal history).
+  let confirmBanner = '';
+  if (profileConfirmSymptom && SYMPTOM_LIBRARY[profileConfirmSymptom]) {
+    const def = SYMPTOM_LIBRARY[profileConfirmSymptom];
+    const n = countEntriesWithSymptom(profileConfirmSymptom);
+    confirmBanner = `
+      <div class="prof-confirm">
+        <div class="prof-confirm-msg">You have <b>${n} ${n===1?'entry':'entries'}</b> with <b>${def.label}</b> data.
+          Hide it from future logs but keep it in history?</div>
+        <div class="prof-confirm-btns">
+          <button class="prof-confirm-btn prof-confirm-keep" data-confirm-action="keep" type="button">Keep tracking</button>
+          <button class="prof-confirm-btn prof-confirm-remove" data-confirm-action="remove" type="button">Hide from future logs</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // Symptom grid — all 24 from SYMPTOM_LIBRARY, current ones marked .on,
+  // symptom pending removal marked .pending (red).
+  const items = Object.entries(SYMPTOM_LIBRARY).map(([k, def]) => {
+    const on = active.has(k);
+    const pending = profileConfirmSymptom === k;
+    const cls = 'onb-sym' + (on ? ' on' : '') + (pending ? ' pending' : '');
+    return `<button class="${cls}" data-sym="${k}" type="button">
+      <span class="onb-sym-ico">${def.icon}</span>
+      <span class="onb-sym-lbl">${def.label}</span>
+      <span class="onb-sym-check"></span>
+    </button>`;
+  }).join('');
+
+  const emptyNote = count === 0
+    ? `<div class="prof-empty">No symptoms tracked yet \u2014 tap some below to start. Until you pick at least one, the app falls back to the original 6-symptom default.</div>`
+    : '';
+
+  root.innerHTML = `
+    <div class="prof-card">
+      <div class="prof-card-hdr">Your condition</div>
+      <div class="prof-cond-row">
+        <div class="prof-cond-name">${condLabel}</div>
+        <button class="prof-cond-change" onclick="openChangeCondition()" type="button">Change</button>
+      </div>
+    </div>
+    <div class="prof-card">
+      <div class="prof-card-hdr">Symptoms you track</div>
+      <div class="prof-sym-subhdr">
+        <span class="prof-sym-count">${count}</span> of ${Object.keys(SYMPTOM_LIBRARY).length} selected \u2014 tap to toggle.
+      </div>
+      ${emptyNote}
+      ${confirmBanner}
+      <div class="onb-sym-list" id="profileSymList">${items}</div>
+    </div>
+  `;
+
+  wireProfileDelegation();
+}
+
+// Tap handler: add-or-remove a symptom on the Profile tab. If the user is
+// trying to REMOVE a symptom that has journal history, defer the action to
+// an inline confirmation; otherwise save immediately.
+function toggleProfileSymptom(key) {
+  if (!SYMPTOM_LIBRARY[key]) return;
+  // Any tap while a confirm is pending elsewhere cancels that confirm first.
+  if (profileConfirmSymptom && profileConfirmSymptom !== key) {
+    profileConfirmSymptom = null;
+  }
+  const active = Array.isArray(profile.symptoms) ? profile.symptoms.slice() : [];
+  const currentlyOn = active.indexOf(key) >= 0;
+  if (currentlyOn) {
+    // Removing. If there's journal history and we haven't already asked,
+    // surface the confirmation banner.
+    const hasHistory = countEntriesWithSymptom(key) > 0;
+    if (hasHistory && profileConfirmSymptom !== key) {
+      profileConfirmSymptom = key;
+      renderProfile();
+      return;
+    }
+    // No history, or confirm already showing (tapping the symptom again
+    // acts as cancel): drop it from the profile.
+    const filtered = active.filter(x => x !== key);
+    profile = { ...profile, symptoms: filtered };
+    profileConfirmSymptom = null;
+  } else {
+    // Adding. Symptoms with history from a previous tracking run get re-added
+    // silently — no confirm needed because we're restoring tracking.
+    active.push(key);
+    profile = { ...profile, symptoms: active };
+    profileConfirmSymptom = null;
+  }
+  saveProfile();
+  renderProfile();
+}
+
+// Confirmation button handler for the inline remove-confirmation banner.
+function handleProfileConfirm(action) {
+  const key = profileConfirmSymptom;
+  if (!key) return;
+  if (action === 'keep') {
+    profileConfirmSymptom = null;
+    renderProfile();
+    return;
+  }
+  if (action === 'remove') {
+    const active = Array.isArray(profile.symptoms) ? profile.symptoms.slice() : [];
+    profile = { ...profile, symptoms: active.filter(x => x !== key) };
+    profileConfirmSymptom = null;
+    saveProfile();
+    renderProfile();
+  }
+}
+
+// Single delegated click handler for the Profile tab. Attached once.
+function wireProfileDelegation() {
+  if (_profileWired) return;
+  _profileWired = true;
+  document.getElementById('tab-profile').addEventListener('click', (e) => {
+    const confirmBtn = e.target.closest('[data-confirm-action]');
+    if (confirmBtn) { handleProfileConfirm(confirmBtn.dataset.confirmAction); return; }
+    const symBtn = e.target.closest('[data-sym]');
+    if (symBtn) { toggleProfileSymptom(symBtn.dataset.sym); return; }
+  });
+}
 
 // ═══ HELPERS ════════════════════════════════════════════════════════════════
 let _debounceTimer = null;
@@ -566,6 +1141,7 @@ function showTab(name) {
   if(name==='analysis') renderAnalysis();
   if(name==='reviews') renderReviews();
   if(name==='browser') renderBrowser();
+  if(name==='profile') renderProfile();
 }
 
 // ═══ BROWSER ════════════════════════════════════════════════════════════════
@@ -726,6 +1302,11 @@ function closeDetail() {
 }
 
 // ═══ LOG MODAL ═══════════════════════════════════════════════════════════════
+// New entries use the user's currently active symptoms (from their profile).
+// Edits of existing entries use the symptoms from the entry's own scores —
+// so an old MS entry still shows pain/spasticity/etc. even after the user
+// has switched their profile to a different condition. Historical entries
+// are never rewritten by a profile change.
 function openModal(strainId, entryId) {
   const s = STRAINS.find(x=>x.id===strainId);
   if(!s) return;
@@ -733,7 +1314,22 @@ function openModal(strainId, entryId) {
   editEntryId = entryId||null;
   const existing = entryId ? journal.find(e=>e.id===entryId) : null;
   modalRating = existing?.rating||0;
-  modalScores = existing?.scores ? {...existing.scores} : {pain:5,spasticity:5,fatigue:5,sleep:5,mood:5,cognition:5};
+
+  // Decide which symptoms to show, and seed modalScores accordingly.
+  let modalSyms;
+  if (existing && existing.scores && typeof existing.scores === 'object') {
+    // EDIT: show whatever symptoms were scored in this entry, in their stored
+    // order. symFromScoreKey handles SYMPTOM_LIBRARY → legacy SYMPTOMS →
+    // placeholder fallbacks for any unknown keys.
+    modalSyms = Object.keys(existing.scores).map(symFromScoreKey);
+    modalScores = { ...existing.scores };
+  } else {
+    // NEW: use the user's currently-active symptoms, defaulted to 5/10 each.
+    modalSyms = getActiveSymptoms();
+    modalScores = {};
+    for (const sym of modalSyms) modalScores[sym.key] = 5;
+  }
+
   document.getElementById('modalTitle').textContent = `Log: ${s.name}`;
   document.getElementById('modalSub').textContent = `${s.producer} · THC ${s.thc}%${s.cbd?` · CBD ${s.cbd}%`:''} · ${s.type}`;
   document.getElementById('fDate').value = existing?.date || new Date().toISOString().split('T')[0];
@@ -741,7 +1337,7 @@ function openModal(strainId, entryId) {
   document.getElementById('fDose').value = existing?.dose||'';
   document.getElementById('fSide').value = existing?.sideEffects||'';
   document.getElementById('fNotes').value = existing?.notes||'';
-  document.getElementById('sliderGroup').innerHTML = SYMPTOMS.map(sym=>`
+  document.getElementById('sliderGroup').innerHTML = modalSyms.map(sym=>`
     <div class="swrap">
       <div class="stop"><span class="slbl">${sym.icon} ${sym.label}</span><span class="sval" id="sv-${sym.key}">${modalScores[sym.key]}/10</span></div>
       <input type="range" min="0" max="10" value="${modalScores[sym.key]}" oninput="updateSlider('${sym.key}',this.value)">
@@ -819,7 +1415,11 @@ function renderJournal() {
   });
   el.innerHTML = sorted.map(e=>{
     const tChips = (e.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}">${TERPENE_INFO[t]?.icon||'🌿'} ${t}</span>`).join('');
-    const scorePills = SYMPTOMS.map(s=>{
+    // Phase 5: pills iterate the entry's OWN score keys so historical entries
+    // logged under a different profile (e.g. old MS scores viewed while user
+    // is now on ADHD) still render exactly what was stored at the time.
+    const entrySyms = Object.keys(e.scores||{}).map(symFromScoreKey);
+    const scorePills = entrySyms.map(s=>{
       const v=e.scores?.[s.key]??0;
       const c=v>=7?'var(--ac3)':v>=4?'var(--ac)':'var(--red)';
       return `<div class="sch"><div class="schlbl">${s.icon} ${s.label}</div><div class="schv" style="color:${c}">${v}/10</div><div class="sbar"><div class="sbf" style="width:${v*10}%;background:${c}"></div></div></div>`;
@@ -894,15 +1494,26 @@ function getRecommendations() {
   const thcPool = top.length >= 2 ? top : rated;
   const avgThc = thcPool.reduce((a,e)=>a+(e.thc||0),0) / thcPool.length;
 
-  // Best symptom scores to identify user's priorities
+  // Best symptom scores to identify user's priorities. Phase 4: iterate the
+  // user's ACTIVE symptoms from their profile rather than the legacy 6 MS ones.
+  // Entries that pre-date a profile switch (e.g. logged under MS, now on ADHD)
+  // simply contribute nothing to the new symptom keys — which is correct; we
+  // don't want stale pain scores inflating an ADHD user's priorities.
   const symAvg = {};
-  SYMPTOMS.forEach(s => {
+  getActiveSymptoms().forEach(s => {
     const vals = rated.map(e => e.scores?.[s.key]??0).filter(v => v > 0);
     if(vals.length) symAvg[s.key] = vals.reduce((a,b)=>a+b,0)/vals.length;
   });
   // User's top 3 symptom priorities (highest avg relief sought)
   const topSyms = Object.entries(symAvg).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([k])=>k);
-  const msMap = {pain:'pain',spasticity:'spast',fatigue:'fatigue',sleep:'insomnia|sleep',mood:'anxiety|depress',cognition:'focus|adhd'};
+
+  // Phase 4: pre-compile helpsWith regexes for each top symptom once, from
+  // SYMPTOM_LIBRARY[k].helpsWithPatterns, replacing the old hardcoded msMap.
+  // Any unknown/legacy symptom key yields an empty pattern list and is skipped.
+  const topSymRegexes = topSyms.map(sym => {
+    const patterns = (SYMPTOM_LIBRARY[sym] && SYMPTOM_LIBRARY[sym].helpsWithPatterns) || [];
+    return patterns.map(p => new RegExp(p, 'i'));
+  });
 
   // Tried strains
   const tried = new Set(journal.map(e=>e.strainId));
@@ -931,10 +1542,10 @@ function getRecommendations() {
       score += Math.max(0, 5 - thcDist * 0.25);
     }
 
-    // MS-relevant helpsWith bonus based on user's top symptoms
-    topSyms.forEach(sym => {
-      const pat = msMap[sym];
-      if(pat && (s.helpsWith||[]).some(h => new RegExp(pat,'i').test(h))) score += 1.5;
+    // Phase 4: helpsWith bonus based on user's top symptoms, driven by
+    // SYMPTOM_LIBRARY patterns rather than the old hardcoded msMap.
+    topSymRegexes.forEach(regexes => {
+      if(regexes.length && (s.helpsWith||[]).some(h => regexes.some(r => r.test(h)))) score += 1.5;
     });
 
     // Small bonus for having terpenes at all (data quality signal)
@@ -980,15 +1591,26 @@ function renderAnalysis() {
     content.innerHTML = `<div class="empty"><div class="eico">📊</div><div class="etitle">Not enough data yet</div><div class="etxt">Log at least 2 strain entries to unlock insights.</div></div>`;
     return;
   }
+  // Phase 5: one call up top, reused everywhere below. Profile may be 'Other'
+  // with no tracked symptoms → getActiveSymptoms() already falls back to the
+  // legacy 6 so the analysis tab is never empty.
+  const activeSyms = getActiveSymptoms();
   const bySt = {};
   journal.forEach(e=>{ if(!bySt[e.strainId])bySt[e.strainId]={name:e.strainName,producer:e.producer,thc:e.thc,type:e.type,terpenes:e.terpenes||[],entries:[]}; bySt[e.strainId].entries.push(e); });
-  const sums = Object.values(bySt).map(s=>({...s,avgR:s.entries.reduce((a,e)=>a+e.rating,0)/s.entries.length,avgS:SYMPTOMS.reduce((ac,sym)=>{ac[sym.key]=s.entries.reduce((a,e)=>a+(e.scores?.[sym.key]??0),0)/s.entries.length;return ac;},{})})).sort((a,b)=>b.avgR-a.avgR);
+  // avgS: keyed by the user's currently-tracked symptoms. Entries missing a key
+  // contribute 0 (existing semantic, via `?? 0`).
+  const sums = Object.values(bySt).map(s=>({...s,avgR:s.entries.reduce((a,e)=>a+e.rating,0)/s.entries.length,avgS:activeSyms.reduce((ac,sym)=>{ac[sym.key]=s.entries.reduce((a,e)=>a+(e.scores?.[sym.key]??0),0)/s.entries.length;return ac;},{})})).sort((a,b)=>b.avgR-a.avgR);
   sub.textContent = `Based on ${journal.length} entries across ${sums.length} strains`;
-  const oAvg = SYMPTOMS.map(sym=>({...sym,avg:journal.reduce((a,e)=>a+(e.scores?.[sym.key]??0),0)/journal.length})).sort((a,b)=>b.avg-a.avg);
-  const bySym = SYMPTOMS.map(sym=>{const best=[...sums].sort((a,b)=>b.avgS[sym.key]-a.avgS[sym.key])[0];return{...sym,best};});
+  const oAvg = activeSyms.map(sym=>({...sym,avg:journal.reduce((a,e)=>a+(e.scores?.[sym.key]??0),0)/journal.length})).sort((a,b)=>b.avg-a.avg);
+  const bySym = activeSyms.map(sym=>{const best=[...sums].sort((a,b)=>b.avgS[sym.key]-a.avgS[sym.key])[0];return{...sym,best};});
+  // Terpene performance: was hardcoded to pain+spasticity; now uses the user's
+  // first two tracked symptoms. For each terpene we keep the rating array plus
+  // one per-symptom score array keyed by symptom key.
+  const topTerpSyms = activeSyms.slice(0,2);
   const terpS = {};
-  journal.forEach(e=>{ (e.terpenes||[]).forEach(t=>{ if(!terpS[t])terpS[t]={r:[],p:[],sp:[]}; terpS[t].r.push(e.rating); terpS[t].p.push(e.scores?.pain??0); terpS[t].sp.push(e.scores?.spasticity??0); }); });
-  const terpR = Object.entries(terpS).filter(([,v])=>v.r.length>=1).map(([t,v])=>({t,ar:v.r.reduce((a,b)=>a+b,0)/v.r.length,ap:v.p.reduce((a,b)=>a+b,0)/v.p.length,as:v.sp.reduce((a,b)=>a+b,0)/v.sp.length,n:v.r.length})).sort((a,b)=>b.ar-a.ar);
+  journal.forEach(e=>{ (e.terpenes||[]).forEach(t=>{ if(!terpS[t]){terpS[t]={r:[],syms:{}}; topTerpSyms.forEach(sy=>terpS[t].syms[sy.key]=[]);} terpS[t].r.push(e.rating); topTerpSyms.forEach(sy=>terpS[t].syms[sy.key].push(e.scores?.[sy.key]??0)); }); });
+  const avgArr = arr => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0;
+  const terpR = Object.entries(terpS).filter(([,v])=>v.r.length>=1).map(([t,v])=>({t,ar:avgArr(v.r),n:v.r.length,symAvgs:topTerpSyms.map(sy=>({sym:sy,avg:avgArr(v.syms[sy.key]||[])}))})).sort((a,b)=>b.ar-a.ar);
   const byTy={};
   journal.forEach(e=>{ if(!e.type)return; if(!byTy[e.type])byTy[e.type]=[]; byTy[e.type].push(e.rating); });
   const tyAvg = Object.entries(byTy).map(([t,r])=>({t,avg:r.reduce((a,b)=>a+b,0)/r.length,n:r.length})).sort((a,b)=>b.avg-a.avg);
@@ -1002,11 +1624,11 @@ function renderAnalysis() {
     <div class="acard"><div class="actitle">📈 Avg Symptom Relief</div>
       ${oAvg.map(s=>`<div class="symrow"><span class="symicon">${s.icon}</span><span class="symlbl">${s.label}</span><div class="sbw"><div class="sbwf" style="width:${s.avg*10}%"></div></div><span class="syms">${s.avg.toFixed(1)}</span></div>`).join('')}
     </div>
-    <div class="acard full"><div class="actitle">🎯 Best Strain Per MS Symptom</div>
+    <div class="acard full"><div class="actitle">🎯 Best Strain Per Symptom</div>
       <div class="best-grid">${bySym.map(s=>`<div class="best-card"><div class="best-icon">${s.icon}</div><div class="best-lbl">${s.label}</div><div class="best-name">${s.best?.name||'—'}</div>${s.best?`<div class="best-score">${s.best.avgS[s.key].toFixed(1)}/10</div>`:''}</div>`).join('')}</div>
     </div>
     ${terpR.length?`<div class="acard full"><div class="actitle">🌿 Terpene Performance (your data)</div>
-      <div class="best-grid">${terpR.slice(0,6).map(({t,ar,ap,as,n})=>{const info=TERPENE_INFO[t];return`<div class="best-card"><div class="best-icon">${info?.icon||'🌿'}</div><div class="best-lbl">${t} (${n})</div><div style="font-size:11px;color:var(--ac)">★ ${ar.toFixed(1)}</div><div style="font-size:10px;color:var(--ac2)">Pain ${ap.toFixed(1)} · Spasm ${as.toFixed(1)}</div></div>`;}).join('')}</div>
+      <div class="best-grid">${terpR.slice(0,6).map(({t,ar,n,symAvgs})=>{const info=TERPENE_INFO[t];const symLine=symAvgs.map(({sym,avg})=>`${sym.label.split(' / ')[0]} ${avg.toFixed(1)}`).join(' · ');return`<div class="best-card"><div class="best-icon">${info?.icon||'🌿'}</div><div class="best-lbl">${t} (${n})</div><div style="font-size:11px;color:var(--ac)">★ ${ar.toFixed(1)}</div>${symLine?`<div style="font-size:10px;color:var(--ac2)">${symLine}</div>`:''}</div>`;}).join('')}</div>
     </div>`:''}
     ${tyAvg.length>1?`<div class="acard"><div class="actitle">⚖️ Type Comparison</div>
       ${tyAvg.map(({t,avg,n})=>`<div class="ri"><span style="font-size:15px">${TYPE_ICONS[t]}</span><div class="rinfo"><div class="rname">${t}</div><div class="rsub">${n} logs</div></div><span class="rscore" style="color:${TYPE_COLORS[t]}">${avg.toFixed(1)}</span></div>`).join('')}
@@ -1082,7 +1704,7 @@ function checkInstall() {
 }
 
 // ═══ REVIEWS ═════════════════════════════════════════════════════════════════
-const REVIEWS_JSON = [{"url":"https://www.youtube.com/watch?v=ZQVS6RCP1eo","videoId":"ZQVS6RCP1eo","title":"First look at Sinceritas RTZ T24 M Runtz / UK medical","channel":"Med Canna Diaries\n@med_canna_diaries","producer":"","medication":"First look at Sinceritas RTZ T24 M Runtz / UK medical","published":"5pm Today"},{"url":"https://www.youtube.com/watch?v=CIZqwRuQ1lk","videoId":"CIZqwRuQ1lk","title":"Green Karat Trillianz UK Medical Flower Review","channel":"Eazypax420\n@Eazypax420","producer":"GREEN KARAT","medication":"TZ T30 Trillianz","published":"5pm Today"},{"url":"https://www.youtube.com/watch?v=4ekXar7nfKo","videoId":"4ekXar7nfKo","title":"Superseed - Blueberry Purp T25 - (Grandaddy Purple x Original Blueberry)","channel":"Vinnie\u0027s Lounge\n@VinniesLounge","producer":"SUPERSEED","medication":"BBY PRP T25 Blueberry Purp","published":"4pm Today"},{"url":"https://www.youtube.com/watch?v=6KLAzqKaNis","videoId":"6KLAzqKaNis","title":"Uk medical flower craft botanics white runtz Dank or Jank","channel":"Concanna\n@Concanna","producer":"CRAFT BOTANICS\u00ae","medication":"WRZ T28 White Runtz","published":"1pm Today"},{"url":"https://www.youtube.com/watch?v=vQfDQRc95KA","videoId":"vQfDQRc95KA","title":"Trillionz\u2026 Bad or Good?! Vape Saved It?!","channel":"Js Medi Lounge\n@Jsmedilounge","producer":"GREEN KARAT","medication":"TZ T30 Trillianz","published":"12pm Today"},{"url":"https://www.youtube.com/watch?v=RCv6rVImy2M","videoId":"RCv6rVImy2M","title":"MUZU T27 SUDZ weight","channel":"Pain Patient\n@PainPatient","producer":"","medication":"MUZU T27 SUDZ weight","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=CkhiCA9iZ5s","videoId":"CkhiCA9iZ5s","title":"MUZO T27 SUDZ REVIEW","channel":"Pain Patient\n@PainPatient","producer":"","medication":"MUZO T27 SUDZ REVIEW","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=L53SbvvKAUg","videoId":"L53SbvvKAUg","title":"Apples & Bananas 27%THC... Medical Prescription cannabis.","channel":"THC Bunny\n@THCBUNNY","producer":"LOT420\u2122","medication":"AB T27 Apples & Bananas","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=PvsrB5ERGTU","videoId":"PvsrB5ERGTU","title":"High Greens : Lemon Diesel Fritter Review","channel":"Doc Green Bud\n@TheDrGreenBud","producer":"HIGHGREENS","medication":"LDS T27 Lemon Diesel Fritter","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=23BaeDXvC6g","videoId":"23BaeDXvC6g","title":"Apples & Bananas 27%THC by AAAA... Medical Prescription cannabis.","channel":"THC Bunny\n@THCBUNNY","producer":"LOT420\u2122","medication":"AB T27 Apples & Bananas","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=dz1FwWnW0Qg","videoId":"dz1FwWnW0Qg","title":"Cookies - Cereal milk","channel":"MBUK\n@MedbudUk02","producer":"COOKIES\u00ae","medication":"C-CMI T26 Cereal Milk","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=kRoBNrggy7s","videoId":"kRoBNrggy7s","title":"Finally\u2026 GOOD Medical?! Green Karat London Marker","channel":"Js Medi Lounge\n@Jsmedilounge","producer":"GREEN KARAT","medication":"LM T27 London Marker","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=lm5s85jz1WM","videoId":"lm5s85jz1WM","title":"Effects and Aromas - Gushers T22 Review","channel":"Master S BTB\n@mastersbtb","producer":"","medication":"Effects and Aromas - Gushers T22 Review","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=QbivsN_pcl4","videoId":"QbivsN_pcl4","title":"Bannana Daddy T26 - Cielo Verde (4c Labs) - (Bannana Hammock x Grandaddy Purple)","channel":"Vinnie\u0027s Lounge\n@VinniesLounge","producer":"4C LABS","medication":"Craft BDD T26 Banana Daddy","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=t6jio4DX02E","videoId":"t6jio4DX02E","title":"Uk medical who brings this trash to the table?","channel":"Henry Hemp\n@RAIDERTAM","producer":"HUMBLE BUD","medication":"GM Smalls T25 Gelato","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=rO0gPPeADlQ","videoId":"rO0gPPeADlQ","title":"GMO MAC T27 review - Is it worth \u00a390?","channel":"Medicated Marty\n@MedicatedMarty","producer":"","medication":"GMO MAC T27 review - Is it worth \u00a390?","published":""},{"url":"https://www.youtube.com/watch?v=ClivJiNxxrI","videoId":"ClivJiNxxrI","title":"Fight Club - Kasa Verde - Green Karat - UK Medical Cannabis Review","channel":"AK87 Reviews\n@ak87reviews","producer":"KASA VERDE","medication":"FC T32 Fight Club","published":""},{"url":"https://www.youtube.com/watch?v=k0LD1FTUd-k","videoId":"k0LD1FTUd-k","title":"OG Kush Breath T28 Buds 1 - UK Medical Cannabis Strain","channel":"Master S BTB\n@mastersbtb","producer":"","medication":"OG Kush Breath T28 Buds 1 - UK Medical Cannabis Strain","published":""},{"url":"https://www.youtube.com/watch?v=Uewedkk8tKU","videoId":"Uewedkk8tKU","title":"OG Kush Breath T28 Review - UK Medical Cannabis Strain","channel":"Master S BTB\n@mastersbtb","producer":"","medication":"OG Kush Breath T28 Review - UK Medical Cannabis Strain","published":""},{"url":"https://www.youtube.com/watch?v=Ma0TeOGBXPo","videoId":"Ma0TeOGBXPo","title":"Green Karat - London Marker - UK Medical Cannabis - First Look","channel":"Smokie McGreen\n@Smokie_McGreen","producer":"GREEN KARAT","medication":"LM T27 London Marker","published":""},{"url":"https://www.youtube.com/watch?v=S-kHdOXApQ4","videoId":"S-kHdOXApQ4","title":"Vasco Blueberry Banana T28 Azztecmedia","channel":"Azztecmedia UK Medical\n@AzztecmediaUKMEDICAL1","producer":"","medication":"Vasco Blueberry Banana T28 Azztecmedia","published":""},{"url":"https://www.youtube.com/watch?v=GZTvJw8A3_E","videoId":"GZTvJw8A3_E","title":"First look at the All Nations MDO T27 MAC Doughnut / UK medical","channel":"Med Canna Diaries\n@med_canna_diaries","producer":"","medication":"First look at the All Nations MDO T27 MAC Doughnut / UK medical","published":""},{"url":"https://www.youtube.com/watch?v=BVu9Q1xkDtY","videoId":"BVu9Q1xkDtY","title":"Green Karat London Marker UK Medical Flower Review","channel":"Eazypax420\n@Eazypax420","producer":"GREEN KARAT","medication":"LM T27 London Marker","published":""},{"url":"https://www.youtube.com/watch?v=Zb_vJ3OoDYk","videoId":"Zb_vJ3OoDYk","title":"SUNDAZE MODIFIED GRAPE (UK PRESCRIPTION MEDICATION)","channel":"PrescribedBouquet\n@PrescribedBouquet","producer":"SUNDAZE\u00ae","medication":"MG T28 Modified Grapes","published":""},{"url":"https://www.youtube.com/watch?v=1szq5fkZpFE","videoId":"1szq5fkZpFE","title":"VASCO BLUEBERRY BANANA SMALLS (UK PRESCRIPTION MEDICATION)","channel":"PrescribedBouquet\n@PrescribedBouquet","producer":"VASCO","medication":"BB Smalls T28 Blueberry Banana","published":""},{"url":"https://www.youtube.com/watch?v=YzhF7tIpj6E","videoId":"YzhF7tIpj6E","title":"\u00a390 Ice Cream Mintz.. Mystery Mountain Already Disappointed First View Review","channel":"Js Medi Lounge\n@Jsmedilounge","producer":"MYSTERY MOUNTAIN\u2122","medication":"ICM MNZ T28 Ice Cream Mintz","published":""},{"url":"https://www.youtube.com/watch?v=vQHFKzuKmJE","videoId":"vQHFKzuKmJE","title":"The Aroma, Plus I\u0027ve never really liked Apple Strains! - Apples & Bananas T27","channel":"Master S BTB\n@mastersbtb","producer":"LOT420\u2122","medication":"AB T27 Apples & Bananas","published":""},{"url":"https://www.youtube.com/watch?v=_QOfHsnx3EY","videoId":"_QOfHsnx3EY","title":"High Greens : lemon Diesel Fritter","channel":"Doc Green Bud\n@TheDrGreenBud","producer":"HIGHGREENS","medication":"LDS T27 Lemon Diesel Fritter","published":""},{"url":"https://www.youtube.com/watch?v=Ka0UGXUi1rk","videoId":"Ka0UGXUi1rk","title":"Sinceritas - Runtz (Gelato 41 x Skittlez)","channel":"Marmites Medical UK\n@MarmitesMedicalUK","producer":"SINCERITAS","medication":"RTZ T24 M Runtz","published":""},{"url":"https://www.youtube.com/watch?v=Np1Eg3tpymM","videoId":"Np1Eg3tpymM","title":"Sundaze Guava Bars Flower","channel":"St0nerLukas\n@St0nerLukas","producer":"SUNDAZE\u00ae","medication":"GBZ T29 Guava Bars","published":""},{"url":"https://www.youtube.com/watch?v=b9a0ZrjpuAU","videoId":"b9a0ZrjpuAU","title":"First Time Trying Sundaze Guava Bars","channel":"St0nerLukas\n@St0nerLukas","producer":"SUNDAZE\u00ae","medication":"GBZ T29 Guava Bars","published":""},{"url":"https://www.youtube.com/watch?v=ZN9_nOLlTmA","videoId":"ZN9_nOLlTmA","title":"\u00a390 Dark Sky Paradise\u2026 Not Worth It?","channel":"Js Medi Lounge\n@Jsmedilounge","producer":"MYSTERY MOUNTAIN\u2122","medication":"DSK PDS T30 Dark Sky Paradise","published":""},{"url":"https://www.youtube.com/watch?v=fmJrkZyF1YE","videoId":"fmJrkZyF1YE","title":"Phant: Apes in Space Minis Review.","channel":"Doc Green Bud\n@TheDrGreenBud","producer":"PHANT","medication":"AS Smalls T22 Apes in Space","published":""},{"url":"https://www.youtube.com/watch?v=fRQm4-geiUg","videoId":"fRQm4-geiUg","title":"Green Karat - JMO Skittles - UK Medical Cannabis - First Look","channel":"Smokie McGreen\n@Smokie_McGreen","producer":"GREEN KARAT","medication":"JK T29 JMO Skittlez","published":""},{"url":"https://www.youtube.com/watch?v=BLzVx0REQkc","videoId":"BLzVx0REQkc","title":"Green Karat LM T27 London Marker","channel":"Medi Blaze\n@mediblaze","producer":"","medication":"Green Karat LM T27 London Marker","published":""},{"url":"https://www.youtube.com/watch?v=MfJiJVyqKdA","videoId":"MfJiJVyqKdA","title":"Green Karat -Trillianz - UK Medical Flower","channel":"Vybzz 420\n@Vybz420","producer":"GREEN KARAT","medication":"TZ T30 Trillianz","published":""},{"url":"https://www.youtube.com/watch?v=kiDskCspxOU","videoId":"kiDskCspxOU","title":"Vasco Cipher Pav\u00e9 Runtz 28% Medical Cannabis Review","channel":"CheeseMon4\n@CheeseMon4","producer":"VASCO","medication":"PR T28 Pav\u00e9 Runtz","published":""},{"url":"https://www.youtube.com/watch?v=LxClW4vXLeM","videoId":"LxClW4vXLeM","title":"Green Karat -Lemon skunk - UK Medical Flower","channel":"Vybzz 420\n@Vybz420","producer":"GREEN KARAT","medication":"SL T28 Super Lemon Skunk","published":""},{"url":"https://www.youtube.com/watch?v=Nbnywru8HSQ","videoId":"Nbnywru8HSQ","title":"Green Karat -JMO Skittlez - UK Medical Flower","channel":"Vybzz 420\n@Vybz420","producer":"GREEN KARAT","medication":"JK T29 JMO Skittlez","published":""},{"url":"https://www.youtube.com/watch?v=SwS9om5g8Uw","videoId":"SwS9om5g8Uw","title":"London Marker by Green Karat MC","channel":"WestPacks420\n@westpacks420","producer":"GREEN KARAT","medication":"LM T27 London Marker","published":""},{"url":"https://www.youtube.com/watch?v=h2WIYg80rvA","videoId":"h2WIYg80rvA","title":"\u00a390 Dark Sky Paradise Mystery Mountain + 3 New Green Karat Drops First View Reviews","channel":"Js Medi Lounge\n@Jsmedilounge","producer":"GREEN KARAT","medication":"LM T27 London Marker","published":""},{"url":"https://www.youtube.com/watch?v=KRGNtWT92uA","videoId":"KRGNtWT92uA","title":"Pave Runtz, Golden Gauth, Gas Cream Cake, Hashburger, Jack Kush, Mod Gas - UK Medical Strain Review","channel":"The Slow Draw\n@TheSlowDraw","producer":"ORIGINE","medication":"GG T26 Golden Gauth","published":""},{"url":"https://www.youtube.com/watch?v=8lSL3PVL2Do","videoId":"8lSL3PVL2Do","title":"Best Value From Mamedica Right Now!","channel":"My Medical 420\n@mymedical420","producer":"CURALEAF\u00ae","medication":"ZKS T26 Zookies","published":""},{"url":"https://www.youtube.com/watch?v=GzEkZ29MQbw","videoId":"GzEkZ29MQbw","title":"Papers: Animal Face Cookies (Full review)","channel":"Review Budd\n@ReviewBuddd","producer":"PAPERS\u2122","medication":"AFC T28 Animal Face Cookies","published":""},{"url":"https://www.youtube.com/watch?v=pbtP-cScYtE","videoId":"pbtP-cScYtE","title":"Bonne Nuit Bonbon T28 Buds 1 - UK Medical Cannabis Strain","channel":"Master S BTB\n@mastersbtb","producer":"","medication":"Bonne Nuit Bonbon T28 Buds 1 - UK Medical Cannabis Strain","published":""},{"url":"https://www.youtube.com/watch?v=d5ASngU9qnY","videoId":"d5ASngU9qnY","title":"Sticky Cake by Humble Buds","channel":"High Jack\n@hij_ck","producer":"HUMBLE BUD","medication":"SC Smalls T25 Sticky Cake","published":""}];
+const REVIEWS_JSON = [{"url":"https://www.youtube.com/watch?v=vQfDQRc95KA","videoId":"vQfDQRc95KA","title":"Trillionz\u2026 Bad or Good?! Vape Saved It?!","channel":"Js Medi Lounge\n@Jsmedilounge","producer":"GREEN KARAT","medication":"TZ T30 Trillianz","published":"12pm Today"},{"url":"https://www.youtube.com/watch?v=RCv6rVImy2M","videoId":"RCv6rVImy2M","title":"MUZU T27 SUDZ weight","channel":"Pain Patient\n@PainPatient","producer":"","medication":"MUZU T27 SUDZ weight","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=CkhiCA9iZ5s","videoId":"CkhiCA9iZ5s","title":"MUZO T27 SUDZ REVIEW","channel":"Pain Patient\n@PainPatient","producer":"","medication":"MUZO T27 SUDZ REVIEW","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=L53SbvvKAUg","videoId":"L53SbvvKAUg","title":"Apples & Bananas 27%THC... Medical Prescription cannabis.","channel":"THC Bunny\n@THCBUNNY","producer":"LOT420\u2122","medication":"AB T27 Apples & Bananas","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=PvsrB5ERGTU","videoId":"PvsrB5ERGTU","title":"High Greens : Lemon Diesel Fritter Review","channel":"Doc Green Bud\n@TheDrGreenBud","producer":"HIGHGREENS","medication":"LDS T27 Lemon Diesel Fritter","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=23BaeDXvC6g","videoId":"23BaeDXvC6g","title":"Apples & Bananas 27%THC by AAAA... Medical Prescription cannabis.","channel":"THC Bunny\n@THCBUNNY","producer":"LOT420\u2122","medication":"AB T27 Apples & Bananas","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=dz1FwWnW0Qg","videoId":"dz1FwWnW0Qg","title":"Cookies - Cereal milk","channel":"MBUK\n@MedbudUk02","producer":"COOKIES\u00ae","medication":"C-CMI T26 Cereal Milk","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=kRoBNrggy7s","videoId":"kRoBNrggy7s","title":"Finally\u2026 GOOD Medical?! Green Karat London Marker","channel":"Js Medi Lounge\n@Jsmedilounge","producer":"GREEN KARAT","medication":"LM T27 London Marker","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=lm5s85jz1WM","videoId":"lm5s85jz1WM","title":"Effects and Aromas - Gushers T22 Review","channel":"Master S BTB\n@mastersbtb","producer":"","medication":"Effects and Aromas - Gushers T22 Review","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=QbivsN_pcl4","videoId":"QbivsN_pcl4","title":"Bannana Daddy T26 - Cielo Verde (4c Labs) - (Bannana Hammock x Grandaddy Purple)","channel":"Vinnie\u0027s Lounge\n@VinniesLounge","producer":"4C LABS","medication":"Craft BDD T26 Banana Daddy","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=t6jio4DX02E","videoId":"t6jio4DX02E","title":"Uk medical who brings this trash to the table?","channel":"Henry Hemp\n@RAIDERTAM","producer":"HUMBLE BUD","medication":"GM Smalls T25 Gelato","published":"Yesterday"},{"url":"https://www.youtube.com/watch?v=rO0gPPeADlQ","videoId":"rO0gPPeADlQ","title":"GMO MAC T27 review - Is it worth \u00a390?","channel":"Medicated Marty\n@MedicatedMarty","producer":"","medication":"GMO MAC T27 review - Is it worth \u00a390?","published":""},{"url":"https://www.youtube.com/watch?v=ClivJiNxxrI","videoId":"ClivJiNxxrI","title":"Fight Club - Kasa Verde - Green Karat - UK Medical Cannabis Review","channel":"AK87 Reviews\n@ak87reviews","producer":"KASA VERDE","medication":"FC T32 Fight Club","published":""},{"url":"https://www.youtube.com/watch?v=k0LD1FTUd-k","videoId":"k0LD1FTUd-k","title":"OG Kush Breath T28 Buds 1 - UK Medical Cannabis Strain","channel":"Master S BTB\n@mastersbtb","producer":"","medication":"OG Kush Breath T28 Buds 1 - UK Medical Cannabis Strain","published":""},{"url":"https://www.youtube.com/watch?v=Uewedkk8tKU","videoId":"Uewedkk8tKU","title":"OG Kush Breath T28 Review - UK Medical Cannabis Strain","channel":"Master S BTB\n@mastersbtb","producer":"","medication":"OG Kush Breath T28 Review - UK Medical Cannabis Strain","published":""},{"url":"https://www.youtube.com/watch?v=Ma0TeOGBXPo","videoId":"Ma0TeOGBXPo","title":"Green Karat - London Marker - UK Medical Cannabis - First Look","channel":"Smokie McGreen\n@Smokie_McGreen","producer":"GREEN KARAT","medication":"LM T27 London Marker","published":""},{"url":"https://www.youtube.com/watch?v=S-kHdOXApQ4","videoId":"S-kHdOXApQ4","title":"Vasco Blueberry Banana T28 Azztecmedia","channel":"Azztecmedia UK Medical\n@AzztecmediaUKMEDICAL1","producer":"","medication":"Vasco Blueberry Banana T28 Azztecmedia","published":""},{"url":"https://www.youtube.com/watch?v=GZTvJw8A3_E","videoId":"GZTvJw8A3_E","title":"First look at the All Nations MDO T27 MAC Doughnut / UK medical","channel":"Med Canna Diaries\n@med_canna_diaries","producer":"","medication":"First look at the All Nations MDO T27 MAC Doughnut / UK medical","published":""},{"url":"https://www.youtube.com/watch?v=BVu9Q1xkDtY","videoId":"BVu9Q1xkDtY","title":"Green Karat London Marker UK Medical Flower Review","channel":"Eazypax420\n@Eazypax420","producer":"GREEN KARAT","medication":"LM T27 London Marker","published":""},{"url":"https://www.youtube.com/watch?v=Zb_vJ3OoDYk","videoId":"Zb_vJ3OoDYk","title":"SUNDAZE MODIFIED GRAPE (UK PRESCRIPTION MEDICATION)","channel":"PrescribedBouquet\n@PrescribedBouquet","producer":"SUNDAZE\u00ae","medication":"MG T28 Modified Grapes","published":""},{"url":"https://www.youtube.com/watch?v=1szq5fkZpFE","videoId":"1szq5fkZpFE","title":"VASCO BLUEBERRY BANANA SMALLS (UK PRESCRIPTION MEDICATION)","channel":"PrescribedBouquet\n@PrescribedBouquet","producer":"VASCO","medication":"BB Smalls T28 Blueberry Banana","published":""},{"url":"https://www.youtube.com/watch?v=YzhF7tIpj6E","videoId":"YzhF7tIpj6E","title":"\u00a390 Ice Cream Mintz.. Mystery Mountain Already Disappointed First View Review","channel":"Js Medi Lounge\n@Jsmedilounge","producer":"MYSTERY MOUNTAIN\u2122","medication":"ICM MNZ T28 Ice Cream Mintz","published":""},{"url":"https://www.youtube.com/watch?v=vQHFKzuKmJE","videoId":"vQHFKzuKmJE","title":"The Aroma, Plus I\u0027ve never really liked Apple Strains! - Apples & Bananas T27","channel":"Master S BTB\n@mastersbtb","producer":"LOT420\u2122","medication":"AB T27 Apples & Bananas","published":""},{"url":"https://www.youtube.com/watch?v=_QOfHsnx3EY","videoId":"_QOfHsnx3EY","title":"High Greens : lemon Diesel Fritter","channel":"Doc Green Bud\n@TheDrGreenBud","producer":"HIGHGREENS","medication":"LDS T27 Lemon Diesel Fritter","published":""},{"url":"https://www.youtube.com/watch?v=Ka0UGXUi1rk","videoId":"Ka0UGXUi1rk","title":"Sinceritas - Runtz (Gelato 41 x Skittlez)","channel":"Marmites Medical UK\n@MarmitesMedicalUK","producer":"SINCERITAS","medication":"RTZ T24 M Runtz","published":""},{"url":"https://www.youtube.com/watch?v=Np1Eg3tpymM","videoId":"Np1Eg3tpymM","title":"Sundaze Guava Bars Flower","channel":"St0nerLukas\n@St0nerLukas","producer":"SUNDAZE\u00ae","medication":"GBZ T29 Guava Bars","published":""},{"url":"https://www.youtube.com/watch?v=b9a0ZrjpuAU","videoId":"b9a0ZrjpuAU","title":"First Time Trying Sundaze Guava Bars","channel":"St0nerLukas\n@St0nerLukas","producer":"SUNDAZE\u00ae","medication":"GBZ T29 Guava Bars","published":""},{"url":"https://www.youtube.com/watch?v=ZN9_nOLlTmA","videoId":"ZN9_nOLlTmA","title":"\u00a390 Dark Sky Paradise\u2026 Not Worth It?","channel":"Js Medi Lounge\n@Jsmedilounge","producer":"MYSTERY MOUNTAIN\u2122","medication":"DSK PDS T30 Dark Sky Paradise","published":""},{"url":"https://www.youtube.com/watch?v=fmJrkZyF1YE","videoId":"fmJrkZyF1YE","title":"Phant: Apes in Space Minis Review.","channel":"Doc Green Bud\n@TheDrGreenBud","producer":"PHANT","medication":"AS Smalls T22 Apes in Space","published":""},{"url":"https://www.youtube.com/watch?v=fRQm4-geiUg","videoId":"fRQm4-geiUg","title":"Green Karat - JMO Skittles - UK Medical Cannabis - First Look","channel":"Smokie McGreen\n@Smokie_McGreen","producer":"GREEN KARAT","medication":"JK T29 JMO Skittlez","published":""},{"url":"https://www.youtube.com/watch?v=BLzVx0REQkc","videoId":"BLzVx0REQkc","title":"Green Karat LM T27 London Marker","channel":"Medi Blaze\n@mediblaze","producer":"","medication":"Green Karat LM T27 London Marker","published":""},{"url":"https://www.youtube.com/watch?v=MfJiJVyqKdA","videoId":"MfJiJVyqKdA","title":"Green Karat -Trillianz - UK Medical Flower","channel":"Vybzz 420\n@Vybz420","producer":"GREEN KARAT","medication":"TZ T30 Trillianz","published":""},{"url":"https://www.youtube.com/watch?v=kiDskCspxOU","videoId":"kiDskCspxOU","title":"Vasco Cipher Pav\u00e9 Runtz 28% Medical Cannabis Review","channel":"CheeseMon4\n@CheeseMon4","producer":"VASCO","medication":"PR T28 Pav\u00e9 Runtz","published":""},{"url":"https://www.youtube.com/watch?v=LxClW4vXLeM","videoId":"LxClW4vXLeM","title":"Green Karat -Lemon skunk - UK Medical Flower","channel":"Vybzz 420\n@Vybz420","producer":"GREEN KARAT","medication":"SL T28 Super Lemon Skunk","published":""},{"url":"https://www.youtube.com/watch?v=Nbnywru8HSQ","videoId":"Nbnywru8HSQ","title":"Green Karat -JMO Skittlez - UK Medical Flower","channel":"Vybzz 420\n@Vybz420","producer":"GREEN KARAT","medication":"JK T29 JMO Skittlez","published":""},{"url":"https://www.youtube.com/watch?v=SwS9om5g8Uw","videoId":"SwS9om5g8Uw","title":"London Marker by Green Karat MC","channel":"WestPacks420\n@westpacks420","producer":"GREEN KARAT","medication":"LM T27 London Marker","published":""},{"url":"https://www.youtube.com/watch?v=h2WIYg80rvA","videoId":"h2WIYg80rvA","title":"\u00a390 Dark Sky Paradise Mystery Mountain + 3 New Green Karat Drops First View Reviews","channel":"Js Medi Lounge\n@Jsmedilounge","producer":"GREEN KARAT","medication":"LM T27 London Marker","published":""},{"url":"https://www.youtube.com/watch?v=KRGNtWT92uA","videoId":"KRGNtWT92uA","title":"Pave Runtz, Golden Gauth, Gas Cream Cake, Hashburger, Jack Kush, Mod Gas - UK Medical Strain Review","channel":"The Slow Draw\n@TheSlowDraw","producer":"ORIGINE","medication":"GG T26 Golden Gauth","published":""},{"url":"https://www.youtube.com/watch?v=8lSL3PVL2Do","videoId":"8lSL3PVL2Do","title":"Best Value From Mamedica Right Now!","channel":"My Medical 420\n@mymedical420","producer":"CURALEAF\u00ae","medication":"ZKS T26 Zookies","published":""},{"url":"https://www.youtube.com/watch?v=GzEkZ29MQbw","videoId":"GzEkZ29MQbw","title":"Papers: Animal Face Cookies (Full review)","channel":"Review Budd\n@ReviewBuddd","producer":"PAPERS\u2122","medication":"AFC T28 Animal Face Cookies","published":""},{"url":"https://www.youtube.com/watch?v=pbtP-cScYtE","videoId":"pbtP-cScYtE","title":"Bonne Nuit Bonbon T28 Buds 1 - UK Medical Cannabis Strain","channel":"Master S BTB\n@mastersbtb","producer":"","medication":"Bonne Nuit Bonbon T28 Buds 1 - UK Medical Cannabis Strain","published":""},{"url":"https://www.youtube.com/watch?v=d5ASngU9qnY","videoId":"d5ASngU9qnY","title":"Sticky Cake by Humble Buds","channel":"High Jack\n@hij_ck","producer":"HUMBLE BUD","medication":"SC Smalls T25 Sticky Cake","published":""},{"url":"https://www.youtube.com/watch?v=KwfdkB2iKJI","videoId":"KwfdkB2iKJI","title":"Bonne Nuit Bonbon T28 Review - UK Medical Cannabis Strain","channel":"Master S BTB\n@mastersbtb","producer":"","medication":"Bonne Nuit Bonbon T28 Review - UK Medical Cannabis Strain","published":""},{"url":"https://www.youtube.com/watch?v=ShT3wpNToJg","videoId":"ShT3wpNToJg","title":"Aurora Resin Carts","channel":"Smokey Mo\n@pLexTulip","producer":"AURORA\u00ae","medication":"Resin EHD T918 Electric Honeydew Vape Cartridge (510 Fitment)","published":""},{"url":"https://www.youtube.com/watch?v=zog4onLDIRI","videoId":"zog4onLDIRI","title":"Clearleaf - Hash Rosin Vape Cartridges","channel":"Pseudo Recreational\n@PseudoRecreational","producer":"CLEARLEAF\u00ae","medication":"Hash Rosin T750 Cookie Pie Vape Cartridge (510 Fitment)","published":""}];
 
 function initReviewFilters() {
   const prods = [...new Set(REVIEWS_JSON.map(r=>r.producer).filter(Boolean))].sort();
@@ -1127,9 +1749,11 @@ function loadStrains() {
 }
 
 loadData();
+loadProfile();
 loadStrains();
 initReviewFilters();
 checkInstall();
+checkOnboarding();
 </script>
 </body>
 </html>
