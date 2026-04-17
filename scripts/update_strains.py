@@ -187,8 +187,10 @@ def parse_cart_designation(designation):
             parts.pop(0)
             changed = True
             continue
-        # Strip T\d+ / C\d+ / T\d+C\d+ potency tokens
-        if re.match(r'^[TC]\d+([TC]\d+)?$', parts[0]):
+        # Strip T\d+ / C\d+ / T\d+C\d+ / T\d+:C\d+ potency tokens.
+        # The colon form (e.g. "T600:C200") is MedBud's canonical format
+        # for balanced THC/CBD cartridges.
+        if re.match(r'^[TC]\d+(?::?[TC]\d+)?$', parts[0]):
             parts.pop(0)
             changed = True
             continue
@@ -204,10 +206,21 @@ def parse_cart_designation(designation):
                 continue
 
     # Strip trailing T/C potency tokens that sometimes land after the name
-    while parts and re.match(r'^[TC]\d+([TC]\d+)?$', parts[-1]):
+    # (including the colon format "T600:C200").
+    while parts and re.match(r'^[TC]\d+(?::?[TC]\d+)?$', parts[-1]):
         parts.pop()
 
     name = ' '.join(parts).strip()
+
+    # If what remains is a bare 3-5 char uppercase acronym, it's a product
+    # code masquerading as a name (e.g. "WPT", "JHR"). On cart pages a real
+    # strain name contains lowercase letters or multiple words. Treat the
+    # acronym as the code and return an empty name so fallback extraction
+    # approaches in scrape_cart_page_pw can try to find something better.
+    if name and not code and re.match(r'^[A-Z]{2,5}$', name):
+        code = name
+        name = ""
+
     return name, code
 
 
@@ -687,16 +700,38 @@ async def scrape_cart_page_pw(page, url, producer_name):
     # --- THC in milligrams ---
     # MedBud shows THC as e.g. "THC 840mg" or "840mg THC" (100-1200 is typical)
     thc_mg = 0
-    thc_m = re.search(r'THC[^\d]{0,30}(\d{2,4})\s*mg', page_text, re.IGNORECASE)
-    if not thc_m:
-        thc_m = re.search(r'(\d{2,4})\s*mg[^\n\r\d]{0,20}THC', page_text, re.IGNORECASE)
-    if thc_m:
-        val = int(thc_m.group(1))
-        if 50 <= val <= 1500:
-            thc_mg = val
-    # Fallback: parse from URL slug e.g. ".../t840-wpt/" or ".../rosin-t750c50-gmo/"
+    cbd_mg = 0
+
+    # PRIORITY: "<THC>mg / <CBD>mg" pattern.
+    # Balanced THC/CBD carts are listed as "600mg / 200mg" right by the title.
+    # This pattern is authoritative — check it before any "NNNmg THC" fallback,
+    # which can accidentally match review/stat text elsewhere on the page.
+    # Also handles trace markers: "800mg / <10mg" → cbd treated as trace (0).
+    ratio_m = re.search(
+        r'\b(\d{2,4}(?:\.\d+)?)\s*mg\s*/\s*(<|\u2264)?\s*(\d{1,4}(?:\.\d+)?)\s*mg\b',
+        page_text
+    )
+    if ratio_m:
+        thc_val = float(ratio_m.group(1))
+        cbd_is_trace = bool(ratio_m.group(2))
+        cbd_val = float(ratio_m.group(3))
+        if 50 <= thc_val <= 1500:
+            thc_mg = int(round(thc_val))
+        if not cbd_is_trace and cbd_val >= 1 and int(round(cbd_val)) <= 500:
+            cbd_mg = int(round(cbd_val))
+
     if thc_mg == 0:
-        url_thc = re.search(r'[/-][tT](\d{2,4})(?:[cC]\d+)?[/-]', url)
+        thc_m = re.search(r'THC[^\d]{0,30}(\d{2,4})\s*mg', page_text, re.IGNORECASE)
+        if not thc_m:
+            thc_m = re.search(r'(\d{2,4})\s*mg[^\n\r\d]{0,20}THC', page_text, re.IGNORECASE)
+        if thc_m:
+            val = int(thc_m.group(1))
+            if 50 <= val <= 1500:
+                thc_mg = val
+    # Fallback: parse from URL slug e.g. ".../t840-wpt/", ".../rosin-t750c50-gmo/",
+    # or ".../jhr-t600-c200-jack-herer/" (dash-separated balanced format).
+    if thc_mg == 0:
+        url_thc = re.search(r'[/-][tT](\d{2,4})(?:[-]?[cC]\d+)?[/-]', url)
         if url_thc:
             val = int(url_thc.group(1))
             if 50 <= val <= 1500:
@@ -707,24 +742,27 @@ async def scrape_cart_page_pw(page, url, producer_name):
     # integer, but treat any sub-1mg value as 0 — that's either a trace
     # amount or an artefact (0.8mg of CBD in a cart has no therapeutic effect
     # and is effectively equivalent to "<1mg").
-    cbd_mg = 0
-    cbd_m = re.search(r'CBD[^\d]{0,30}(\d{1,4}(?:\.\d+)?)\s*mg', page_text, re.IGNORECASE)
-    if not cbd_m:
-        # Reverse order: "50mg CBD" or "<1mg CBD" or "0.8mg CBD"
-        cbd_m = re.search(r'(\d{1,4}(?:\.\d+)?)\s*mg[^\n\r\d]{0,20}CBD', page_text, re.IGNORECASE)
-    if cbd_m:
-        # Check for trace-amount marker immediately before the number ("<1mg", "≤1mg").
-        start = cbd_m.start(1)
-        preceding = page_text[max(0, start - 5):start]
-        is_trace = '<' in preceding or '\u2264' in preceding
-        val = float(cbd_m.group(1))
-        rounded = int(round(val))
-        # Trace (marked with '<'), sub-1mg, equal-to-THC (scraping artefact), or
-        # out-of-range values are all rejected.
-        if not is_trace and val >= 1.0 and rounded != thc_mg and rounded <= 500:
-            cbd_mg = rounded
+    # NOTE: cbd_mg may already be set by the priority "NNNmg / MMMmg" regex
+    # above. Only run the fallback extractors if it's still 0.
     if cbd_mg == 0:
-        url_cbd = re.search(r'[/-][tT]\d{2,4}[cC](\d{1,4})[/-]', url)
+        cbd_m = re.search(r'CBD[^\d]{0,30}(\d{1,4}(?:\.\d+)?)\s*mg', page_text, re.IGNORECASE)
+        if not cbd_m:
+            # Reverse order: "50mg CBD" or "<1mg CBD" or "0.8mg CBD"
+            cbd_m = re.search(r'(\d{1,4}(?:\.\d+)?)\s*mg[^\n\r\d]{0,20}CBD', page_text, re.IGNORECASE)
+        if cbd_m:
+            # Check for trace-amount marker immediately before the number ("<1mg", "≤1mg").
+            start = cbd_m.start(1)
+            preceding = page_text[max(0, start - 5):start]
+            is_trace = '<' in preceding or '\u2264' in preceding
+            val = float(cbd_m.group(1))
+            rounded = int(round(val))
+            # Trace (marked with '<'), sub-1mg, equal-to-THC (scraping artefact), or
+            # out-of-range values are all rejected.
+            if not is_trace and val >= 1.0 and rounded != thc_mg and rounded <= 500:
+                cbd_mg = rounded
+    if cbd_mg == 0:
+        # URL fallback handles both "t600c200" and "t600-c200" slug formats.
+        url_cbd = re.search(r'[/-][tT]\d{2,4}[-]?[cC](\d{1,4})[/-]', url)
         if url_cbd:
             val = int(url_cbd.group(1))
             if 0 < val <= 500:
@@ -1250,9 +1288,11 @@ def clean_existing_data(strains):
     # Code-like prefixes from URL slugs (e.g. "Hb T24 Hash Burger" → "Hash Burger")
     code_prefix_patterns = [
         r'^[A-Z][a-z]?[a-z]?\s+T\d+\s+',      # "Hb T24 ", "Cf T25 ", "Mfl T25 "
+        r'^T\d+:C\d+\s+',                        # "T600:C200 Jack Herer" (MedBud balanced cart)
         r'^T\d+\s+C\d+\s+',                      # "T10 C13 Moon Berry"
         r'^T\d+\s+',                              # "T14 Banana Split"
         r'^[A-Z]{2,5}\s+T\d+\s+',                # "GCR T27 Gas Cream Cake"
+        r'^Origins\s+[A-Z]{2,5}\s+T\d+:?C?\d*\s+',   # "Origins GS T800:C30 Grape Soda"
         r'^Cura\s+\d+\s+T\d+\s+',                # "Cura 13 T22 Gelato Og"
         r'^Emt?\d?\s+T?\d+\s+(?:\d+\s+)?',       # "Emt1 T19 20 Cairo"
         r'^Flos\s+T\d+C?\d*\s*',                  # "Flos T21C0"
@@ -1301,13 +1341,67 @@ def clean_existing_data(strains):
                     g = ''
             s["genetics"] = g
 
+    # 1b. Drop junk records.
+    # Two categories:
+    #  - Code-pattern names ("T17 19", "WPT", "T194:C194"): may have been
+    #    assigned valid metadata elsewhere on the page, so only drop if
+    #    the record has no descriptive data worth keeping.
+    #  - Broken-name patterns (starting with a lowercase stopword like "or"):
+    #    the name is fundamentally unsalvageable even if terpenes got
+    #    extracted from elsewhere. Drop unconditionally.
+    code_pattern_names = [
+        re.compile(r'^T\d+(\s+\d+)?$'),          # "T17 19", "T19", "T840"
+        re.compile(r'^T\d+:C\d+$'),              # "T194:C194"
+        re.compile(r'^[A-Z]{2,5}$'),             # "WPT", "JHR", "BSK", "AC"
+    ]
+    # Names beginning with an English stopword — always a truncated scrape
+    # ("or All Vape" from 4C Labs OAV was real product that's been discontinued
+    # and its lingering record has a corrupt name).
+    broken_name_pattern = re.compile(
+        r'^(?:or|and|the|of|for|with|in|on|at|by|to|a|an)\s+',
+        re.IGNORECASE
+    )
+
+    def _has_descriptive_data(s):
+        return (
+            len(s.get("terpenes", [])) > 0 or
+            len(s.get("effects", [])) > 0 or
+            len(s.get("flavours", [])) > 0 or
+            len(s.get("helpsWith", [])) > 0 or
+            len(s.get("negatives", [])) > 0 or
+            bool(s.get("genetics", ""))
+        )
+
+    junk_dropped = 0
+    filtered = []
+    for s in strains:
+        name = s.get("name", "")
+        is_code_pattern = any(p.match(name) for p in code_pattern_names)
+        is_broken = bool(broken_name_pattern.match(name))
+        # Broken names: drop unconditionally (name is garbage either way).
+        # Code-pattern names: drop only if record has nothing else of value.
+        if is_broken or (is_code_pattern and not _has_descriptive_data(s)):
+            junk_dropped += 1
+            continue
+        filtered.append(s)
+    strains = filtered
+
     # 2. Remove duplicates (keep the one with more data).
     # Key includes form so a flower and cartridge of the same name+producer
-    # are treated as distinct records.
+    # are treated as distinct records. For cartridges we ALSO key on
+    # thcMg/cbdMg — two carts with the same name but different potency
+    # ratios (e.g. Jack Herer T600:C200 vs T200:C200) are genuinely
+    # different products and must not be merged.
     seen = {}
     deduped = []
     for s in strains:
-        key = (s["name"].lower(), s["producer"].lower(), s.get("form", "Flower").lower())
+        name_l = s["name"].lower()
+        prod_l = s["producer"].lower()
+        form_l = s.get("form", "Flower").lower()
+        if form_l == "cartridge":
+            key = (name_l, prod_l, form_l, s.get("thcMg", 0), s.get("cbdMg", 0))
+        else:
+            key = (name_l, prod_l, form_l)
         if key in seen:
             existing = seen[key]
             ex_score = len(existing.get("terpenes", [])) + len(existing.get("effects", []))
@@ -1320,6 +1414,53 @@ def clean_existing_data(strains):
         else:
             seen[key] = s
             deduped.append(s)
+
+    # 2b. Acronym-to-full-name merge.
+    # Catches MedBud's habit of listing the same cart under both its
+    # acronym URL and its full-name URL (e.g. WPT + Wedding Pop Triangle
+    # for Curaleaf). If we find an acronym-named record and a full-name
+    # record with the same producer/form/thcMg/cbdMg, and the acronym
+    # matches the full name's initials, merge them into the full-name record.
+    acronym_merged = 0
+    by_product_key = {}  # (producer, form, thcMg, cbdMg) -> list of records
+    for s in deduped:
+        form_l = s.get("form", "Flower").lower()
+        if form_l != "cartridge":
+            continue
+        pk = (s["producer"].lower(), form_l, s.get("thcMg", 0), s.get("cbdMg", 0))
+        by_product_key.setdefault(pk, []).append(s)
+
+    to_drop = set()
+    for pk, records in by_product_key.items():
+        if len(records) < 2:
+            continue
+        # Separate acronym-named from full-named records in this group
+        acronyms = [r for r in records if re.match(r'^[A-Z]{2,5}$', r.get("name", ""))]
+        fulls = [r for r in records if not re.match(r'^[A-Z]{2,5}$', r.get("name", ""))]
+        for ac in acronyms:
+            ac_name = ac["name"]
+            ac_initials = ac_name.upper()
+            # Find a full-name record whose initials match this acronym
+            match = None
+            for f in fulls:
+                full_words = re.findall(r'\b\w', f["name"])
+                full_initials = ''.join(w.upper() for w in full_words)
+                if full_initials == ac_initials:
+                    match = f
+                    break
+            if match:
+                # Merge acronym record's data into the full-name record
+                if ac.get("terpenes") and len(ac["terpenes"]) > len(match.get("terpenes", [])):
+                    match["terpenes"] = ac["terpenes"]
+                for field in ["effects", "flavours", "helpsWith", "negatives", "genetics",
+                              "volume", "extractType", "terpeneSource", "fitment"]:
+                    if ac.get(field) and not match.get(field):
+                        match[field] = ac[field]
+                to_drop.add(id(ac))
+                acronym_merged += 1
+
+    if to_drop:
+        deduped = [r for r in deduped if id(r) not in to_drop]
 
     # 3. Fix invalid/duplicate codes
     code_fixed = 0
@@ -1337,8 +1478,10 @@ def clean_existing_data(strains):
     for s in deduped:
         s["id"] = s["code"]
 
-    if cleaned or removed or code_fixed or form_backfilled:
-        print(f"  \U0001f9f9 Cleaned {cleaned} names, removed {removed} duplicates, fixed {code_fixed} codes, backfilled form on {form_backfilled}")
+    if cleaned or removed or code_fixed or form_backfilled or junk_dropped or acronym_merged:
+        print(f"  \U0001f9f9 Cleaned {cleaned} names, removed {removed} duplicates, "
+              f"fixed {code_fixed} codes, backfilled form on {form_backfilled}, "
+              f"dropped {junk_dropped} junk records, merged {acronym_merged} acronym dupes")
 
     return deduped
 
