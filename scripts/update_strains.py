@@ -809,20 +809,26 @@ async def scrape_cart_page_pw(page, url, producer_name):
             fitment = "510"
 
     # --- Type (flower has "Classification", carts have "Hybrid • 840mg THC") ---
+    # IMPORTANT: the multi-word variants must come first in the alternation,
+    # otherwise "Hybrid" matches before "Sativa Hybrid" ever gets a chance.
     strain_type = "Hybrid"
     type_m = re.search(
-        r'Classification\s*\u00b7?\s*(Indica|Sativa|Hybrid|Indica Hybrid|Sativa Hybrid)',
+        r'Classification\s*\u00b7?\s*(Sativa Hybrid|Indica Hybrid|Indica|Sativa|Hybrid)',
         page_text, re.IGNORECASE
     )
     if not type_m:
-        # Cart layout: "Hybrid  • 840mg THC" or "Indica • 700mg THC"
+        # Cart layout: "Sativa Hybrid  • 807.5mg THC" or "Hybrid • 840mg THC"
+        # Allow decimal mg values (4C uses 807.5mg etc) and flexible whitespace.
         type_m = re.search(
-            r'\b(Indica|Sativa|Hybrid|Indica Hybrid|Sativa Hybrid)\s*[\u2022\u00b7]\s*'
-            r'(?:<?\d+\s*mg|\d+\s*%)',
+            r'\b(Sativa Hybrid|Indica Hybrid|Indica|Sativa|Hybrid)\s+[\u2022\u00b7]\s*'
+            r'(?:<?\d+(?:\.\d+)?\s*mg|\d+\s*%)',
             page_text, re.IGNORECASE
         )
     if type_m:
         t = type_m.group(1).lower()
+        # "Sativa Hybrid" and "Indica Hybrid" are themselves hybrids but
+        # with a clear lean — classify by the first word for consistency
+        # with existing records.
         if 'indica' in t:
             strain_type = "Indica"
         elif 'sativa' in t:
