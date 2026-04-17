@@ -703,21 +703,26 @@ async def scrape_cart_page_pw(page, url, producer_name):
                 thc_mg = val
 
     # --- CBD in milligrams ---
+    # Accept decimal values (some carts list "0.8mg CBD"). Round to nearest
+    # integer, but treat any sub-1mg value as 0 — that's either a trace
+    # amount or an artefact (0.8mg of CBD in a cart has no therapeutic effect
+    # and is effectively equivalent to "<1mg").
     cbd_mg = 0
-    cbd_m = re.search(r'CBD[^\d]{0,30}(\d{1,4})\s*mg', page_text, re.IGNORECASE)
+    cbd_m = re.search(r'CBD[^\d]{0,30}(\d{1,4}(?:\.\d+)?)\s*mg', page_text, re.IGNORECASE)
     if not cbd_m:
-        # Reverse order (common on Curaleaf etc.): "50mg CBD" or "<1mg CBD"
-        cbd_m = re.search(r'(\d{1,4})\s*mg[^\n\r\d]{0,20}CBD', page_text, re.IGNORECASE)
+        # Reverse order: "50mg CBD" or "<1mg CBD" or "0.8mg CBD"
+        cbd_m = re.search(r'(\d{1,4}(?:\.\d+)?)\s*mg[^\n\r\d]{0,20}CBD', page_text, re.IGNORECASE)
     if cbd_m:
-        # Check if the matched number is preceded by a "<" (trace amount marker
-        # like "<1mg CBD" means less than 1mg — treat as effectively zero).
+        # Check for trace-amount marker immediately before the number ("<1mg", "≤1mg").
         start = cbd_m.start(1)
         preceding = page_text[max(0, start - 5):start]
-        is_trace = '<' in preceding or '≤' in preceding
-        val = int(cbd_m.group(1))
-        # Sanity: CBD shouldn't equal THC (scraping artefact)
-        if not is_trace and val != thc_mg and 0 < val <= 500:
-            cbd_mg = val
+        is_trace = '<' in preceding or '\u2264' in preceding
+        val = float(cbd_m.group(1))
+        rounded = int(round(val))
+        # Trace (marked with '<'), sub-1mg, equal-to-THC (scraping artefact), or
+        # out-of-range values are all rejected.
+        if not is_trace and val >= 1.0 and rounded != thc_mg and rounded <= 500:
+            cbd_mg = rounded
     if cbd_mg == 0:
         url_cbd = re.search(r'[/-][tT]\d{2,4}[cC](\d{1,4})[/-]', url)
         if url_cbd:
