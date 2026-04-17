@@ -750,15 +750,43 @@ async def scrape_cart_page_pw(page, url, producer_name):
         terpene_source = "No Additives"
 
     # --- Fitment ---
+    # Primary source: "Vape Cartridge (Proprietary)" parenthetical near the
+    # top of the page — this is the authoritative product-level fitment.
     fitment = ""
-    if re.search(r'\b510\s*(?:Fitment|Thread|Threaded)?', page_text, re.IGNORECASE):
-        fitment = "510"
-    elif re.search(r'\bKanabo\b', page_text, re.IGNORECASE):
-        fitment = "Kanabo"
-    elif re.search(r'\bPax[\s-]?Era\b', page_text, re.IGNORECASE):
-        fitment = "Pax Era"
-    elif re.search(r'\bProprietary\b', page_text, re.IGNORECASE):
-        fitment = "Proprietary"
+    fit_primary = re.search(
+        r'Vape\s+Cartridge\s*\(\s*(510|Kanabo|Pax[\s-]?Era|Proprietary)\s*\)',
+        page_text, re.IGNORECASE
+    )
+    if fit_primary:
+        label = fit_primary.group(1)
+        # Normalise capitalisation for known values
+        for canonical in ['510', 'Kanabo', 'Pax Era', 'Proprietary']:
+            if label.lower().replace('-', '').replace(' ', '') == canonical.lower().replace(' ', ''):
+                fitment = canonical
+                break
+        if not fitment:
+            fitment = label
+
+    # Fallback: look for explicit "<type> Fitment/Thread/Threaded" phrasings.
+    # Check Proprietary / Kanabo / Pax Era BEFORE 510, because some pages
+    # mention "510" in body copy (e.g. comparing cart types) without the
+    # product itself being 510.
+    if not fitment:
+        if re.search(r'\bProprietary\s+(?:Fitment|Thread|Threaded)\b', page_text, re.IGNORECASE):
+            fitment = "Proprietary"
+        elif re.search(r'\bKanabo\s+(?:Fitment|Thread|Threaded)?\b', page_text, re.IGNORECASE):
+            fitment = "Kanabo"
+        elif re.search(r'\bPax[\s-]?Era\b', page_text, re.IGNORECASE):
+            fitment = "Pax Era"
+        elif re.search(r'\b510\s+(?:Fitment|Thread|Threaded)\b', page_text, re.IGNORECASE):
+            fitment = "510"
+        # Last resort: bare mentions, still in priority order
+        elif re.search(r'\bProprietary\b', page_text, re.IGNORECASE):
+            fitment = "Proprietary"
+        elif re.search(r'\bKanabo\b', page_text, re.IGNORECASE):
+            fitment = "Kanabo"
+        elif re.search(r'\b510\b', page_text):
+            fitment = "510"
 
     # --- Type (flower has "Classification", carts have "Hybrid • 840mg THC") ---
     strain_type = "Hybrid"
