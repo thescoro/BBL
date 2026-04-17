@@ -73,6 +73,13 @@ html{overflow-x:hidden}
 .card:hover::before{opacity:1}
 .card:active{opacity:.9;transform:scale(.99)}
 .card.logged{border-color:rgba(60,176,67,.35);background:linear-gradient(135deg,var(--s1),rgba(60,176,67,.04))}
+.cart-badge{position:absolute;top:8px;right:8px;background:#3CB043;color:#0D1117;font-size:9px;font-weight:800;padding:3px 7px;border-radius:4px;letter-spacing:.08em;font-family:var(--fm);z-index:1}
+.cart-fields{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0 16px}
+.cart-field{background:var(--s3);border:1px solid var(--b1);border-radius:10px;padding:8px 10px}
+.cart-field .clbl{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);font-family:var(--fm);margin-bottom:2px}
+.cart-field .cval{font-size:13px;font-weight:700;color:var(--tx);font-family:var(--fm)}
+.cart-field.big{grid-column:span 2}
+.cart-field.big .cval{font-size:18px;color:var(--ac)}
 .cname{font-size:15px;font-weight:800;line-height:1.3;margin-bottom:3px}
 .cmeta{font-size:11px;color:var(--tx3);font-family:var(--fm);margin-bottom:10px}
 .bdgs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
@@ -320,6 +327,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <option value="">All Types</option>
       <option>Indica</option><option>Sativa</option><option>Hybrid</option>
     </select>
+    <select class="sel" id="filterForm" onchange="renderBrowser()">
+      <option value="">All Forms</option>
+      <option>Flower</option><option>Cartridge</option>
+    </select>
     <select class="sel" id="filterTier" onchange="renderBrowser()">
       <option value="">All Tiers</option>
       <option>Value</option><option>Core</option><option>Craft</option>
@@ -561,18 +572,28 @@ function showTab(name) {
 function getFiltered() {
   const q = document.getElementById('searchQ').value.toLowerCase();
   const type = document.getElementById('filterType').value;
+  const form = document.getElementById('filterForm').value;
   const tier = document.getElementById('filterTier').value;
   const prod = document.getElementById('filterProd').value;
   const terp = document.getElementById('filterTerp').value;
-  const [tmin,tmax] = document.getElementById('filterThc').value.split('-').map(Number);
+  const thcRange = document.getElementById('filterThc').value;
+  const [tmin,tmax] = thcRange.split('-').map(Number);
+  const thcFilterActive = thcRange !== '0-35';
   return STRAINS.filter(s => {
+    const isCart = (s.form || 'Flower') === 'Cartridge';
     if(q && !s.name.toLowerCase().includes(q) && !s.producer.toLowerCase().includes(q) && !(s.terpenes||[]).some(t=>t.toLowerCase().includes(q)) && !(s.genetics||'').toLowerCase().includes(q)) return false;
     if(type && s.type !== type) return false;
+    if(form && (s.form || 'Flower') !== form) return false;
     if(tier && s.tier !== tier) return false;
     if(prod && s.producer !== prod) return false;
     if(terp && !(s.terpenes||[]).includes(terp)) return false;
-    if(s.thc < tmin || s.thc > tmax) return false;
-    if(cbdOnly && s.cbd === 0) return false;
+    // THC % range only applies to flower; skip carts when a % filter is active
+    if(thcFilterActive && isCart) return false;
+    if(!isCart && (s.thc < tmin || s.thc > tmax)) return false;
+    if(cbdOnly) {
+      const hasCbd = isCart ? ((s.cbdMg||0) > 0) : (s.cbd > 0);
+      if(!hasCbd) return false;
+    }
     return true;
   });
 }
@@ -590,10 +611,12 @@ function renderBrowser() {
   });
   // Sort
   const sortBy = document.getElementById('sortBy').value;
+  // For cart records, use thcMg converted to a rough comparable scale (mg / 30 ≈ % equivalent)
+  const thcVal = s => (s.form === 'Cartridge' ? (s.thcMg||0)/30 : s.thc);
   list.sort((a,b) => {
     switch(sortBy) {
-      case 'thc-desc': return b.thc - a.thc;
-      case 'thc-asc': return a.thc - b.thc;
+      case 'thc-desc': return thcVal(b) - thcVal(a);
+      case 'thc-asc': return thcVal(a) - thcVal(b);
       case 'producer': return a.producer.localeCompare(b.producer) || a.name.localeCompare(b.name);
       case 'rated': {
         const ra = avgRatings[a.id] ? avgRatings[a.id].sum/avgRatings[a.id].n : -1;
@@ -610,13 +633,19 @@ function renderBrowser() {
     const avg = ar ? (ar.sum/ar.n).toFixed(1) : null;
     const tChips = (s.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}">${TERPENE_INFO[t]?.icon||'🌿'} ${t}</span>`).join('');
     const hTags = (s.helpsWith||[]).slice(0,3).map(h=>`<span class="tag ht">${h}</span>`).join('');
+    const isCart = s.form === 'Cartridge';
+    const thcLbl = isCart ? 'THC' : 'THC';
+    const thcStr = isCart ? `${s.thcMg||0}mg` : `${s.thc}%`;
+    const cbdStr = isCart ? `${s.cbdMg||0}mg` : `${s.cbd}%`;
+    const showCbd = isCart ? ((s.cbdMg||0) > 0) : (s.cbd > 0);
     return `<div class="card ${ct>0?'logged':''}" data-sid="${s.id.replace(/"/g,'&quot;')}">
+      ${isCart?`<span class="cart-badge">CART</span>`:''}
       <div class="cname">${s.name}</div>
       <div class="cmeta">${s.producer}</div>
       <div class="bdgs">${tBadge(s.tier)} ${yBadge(s.type)}</div>
       <div class="stats">
-        <div class="pill"><span class="plbl">THC</span><span class="pval thc">${s.thc}%</span></div>
-        ${s.cbd>0?`<div class="pill"><span class="plbl">CBD</span><span class="pval cbd">${s.cbd}%</span></div>`:''}
+        <div class="pill"><span class="plbl">${thcLbl}</span><span class="pval thc">${thcStr}</span></div>
+        ${showCbd?`<div class="pill"><span class="plbl">CBD</span><span class="pval cbd">${cbdStr}</span></div>`:''}
         ${avg?`<div class="pill"><span class="plbl">Your avg</span><span class="pval" style="color:#fbbf24;font-size:14px">★ ${avg}</span></div>`:''}
       </div>
       ${tChips?`<div class="tchips">${tChips}</div>`:''}
@@ -658,15 +687,26 @@ function openDetail(strainId) {
     const info = TERPENE_INFO[t]||{icon:'🌿',note:'Cannabis terpene.'};
     return `<div class="titem"><div class="ticon">${info.icon}</div><div><div class="tname">${t}${i===0?'<span class="domlbl">dominant</span>':''}</div><div class="tnote">${info.note}</div></div></div>`;
   }).join('');
+  const isCart = s.form === 'Cartridge';
+  const cartFields = isCart ? `
+    <div class="cart-fields">
+      <div class="cart-field big"><div class="clbl">THC</div><div class="cval">${s.thcMg||0}mg</div></div>
+      ${(s.cbdMg||0)>0?`<div class="cart-field big"><div class="clbl">CBD</div><div class="cval">${s.cbdMg}mg</div></div>`:''}
+      ${s.volume?`<div class="cart-field"><div class="clbl">Volume</div><div class="cval">${s.volume}</div></div>`:''}
+      ${s.extractType?`<div class="cart-field"><div class="clbl">Extract</div><div class="cval">${s.extractType}</div></div>`:''}
+      ${s.terpeneSource?`<div class="cart-field"><div class="clbl">Terpene Source</div><div class="cval">${s.terpeneSource}</div></div>`:''}
+      ${s.fitment?`<div class="cart-field"><div class="clbl">Fitment</div><div class="cval">${s.fitment}</div></div>`:''}
+    </div>` : '';
   document.getElementById('detailContent').innerHTML = `
-    <div class="bdgs">${tBadge(s.tier)} ${yBadge(s.type)}</div>
+    <div class="bdgs">${tBadge(s.tier)} ${yBadge(s.type)} ${isCart?'<span class="cart-badge" style="position:static;display:inline-block">CART</span>':''}</div>
     <div class="dname">${s.name}</div>
     <div class="cmeta" style="margin-bottom:14px">${s.producer} · ${s.code}</div>
-    <div class="stats">
+    ${cartFields}
+    ${!isCart?`<div class="stats">
       <div class="pill"><span class="plbl">THC</span><span class="pval thc">${s.thc}%</span></div>
       ${s.cbd>0?`<div class="pill"><span class="plbl">CBD</span><span class="pval cbd">${s.cbd}%</span></div>`:''}
       <div class="pill"><span class="plbl">Ratio</span><span class="pval" style="font-size:12px;color:var(--tx2)">${s.cbd>0?`T${s.thc}:C${s.cbd}`:'THC-dom'}</span></div>
-    </div>
+    </div>`:''}
     ${s.genetics?`<div class="dsec"><div class="dstitle">🧬 Genetics / Lineage</div><div class="titem"><div class="ticon">🧬</div><div><div class="tname" style="color:var(--ac3)">${s.genetics}</div><div class="tnote">Parent strains</div></div></div></div>`:''}
     ${tItems?`<div class="dsec"><div class="dstitle">Terpene Profile</div>${tItems}</div>`:''}
     ${(s.effects||[]).length?`<div class="dsec"><div class="dstitle">Effects</div><div class="tags">${s.effects.map(e=>`<span class="tag et">${e}</span>`).join('')}</div></div>`:''}
@@ -828,6 +868,16 @@ function getRecommendations() {
   const rated = journal.filter(e => e.rating >= 3);
   if(rated.length < 2) return [];
 
+  // Determine the user's primary form from their logged history.
+  // Map each rated entry to its strain's form, then pick the dominant one.
+  const formCounts = {};
+  rated.forEach(e => {
+    const s = STRAINS.find(x => x.id === e.strainId);
+    const f = (s && s.form) || 'Flower';
+    formCounts[f] = (formCounts[f]||0) + 1;
+  });
+  const primaryForm = Object.entries(formCounts).sort((a,b)=>b[1]-a[1])[0][0];
+
   // Build terpene preference scores from rated entries
   const terpW = {};
   rated.forEach(e => {
@@ -839,10 +889,10 @@ function getRecommendations() {
     });
   });
 
-  // User's ideal THC from top entries
+  // User's ideal THC from top entries (only meaningful for flower; carts store mg elsewhere)
   const top = rated.filter(e => e.rating >= 4);
   const thcPool = top.length >= 2 ? top : rated;
-  const avgThc = thcPool.reduce((a,e)=>a+e.thc,0) / thcPool.length;
+  const avgThc = thcPool.reduce((a,e)=>a+(e.thc||0),0) / thcPool.length;
 
   // Best symptom scores to identify user's priorities
   const symAvg = {};
@@ -857,8 +907,12 @@ function getRecommendations() {
   // Tried strains
   const tried = new Set(journal.map(e=>e.strainId));
 
-  // Score untried strains
-  const scored = STRAINS.filter(s=>!tried.has(s.id)).map(s => {
+  // Score untried strains — same form only (mg vs % are not comparable)
+  const scored = STRAINS.filter(s => {
+    if(tried.has(s.id)) return false;
+    if(((s.form)||'Flower') !== primaryForm) return false;
+    return true;
+  }).map(s => {
     let score = 0;
     const matchedTerps = [];
 
@@ -871,9 +925,11 @@ function getRecommendations() {
       }
     });
 
-    // THC proximity (max 5 pts, gentle falloff)
-    const thcDist = Math.abs(s.thc - avgThc);
-    score += Math.max(0, 5 - thcDist * 0.25);
+    // THC proximity (flower only — % comparisons make sense; carts skip this)
+    if(primaryForm === 'Flower') {
+      const thcDist = Math.abs(s.thc - avgThc);
+      score += Math.max(0, 5 - thcDist * 0.25);
+    }
 
     // MS-relevant helpsWith bonus based on user's top symptoms
     topSyms.forEach(sym => {
@@ -905,7 +961,7 @@ function renderRecSection() {
       return `<div class="rec-card">
         <div class="rec-match">${pct}% match</div>
         <div class="rec-name">${s.name}</div>
-        <div class="rec-meta">${s.producer} · THC ${s.thc}%${s.cbd?` · CBD ${s.cbd}%`:''} · ${s.type}</div>
+        <div class="rec-meta">${s.producer} · ${s.form==='Cartridge'?`${s.thcMg||0}mg THC${(s.cbdMg||0)>0?` · ${s.cbdMg}mg CBD`:''}`:`THC ${s.thc}%${s.cbd?` · CBD ${s.cbd}%`:''}`} · ${s.type}</div>
         <div class="tchips" style="margin-bottom:6px">${tChips}${otherTerps}</div>
         ${(s.helpsWith||[]).length?`<div class="tags" style="margin-bottom:8px">${(s.helpsWith||[]).slice(0,3).map(h=>`<span class="tag ht">${h}</span>`).join('')}</div>`:''}
         <div class="rec-reason">Matches your top terpenes: <strong>${s.matchedTerps.join(', ')}</strong></div>
