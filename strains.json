@@ -3095,7 +3095,9 @@
       "Paranoid"
     ],
     "id": "BDC",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Bedrobinol",
@@ -3129,7 +3131,9 @@
       "Dry mouth"
     ],
     "id": "BDO",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Bediol",
@@ -3163,7 +3167,9 @@
       "Dry mouth"
     ],
     "id": "BDL",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Bedrolite",
@@ -3195,7 +3201,9 @@
     ],
     "negatives": [],
     "id": "BDT",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Bedrica",
@@ -3227,7 +3235,9 @@
     ],
     "negatives": [],
     "id": "BDR",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Golden Runtz",
@@ -4097,7 +4107,9 @@
     ],
     "id": "SLH",
     "genetics": "Lemon Skunk × Super Silver Haze",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Kush Mintz",
@@ -4133,7 +4145,9 @@
     ],
     "id": "KMZ",
     "genetics": "Animal Mints × Bubba Kush",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "OG Kush",
@@ -4170,7 +4184,9 @@
     ],
     "id": "OGK",
     "genetics": "Chemdawg × Hindu Kush",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Amnesia Haze",
@@ -4207,7 +4223,9 @@
     ],
     "id": "AMH",
     "genetics": "South Asian × Jamaican × Afghani × Hawaiian",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Do-Si-Dos",
@@ -4243,7 +4261,9 @@
     ],
     "id": "DSD",
     "genetics": "Girl Scout Cookies × Face Off OG",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Wedding Cake (Tilray)",
@@ -4280,7 +4300,9 @@
     ],
     "id": "WC",
     "genetics": "Triangle Kush × Animal Mints",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Jean Guy",
@@ -4316,7 +4338,9 @@
     ],
     "id": "JG",
     "genetics": "White Widow Phenotype",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Shark Shock",
@@ -4351,7 +4375,9 @@
     ],
     "id": "SS",
     "genetics": "White Widow × Skunk #1",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Nordle",
@@ -4386,7 +4412,9 @@
     ],
     "id": "NOR",
     "genetics": "Afghani × Skunk #1",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Purple Punch",
@@ -4569,7 +4597,9 @@
     ],
     "id": "NL",
     "genetics": "Afghani Landrace",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Blue Cheese",
@@ -4606,7 +4636,9 @@
     ],
     "id": "BC",
     "genetics": "Blueberry × UK Cheese",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Critical Mass",
@@ -4642,7 +4674,9 @@
     ],
     "id": "CM",
     "genetics": "Afghani × Skunk #1",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "El Jefe",
@@ -4678,7 +4712,9 @@
     ],
     "id": "Rocky",
     "genetics": "Rare Dankness #1 × SFV OG Kush",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Tangie Chem",
@@ -4713,7 +4749,9 @@
       "Anxious"
     ],
     "id": "Solace",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Libras",
@@ -4747,7 +4785,9 @@
       "Dry mouth"
     ],
     "id": "Juno",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Girl Scout Cookies",
@@ -4784,7 +4824,9 @@
     ],
     "id": "GSC",
     "genetics": "OG Kush × Durban Poison",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Blue Zkittlez",
@@ -4820,7 +4862,9 @@
     ],
     "id": "BZ",
     "genetics": "Blue Diamond × Zkittlez",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Lemon OG Kush",
@@ -4856,7 +4900,9 @@
     ],
     "id": "LOK",
     "genetics": "",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Royal Kush",
@@ -4892,7 +4938,9 @@
     ],
     "id": "RK",
     "genetics": "Afghani × Skunk #1",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Sweet Island Skunk",
@@ -4928,7 +4976,9 @@
     ],
     "id": "SIS",
     "genetics": "Sweet Skunk × Island Sweet Skunk",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Kali Kush",
@@ -4963,7 +5013,9 @@
       "Couch-lock"
     ],
     "id": "KK",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Lemon King",
@@ -4998,7 +5050,9 @@
       "Anxious"
     ],
     "id": "LK",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Alien Koffee",
@@ -5326,7 +5380,9 @@
     "negatives": [],
     "id": "MMR",
     "genetics": "Kush Mints × Jealousy x Red Runtz",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Pucker-Up",
@@ -5450,7 +5506,9 @@
     "helpsWith": [],
     "negatives": [],
     "id": "PBS1",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Banana Daddy",
@@ -6632,7 +6690,9 @@
     "helpsWith": [],
     "negatives": [],
     "id": "ST",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Beach Crasher",
@@ -6668,7 +6728,9 @@
     ],
     "id": "BC1",
     "genetics": "",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Frosted Cherry Cake",
@@ -6685,7 +6747,9 @@
     "negatives": [],
     "id": "FCC",
     "genetics": "",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Ghost Gelato",
@@ -6702,7 +6766,9 @@
     "negatives": [],
     "id": "GG1",
     "genetics": "",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "King Sherb",
@@ -6738,7 +6804,9 @@
     ],
     "id": "KS",
     "genetics": "",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Alien Dawg",
@@ -6871,7 +6939,9 @@
     "negatives": [],
     "id": "GG2",
     "genetics": "Chem Sister × Sour Dubb × Chocolate Diesel",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Master Kush",
@@ -7344,7 +7414,9 @@
     ],
     "id": "WAP",
     "genetics": "Skunk #1 × Unknown",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Miracle Alien Cookies",
@@ -7856,7 +7928,9 @@
     "negatives": [],
     "id": "GG3",
     "genetics": "Chem Sister × Sour Dubb × Chocolate Diesel",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Huckleberry",
@@ -8625,7 +8699,9 @@
     "negatives": [],
     "id": "GG5",
     "genetics": "Chem Sister × Sour Dubb × Chocolate Diesel",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "MK Ultra",
@@ -10523,7 +10599,9 @@
     "negatives": [],
     "id": "GG7",
     "genetics": "Chem Sister × Sour Dubb × Chocolate Diesel",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Grapefruit Gift",
@@ -11309,7 +11387,9 @@
     "helpsWith": [],
     "negatives": [],
     "id": "BP",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Cherry Blast",
@@ -11942,7 +12022,9 @@
     ],
     "id": "CC",
     "genetics": "Chemdawg × Girl Scout Cookies",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Flawless Victory",
@@ -12177,7 +12259,9 @@
     ],
     "id": "GEL3",
     "genetics": "Sunset Sherbet × Thin Mint GSC",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Garlic Zkittlez",
@@ -13257,7 +13341,9 @@
     ],
     "id": "GEL4",
     "genetics": "Sunset Sherbet × Thin Mint GSC",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "God Bud CBD",
@@ -13889,7 +13975,9 @@
       "Dizzy"
     ],
     "id": "HS3",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Korean BBQ",
@@ -14016,7 +14104,9 @@
     "negatives": [],
     "id": "FL1",
     "genetics": "Sunset Sherbet × Thin Mint GSC",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Chem de la Chem",
@@ -14085,7 +14175,9 @@
     "negatives": [],
     "id": "CHE1",
     "genetics": "Chemdawg × Unknown",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Wedding Cake",
@@ -15790,7 +15882,9 @@
     "negatives": [],
     "id": "MAC3",
     "genetics": "Alien Cookies × Starfighter × Columbian",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Queen Sangria",
@@ -18357,7 +18451,9 @@
     "helpsWith": [],
     "negatives": [],
     "id": "CBT",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Gelato #44",
@@ -18413,7 +18509,9 @@
     "helpsWith": [],
     "negatives": [],
     "id": "HHS",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Hsoc Tbc",
@@ -18429,7 +18527,9 @@
     "helpsWith": [],
     "negatives": [],
     "id": "HT1",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Hsal T30",
@@ -18445,7 +18545,9 @@
     "helpsWith": [],
     "negatives": [],
     "id": "HT2",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "High Society Oracle",
@@ -18461,7 +18563,9 @@
     "helpsWith": [],
     "negatives": [],
     "id": "HSO",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "C13 Frosted Lime",
@@ -18485,7 +18589,9 @@
     "helpsWith": [],
     "negatives": [],
     "id": "CFL",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Fl C18",
@@ -18509,7 +18615,9 @@
     "helpsWith": [],
     "negatives": [],
     "id": "FC4",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Fl C18 Frosted Lime",
@@ -18533,7 +18641,9 @@
     "helpsWith": [],
     "negatives": [],
     "id": "FCF1",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Miracle Alien Cookies #3",
@@ -19459,14 +19569,36 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
-    "negatives": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene"
+    ],
+    "effects": [
+      "Euphoric",
+      "Sleepy",
+      "Calmed"
+    ],
+    "flavours": [
+      "Berry",
+      "Pine",
+      "Spicy"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dry eyes",
+      "Paranoid"
+    ],
     "id": "TLC",
     "genetics": "OG LA Affie × Afghani",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Bedica",
@@ -19477,9 +19609,11 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [
-      "Caryophyllene",
+      "Myrcene",
+      "Linalool",
+      "Pinene",
       "Humulene",
-      "Bisabolol"
+      "Ocimene"
     ],
     "effects": [
       "Relaxed",
@@ -19501,7 +19635,35 @@
       "Dizzy"
     ],
     "id": "BED",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Pinene",
+        "designation": ""
+      },
+      {
+        "name": "Myrcene",
+        "designation": ""
+      },
+      {
+        "name": "Linalool",
+        "designation": ""
+      },
+      {
+        "name": "Humulene",
+        "designation": ""
+      },
+      {
+        "name": "Ocimene",
+        "designation": ""
+      },
+      {
+        "name": "Terpinolene",
+        "designation": ""
+      }
+    ],
+    "genetics": "Unknown",
+    "schema_version": 2
   },
   {
     "name": "Bediol T6C8",
@@ -19511,13 +19673,47 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Pinene",
+      "Humulene",
+      "Ocimene",
+      "Terpinolene"
+    ],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Pine"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "BT",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Pinene",
+        "designation": ""
+      },
+      {
+        "name": "Myrcene",
+        "designation": ""
+      },
+      {
+        "name": "Humulene",
+        "designation": ""
+      },
+      {
+        "name": "Ocimene",
+        "designation": ""
+      },
+      {
+        "name": "Terpinolene",
+        "designation": ""
+      }
+    ],
+    "genetics": "Unknown",
+    "schema_version": 2
   },
   {
     "name": "Bedrobinol T13C1",
@@ -19527,13 +19723,47 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Pinene",
+      "Humulene",
+      "Ocimene"
+    ],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "BT1",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Pinene",
+        "designation": ""
+      },
+      {
+        "name": "Myrcene",
+        "designation": ""
+      },
+      {
+        "name": "Limonene",
+        "designation": ""
+      },
+      {
+        "name": "Humulene",
+        "designation": ""
+      },
+      {
+        "name": "Ocimene",
+        "designation": ""
+      }
+    ],
+    "genetics": "Unknown",
+    "schema_version": 2
   },
   {
     "name": "Bedrolite T1C9",
@@ -19543,13 +19773,47 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Pinene",
+      "Humulene",
+      "Ocimene",
+      "Terpinolene"
+    ],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Pine"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "BT2",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Pinene",
+        "designation": ""
+      },
+      {
+        "name": "Myrcene",
+        "designation": ""
+      },
+      {
+        "name": "Humulene",
+        "designation": ""
+      },
+      {
+        "name": "Ocimene",
+        "designation": ""
+      },
+      {
+        "name": "Terpinolene",
+        "designation": ""
+      }
+    ],
+    "genetics": "Unknown",
+    "schema_version": 2
   },
   {
     "name": "Main T22C1",
@@ -19559,13 +19823,50 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Pinene",
+      "Ocimene"
+    ],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Pine",
+      "Lemon"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "MT",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Pinene",
+        "designation": ""
+      },
+      {
+        "name": "Myrcene",
+        "designation": ""
+      },
+      {
+        "name": "Limonene",
+        "designation": ""
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": ""
+      },
+      {
+        "name": "Ocimene",
+        "designation": ""
+      },
+      {
+        "name": "Terpinolene",
+        "designation": ""
+      }
+    ],
+    "genetics": "Haze × Northern Lights × Shiva Skunk",
+    "schema_version": 2
   },
   {
     "name": "Cf T25",
@@ -19577,11 +19878,16 @@
     "type": "Hybrid",
     "terpenes": [],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Grape"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "CT",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [],
+    "genetics": "(Cookies & Cream × Grape Pie ) × Biscotti",
+    "schema_version": 2
   },
   {
     "name": "Fpc T28",
@@ -19591,13 +19897,41 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "FT",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": ""
+      },
+      {
+        "name": "Limonene",
+        "designation": ""
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": ""
+      },
+      {
+        "name": "Linalool",
+        "designation": ""
+      }
+    ],
+    "schema_version": 2
   },
   {
     "name": "Gr T20",
@@ -19607,13 +19941,55 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene",
+      "Humulene"
+    ],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "GT",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Pinene",
+        "designation": ""
+      },
+      {
+        "name": "Limonene",
+        "designation": ""
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": ""
+      },
+      {
+        "name": "Linalool",
+        "designation": ""
+      },
+      {
+        "name": "Humulene",
+        "designation": ""
+      },
+      {
+        "name": "Nerolidol",
+        "designation": ""
+      },
+      {
+        "name": "Carene",
+        "designation": ""
+      }
+    ],
+    "genetics": "Goldmember × Runtz (TBC)",
+    "schema_version": 2
   },
   {
     "name": "Hb T24",
@@ -19625,11 +20001,15 @@
     "type": "Hybrid",
     "terpenes": [],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Grape"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "HT",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [],
+    "schema_version": 2
   },
   {
     "name": "Mfl T25",
@@ -19639,13 +20019,46 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Floral"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "MT1",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": ""
+      },
+      {
+        "name": "Limonene",
+        "designation": ""
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": ""
+      },
+      {
+        "name": "Linalool",
+        "designation": ""
+      },
+      {
+        "name": "Humulene",
+        "designation": ""
+      }
+    ],
+    "schema_version": 2
   },
   {
     "name": "Lcg Lemon Cherry Gelato",
@@ -19655,14 +20068,42 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "LLC",
     "genetics": "Sunset Sherbet × Girl Scout Cookies",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Linalool",
+        "designation": "Major"
+      }
+    ],
+    "schema_version": 2
   },
   {
     "name": "Rs 11",
@@ -19679,7 +20120,9 @@
     "negatives": [],
     "id": "R1",
     "genetics": "Pink Guava × OG Kush",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [],
+    "schema_version": 2
   },
   {
     "name": "Cura 10 T18",
@@ -19689,13 +20132,45 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Cookie"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "C1T",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Linalool",
+        "designation": "Major"
+      },
+      {
+        "name": "Humulene",
+        "designation": "Major"
+      }
+    ],
+    "genetics": "Gelato (Derivative)",
+    "schema_version": 2
   },
   {
     "name": "Cura 12 T27",
@@ -19705,13 +20180,50 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Humulene"
+    ],
+    "effects": [
+      "Happy",
+      "Creative",
+      "Body"
+    ],
+    "flavours": [
+      "Earthy",
+      "Spicy",
+      "Herbal"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Anxiety",
+      "Fatigue"
+    ],
     "negatives": [],
     "id": "C1T1",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Humulene",
+        "designation": "Major"
+      }
+    ],
+    "genetics": "(Banana OG × Do-Si-Dos ) × Papaya",
+    "schema_version": 2
   },
   {
     "name": "Three Kings",
@@ -19728,7 +20240,9 @@
     "negatives": [],
     "id": "C5T",
     "genetics": "Headband × Sour Diesel × OG Kush",
-    "form": "Flower"
+    "form": "Flower",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Cura 9 T22",
@@ -19738,13 +20252,38 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Pinene",
+      "Nerolidol"
+    ],
     "effects": [],
     "flavours": [],
     "helpsWith": [],
     "negatives": [],
     "id": "C9T1",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Pinene",
+        "designation": "Major"
+      },
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Nerolidol",
+        "designation": "Major"
+      }
+    ],
+    "genetics": "Girl Scout Cookies (Derivative)",
+    "schema_version": 2
   },
   {
     "name": "Emc 1 C13",
@@ -19754,13 +20293,42 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "E1C",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Linalool",
+        "designation": "Major"
+      }
+    ],
+    "genetics": "GR-4 × Blue Shark",
+    "schema_version": 2
   },
   {
     "name": "Flos T0C14",
@@ -19770,13 +20338,42 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Citrus",
+      "Floral",
+      "Herbal"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "FT1",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Linalool",
+        "designation": "Major"
+      }
+    ],
+    "genetics": "GR-4 × Blue Shark",
+    "schema_version": 2
   },
   {
     "name": "Flos T21C0",
@@ -19786,13 +20383,47 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
     "effects": [],
     "flavours": [],
     "helpsWith": [],
     "negatives": [],
     "id": "FT2",
-    "form": "Flower"
+    "form": "Flower",
+    "terpeneDetails": [
+      {
+        "name": "Pinene",
+        "designation": "Major"
+      },
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Minor"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Linalool",
+        "designation": "Minor"
+      },
+      {
+        "name": "Humulene",
+        "designation": "Minor"
+      }
+    ],
+    "genetics": "Girl Scout Cookies × Faceoff OG",
+    "schema_version": 2
   },
   {
     "name": "MJR Runtz",
@@ -20291,7 +20922,9 @@
     "volume": "0.5ml",
     "extractType": "Distillate",
     "terpeneSource": "Botanical",
-    "fitment": "Proprietary"
+    "fitment": "Proprietary",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Jack Herer",
@@ -20563,7 +21196,9 @@
     "volume": "1ml",
     "extractType": "Hash Rosin",
     "terpeneSource": "No Additives",
-    "fitment": "510"
+    "fitment": "510",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Hash Rosin T750 Wedding Cake",
@@ -21238,7 +21873,9 @@
     "volume": "1ml",
     "extractType": "Distillate",
     "terpeneSource": "",
-    "fitment": ""
+    "fitment": "",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Sour Space Candy",
@@ -21261,7 +21898,9 @@
     "volume": "1ml",
     "extractType": "Distillate",
     "terpeneSource": "",
-    "fitment": ""
+    "fitment": "",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Trainwreck",
@@ -21284,7 +21923,9 @@
     "volume": "1ml",
     "extractType": "Distillate",
     "terpeneSource": "",
-    "fitment": ""
+    "fitment": "",
+    "schema_version": 2,
+    "terpeneDetails": []
   },
   {
     "name": "Senses Purple SG",
