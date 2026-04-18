@@ -34,6 +34,7 @@ from playwright.async_api import async_playwright
 MEDBUD_BASE = "https://medbud.wiki"
 CART_BASE_URL = f"{MEDBUD_BASE}/vape-cartridges"
 WEEDSTRAIN_BASE = "https://weedstrain.com/uk/weed-strains"
+ALLBUD_BASE = "https://www.allbud.com/marijuana-strains"
 YOUTUBE_REVIEWS_URL = "https://medbud.wiki/reviews/youtube/"
 HTTP_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -1137,6 +1138,248 @@ def scrape_weedstrain(strain_name):
 
 
 # ---------------------------------------------------------------------------
+# Step 3b: AllBud enrichment (primary helpsWith source)
+# ---------------------------------------------------------------------------
+# AllBud type categories — ordered by frequency in UK medical cannabis catalogue.
+# We try the strain's known type first, then fall through the rest.
+ALLBUD_TYPE_SLUGS = [
+    'indica-dominant-hybrid', 'hybrid', 'sativa-dominant-hybrid',
+    'indica', 'sativa',
+]
+
+# Map AllBud "May Relieve" tags → our target vocabulary (HANDOVER-SCRAPER.md).
+# Tags not in this map are kept as-is if they look sensible (logged for review).
+ALLBUD_TAG_MAP = {
+    'chronic pain':      'Chronic Pain',
+    'pain':              'Pain',
+    'nerve pain':        'Nerve Pain',
+    'neuropathy':        'Neuropathy',
+    'muscle spasms':     'Muscle Spasms',
+    'cramps':            'Cramps',
+    'stiffness':         'Stiffness',
+    'muscle tension':    'Muscle Tension',
+    'fatigue':           'Fatigue',
+    'chronic fatigue':   'Fatigue',
+    'insomnia':          'Insomnia',
+    'depression':        'Depression',
+    'anxiety':           'Anxiety',
+    'stress':            'Stress',
+    'chronic stress':    'Stress',
+    'panic':             'Panic',
+    'ptsd':              'PTSD',
+    'add/adhd':          'ADHD',
+    'adhd':              'ADHD',
+    'headaches':         'Headache',
+    'migraines':         'Migraine',
+    'nausea':            'Nausea',
+    'appetite loss':     'Loss of Appetite',
+    'loss of appetite':  'Loss of Appetite',
+    'inflammation':      'Inflammation',
+    'tremors':           'Tremor',
+    'seizures':          'Tremor',
+    'irritability':      'Irritability',
+    'mood swings':       'Depression',
+    'bipolar disorder':  'Depression',
+    'pms':               'Cramps',
+    'eye pressure':      'Eye Pressure',
+    'asthma':            'Asthma',
+    'fibromyalgia':      'Fibromyalgia',
+    'lack of appetite':  'Loss of Appetite',
+    'tinnitus':          'Tinnitus',
+    'phantom limb pain': 'Nerve Pain',
+    'hypertension':      'Hypertension',
+    'gastrointestinal disorder': 'Inflammation',
+    'multiple sclerosis': 'Spasticity',
+    'spinal cord injury': 'Nerve Pain',
+}
+
+# Tags we never want to store — AllBud junk / off-topic
+ALLBUD_REJECT_TAGS = {
+    'alzheimer\'s', 'glaucoma', 'hiv/aids', 'cachexia',
+}
+
+
+def allbud_slugify(name):
+    """Convert a strain name to AllBud's URL slug format."""
+    s = name.lower().strip()
+    # Strip parenthetical annotations like "(Sativa Hybrid)"
+    s = re.sub(r'\s*\(.*?\)\s*', '', s)
+    # Remove apostrophes
+    s = s.replace("'", "").replace("\u2019", "")
+    # Remove non-alphanumeric except spaces and hyphens
+    s = re.sub(r'[^a-z0-9\s-]', '', s)
+    # Collapse whitespace to hyphens
+    s = re.sub(r'\s+', '-', s.strip())
+    # Remove double hyphens
+    s = re.sub(r'-+', '-', s)
+    return s
+
+
+def scrape_allbud(strain_name, thc_percent, strain_type="Hybrid"):
+    """
+    Scrape AllBud for helpsWith, effects, flavours, negatives, and genetics.
+
+    Uses plain requests + BeautifulSoup (AllBud doesn't need JS rendering).
+    Tries multiple AllBud type categories to find the right page.
+
+    Args:
+        strain_name: display name of the strain
+        thc_percent: our stored THC % (for sanity check)
+        strain_type: "Indica", "Sativa", or "Hybrid" from MedBud
+
+    Returns:
+        dict with helpsWith, effects, flavours, negatives, genetics, or None
+    """
+    slug = allbud_slugify(strain_name)
+    if not slug or len(slug) < 2:
+        return None
+
+    # Order type attempts: try the most likely category first
+    type_order = list(ALLBUD_TYPE_SLUGS)
+    if strain_type == "Indica":
+        # Bump indica categories to the front
+        type_order = ['indica', 'indica-dominant-hybrid'] + [
+            t for t in type_order if t not in ('indica', 'indica-dominant-hybrid')]
+    elif strain_type == "Sativa":
+        type_order = ['sativa', 'sativa-dominant-hybrid'] + [
+            t for t in type_order if t not in ('sativa', 'sativa-dominant-hybrid')]
+    # Hybrid stays in default order (indica-dominant-hybrid is most common)
+
+    resp = None
+    matched_url = None
+    for type_slug in type_order:
+        url = f"{ALLBUD_BASE}/{type_slug}/{slug}"
+        try:
+            r = requests.get(url, timeout=15, headers=HTTP_HEADERS)
+            if r.status_code == 200 and 'Marijuana Strain' in r.text[:500]:
+                resp = r
+                matched_url = url
+                break
+        except Exception:
+            pass
+        time.sleep(0.3)  # Brief pause between type probes
+
+    if not resp:
+        return None
+
+    soup = BeautifulSoup(resp.text, 'html.parser')
+
+    # --- THC sanity check ---
+    thc_text = soup.get_text()
+    allbud_thc = 0
+    thc_m = re.search(r'THC:\s*(\d+)\s*%?\s*-\s*(\d+)\s*%', thc_text)
+    if thc_m:
+        allbud_thc = int(thc_m.group(2))  # Use upper end
+    else:
+        thc_m2 = re.search(r'THC:\s*(\d+)\s*%', thc_text)
+        if thc_m2:
+            allbud_thc = int(thc_m2.group(1))
+
+    if thc_percent > 0 and allbud_thc > 0 and abs(thc_percent - allbud_thc) > 5:
+        print(f"    [allbud-skip] {strain_name}: THC mismatch "
+              f"(ours={thc_percent}%, AllBud={allbud_thc}%) — skipping")
+        return None
+
+    # --- Extract structured data via link URL patterns ---
+    data = {
+        "helpsWith": [], "effects": [], "flavours": [],
+        "negatives": [], "genetics": "",
+    }
+
+    # helpsWith — links to /marijuana-strains/symptom/{slug}
+    seen_helps = set()
+    for link in soup.find_all('a', href=re.compile(r'/marijuana-strains/symptom/')):
+        raw_tag = link.get_text(strip=True)
+        if not raw_tag:
+            continue
+        normalised = ALLBUD_TAG_MAP.get(raw_tag.lower())
+        if raw_tag.lower() in ALLBUD_REJECT_TAGS:
+            continue
+        if normalised is None:
+            # Unknown tag — keep it Title Case and log
+            normalised = raw_tag.title()
+            if not hasattr(scrape_allbud, '_unknown_tags'):
+                scrape_allbud._unknown_tags = set()
+            if raw_tag.lower() not in scrape_allbud._unknown_tags:
+                scrape_allbud._unknown_tags.add(raw_tag.lower())
+                print(f"    [allbud-unknown-tag] '{raw_tag}' — keeping as '{normalised}'")
+        if normalised not in seen_helps:
+            seen_helps.add(normalised)
+            data["helpsWith"].append(normalised)
+
+    # effects — links to /marijuana-strains/effect/{slug}
+    seen_effects = set()
+    for link in soup.find_all('a', href=re.compile(r'/marijuana-strains/effect/')):
+        eff = link.get_text(strip=True)
+        if eff and eff not in seen_effects:
+            seen_effects.add(eff)
+            data["effects"].append(eff)
+
+    # flavours — links to /marijuana-strains/taste/{slug}
+    seen_flavours = set()
+    for link in soup.find_all('a', href=re.compile(r'/marijuana-strains/taste/')):
+        flav = link.get_text(strip=True)
+        if flav and flav not in seen_flavours:
+            seen_flavours.add(flav)
+            data["flavours"].append(flav)
+
+    # negatives — not structured on AllBud, skip for now
+    # (could parse the description text but low value)
+
+    # genetics — extract from description text
+    # Pattern: "crossing the [adjective] X X Y strains"
+    desc_text = ""
+    desc_el = soup.find('div', class_=re.compile(r'strain.*description|description', re.I))
+    if not desc_el:
+        # Fallback: grab the first big paragraph
+        for p in soup.find_all('p'):
+            if len(p.get_text(strip=True)) > 100:
+                desc_text = p.get_text(strip=True)
+                break
+    else:
+        desc_text = desc_el.get_text(strip=True)
+
+    if not desc_text:
+        desc_text = soup.get_text()[:2000]
+
+    # Try to extract parent strain names from hyperlinks in the description
+    if not data["genetics"]:
+        # Look for strain links in the first content section
+        content_area = soup.find('div', class_=re.compile(r'strain'))
+        if content_area:
+            parent_links = []
+            for link in content_area.find_all('a', href=re.compile(r'/marijuana-strains/\w+/')):
+                href = link.get('href', '')
+                # Skip non-strain links (symptom, effect, taste, aroma, search pages)
+                if any(x in href for x in ['/symptom/', '/effect/', '/taste/',
+                                            '/aroma/', '/search', '/variety/']):
+                    continue
+                parent_name = link.get_text(strip=True)
+                if parent_name and len(parent_name) >= 2 and parent_name not in parent_links:
+                    parent_links.append(parent_name)
+            if len(parent_links) >= 2:
+                data["genetics"] = f"{parent_links[0]} × {parent_links[1]}"
+
+    # Regex fallback for genetics from description text
+    if not data["genetics"]:
+        gen_m = re.search(
+            r'cross(?:ing)?(?:\s+(?:of|the|the\s+powerful|the\s+infamous|the\s+potent|the\s+delicious))?\s+'
+            r'([A-Z][A-Za-z0-9\s\'\-\&#]+?)\s*(?:×|X|x|and|&)\s*'
+            r'([A-Z][A-Za-z0-9\s\'\-\&#]+?)\s*(?:strains?|$|\.)',
+            desc_text
+        )
+        if gen_m:
+            p1 = gen_m.group(1).strip().rstrip(',')
+            p2 = gen_m.group(2).strip().rstrip(',')
+            if len(p1) >= 2 and len(p2) >= 2:
+                data["genetics"] = f"{p1} × {p2}"
+
+    has_content = (data["helpsWith"] or data["effects"] or
+                   data["flavours"] or data["genetics"])
+    return data if has_content else None
+
+
+# ---------------------------------------------------------------------------
 # Step 4: YouTube reviews from central MedBud page
 # ---------------------------------------------------------------------------
 async def scrape_youtube_reviews(browser):
@@ -1837,6 +2080,33 @@ async def reenrich(strains_path):
 
         await browser.close()
 
+    # AllBud enrichment — runs on all flowers (MedBud has no helpsWith data)
+    flowers_for_allbud = [s for s in needs_update
+                          if s.get("form", "Flower") == "Flower"]
+    if flowers_for_allbud:
+        print(f"\n\U0001f4da AllBud enrichment for {len(flowers_for_allbud)} flowers...")
+        allbud_hits = 0
+        for s in flowers_for_allbud:
+            ab = scrape_allbud(s["name"], s.get("thc", 0), s.get("type", "Hybrid"))
+            if ab:
+                # Union merge for helpsWith
+                existing_helps = set(s.get("helpsWith", []))
+                for tag in ab.get("helpsWith", []):
+                    if tag not in existing_helps:
+                        existing_helps.add(tag)
+                        s.setdefault("helpsWith", []).append(tag)
+                # Fill-if-empty for other fields
+                for field in ["effects", "flavours", "negatives", "genetics"]:
+                    if ab.get(field) and not s.get(field):
+                        s[field] = ab[field]
+                allbud_hits += 1
+                helps_str = ', '.join(s.get('helpsWith', [])[:5])
+                print(f"  \u2713 {s['name']}: {helps_str}")
+            else:
+                print(f"  \u2717 {s['name']}")
+            time.sleep(1)  # Rate limit: 1 req/sec
+        print(f"  AllBud: {allbud_hits}/{len(flowers_for_allbud)} matched")
+
     # Save
     print(f"\n  Re-enrichment complete: {progress['updated']} records updated via MedBud")
     strains = clean_existing_data(strains)
@@ -1847,8 +2117,14 @@ async def reenrich(strains_path):
     # Stats
     v2_count = sum(1 for s in strains if s.get("schema_version", 0) >= 2)
     td_count = sum(1 for s in strains if s.get("terpeneDetails"))
+    hw_count = sum(1 for s in strains if s.get("helpsWith"))
+    hw_zero = sum(1 for s in strains if not s.get("helpsWith"))
+    all_tags = [tag for s in strains for tag in s.get("helpsWith", [])]
+    unique_tags = len(set(all_tags))
     print(f"  schema_version >= 2: {v2_count}/{len(strains)}")
     print(f"  terpeneDetails populated: {td_count}/{len(strains)}")
+    print(f"  helpsWith populated: {hw_count}/{len(strains)} ({hw_zero} still empty)")
+    print(f"  unique helpsWith tags: {unique_tags}")
     print(f"\n{'='*60}")
     print(f"\u2705 Re-enrichment done!")
     print(f"{'='*60}")
@@ -2043,6 +2319,33 @@ async def main():
                 else:
                     print(f"  \u2717 {s['name']}")
                 time.sleep(0.5)
+
+        # 4b. AllBud enrichment (helpsWith, effects, flavours, genetics) — FLOWER ONLY
+        # MedBud provides no helpsWith data; AllBud is our primary source.
+        # Runs on all new flowers regardless of existing data (union merge for helpsWith).
+        if flower_new:
+            print(f"\n\U0001f4da AllBud enrichment for {len(flower_new)} new flowers...")
+            allbud_hits = 0
+            for s in flower_new:
+                ab = scrape_allbud(s["name"], s.get("thc", 0), s.get("type", "Hybrid"))
+                if ab:
+                    # Union merge for helpsWith
+                    existing_helps = set(s.get("helpsWith", []))
+                    for tag in ab.get("helpsWith", []):
+                        if tag not in existing_helps:
+                            existing_helps.add(tag)
+                            s.setdefault("helpsWith", []).append(tag)
+                    # Fill-if-empty for other fields
+                    for field in ["effects", "flavours", "negatives", "genetics"]:
+                        if ab.get(field) and not s.get(field):
+                            s[field] = ab[field]
+                    allbud_hits += 1
+                    helps_str = ', '.join(s.get('helpsWith', [])[:5])
+                    print(f"  \u2713 {s['name']}: {helps_str}")
+                else:
+                    print(f"  \u2717 {s['name']}")
+                time.sleep(1)  # Rate limit: 1 req/sec (polite)
+            print(f"  AllBud: {allbud_hits}/{len(flower_new)} matched")
 
         # 5. Merge
         result = list(existing)
