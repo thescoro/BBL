@@ -15404,19 +15404,19 @@
     "terpeneDetails": [
       {
         "name": "Myrcene",
-        "designation": "Major"
+        "designation": ""
       },
       {
         "name": "Limonene",
-        "designation": "Major"
+        "designation": ""
       },
       {
         "name": "Caryophyllene",
-        "designation": "Minor"
+        "designation": ""
       },
       {
         "name": "Linalool",
-        "designation": "Minor"
+        "designation": ""
       }
     ],
     "schema_version": 2
