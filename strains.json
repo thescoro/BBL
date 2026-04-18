@@ -5250,13 +5250,24 @@
       "Ocimene",
       "Terpinolene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Happy",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Sweet",
       "Floral",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Inflammation",
+      "Muscle Spasms",
+      "Stress"
+    ],
     "negatives": [],
     "id": "DK",
     "genetics": "Durban Poison × OG Kush",
@@ -5523,13 +5534,26 @@
       "Caryophyllene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Giggly",
+      "Relaxing",
+      "Sleepy",
+      "Sociable",
+      "Uplifting"
+    ],
     "flavours": [
       "Pine",
       "Herbal",
       "Butter"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Fatigue",
+      "Insomnia",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "BD",
     "genetics": "",
@@ -5573,7 +5597,12 @@
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "ZG",
     "genetics": "(Holy Grail Kush × Smurfzilla ) × Mai Thai",
@@ -5629,13 +5658,27 @@
       "Linalool",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Focus",
+      "Happy",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Pine",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Arthritis",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "SUD",
     "genetics": "The Soap × Runtz",
@@ -5806,7 +5849,13 @@
       "Berry"
     ],
     "helpsWith": [
-      "Pain"
+      "Pain",
+      "ADHD",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Insomnia",
+      "Nausea"
     ],
     "negatives": [],
     "id": "DEL",
@@ -5950,13 +5999,30 @@
       "Limonene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Sleepy"
+    ],
     "flavours": [
       "Sweet",
       "Citrus",
       "Berry"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Chronic Pain",
+      "Inflammation",
+      "Insomnia",
+      "Loss of Appetite",
+      "Migraine",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "PK",
     "genetics": "OG Kush Phenotypes",
@@ -6252,13 +6318,26 @@
       "Pinene",
       "Ocimene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Focus",
+      "Sociable",
+      "Uplifting"
+    ],
     "flavours": [
       "Sweet",
       "Citrus",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Fatigue",
+      "Headache",
+      "Migraine",
+      "Stress"
+    ],
     "negatives": [],
     "id": "JH",
     "genetics": "Haze × Northern Lights x Shiva Skunk",
@@ -6471,11 +6550,22 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Relaxing",
+      "Tingly",
+      "Uplifting"
+    ],
     "flavours": [
       "Grape"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Stress"
+    ],
     "negatives": [],
     "id": "GUS",
     "genetics": "Gelato #41 and Triangle Kush",
@@ -6625,13 +6715,24 @@
       "Linalool",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Sleepy",
+      "Sociable",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Insomnia",
+      "Nausea"
+    ],
     "negatives": [],
     "id": "GP",
     "genetics": "Apples & Bananas × Grape Gas #7",
@@ -6821,13 +6922,29 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Happy",
+      "Relaxing",
+      "Sleepy"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Arthritis",
+      "Chronic Pain",
+      "Depression",
+      "Headache",
+      "Inflammation",
+      "Insomnia",
+      "Migraine",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "AD",
     "genetics": "Chemdawg × Alien Tech",
@@ -7022,13 +7139,30 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Sleepy"
+    ],
     "flavours": [
       "Sweet",
       "Citrus",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Chronic Pain",
+      "Inflammation",
+      "Insomnia",
+      "Loss of Appetite",
+      "Migraine",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "PK1",
     "genetics": "OG Kush Phenotypes",
@@ -7190,13 +7324,22 @@
       "Linalool",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Happy",
+      "Relaxing"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Stress"
+    ],
     "negatives": [],
     "id": "PUR",
     "genetics": "Indica Landrace × Unknown Sativa",
@@ -7254,13 +7397,26 @@
       "Caryophyllene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Happy",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Pine",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Depression",
+      "Chronic Pain",
+      "Fatigue",
+      "Headache",
+      "Migraine",
+      "Muscle Spasms",
+      "PTSD"
+    ],
     "negatives": [],
     "id": "WW1",
     "genetics": "Brazilian Landrace × Indian Landrace",
@@ -7304,7 +7460,18 @@
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Anorexia",
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Inflammation",
+      "Headache",
+      "Migraine",
+      "Stress"
+    ],
     "negatives": [],
     "id": "ISS",
     "genetics": "Sweet Pink Grapefruit × Skunk #1",
@@ -7461,13 +7628,28 @@
       "Humulene",
       "Nerolidol"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Giggly",
+      "Happy",
+      "Sociable",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Citrus",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Arthritis",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Inflammation",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "LS",
     "genetics": "Skunk #1 Phenotypes",
@@ -7509,13 +7691,29 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Giggly",
+      "Happy"
+    ],
     "flavours": [
       "Citrus",
       "Spicy",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Anxiety",
+      "Cancer",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Insomnia",
+      "Loss of Appetite",
+      "Migraine",
+      "Stress"
+    ],
     "negatives": [],
     "id": "AH",
     "genetics": "G13 × Neville's Haze x Afghani Landrace",
@@ -7571,13 +7769,27 @@
       "Caryophyllene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Happy"
+    ],
     "flavours": [
       "Berry",
       "Pine",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Anxiety",
+      "Depression",
+      "Chronic Pain",
+      "Headache",
+      "Inflammation",
+      "Nausea",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "BD1",
     "genetics": "Blueberry × Haze",
@@ -7672,13 +7884,25 @@
       "Limonene",
       "Linalool"
     ],
-    "effects": [],
+    "effects": [
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Tingly",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Berry",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Depression",
+      "Chronic Pain",
+      "Cramps",
+      "Muscle Spasms",
+      "Stress"
+    ],
     "negatives": [],
     "id": "CJ",
     "genetics": "Alien Cookies × Kush Mints #11",
@@ -7714,13 +7938,24 @@
       "Linalool",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Muscle Spasms"
+    ],
     "negatives": [],
     "id": "BT3",
     "genetics": "Triangle Kush × 88 G13 Hashplant",
@@ -7922,9 +8157,23 @@
     "cbd": 0,
     "type": "Sativa",
     "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
+    "effects": [
+      "Body High",
+      "Happy",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Chemical",
+      "Chocolate",
+      "Coffee"
+    ],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Muscle Spasms",
+      "Nausea"
+    ],
     "negatives": [],
     "id": "GG3",
     "genetics": "Chem Sister × Sour Dubb × Chocolate Diesel",
@@ -8083,13 +8332,25 @@
       "Limonene",
       "Linalool"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Creative",
+      "Euphoria",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Berry",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Insomnia",
+      "Stress"
+    ],
     "negatives": [],
     "id": "MG1",
     "genetics": "Thin Mint Cookies × Sunset Sherbet",
@@ -8127,13 +8388,26 @@
       "Caryophyllene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Focus",
+      "Motivation",
+      "Uplifting"
+    ],
     "flavours": [
       "Berry",
       "Pine",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Headache",
+      "Migraine",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "MEL",
     "genetics": "Spritzer × Kerosene Krash",
@@ -8292,13 +8566,28 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Happy",
+      "Relaxing",
+      "Sleepy",
+      "Tingly",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Berry",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "PO",
     "genetics": "(Biscotti × Sherbet BX1 ) × Jealousy F2",
@@ -8657,13 +8946,24 @@
       "Caryophyllene",
       "Linalool"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Calming",
+      "Relaxing",
+      "Tingly",
+      "Uplifting"
+    ],
     "flavours": [
       "Berry",
       "Floral",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Inflammation",
+      "Insomnia"
+    ],
     "negatives": [],
     "id": "WP",
     "genetics": "Wedding Pie × Grape Pie",
@@ -8693,9 +8993,23 @@
     "cbd": 0,
     "type": "Sativa",
     "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
+    "effects": [
+      "Body High",
+      "Happy",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Chemical",
+      "Chocolate",
+      "Coffee"
+    ],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Muscle Spasms",
+      "Nausea"
+    ],
     "negatives": [],
     "id": "GG5",
     "genetics": "Chem Sister × Sour Dubb × Chocolate Diesel",
@@ -8850,7 +9164,12 @@
       "Citrus",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Insomnia",
+      "Muscle Spasms",
+      "Tremor"
+    ],
     "negatives": [],
     "id": "NQ",
     "genetics": "Afghani Phenotypes",
@@ -8893,7 +9212,19 @@
       "Citrus",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Arthritis",
+      "Cancer",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Insomnia",
+      "Migraine",
+      "Nausea",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "WAP1",
     "genetics": "Skunk #1 × Unknown",
@@ -8984,7 +9315,13 @@
       "Pine"
     ],
     "helpsWith": [
-      "Pain"
+      "Pain",
+      "ADHD",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Insomnia",
+      "Nausea"
     ],
     "negatives": [],
     "id": "DEL1",
@@ -9154,7 +9491,14 @@
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Headache",
+      "Migraine",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "RM",
     "genetics": "Haze × White Widow",
@@ -9286,7 +9630,18 @@
       "Pine",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Anxiety",
+      "Arthritis",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Loss of Appetite",
+      "Migraine",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "SS2",
     "genetics": "Afghani × Unknown Sativa",
@@ -9426,7 +9781,14 @@
       "Citrus",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Fatigue",
+      "Headache",
+      "Migraine",
+      "Stress"
+    ],
     "negatives": [],
     "id": "JH1",
     "genetics": "Haze × Northern Lights x Shiva Skunk",
@@ -9504,7 +9866,18 @@
       "Citrus",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Arthritis",
+      "Chronic Pain",
+      "Depression",
+      "Fibromyalgia",
+      "Headache",
+      "Inflammation",
+      "Migraine",
+      "Nerve Pain",
+      "Stress"
+    ],
     "negatives": [],
     "id": "T4",
     "genetics": "Kandy Kush × Unknown",
@@ -9723,7 +10096,15 @@
       "Limonene",
       "Ocimene"
     ],
-    "effects": [],
+    "effects": [
+      "Calming",
+      "Creative",
+      "Focus",
+      "Happy",
+      "Motivation",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Sweet",
       "Citrus",
@@ -9731,7 +10112,11 @@
     ],
     "helpsWith": [
       "Pain",
-      "Insomnia"
+      "Insomnia",
+      "ADHD",
+      "Anxiety",
+      "Chronic Pain",
+      "Stress"
     ],
     "negatives": [],
     "id": "FL",
@@ -9766,7 +10151,13 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Focus",
+      "Happy",
+      "Relaxing"
+    ],
     "flavours": [
       "Citrus",
       "Herbal",
@@ -9774,7 +10165,16 @@
     ],
     "helpsWith": [
       "Pain",
-      "Insomnia"
+      "Insomnia",
+      "Depression",
+      "Chronic Pain",
+      "Fatigue",
+      "Fibromyalgia",
+      "Headache",
+      "Inflammation",
+      "Loss of Appetite",
+      "Muscle Spasms",
+      "PTSD"
     ],
     "negatives": [],
     "id": "GEL1",
@@ -9899,7 +10299,14 @@
       "Citrus",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Depression",
+      "Fatigue",
+      "Headache",
+      "Migraine",
+      "Stress"
+    ],
     "negatives": [],
     "id": "FC1",
     "genetics": "Platinum GSC × Gelato",
@@ -9963,7 +10370,18 @@
       "Citrus",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Depression",
+      "Chronic Pain",
+      "Fatigue",
+      "Fibromyalgia",
+      "Headache",
+      "Inflammation",
+      "Insomnia",
+      "Loss of Appetite",
+      "Muscle Spasms",
+      "PTSD"
+    ],
     "negatives": [],
     "id": "GEL2",
     "genetics": "Sunset Sherbet × Thin Mint GSC",
@@ -10558,12 +10976,26 @@
       "Caryophyllene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Aroused",
+      "Euphoria",
+      "Focus",
+      "Happy",
+      "Uplifting"
+    ],
     "flavours": [
       "Pine",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Headache",
+      "Inflammation"
+    ],
     "negatives": [],
     "id": "GCC",
     "genetics": "Green Crack × Unknown",
@@ -10593,9 +11025,23 @@
     "cbd": 0,
     "type": "Sativa",
     "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
+    "effects": [
+      "Body High",
+      "Happy",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Chemical",
+      "Chocolate",
+      "Coffee"
+    ],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Muscle Spasms",
+      "Nausea"
+    ],
     "negatives": [],
     "id": "GG7",
     "genetics": "Chem Sister × Sour Dubb × Chocolate Diesel",
@@ -10768,12 +11214,27 @@
       "Caryophyllene",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Calming",
+      "Euphoria",
+      "Happy",
+      "Mellow",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Cramps",
+      "Fibromyalgia",
+      "Inflammation",
+      "Muscle Spasms",
+      "Stress"
+    ],
     "negatives": [],
     "id": "PEN",
     "genetics": "",
@@ -10807,13 +11268,27 @@
       "Caryophyllene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Calming",
+      "Happy",
+      "Mellow",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Citrus",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Cramps",
+      "Headache",
+      "Migraine",
+      "Muscle Spasms",
+      "Stress"
+    ],
     "negatives": [],
     "id": "T12",
     "genetics": "MK Ultra × G13 Haze",
@@ -10852,7 +11327,14 @@
       "Floral",
       "Diesel"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "ROZ",
     "genetics": "Sunset Sherbet × Purple Diesel",
@@ -11254,13 +11736,26 @@
       "Pinene",
       "Nerolidol"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Happy",
+      "Strong",
+      "Tingly",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Pine",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Headache",
+      "Migraine",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "RM1",
     "genetics": "Haze × White Widow",
@@ -11303,13 +11798,25 @@
       "Limonene",
       "Linalool"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Calming",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Floral",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Cramps",
+      "Depression",
+      "Insomnia",
+      "Nausea"
+    ],
     "negatives": [],
     "id": "ZOO",
     "genetics": "Animal Cookies × Gorilla Glue #4",
@@ -11490,11 +11997,24 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [],
-    "effects": [],
+    "effects": [
+      "Calming",
+      "Happy",
+      "Mellow",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Lemon"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Arthritis",
+      "Chronic Pain",
+      "Cramps",
+      "Depression",
+      "Muscle Spasms",
+      "Stress"
+    ],
     "negatives": [],
     "id": "LJ",
     "genetics": "London Pound Cake × Jealousy",
@@ -11514,13 +12034,27 @@
       "Caryophyllene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Calming",
+      "Happy",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
     "flavours": [
       "Sweet",
       "Pine",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Loss of Appetite",
+      "Chronic Pain",
+      "Insomnia",
+      "Nausea",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "BG",
     "genetics": "GMO Cookies × Sour Dubb",
@@ -11554,13 +12088,28 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Calming",
+      "Creative",
+      "Euphoria",
+      "Giggly",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Herbal",
       "Lemon"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Stress"
+    ],
     "negatives": [],
     "id": "HS1",
     "genetics": "Biscotti × Jet Fuel Gelato",
@@ -11628,11 +12177,22 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [],
-    "effects": [],
+    "effects": [
+      "Focus",
+      "Happy",
+      "Hungry",
+      "Relaxing"
+    ],
     "flavours": [
       "Lemon"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Headache",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "LCZ",
     "genetics": "",
@@ -11744,11 +12304,26 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Happy",
+      "Relaxing",
+      "Sleepy",
+      "Tingly",
+      "Uplifting"
+    ],
     "flavours": [
       "Lemon"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Insomnia",
+      "Stress"
+    ],
     "negatives": [],
     "id": "PK3",
     "genetics": "WAP × Zoap",
@@ -11881,13 +12456,24 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Herbal",
       "Lemon"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "RP",
     "genetics": "Grand Blueberry Pie × Zkittlez",
@@ -12103,13 +12689,27 @@
       "Limonene",
       "Linalool"
     ],
-    "effects": [],
+    "effects": [
+      "Aroused",
+      "Focus",
+      "Happy",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Floral",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Fatigue",
+      "Headache",
+      "Migraine",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "AA",
     "genetics": "Apple Fritter × Triangle Mints",
@@ -12330,7 +12930,13 @@
       "Floral",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Stress"
+    ],
     "negatives": [],
     "id": "HS2",
     "genetics": "Biscotti × Jet Fuel Gelato",
@@ -12556,13 +13162,26 @@
       "Linalool",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Aroused",
+      "Creative",
+      "Euphoria",
+      "Focus",
+      "Giggly",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Citrus",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Stress"
+    ],
     "negatives": [],
     "id": "SOR",
     "genetics": "Gelato (Derivative)",
@@ -12704,13 +13323,27 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Giggly",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Sociable",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Citrus",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Headache",
+      "Migraine",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "OK",
     "genetics": "Thai × Hindu Kush x Cali",
@@ -13457,7 +14090,14 @@
       "Citrus",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Headache",
+      "Migraine",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "OK1",
     "genetics": "Thai × Hindu Kush x Cali",
@@ -13778,7 +14418,14 @@
       "Citrus",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Headache",
+      "Migraine",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "OK2",
     "genetics": "Thai × Hindu Kush x Cali",
@@ -13808,7 +14455,15 @@
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Fibromyalgia",
+      "Insomnia",
+      "Loss of Appetite",
+      "Spasticity",
+      "Nausea"
+    ],
     "negatives": [],
     "id": "WC1",
     "genetics": "Girl Scout Cookies × Cherry Pie",
@@ -13994,14 +14649,26 @@
       "Linalool",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Calming",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Sleepy"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
       "Citrus"
     ],
     "helpsWith": [
-      "Pain"
+      "Pain",
+      "Anxiety",
+      "Loss of Appetite",
+      "Depression",
+      "Insomnia",
+      "Nausea",
+      "Stress"
     ],
     "negatives": [],
     "id": "KB",
@@ -14098,9 +14765,28 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [],
-    "effects": [],
-    "flavours": [],
-    "helpsWith": [],
+    "effects": [
+      "Calming",
+      "Creative",
+      "Focus",
+      "Happy",
+      "Motivation",
+      "Relaxing",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Citrus",
+      "Lemon",
+      "Lime",
+      "Skunky",
+      "Sour"
+    ],
+    "helpsWith": [
+      "ADHD",
+      "Anxiety",
+      "Chronic Pain",
+      "Stress"
+    ],
     "negatives": [],
     "id": "FL1",
     "genetics": "Sunset Sherbet × Thin Mint GSC",
@@ -14130,7 +14816,12 @@
       "Spicy"
     ],
     "helpsWith": [
-      "Pain"
+      "Pain",
+      "ADHD",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Stress"
     ],
     "negatives": [],
     "id": "CDL",
@@ -14192,13 +14883,26 @@
       "Limonene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Relaxing",
+      "Sleepy"
+    ],
     "flavours": [
       "Citrus",
       "Pine",
       "Diesel"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Fibromyalgia",
+      "Insomnia",
+      "Loss of Appetite",
+      "Spasticity",
+      "Nausea"
+    ],
     "negatives": [],
     "id": "WC2",
     "genetics": "Triangle Kush × Animal Mints",
@@ -14310,13 +15014,27 @@
       "Limonene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Focus",
+      "Giggly",
+      "Happy",
+      "Relaxing",
+      "Sociable",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Pine",
       "Diesel"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Anxiety",
+      "Depression",
+      "Fatigue",
+      "Stress"
+    ],
     "negatives": [],
     "id": "LD",
     "genetics": "California Sour × Lost Coast OG",
@@ -14427,13 +15145,23 @@
       "Limonene",
       "Linalool"
     ],
-    "effects": [],
+    "effects": [
+      "Happy",
+      "Relaxing",
+      "Sociable",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Floral",
       "Diesel"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Stress"
+    ],
     "negatives": [],
     "id": "LCG1",
     "genetics": "(Sunset Sherbet × Girl Scout Cookies ) × Lemon Tree",
@@ -14507,13 +15235,25 @@
       "Limonene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Tingly",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Pine",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Stress"
+    ],
     "negatives": [],
     "id": "AF",
     "genetics": "Sour Apple × Animal Cookies",
@@ -14548,13 +15288,25 @@
       "Linalool",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Creative",
+      "Hungry",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Floral",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Spasticity",
+      "Muscle Spasms"
+    ],
     "negatives": [],
     "id": "FC2",
     "genetics": "Girl Scout Cookies × Fire OG",
@@ -14632,13 +15384,24 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Hungry",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Berry",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Depression",
+      "Insomnia",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "GP3",
     "genetics": "Kush Mints × Gellati",
@@ -14672,13 +15435,25 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Aroused",
+      "Euphoria",
+      "Sociable",
+      "Tingly",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Berry",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Stress"
+    ],
     "negatives": [],
     "id": "GEL5",
     "genetics": "Lemon Tree × Gelato #41",
@@ -14845,7 +15620,11 @@
       "Berry"
     ],
     "helpsWith": [
-      "Stress"
+      "Stress",
+      "Anxiety",
+      "Chronic Pain",
+      "Cramps",
+      "Muscle Spasms"
     ],
     "negatives": [],
     "id": "WR",
@@ -14880,13 +15659,28 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Happy"
+    ],
     "flavours": [
       "Citrus",
       "Herbal",
       "Sour"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Anxiety",
+      "Arthritis",
+      "Depression",
+      "Chronic Pain",
+      "Fatigue",
+      "Headache",
+      "Insomnia",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "BB",
     "genetics": "Bubblegum × (Undisclosed × Gelato )",
@@ -14960,13 +15754,26 @@
       "Limonene",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Calming",
+      "Euphoria",
+      "Relaxing",
+      "Tingly",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Nausea",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "CS",
     "genetics": "Lemon Berry Candy OG × Ethos Cookies #16",
@@ -15072,13 +15879,23 @@
       "Myrcene",
       "Caryophyllene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Pine",
       "Spicy"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Loss of Appetite",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "GC2",
     "genetics": "Girl Scout Cookies × Chemdawg",
@@ -15100,13 +15917,26 @@
       "Linalool",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Focus",
+      "Giggly",
+      "Happy",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Citrus",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Nausea",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "JFP",
     "genetics": "Wedding Pie × Jet Fuel Gelato",
@@ -15148,12 +15978,24 @@
       "Caryophyllene",
       "Linalool"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Creative",
+      "Happy",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
     "flavours": [
       "Floral",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Depression",
+      "Insomnia",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "PC",
     "genetics": "Pink Kush × Canuk Cookies",
@@ -15227,13 +16069,26 @@
       "Limonene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Pine",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "PP2",
     "genetics": "Black Cherry Punch × Mimosa #27",
@@ -15304,13 +16159,27 @@
       "Pinene",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Happy"
+    ],
     "flavours": [
       "Earthy",
       "Citrus",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Anxiety",
+      "Depression",
+      "Chronic Pain",
+      "Headache",
+      "Inflammation",
+      "Nausea",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "BD2",
     "genetics": "Blueberry × Haze",
@@ -15534,13 +16403,23 @@
       "Pinene",
       "Ocimene"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Sweet",
       "Citrus",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Depression",
+      "Headache",
+      "Migraine",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "GO1",
     "genetics": "Blueberry × Gorilla Glue #4 x OG Kush",
@@ -15589,7 +16468,13 @@
     ],
     "helpsWith": [
       "Depression",
-      "Insomnia"
+      "Insomnia",
+      "Arthritis",
+      "Chronic Pain",
+      "Migraine",
+      "Muscle Spasms",
+      "Nerve Pain",
+      "Stress"
     ],
     "negatives": [],
     "id": "GB5",
@@ -15838,14 +16723,24 @@
       "Limonene",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Citrus",
       "Sour"
     ],
     "helpsWith": [
-      "Pain"
+      "Pain",
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Stress"
     ],
     "negatives": [],
     "id": "COP",
@@ -15988,7 +16883,12 @@
       "Spicy"
     ],
     "helpsWith": [
-      "Pain"
+      "Pain",
+      "ADHD",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Stress"
     ],
     "negatives": [
       "Dizzy",
@@ -16096,7 +16996,15 @@
       "Floral",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Cramps",
+      "Depression",
+      "Insomnia",
+      "Muscle Spasms",
+      "Stress"
+    ],
     "negatives": [],
     "id": "MS2",
     "genetics": "Sunset Sherbet × Kush Mints",
@@ -16370,13 +17278,29 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Happy",
+      "Relaxing",
+      "Sleepy"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Arthritis",
+      "Chronic Pain",
+      "Depression",
+      "Headache",
+      "Inflammation",
+      "Insomnia",
+      "Migraine",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "AD1",
     "genetics": "Chemdawg × Alien Tech",
@@ -16570,13 +17494,27 @@
       "Pinene",
       "Humulene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Focus",
+      "Giggly",
+      "Happy",
+      "Relaxing",
+      "Tingly",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Stress"
+    ],
     "negatives": [],
     "id": "PD2",
     "genetics": "Jet Fuel Gelato × Orange Cookies",
@@ -16786,7 +17724,17 @@
       "Citrus",
       "Spicy"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Arthritis",
+      "Chronic Pain",
+      "Crohn'S Disease",
+      "Depression",
+      "Fatigue",
+      "Insomnia",
+      "Loss of Appetite",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "SB1",
     "genetics": "Banana Kush × Strawberry Bubblegum",
@@ -16885,13 +17833,28 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Focus",
+      "Giggly",
+      "Happy",
+      "Uplifting"
+    ],
     "flavours": [
       "Sweet",
       "Citrus",
       "Berry"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Arthritis",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Inflammation",
+      "Migraine",
+      "Stress"
+    ],
     "negatives": [],
     "id": "GTH1",
     "genetics": "Ghost OG × Nevil's Wreck",
@@ -16972,7 +17935,12 @@
       "Herbal"
     ],
     "helpsWith": [
-      "Pain"
+      "Pain",
+      "Anxiety",
+      "Depression",
+      "Insomnia",
+      "Nausea",
+      "Stress"
     ],
     "negatives": [],
     "id": "PC1",
@@ -17193,7 +18161,13 @@
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "ASG",
     "genetics": "Chemdawg × SFV OG Kush",
@@ -17569,13 +18543,27 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Happy",
+      "Relaxing",
+      "Sociable",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Herbal",
       "Sour"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Asthma",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Stress"
+    ],
     "negatives": [],
     "id": "MG2",
     "genetics": "GMO Cookies × Purple Punch",
@@ -17775,14 +18763,28 @@
       "Limonene",
       "Terpinolene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Focus",
+      "Giggly",
+      "Happy",
+      "Uplifting"
+    ],
     "flavours": [
       "Sweet",
       "Citrus",
       "Pine"
     ],
     "helpsWith": [
-      "Pain"
+      "Pain",
+      "Arthritis",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Inflammation",
+      "Migraine",
+      "Stress"
     ],
     "negatives": [],
     "id": "GTH3",
@@ -18073,13 +19075,26 @@
       "Humulene",
       "Bisabolol"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Focus",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
       "Pine"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Anxiety",
+      "Depression",
+      "Fatigue",
+      "Inflammation",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "ACC",
     "genetics": "UK Cheese × CBD100",
@@ -18156,8 +19171,23 @@
     "effects": [
       "Focused"
     ],
-    "flavours": [],
-    "helpsWith": [],
+    "flavours": [
+      "Berry",
+      "Strawberry",
+      "Sweet",
+      "Tropical"
+    ],
+    "helpsWith": [
+      "Arthritis",
+      "Chronic Pain",
+      "Crohn'S Disease",
+      "Depression",
+      "Fatigue",
+      "Insomnia",
+      "Loss of Appetite",
+      "PTSD",
+      "Stress"
+    ],
     "negatives": [],
     "id": "SB2",
     "genetics": "Banana Kush × Bubble Gum",
@@ -18237,13 +19267,28 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Happy",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Depression",
+      "Chronic Pain",
+      "Fatigue",
+      "Insomnia",
+      "Loss of Appetite",
+      "Migraine",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "GG42",
     "genetics": "Chem Sis × Sour Dubb x Chocolate Diesel",
@@ -18753,7 +19798,14 @@
       "Sweet",
       "Vanilla"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Depression",
+      "Fatigue",
+      "Headache",
+      "Insomnia",
+      "Migraine",
+      "Stress"
+    ],
     "negatives": [],
     "id": "DI",
     "genetics": "Oreo Cookies × Devil Driver",
@@ -18836,13 +19888,27 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Sleepy"
+    ],
     "flavours": [
       "Citrus",
       "Berry",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Headache",
+      "Inflammation",
+      "Insomnia",
+      "Loss of Appetite",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "GM",
     "genetics": "Gorilla Glue #4 × Cookies & Cream",
@@ -18876,13 +19942,26 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Berry",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "GO2",
     "genetics": "Grape Pie × Hi-Octane",
@@ -19052,13 +20131,29 @@
       "Limonene",
       "Linalool"
     ],
-    "effects": [],
+    "effects": [
+      "Calming",
+      "Focus",
+      "Giggly",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Berry",
       "Floral"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Loss of Appetite",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "id": "LB1",
     "genetics": "The Cookies × Sorbet",
@@ -19277,13 +20372,23 @@
       "Limonene",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Focus"
+    ],
     "flavours": [
       "Citrus",
       "Pine",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Loss of Appetite",
+      "Migraine",
+      "Nausea"
+    ],
     "negatives": [],
     "id": "PE",
     "genetics": "Trainwreck × Hawaiian",
@@ -19367,11 +20472,28 @@
       "Limonene",
       "Linalool"
     ],
-    "effects": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Focus",
+      "Happy",
+      "Relaxing"
+    ],
     "flavours": [
       "Cookie"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Depression",
+      "Chronic Pain",
+      "Fatigue",
+      "Fibromyalgia",
+      "Headache",
+      "Inflammation",
+      "Insomnia",
+      "Loss of Appetite",
+      "Muscle Spasms",
+      "PTSD"
+    ],
     "negatives": [],
     "id": "GEL6",
     "genetics": "Sunset Sherbet × Thin Mint GSC",
@@ -19410,13 +20532,22 @@
       "Limonene",
       "Linalool"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Relaxing",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Floral",
       "Herbal"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Neuropathy",
+      "Stress"
+    ],
     "negatives": [],
     "id": "WZ",
     "genetics": "Zkittlez × Watermelon",
@@ -20550,11 +21681,24 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [],
-    "effects": [],
+    "effects": [
+      "Calming",
+      "Creative",
+      "Happy",
+      "Relaxing",
+      "Sociable",
+      "Uplifting"
+    ],
     "flavours": [
       "Butter"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Headache",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "genetics": "",
     "id": "GR1",
@@ -20616,11 +21760,23 @@
       "Humulene",
       "Terpineol"
     ],
-    "effects": [],
+    "effects": [
+      "Calming",
+      "Euphoria",
+      "Happy",
+      "Relaxing"
+    ],
     "flavours": [
       "Candy"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Arthritis",
+      "Depression",
+      "Headache",
+      "Insomnia",
+      "Migraine",
+      "Stress"
+    ],
     "negatives": [],
     "genetics": "The Soap × Project 4516",
     "id": "BB4",
@@ -20668,13 +21824,26 @@
       "Humulene",
       "Farnesene"
     ],
-    "effects": [],
+    "effects": [
+      "Body High",
+      "Calming",
+      "Happy",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
     "flavours": [
       "Berry",
       "Vanilla",
       "Grape"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Stress"
+    ],
     "negatives": [],
     "genetics": "Grape Pie × Wedding Crasher × Ice Cream Cake #5",
     "id": "GCC2",
@@ -20763,13 +21932,24 @@
       "Linalool",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Aroused",
+      "Creative",
+      "Euphoria",
+      "Uplifting"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
       "Citrus"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Depression",
+      "Fatigue",
+      "Inflammation",
+      "Stress"
+    ],
     "negatives": [],
     "genetics": "Gelato #45 × Hi-Octane × Jet Fuel",
     "id": "JFG",
@@ -20815,13 +21995,26 @@
       "Caryophyllene",
       "Limonene"
     ],
-    "effects": [],
+    "effects": [
+      "Euphoria",
+      "Focus",
+      "Hungry",
+      "Uplifting"
+    ],
     "flavours": [
       "Citrus",
       "Herbal",
       "Sour"
     ],
-    "helpsWith": [],
+    "helpsWith": [
+      "ADHD",
+      "Anxiety",
+      "Loss of Appetite",
+      "Depression",
+      "Fatigue",
+      "Nausea",
+      "Stress"
+    ],
     "negatives": [],
     "genetics": "Guava × Gelato (TBC)",
     "id": "GGU",
