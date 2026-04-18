@@ -16,6 +16,9 @@ Reenrich: python scripts/update_strains.py --reenrich
           (Re-scrapes existing strains with schema_version < 2 to backfill
           terpeneDetails and other enrichment fields. Skips discovery,
           YouTube reviews, and HTML update for speed.)
+AllBud:   python scripts/update_strains.py --allbud
+          (Runs AllBud enrichment on all flowers with < 3 helpsWith tags.
+          No Playwright needed. Use after --reenrich to backfill helpsWith.)
 Requires: pip install playwright requests beautifulsoup4
           playwright install chromium
 """
@@ -1251,7 +1254,7 @@ def scrape_allbud(strain_name, thc_percent, strain_type="Hybrid"):
         url = f"{ALLBUD_BASE}/{type_slug}/{slug}"
         try:
             r = requests.get(url, timeout=15, headers=HTTP_HEADERS)
-            if r.status_code == 200 and 'Marijuana Strain' in r.text[:500]:
+            if r.status_code == 200 and 'Marijuana Strain' in r.text[:5000]:
                 resp = r
                 matched_url = url
                 break
@@ -2131,6 +2134,70 @@ async def reenrich(strains_path):
     return 0
 
 
+def allbud_backfill(strains_path):
+    """
+    Run AllBud enrichment on all flowers with fewer than 3 helpsWith tags.
+    No Playwright needed — AllBud is plain HTTP. No schema_version check.
+    """
+    print("=" * 60)
+    print("Bloomy\u0027s Bud Log \u2014 AllBud Backfill")
+    print("=" * 60)
+
+    strains = load_existing(strains_path)
+    strains = clean_existing_data(strains)
+
+    flowers = [s for s in strains
+               if s.get("form", "Flower") == "Flower"
+               and len(s.get("helpsWith", [])) < 3]
+    print(f"\n  {len(flowers)} flowers with < 3 helpsWith tags")
+
+    if not flowers:
+        print("  Nothing to do!")
+        return 0
+
+    allbud_hits = 0
+    for i, s in enumerate(flowers):
+        ab = scrape_allbud(s["name"], s.get("thc", 0), s.get("type", "Hybrid"))
+        if ab:
+            existing_helps = set(s.get("helpsWith", []))
+            for tag in ab.get("helpsWith", []):
+                if tag not in existing_helps:
+                    existing_helps.add(tag)
+                    s.setdefault("helpsWith", []).append(tag)
+            for field in ["effects", "flavours", "negatives", "genetics"]:
+                if ab.get(field) and not s.get(field):
+                    s[field] = ab[field]
+            allbud_hits += 1
+            helps_str = ', '.join(s.get('helpsWith', [])[:5])
+            print(f"  \u2713 {s['name']}: {helps_str}")
+        else:
+            print(f"  \u2717 {s['name']}")
+        time.sleep(1)
+
+        if (i + 1) % 50 == 0:
+            print(f"    ... processed {i + 1}/{len(flowers)}")
+
+    print(f"\n  AllBud: {allbud_hits}/{len(flowers)} matched")
+
+    # Save
+    strains = clean_existing_data(strains)
+    print(f"\n\U0001f4be Saving {len(strains)} strains...")
+    with open(strains_path, 'w') as f:
+        json.dump(strains, f, indent=2, ensure_ascii=False)
+
+    # Stats
+    hw_count = sum(1 for s in strains if s.get("helpsWith"))
+    hw_zero = sum(1 for s in strains if not s.get("helpsWith"))
+    all_tags = [tag for s in strains for tag in s.get("helpsWith", [])]
+    unique_tags = len(set(all_tags))
+    print(f"  helpsWith populated: {hw_count}/{len(strains)} ({hw_zero} still empty)")
+    print(f"  unique helpsWith tags: {unique_tags}")
+    print(f"\n{'='*60}")
+    print(f"\u2705 AllBud backfill done!")
+    print(f"{'='*60}")
+    return 0
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -2143,6 +2210,11 @@ async def main():
         repo_root = Path(__file__).parent.parent
         strains_path = repo_root / "strains.json"
         return await reenrich(strains_path)
+
+    if '--allbud' in sys.argv:
+        repo_root = Path(__file__).parent.parent
+        strains_path = repo_root / "strains.json"
+        return allbud_backfill(strains_path)
 
     repo_root = Path(__file__).parent.parent
     strains_path = repo_root / "strains.json"
