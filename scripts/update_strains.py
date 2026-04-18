@@ -32,7 +32,10 @@ from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
-from playwright.async_api import async_playwright
+try:
+    from playwright.async_api import async_playwright
+except ImportError:
+    async_playwright = None
 
 MEDBUD_BASE = "https://medbud.wiki"
 CART_BASE_URL = f"{MEDBUD_BASE}/vape-cartridges"
