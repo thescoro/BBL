@@ -1,0 +1,46 @@
+name: Debug Strain Page
+
+# One-off investigation workflow: runs update_strains.py --debug against a
+# single URL, renders it via Playwright, and uploads the full text/HTML dumps
+# as downloadable artefacts. Used for investigating scraper extraction gaps
+# without needing a local Python environment.
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'Full MedBud URL (flower or cartridge page)'
+        required: true
+        type: string
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install scraper dependencies
+        run: |
+          pip install playwright requests beautifulsoup4
+          playwright install --with-deps chromium
+
+      - name: Run scraper in debug mode
+        run: python scripts/update_strains.py --debug "${{ inputs.url }}"
+
+      - name: Upload debug dumps
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-dump-${{ github.run_number }}
+          path: |
+            debug_text.txt
+            debug_html.html
+          retention-days: 7
+          if-no-files-found: warn
