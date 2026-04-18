@@ -12,6 +12,10 @@ Bloomy's Bud Log — Strain Data Updater (Hybrid Edition)
 
 Usage:  python scripts/update_strains.py
 Debug:  python scripts/update_strains.py --debug <medbud-strain-url>
+Reenrich: python scripts/update_strains.py --reenrich
+          (Re-scrapes existing strains with schema_version < 2 to backfill
+          terpeneDetails and other enrichment fields. Skips discovery,
+          YouTube reviews, and HTML update for speed.)
 Requires: pip install playwright requests beautifulsoup4
           playwright install chromium
 """
@@ -115,6 +119,54 @@ KNOWN_TERPENES = [
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
+async def parse_terpene_table(page):
+    """
+    Parse MedBud's terpene table structurally via Playwright DOM selectors.
+    Returns a list of {"name": str, "designation": str} dicts where
+    designation is "Major" or "Minor" (or "" if not determinable).
+    Falls back to empty list if the table isn't found or parsing fails.
+    """
+    try:
+        details = await page.evaluate("""() => {
+            const results = [];
+            // MedBud renders terpenes in a table within the "Terpene Profile" section.
+            // Walk all table rows looking for terpene names + Major/Minor labels.
+            const rows = document.querySelectorAll('table tr, tr');
+            const knownTerpenes = new Set([
+                'Myrcene', 'Caryophyllene', 'Limonene', 'Linalool', 'Pinene',
+                'Humulene', 'Ocimene', 'Terpinolene', 'Bisabolol', 'Valencene',
+                'Geraniol', 'Terpineol', 'Camphene', 'Nerolidol', 'Guaiol',
+                'Eucalyptol', 'Borneol', 'Sabinene', 'Phellandrene', 'Phytol',
+                'Carene', 'Fenchol', 'Farnesene', 'Isopulegol', 'Pulegone',
+                'Cedrene', 'Cymene'
+            ]);
+            const seen = new Set();
+            for (const row of rows) {
+                const text = row.innerText || '';
+                // Check if this row contains a known terpene name
+                for (const terp of knownTerpenes) {
+                    if (text.includes(terp) && !seen.has(terp)) {
+                        seen.add(terp);
+                        // Determine designation from row text
+                        let designation = '';
+                        const lower = text.toLowerCase();
+                        if (lower.includes('major')) {
+                            designation = 'Major';
+                        } else if (lower.includes('minor')) {
+                            designation = 'Minor';
+                        }
+                        results.push({name: terp, designation: designation});
+                    }
+                }
+            }
+            return results;
+        }""")
+        return details if details else []
+    except Exception:
+        return []
+
+
 def clean_strain_name(raw):
     if not raw:
         return None
@@ -405,6 +457,13 @@ async def scrape_strain_page_pw(page, url, producer_name):
             terpenes.append(terp)
     terpenes = terpenes[:5]
 
+    # --- Terpene details (structural parse — Major/Minor designation) ---
+    terpene_details = await parse_terpene_table(page)
+    # If structural parse found terpenes the regex missed, backfill the flat list
+    for td in terpene_details:
+        if td["name"] not in terpenes and len(terpenes) < 5:
+            terpenes.append(td["name"])
+
     # --- Effects (targeted to effects section) ---
     effects = []
     eff_section = page_text
@@ -443,6 +502,8 @@ async def scrape_strain_page_pw(page, url, producer_name):
                 'Spasticity', 'ADHD', 'PTSD', 'Inflammation', 'Nausea']:
         if re.search(rf'\b{med}\b', med_section, re.IGNORECASE) and med not in helps and len(helps) < 5:
             helps.append(med)
+    if helps:
+        print(f"    [medbud-medical] {strain_name}: {helps}")
 
     # --- Negatives ---
     negatives = []
@@ -562,8 +623,10 @@ async def scrape_strain_page_pw(page, url, producer_name):
     return {
         "name": strain_name, "producer": producer_name, "form": "Flower",
         "thc": thc, "cbd": cbd, "type": strain_type, "code": code, "tier": tier,
-        "terpenes": terpenes, "effects": effects, "flavours": flavours,
+        "terpenes": terpenes, "terpeneDetails": terpene_details,
+        "effects": effects, "flavours": flavours,
         "helpsWith": helps, "negatives": negatives, "genetics": genetics,
+        "schema_version": 2,
     }
 
 
@@ -890,6 +953,12 @@ async def scrape_cart_page_pw(page, url, producer_name):
             terpenes.append(terp)
     terpenes = terpenes[:5]
 
+    # --- Terpene details (structural parse — Major/Minor designation) ---
+    terpene_details = await parse_terpene_table(page)
+    for td in terpene_details:
+        if td["name"] not in terpenes and len(terpenes) < 5:
+            terpenes.append(td["name"])
+
     # --- Effects / Flavours / Helps / Negatives (may be absent on cart pages) ---
     effects = []
     eff_idx = page_text.lower().find("effect")
@@ -913,25 +982,29 @@ async def scrape_cart_page_pw(page, url, producer_name):
                 flavours.append(flav)
 
     helps = []
+    med_section = page_text
     med_idx = page_text.lower().find("help")
     if med_idx < 0:
         med_idx = page_text.lower().find("medical")
     if med_idx >= 0:
         med_section = page_text[max(0, med_idx-50):med_idx+300]
-        for med in ['Pain', 'Stress', 'Anxiety', 'Depression', 'Insomnia', 'Fatigue',
-                    'Spasticity', 'ADHD', 'PTSD', 'Inflammation', 'Nausea']:
-            if re.search(rf'\b{med}\b', med_section, re.IGNORECASE) and med not in helps and len(helps) < 5:
-                helps.append(med)
+    for med in ['Pain', 'Stress', 'Anxiety', 'Depression', 'Insomnia', 'Fatigue',
+                'Spasticity', 'ADHD', 'PTSD', 'Inflammation', 'Nausea']:
+        if re.search(rf'\b{med}\b', med_section, re.IGNORECASE) and med not in helps and len(helps) < 5:
+            helps.append(med)
+    if helps:
+        print(f"    [medbud-medical] Cart {strain_name}: {helps}")
 
     negatives = []
+    neg_section = page_text
     neg_idx = page_text.lower().find("negative")
     if neg_idx < 0:
         neg_idx = page_text.lower().find("side effect")
     if neg_idx >= 0:
         neg_section = page_text[max(0, neg_idx-50):neg_idx+300]
-        for neg in ['Dry mouth', 'Dry eyes', 'Dizzy', 'Paranoid', 'Anxious', 'Couch-lock']:
-            if neg.lower() in neg_section.lower() and neg not in negatives:
-                negatives.append(neg)
+    for neg in ['Dry mouth', 'Dry eyes', 'Dizzy', 'Paranoid', 'Anxious', 'Couch-lock']:
+        if neg.lower() in neg_section.lower() and neg not in negatives:
+            negatives.append(neg)
 
     # --- Code ---
     # If parse_cart_designation captured a product-code acronym (e.g. "WPT"
@@ -1006,8 +1079,10 @@ async def scrape_cart_page_pw(page, url, producer_name):
         "volume": volume, "extractType": extract_type,
         "terpeneSource": terpene_source, "fitment": fitment,
         "type": strain_type, "code": code, "tier": "Core",
-        "terpenes": terpenes, "effects": effects, "flavours": flavours,
+        "terpenes": terpenes, "terpeneDetails": terpene_details,
+        "effects": effects, "flavours": flavours,
         "helpsWith": helps, "negatives": negatives, "genetics": genetics,
+        "schema_version": 2,
     }
 
 
@@ -1546,6 +1621,16 @@ async def debug_page(url):
             else:
                 print("  Not found in page text!")
 
+        print("\n" + "=" * 60)
+        print("TERPENE TABLE (structural parse):")
+        print("=" * 60)
+        terp_details = await parse_terpene_table(page)
+        if terp_details:
+            for td in terp_details:
+                print(f"  {td['name']:20s}  {td['designation'] or '(no designation)'}")
+        else:
+            print("  No terpene table rows found via DOM selectors")
+
         if is_cart:
             print("\n" + "=" * 60)
             print("CART PAGE TITLE / H1 (used as name fallbacks):")
@@ -1614,12 +1699,174 @@ async def debug_page(url):
 
 
 # ---------------------------------------------------------------------------
+# Re-enrichment mode
+# ---------------------------------------------------------------------------
+# Reverse-lookup: producer display name → slug (for URL reconstruction)
+PRODUCER_SLUG_BY_NAME = {v: k for k, v in {**PRODUCERS, **CART_PRODUCERS}.items()}
+
+
+async def reenrich(strains_path):
+    """
+    Re-scrape existing strains that have schema_version < 2 to backfill
+    terpeneDetails and any other Phase-1+ fields.
+    Phase 2+ will add AllBud/CannaConnection/Weedstrain cascade here.
+    """
+    print("=" * 60)
+    print("Bloomy\u0027s Bud Log \u2014 Re-enrichment Mode")
+    print("=" * 60)
+
+    strains = load_existing(strains_path)
+    strains = clean_existing_data(strains)
+    total = len(strains)
+
+    needs_update = [s for s in strains if s.get("schema_version", 0) < 2]
+    print(f"\n  {len(needs_update)} of {total} records need re-enrichment (schema_version < 2)")
+
+    if not needs_update:
+        print("  Nothing to do!")
+        return 0
+
+    # Build URL for each record that needs updating
+    to_scrape = []  # list of (strain_record, url, form)
+    skipped = 0
+    for s in needs_update:
+        producer_name = s.get("producer", "")
+        slug = PRODUCER_SLUG_BY_NAME.get(producer_name, "")
+        if not slug:
+            skipped += 1
+            continue
+        form = s.get("form", "Flower")
+        strain_slug = slugify(s["name"])
+        if not strain_slug:
+            skipped += 1
+            continue
+        if form == "Cartridge":
+            url = f"{CART_BASE_URL}/{slug}/{strain_slug}/"
+        else:
+            url = f"{MEDBUD_BASE}/strains/{slug}/{strain_slug}/"
+        to_scrape.append((s, url, form))
+
+    if skipped:
+        print(f"  Skipped {skipped} records (unknown producer slug or bad name)")
+    print(f"  Queued {len(to_scrape)} records for MedBud re-scrape\n")
+
+    if not to_scrape:
+        return 0
+
+    # Re-scrape with Playwright
+    CONCURRENCY = 4
+    progress = {"done": 0, "updated": 0}
+
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch(headless=True)
+
+        async def reenrich_one(browser, strain_record, url, form):
+            context = await browser.new_context(user_agent=HTTP_HEADERS["User-Agent"])
+            pg = await context.new_page()
+            try:
+                if form == "Cartridge":
+                    data = await scrape_cart_page_pw(pg, url, strain_record["producer"])
+                else:
+                    data = await scrape_strain_page_pw(pg, url, strain_record["producer"])
+            except Exception:
+                data = None
+            finally:
+                await context.close()
+
+            progress["done"] += 1
+            if progress["done"] % 25 == 0:
+                print(f"    ... re-enriched {progress['done']}/{len(to_scrape)}")
+
+            if not data:
+                # MedBud page not found — still bump schema_version so we don't
+                # retry endlessly. Phase 2 AllBud will fill the gaps.
+                strain_record["schema_version"] = 2
+                strain_record.setdefault("terpeneDetails", [])
+                return
+
+            # Update terpeneDetails (always overwrite — structural is better)
+            if data.get("terpeneDetails"):
+                strain_record["terpeneDetails"] = data["terpeneDetails"]
+            else:
+                strain_record.setdefault("terpeneDetails", [])
+
+            # Update terpenes if new data has more
+            if data.get("terpenes") and len(data["terpenes"]) > len(strain_record.get("terpenes", [])):
+                strain_record["terpenes"] = data["terpenes"]
+
+            # Fill empty fields
+            for field in ["effects", "flavours", "helpsWith", "negatives", "genetics"]:
+                if data.get(field) and not strain_record.get(field):
+                    strain_record[field] = data[field]
+
+            strain_record["schema_version"] = 2
+            progress["updated"] += 1
+
+        queue = asyncio.Queue()
+        for item in to_scrape:
+            queue.put_nowait(item)
+
+        async def reenrich_worker(browser, queue):
+            while not queue.empty():
+                try:
+                    strain_record, url, form = queue.get_nowait()
+                except asyncio.QueueEmpty:
+                    break
+                await reenrich_one(browser, strain_record, url, form)
+                queue.task_done()
+
+        workers = [asyncio.create_task(reenrich_worker(browser, queue))
+                   for _ in range(CONCURRENCY)]
+        await asyncio.gather(*workers)
+
+        # Weedstrain fallback for flowers still missing terpenes
+        flowers_no_terps = [s for s in needs_update
+                            if s.get("form", "Flower") == "Flower"
+                            and not s.get("terpenes")]
+        if flowers_no_terps:
+            print(f"\n\U0001f52c Weedstrain fallback for {len(flowers_no_terps)} strains still missing terpenes...")
+            for s in flowers_no_terps:
+                ws = scrape_weedstrain(s["name"])
+                if ws:
+                    for k in ["terpenes", "effects", "flavours", "helpsWith", "negatives", "genetics"]:
+                        if not s.get(k) and ws.get(k):
+                            s[k] = ws[k]
+                    if ws.get("terpenes"):
+                        print(f"  \u2713 {s['name']}: {', '.join(ws['terpenes'])}")
+                time.sleep(0.5)
+
+        await browser.close()
+
+    # Save
+    print(f"\n  Re-enrichment complete: {progress['updated']} records updated via MedBud")
+    strains = clean_existing_data(strains)
+    print(f"\n\U0001f4be Saving {len(strains)} strains...")
+    with open(strains_path, 'w') as f:
+        json.dump(strains, f, indent=2, ensure_ascii=False)
+
+    # Stats
+    v2_count = sum(1 for s in strains if s.get("schema_version", 0) >= 2)
+    td_count = sum(1 for s in strains if s.get("terpeneDetails"))
+    print(f"  schema_version >= 2: {v2_count}/{len(strains)}")
+    print(f"  terpeneDetails populated: {td_count}/{len(strains)}")
+    print(f"\n{'='*60}")
+    print(f"\u2705 Re-enrichment done!")
+    print(f"{'='*60}")
+    return 0
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 async def main():
     if len(sys.argv) >= 3 and sys.argv[1] == '--debug':
         await debug_page(sys.argv[2])
         return 0
+
+    if '--reenrich' in sys.argv:
+        repo_root = Path(__file__).parent.parent
+        strains_path = repo_root / "strains.json"
+        return await reenrich(strains_path)
 
     repo_root = Path(__file__).parent.parent
     strains_path = repo_root / "strains.json"
@@ -1738,12 +1985,17 @@ async def main():
                     # Update terpenes if new data has more
                     if data.get("terpenes") and len(data["terpenes"]) > len(ex.get("terpenes", [])):
                         ex["terpenes"] = data["terpenes"]
+                    # Always update terpeneDetails when available (structural > none)
+                    if data.get("terpeneDetails"):
+                        ex["terpeneDetails"] = data["terpeneDetails"]
                     if data.get("tier") != "Core" and ex.get("tier", "Core") == "Core":
                         ex["tier"] = data["tier"]
                     # Fill in missing fields
                     for field in ["effects", "flavours", "helpsWith", "negatives", "genetics"]:
                         if data.get(field) and not ex.get(field):
                             ex[field] = data[field]
+                    # Bump schema version on re-scrape
+                    ex["schema_version"] = 2
                 elif key not in seen_new:
                     seen_new.add(key)
                     new_strains.append(data)
@@ -1806,9 +2058,12 @@ async def main():
                 "tier": s.get("tier", "Core"),
                 "thc": s.get("thc", 0), "cbd": s.get("cbd", 0),
                 "type": s.get("type", "Hybrid"),
-                "terpenes": s.get("terpenes", []), "effects": s.get("effects", []),
+                "terpenes": s.get("terpenes", []),
+                "terpeneDetails": s.get("terpeneDetails", []),
+                "effects": s.get("effects", []),
                 "flavours": s.get("flavours", []), "helpsWith": s.get("helpsWith", []),
                 "negatives": s.get("negatives", []), "genetics": s.get("genetics", ""),
+                "schema_version": 2,
                 "id": code,
             }
             if form == "Cartridge":
