@@ -16273,19 +16273,19 @@
     "terpeneDetails": [
       {
         "name": "Myrcene",
-        "designation": ""
+        "designation": "Major"
       },
       {
         "name": "Limonene",
-        "designation": ""
+        "designation": "Major"
       },
       {
         "name": "Caryophyllene",
-        "designation": ""
+        "designation": "Minor"
       },
       {
         "name": "Linalool",
-        "designation": ""
+        "designation": "Minor"
       }
     ],
     "schema_version": 2
@@ -23191,5 +23191,41 @@
     "terpeneSource": "",
     "fitment": "",
     "schema_version": 2
+  },
+  {
+    "name": "Permanent Marker",
+    "producer": "Doja",
+    "code": "TBC",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 1,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Calmed"
+    ],
+    "flavours": [
+      "Earthy",
+      "Sweet",
+      "Citrus"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety"
+    ],
+    "negatives": [
+      "Paranoid",
+      "Anxious"
+    ],
+    "genetics": "(Biscotti × Sunset Sherbet Bx ) × Jealousy",
+    "schema_version": 2,
+    "id": "TBC"
   }
 ]
