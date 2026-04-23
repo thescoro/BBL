@@ -1281,7 +1281,7 @@ def scrape_allbud(strain_name, thc_percent, strain_type="Hybrid"):
         if thc_m2:
             allbud_thc = int(thc_m2.group(1))
 
-    if thc_percent > 0 and allbud_thc > 0 and abs(thc_percent - allbud_thc) > 5:
+    if thc_percent > 0 and allbud_thc > 0 and abs(thc_percent - allbud_thc) > 15:
         print(f"    [allbud-skip] {strain_name}: THC mismatch "
               f"(ours={thc_percent}%, AllBud={allbud_thc}%) — skipping")
         return None
