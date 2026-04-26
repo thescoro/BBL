@@ -14792,10 +14792,6 @@
       {
         "name": "Ocimene",
         "designation": ""
-      },
-      {
-        "name": "Nerolidol",
-        "designation": ""
       }
     ],
     "schema_version": 2
@@ -16551,19 +16547,19 @@
     "terpeneDetails": [
       {
         "name": "Myrcene",
-        "designation": ""
+        "designation": "Major"
       },
       {
         "name": "Limonene",
-        "designation": ""
+        "designation": "Major"
       },
       {
         "name": "Caryophyllene",
-        "designation": ""
+        "designation": "Minor"
       },
       {
         "name": "Linalool",
-        "designation": ""
+        "designation": "Minor"
       }
     ],
     "schema_version": 2
