@@ -14792,10 +14792,6 @@
       {
         "name": "Ocimene",
         "designation": ""
-      },
-      {
-        "name": "Nerolidol",
-        "designation": ""
       }
     ],
     "schema_version": 2
@@ -23655,5 +23651,90 @@
     "genetics": "(Biscotti × Sunset Sherbet Bx ) × Jealousy",
     "schema_version": 2,
     "id": "TBC"
+  },
+  {
+    "name": "Alien Mintz",
+    "producer": "Upstate",
+    "code": "AMZ",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool"
+    ],
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Linalool",
+        "designation": "Major"
+      }
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "AMZ"
+  },
+  {
+    "name": "GMO Grape Ape",
+    "producer": "Craft Botanics",
+    "code": "GGA",
+    "form": "Flower",
+    "tier": "Craft",
+    "thc": 32,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      }
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Herbal"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "GMO Cookies × (OG Kush × Zkittlez )",
+    "schema_version": 2,
+    "id": "GGA"
   }
 ]
