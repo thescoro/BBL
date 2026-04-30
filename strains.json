@@ -14792,6 +14792,10 @@
       {
         "name": "Ocimene",
         "designation": ""
+      },
+      {
+        "name": "Nerolidol",
+        "designation": ""
       }
     ],
     "schema_version": 2
@@ -16547,19 +16551,19 @@
     "terpeneDetails": [
       {
         "name": "Myrcene",
-        "designation": "Major"
+        "designation": ""
       },
       {
         "name": "Limonene",
-        "designation": "Major"
+        "designation": ""
       },
       {
         "name": "Caryophyllene",
-        "designation": "Minor"
+        "designation": ""
       },
       {
         "name": "Linalool",
-        "designation": "Minor"
+        "designation": ""
       }
     ],
     "schema_version": 2
@@ -23736,5 +23740,134 @@
     "genetics": "GMO Cookies × (OG Kush × Zkittlez )",
     "schema_version": 2,
     "id": "GGA"
+  },
+  {
+    "name": "Stinky Pinky",
+    "producer": "4C Labs",
+    "code": "SP1",
+    "form": "Flower",
+    "tier": "Craft Select",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Bisabolol"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Sleepy",
+      "Creative",
+      "Calmed"
+    ],
+    "flavours": [
+      "Butter"
+    ],
+    "helpsWith": [
+      "Pain",
+      "Stress",
+      "Anxiety",
+      "Depression",
+      "Insomnia",
+      "PTSD"
+    ],
+    "negatives": [
+      "Dry mouth",
+      "Dizzy",
+      "Paranoid",
+      "Couch-lock"
+    ],
+    "genetics": "Pink Kush Phenotypes",
+    "schema_version": 2,
+    "id": "SP1"
+  },
+  {
+    "name": "Platinum Gushers",
+    "producer": "Scoops",
+    "code": "PG-M",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [
+      "Calming",
+      "Euphoria",
+      "Happy",
+      "Sleepy",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Candy",
+      "Creamy",
+      "Fruity",
+      "Nutty",
+      "Sugary",
+      "Sweet",
+      "Vanilla"
+    ],
+    "helpsWith": [
+      "Chronic Pain",
+      "Cramps",
+      "Depression",
+      "Insomnia",
+      "Muscle Spasms",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "Platinum × Gushers",
+    "schema_version": 2,
+    "id": "PG-M"
+  },
+  {
+    "name": "Lavender Cake",
+    "producer": "Curaleaf",
+    "code": "LCE",
+    "form": "Cartridge",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Ocimene",
+      "Terpinolene"
+    ],
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Ocimene",
+        "designation": "Major"
+      },
+      {
+        "name": "Terpinolene",
+        "designation": "Major"
+      }
+    ],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "LCE",
+    "thcMg": 840,
+    "cbdMg": 0,
+    "volume": "1ml",
+    "extractType": "Distillate",
+    "terpeneSource": "Botanical",
+    "fitment": "Proprietary"
   }
 ]
