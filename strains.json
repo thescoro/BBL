@@ -7853,7 +7853,7 @@
     "name": "Blue Dream",
     "producer": "Upstate",
     "code": "BD1",
-    "tier": "Core",
+    "tier": "Craft Select",
     "thc": 24,
     "cbd": 0,
     "type": "Sativa",
@@ -16426,7 +16426,7 @@
     "name": "Blue Dream",
     "producer": "Sundaze",
     "code": "BD2",
-    "tier": "Core",
+    "tier": "Craft Select",
     "thc": 19,
     "cbd": 0,
     "type": "Sativa",
@@ -16551,19 +16551,19 @@
     "terpeneDetails": [
       {
         "name": "Myrcene",
-        "designation": ""
+        "designation": "Major"
       },
       {
         "name": "Limonene",
-        "designation": ""
+        "designation": "Major"
       },
       {
         "name": "Caryophyllene",
-        "designation": ""
+        "designation": "Minor"
       },
       {
         "name": "Linalool",
-        "designation": ""
+        "designation": "Minor"
       }
     ],
     "schema_version": 2
@@ -22015,7 +22015,7 @@
     "name": "Blue Dream",
     "producer": "Phant",
     "code": "BD3",
-    "tier": "Core",
+    "tier": "Craft Select",
     "thc": 23,
     "cbd": 0,
     "type": "Sativa",
@@ -23869,5 +23869,45 @@
     "extractType": "Distillate",
     "terpeneSource": "Botanical",
     "fitment": "Proprietary"
+  },
+  {
+    "name": "Blue Dream",
+    "producer": "4C Labs",
+    "code": "BD5",
+    "form": "Flower",
+    "tier": "Craft Select",
+    "thc": 20,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Happy"
+    ],
+    "flavours": [
+      "Berry",
+      "Blueberry",
+      "Fruity",
+      "Herbal",
+      "Sweet",
+      "Vanilla"
+    ],
+    "helpsWith": [
+      "ADHD",
+      "Anxiety",
+      "Depression",
+      "Chronic Pain",
+      "Headache",
+      "Inflammation",
+      "Nausea",
+      "PTSD",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "Blueberry × Haze",
+    "schema_version": 2,
+    "id": "BD5"
   }
 ]
