@@ -16141,8 +16141,9 @@
     "cbd": 0,
     "type": "Indica",
     "terpenes": [
-      "Myrcene",
-      "Caryophyllene"
+      "Caryophyllene",
+      "Limonene",
+      "Pinene"
     ],
     "effects": [
       "Body High",
@@ -16165,7 +16166,21 @@
     "id": "GC2",
     "genetics": "Girl Scout Cookies × Chemdawg",
     "form": "Flower",
-    "schema_version": 2
+    "schema_version": 2,
+    "terpeneDetails": [
+      {
+        "name": "Pinene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      }
+    ]
   },
   {
     "name": "Jet Fuel Pie",
@@ -16495,9 +16510,10 @@
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [
+      "Myrcene",
       "Caryophyllene",
       "Limonene",
-      "Pinene"
+      "Humulene"
     ],
     "effects": [
       "Relaxed",
@@ -16521,7 +16537,25 @@
     "id": "AIS",
     "genetics": "Falcon 9 × Grease Monkey",
     "form": "Flower",
-    "schema_version": 2
+    "schema_version": 2,
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Humulene",
+        "designation": "Major"
+      }
+    ]
   },
   {
     "name": "Pink D1",
@@ -18931,7 +18965,8 @@
     "terpenes": [
       "Myrcene",
       "Caryophyllene",
-      "Limonene"
+      "Limonene",
+      "Terpinolene"
     ],
     "effects": [
       "Uplifted",
@@ -18956,7 +18991,25 @@
     "id": "GTH2",
     "genetics": "Ghost OG × Nevil's Wreck",
     "form": "Flower",
-    "schema_version": 2
+    "schema_version": 2,
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Terpinolene",
+        "designation": "Major"
+      }
+    ]
   },
   {
     "name": "MAC-1 x Powdered Donuts",
@@ -19013,8 +19066,9 @@
     "type": "Indica",
     "terpenes": [
       "Myrcene",
-      "Caryophyllene",
-      "Limonene"
+      "Limonene",
+      "Linalool",
+      "Ocimene"
     ],
     "effects": [
       "Relaxed",
@@ -19039,7 +19093,25 @@
     "id": "SG1",
     "genetics": "Strawberry Banana × Papaya",
     "form": "Flower",
-    "schema_version": 2
+    "schema_version": 2,
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Linalool",
+        "designation": "Major"
+      },
+      {
+        "name": "Ocimene",
+        "designation": "Major"
+      }
+    ]
   },
   {
     "name": "Union Jack Herer",
@@ -22021,7 +22093,8 @@
     "type": "Sativa",
     "terpenes": [
       "Myrcene",
-      "Caryophyllene",
+      "Limonene",
+      "Linalool",
       "Pinene"
     ],
     "effects": [
@@ -22047,7 +22120,25 @@
     "genetics": "Blueberry × Haze",
     "id": "BD3",
     "form": "Flower",
-    "schema_version": 2
+    "schema_version": 2,
+    "terpeneDetails": [
+      {
+        "name": "Pinene",
+        "designation": "Major"
+      },
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Linalool",
+        "designation": "Major"
+      }
+    ]
   },
   {
     "name": "Pineapple Marker",
@@ -23697,7 +23788,7 @@
     ],
     "helpsWith": [],
     "negatives": [],
-    "genetics": "",
+    "genetics": "Kush Mints × Alien Cookies",
     "schema_version": 2,
     "id": "AMZ"
   },
