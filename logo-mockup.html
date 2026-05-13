@@ -163,29 +163,33 @@ body{
 }
 
 /* ==================================================== */
-/* OPTION B — Horizontal lockup                         */
+/* OPTION B — Leaves in the O's                         */
 /* ==================================================== */
-.logo-b-large{display:flex;align-items:center;gap:22px}
-.logo-b-large .leaf{width:64px;height:70px}
-.logo-b-large .word{
+.word-leafy{
   font-family:var(--f-display);
-  font-style:italic;
+  font-style:normal;
   font-weight:400;
-  font-size:42px;
-  letter-spacing:-0.02em;
+  font-size:46px;
+  letter-spacing:0;
   color:var(--ink);
   line-height:1;
+  white-space:nowrap;
 }
-.logo-b-compact{display:flex;align-items:center;gap:12px}
-.logo-b-compact .leaf{width:26px;height:28px}
-.logo-b-compact .word{
-  font-family:var(--f-display);
-  font-style:italic;
-  font-weight:400;
-  font-size:20px;
-  letter-spacing:-0.01em;
+.word-leafy .oleaf-mark{
+  display:inline-block;
+  width:0.66em;
+  height:0.66em;
+  vertical-align:-0.07em;
+  margin:0 0.01em;
 }
-.logo-b-mark .leaf{width:96px;height:104px}
+.word-leafy-compact{font-size:22px}
+.word-leafy-compact .oleaf-mark{
+  width:0.7em;
+  height:0.7em;
+  vertical-align:-0.08em;
+}
+.logo-b-mark .oleaf-mark{width:120px;height:120px;display:block}
+.logo-b-mark .oleaf-mark circle{stroke-width:0.8}
 
 /* ==================================================== */
 /* OPTION C — Seal monogram                             */
@@ -379,6 +383,19 @@ body{
         </g>
       </g>
     </symbol>
+
+    <!-- Filled cannabis leaf (no stem, no veins) — for placement inside the o's of "Bloomy" -->
+    <symbol id="cannabis-leaf-filled" viewBox="0 0 110 90">
+      <g transform="translate(55 80)" fill="currentColor">
+        <path d="M0 0 L4 -8 L3 -14 L5.5 -24 L4 -32 L6 -42 L4.5 -50 L5 -60 L3 -67 L3 -72 L1.5 -77 L0 -80 L-1.5 -77 L-3 -72 L-3 -67 L-5 -60 L-4.5 -50 L-6 -42 L-4 -32 L-5.5 -24 L-3 -14 L-4 -8 Z"/>
+        <g transform="rotate(30)"><path d="M0 0 L4 -8 L3 -14 L5 -24 L4 -32 L5.5 -45 L3.5 -54 L3 -65 L1.5 -70 L0 -72 L-1.5 -70 L-3 -65 L-3.5 -54 L-5.5 -45 L-4 -32 L-5 -24 L-3 -14 L-4 -8 Z"/></g>
+        <g transform="rotate(-30)"><path d="M0 0 L4 -8 L3 -14 L5 -24 L4 -32 L5.5 -45 L3.5 -54 L3 -65 L1.5 -70 L0 -72 L-1.5 -70 L-3 -65 L-3.5 -54 L-5.5 -45 L-4 -32 L-5 -24 L-3 -14 L-4 -8 Z"/></g>
+        <g transform="rotate(60)"><path d="M0 0 L3 -8 L2 -14 L4.5 -25 L3 -33 L3.5 -45 L2 -52 L0 -58 L-2 -52 L-3.5 -45 L-3 -33 L-4.5 -25 L-2 -14 L-3 -8 Z"/></g>
+        <g transform="rotate(-60)"><path d="M0 0 L3 -8 L2 -14 L4.5 -25 L3 -33 L3.5 -45 L2 -52 L0 -58 L-2 -52 L-3.5 -45 L-3 -33 L-4.5 -25 L-2 -14 L-3 -8 Z"/></g>
+        <g transform="rotate(95)"><path d="M0 0 L2.5 -10 L1.5 -16 L3 -28 L1.5 -34 L0 -40 L-1.5 -34 L-3 -28 L-1.5 -16 L-2.5 -10 Z"/></g>
+        <g transform="rotate(-95)"><path d="M0 0 L2.5 -10 L1.5 -16 L3 -28 L1.5 -34 L0 -40 L-1.5 -34 L-3 -28 L-1.5 -16 L-2.5 -10 Z"/></g>
+      </g>
+    </symbol>
   </defs>
 </svg>
 
@@ -422,32 +439,26 @@ body{
 <!-- ====== OPTION B ====== -->
 <section class="option">
   <p class="option-label">Option B</p>
-  <h2 class="option-name">Horizontal lockup</h2>
-  <p class="option-desc">Leaf on the left, italic Fraunces wordmark to its right. Most practical for navbars and mobile headers. The leaf alone makes the strongest favicon — instantly recognizable at 16×16. Closest to a "normal" modern logo while still feeling considered.</p>
+  <h2 class="option-name">Leaves in the O's</h2>
+  <p class="option-desc">A typographic conceit: the two <em>o</em>s in "Bloomy" are replaced with hairline circles, each holding a small filled cannabis leaf. Reads as a wordmark first, but rewards a closer look. Pairs the cannabis signal directly with the brand name itself — distinctive, memorable, no separate icon required.</p>
 
   <p class="stage-caption">Hero / homepage</p>
   <div class="stage">
-    <div class="logo-b-large">
-      <svg class="leaf" viewBox="0 0 120 130"><use href="#cannabis-leaf"/></svg>
-      <div class="word">Bloomy's Bud Log</div>
-    </div>
+    <span class="word-leafy">Bl<svg class="oleaf-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.2" fill="none" stroke="currentColor" stroke-width="1.3"/><use href="#cannabis-leaf-filled" x="2" y="3.5" width="20" height="16" style="color:var(--ac)"/></svg><svg class="oleaf-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.2" fill="none" stroke="currentColor" stroke-width="1.3"/><use href="#cannabis-leaf-filled" x="2" y="3.5" width="20" height="16" style="color:var(--ac)"/></svg>my's Bud Log</span>
   </div>
 
   <div class="row">
     <div>
       <p class="stage-caption">Navbar / inline</p>
       <div class="stage compact">
-        <div class="logo-b-compact">
-          <svg class="leaf" viewBox="0 0 120 130"><use href="#cannabis-leaf"/></svg>
-          <span class="word">Bloomy's Bud Log</span>
-        </div>
+        <span class="word-leafy word-leafy-compact">Bl<svg class="oleaf-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.2" fill="none" stroke="currentColor" stroke-width="1.4"/><use href="#cannabis-leaf-filled" x="2" y="3.5" width="20" height="16" style="color:var(--ac)"/></svg><svg class="oleaf-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.2" fill="none" stroke="currentColor" stroke-width="1.4"/><use href="#cannabis-leaf-filled" x="2" y="3.5" width="20" height="16" style="color:var(--ac)"/></svg>my's Bud Log</span>
       </div>
     </div>
     <div>
       <p class="stage-caption">Favicon / mark only</p>
       <div class="stage icon-only">
         <div class="logo-b-mark">
-          <svg class="leaf" viewBox="0 0 120 130"><use href="#cannabis-leaf"/></svg>
+          <svg class="oleaf-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.2" fill="none" stroke="currentColor" stroke-width="0.9"/><use href="#cannabis-leaf-filled" x="2" y="3.5" width="20" height="16" style="color:var(--ac)"/></svg>
         </div>
       </div>
     </div>

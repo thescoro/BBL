@@ -119,34 +119,41 @@ body{
 .smoke{
   position:absolute;inset:0;
   width:100%;height:100%;
-  opacity:0.07;
+  opacity:0.18;
 }
 .blob{
   position:absolute;
   border-radius:50%;
-  filter:blur(70px);
+  filter:blur(80px);
   will-change:transform;
 }
 .blob-1{
-  width:520px;height:520px;
-  background:radial-gradient(circle,#6B8E4E 0%,transparent 70%);
+  width:560px;height:560px;
+  background:radial-gradient(circle,#B0B6A6 0%,transparent 70%);
   top:-160px;left:-120px;
-  opacity:0.10;
+  opacity:0.22;
   animation:drift-1 62s ease-in-out infinite alternate;
 }
 .blob-2{
-  width:620px;height:620px;
-  background:radial-gradient(circle,#B89B6B 0%,transparent 70%);
+  width:680px;height:680px;
+  background:radial-gradient(circle,#9CA298 0%,transparent 70%);
   bottom:-220px;right:-200px;
-  opacity:0.08;
+  opacity:0.20;
   animation:drift-2 84s ease-in-out infinite alternate;
 }
 .blob-3{
-  width:420px;height:420px;
-  background:radial-gradient(circle,#EFE8DA 0%,transparent 70%);
+  width:480px;height:480px;
+  background:radial-gradient(circle,#C7CDC0 0%,transparent 70%);
   top:48%;left:55%;
-  opacity:0.04;
+  opacity:0.14;
   animation:drift-3 74s ease-in-out infinite alternate;
+}
+.blob-4{
+  width:380px;height:380px;
+  background:radial-gradient(circle,#A8AFA0 0%,transparent 70%);
+  top:30%;left:-100px;
+  opacity:0.16;
+  animation:drift-4 96s ease-in-out infinite alternate;
 }
 @keyframes drift-1{
   0%{transform:translate(0,0)}
@@ -159,6 +166,10 @@ body{
 @keyframes drift-3{
   0%{transform:translate(-40px,0) scale(1)}
   100%{transform:translate(80px,-60px) scale(1.08)}
+}
+@keyframes drift-4{
+  0%{transform:translate(0,40px) scale(1)}
+  100%{transform:translate(160px,-40px) scale(1.05)}
 }
 @media (prefers-reduced-motion: reduce){
   .blob{animation:none}
@@ -513,18 +524,19 @@ body{
 <div class="atmosphere" aria-hidden="true">
   <svg class="smoke" preserveAspectRatio="none">
     <filter id="smoke-filter" x="0%" y="0%" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="3" seed="7"/>
-      <feColorMatrix values="0 0 0 0 0.94
-                             0 0 0 0 0.91
-                             0 0 0 0 0.84
-                             0 0 0 0.6 0"/>
-      <feGaussianBlur stdDeviation="24"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="3" seed="7"/>
+      <feColorMatrix values="0 0 0 0 0.70
+                             0 0 0 0 0.74
+                             0 0 0 0 0.68
+                             0 0 0 0.8 0"/>
+      <feGaussianBlur stdDeviation="26"/>
     </filter>
     <rect width="100%" height="100%" filter="url(#smoke-filter)"/>
   </svg>
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
 </div>
 
 <nav class="nav">
