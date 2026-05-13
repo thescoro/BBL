@@ -109,10 +109,15 @@ body{
 .leaf{color:var(--ac);display:inline-block;flex-shrink:0}
 
 /* ==================================================== */
-/* OPTION A — Heraldic crest                            */
+/* OPTION A — Heraldic crest with seal                  */
 /* ==================================================== */
-.logo-a-large{text-align:center}
-.logo-a-large .leaf{width:60px;height:65px;margin-bottom:18px}
+.logo-a-large{display:flex;flex-direction:column;align-items:center}
+.logo-a-large .seal{
+  width:96px;height:96px;
+  border-width:1.5px;
+  margin-bottom:20px;
+}
+.logo-a-large .seal .leaf{width:58px;height:63px}
 .logo-a-large .name{
   font-family:var(--f-display);
   font-style:italic;
@@ -139,7 +144,8 @@ body{
   padding-left:0.32em;
 }
 .logo-a-compact{display:flex;align-items:center;gap:14px}
-.logo-a-compact .leaf{width:28px;height:30px}
+.logo-a-compact .seal{width:36px;height:36px}
+.logo-a-compact .seal .leaf{width:22px;height:24px}
 .logo-a-compact .name{
   font-family:var(--f-display);
   font-style:italic;
@@ -392,7 +398,9 @@ body{
   <p class="stage-caption">Hero / homepage</p>
   <div class="stage">
     <div class="logo-a-large">
-      <svg class="leaf" viewBox="0 0 120 130"><use href="#cannabis-leaf"/></svg>
+      <div class="seal">
+        <svg class="leaf" viewBox="0 0 120 130"><use href="#cannabis-leaf"/></svg>
+      </div>
       <div class="name">Bloomy's</div>
       <div class="rule"></div>
       <div class="title">Bud Log</div>
@@ -402,7 +410,9 @@ body{
   <p class="stage-caption">Navbar / inline</p>
   <div class="stage compact">
     <div class="logo-a-compact">
-      <svg class="leaf" viewBox="0 0 120 130"><use href="#cannabis-leaf"/></svg>
+      <div class="seal">
+        <svg class="leaf" viewBox="0 0 120 130"><use href="#cannabis-leaf"/></svg>
+      </div>
       <span class="name">Bloomy's</span>
       <span class="title">Bud Log</span>
     </div>

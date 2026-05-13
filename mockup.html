@@ -62,11 +62,11 @@ body{
   display:flex;align-items:center;gap:24px;
 }
 .brand{
-  display:flex;align-items:baseline;gap:10px;
+  display:flex;align-items:center;gap:12px;
   font-family:var(--f-display);
   font-weight:400;
   font-style:italic;
-  font-size:22px;
+  font-size:20px;
   letter-spacing:-0.01em;
   color:var(--ink);
   margin-right:auto;
@@ -105,6 +105,121 @@ body{
 .page{
   max-width:1080px;margin:0 auto;
   padding:48px 28px 80px;
+  position:relative;
+  z-index:2;
+}
+
+/* ----- atmosphere (drifting smoke + grain) ----- */
+.atmosphere{
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+.smoke{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  opacity:0.07;
+}
+.blob{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(70px);
+  will-change:transform;
+}
+.blob-1{
+  width:520px;height:520px;
+  background:radial-gradient(circle,#6B8E4E 0%,transparent 70%);
+  top:-160px;left:-120px;
+  opacity:0.10;
+  animation:drift-1 62s ease-in-out infinite alternate;
+}
+.blob-2{
+  width:620px;height:620px;
+  background:radial-gradient(circle,#B89B6B 0%,transparent 70%);
+  bottom:-220px;right:-200px;
+  opacity:0.08;
+  animation:drift-2 84s ease-in-out infinite alternate;
+}
+.blob-3{
+  width:420px;height:420px;
+  background:radial-gradient(circle,#EFE8DA 0%,transparent 70%);
+  top:48%;left:55%;
+  opacity:0.04;
+  animation:drift-3 74s ease-in-out infinite alternate;
+}
+@keyframes drift-1{
+  0%{transform:translate(0,0)}
+  100%{transform:translate(140px,90px)}
+}
+@keyframes drift-2{
+  0%{transform:translate(0,0)}
+  100%{transform:translate(-130px,-150px)}
+}
+@keyframes drift-3{
+  0%{transform:translate(-40px,0) scale(1)}
+  100%{transform:translate(80px,-60px) scale(1.08)}
+}
+@media (prefers-reduced-motion: reduce){
+  .blob{animation:none}
+}
+
+/* ----- crest / brand ----- */
+.brand-seal{
+  width:32px;height:32px;
+  border:1px solid var(--ink);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  color:var(--ac);
+}
+.brand-seal svg{width:18px;height:20px}
+
+.hero{
+  text-align:center;
+  margin-bottom:56px;
+  padding-top:8px;
+}
+.hero-seal{
+  width:88px;height:88px;
+  border:1.5px solid var(--ink);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 22px;
+  color:var(--ac);
+}
+.hero-seal svg{width:52px;height:57px}
+.hero-name{
+  font-family:var(--f-display);
+  font-style:italic;
+  font-weight:300;
+  font-size:30px;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+  margin-bottom:14px;
+  line-height:1;
+}
+.hero-rule{
+  width:96px;height:1px;
+  background:var(--ink);
+  opacity:0.3;
+  margin:0 auto 16px;
+}
+.hero-title{
+  font-family:var(--f-body);
+  font-weight:500;
+  font-size:30px;
+  letter-spacing:0.32em;
+  text-transform:uppercase;
+  color:var(--ink);
+  padding-left:0.32em;
+  margin-bottom:22px;
+}
+.hero-sub{
+  font-size:14px;
+  color:var(--muted);
+  max-width:520px;
+  margin:0 auto;
 }
 
 .h-eyebrow{
@@ -365,9 +480,59 @@ body{
 </head>
 <body>
 
+<!-- SVG SYMBOL: cannabis leaf (botanical specimen, serrated) -->
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <symbol id="cannabis-leaf" viewBox="0 0 120 130">
+      <g transform="translate(60 86)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="miter" stroke-miterlimit="2">
+        <g stroke-width="1.3">
+          <path d="M0 0 L0 40" stroke-linecap="round"/>
+          <path d="M0 0 L4 -8 L3 -14 L5.5 -24 L4 -32 L6 -42 L4.5 -50 L5 -60 L3 -67 L3 -72 L1.5 -77 L0 -80 L-1.5 -77 L-3 -72 L-3 -67 L-5 -60 L-4.5 -50 L-6 -42 L-4 -32 L-5.5 -24 L-3 -14 L-4 -8 Z"/>
+          <g transform="rotate(30)"><path d="M0 0 L4 -8 L3 -14 L5 -24 L4 -32 L5.5 -45 L3.5 -54 L3 -65 L1.5 -70 L0 -72 L-1.5 -70 L-3 -65 L-3.5 -54 L-5.5 -45 L-4 -32 L-5 -24 L-3 -14 L-4 -8 Z"/></g>
+          <g transform="rotate(-30)"><path d="M0 0 L4 -8 L3 -14 L5 -24 L4 -32 L5.5 -45 L3.5 -54 L3 -65 L1.5 -70 L0 -72 L-1.5 -70 L-3 -65 L-3.5 -54 L-5.5 -45 L-4 -32 L-5 -24 L-3 -14 L-4 -8 Z"/></g>
+          <g transform="rotate(60)"><path d="M0 0 L3 -8 L2 -14 L4.5 -25 L3 -33 L3.5 -45 L2 -52 L0 -58 L-2 -52 L-3.5 -45 L-3 -33 L-4.5 -25 L-2 -14 L-3 -8 Z"/></g>
+          <g transform="rotate(-60)"><path d="M0 0 L3 -8 L2 -14 L4.5 -25 L3 -33 L3.5 -45 L2 -52 L0 -58 L-2 -52 L-3.5 -45 L-3 -33 L-4.5 -25 L-2 -14 L-3 -8 Z"/></g>
+          <g transform="rotate(95)"><path d="M0 0 L2.5 -10 L1.5 -16 L3 -28 L1.5 -34 L0 -40 L-1.5 -34 L-3 -28 L-1.5 -16 L-2.5 -10 Z"/></g>
+          <g transform="rotate(-95)"><path d="M0 0 L2.5 -10 L1.5 -16 L3 -28 L1.5 -34 L0 -40 L-1.5 -34 L-3 -28 L-1.5 -16 L-2.5 -10 Z"/></g>
+        </g>
+        <g stroke-width="0.7" opacity="0.55" stroke-linecap="round">
+          <line x1="0" y1="-4" x2="0" y2="-76"/>
+          <g transform="rotate(30)"><line x1="0" y1="-4" x2="0" y2="-68"/></g>
+          <g transform="rotate(-30)"><line x1="0" y1="-4" x2="0" y2="-68"/></g>
+          <g transform="rotate(60)"><line x1="0" y1="-4" x2="0" y2="-54"/></g>
+          <g transform="rotate(-60)"><line x1="0" y1="-4" x2="0" y2="-54"/></g>
+          <g transform="rotate(95)"><line x1="0" y1="-3" x2="0" y2="-36"/></g>
+          <g transform="rotate(-95)"><line x1="0" y1="-3" x2="0" y2="-36"/></g>
+        </g>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- atmosphere: drifting smoke + grain behind everything -->
+<div class="atmosphere" aria-hidden="true">
+  <svg class="smoke" preserveAspectRatio="none">
+    <filter id="smoke-filter" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="3" seed="7"/>
+      <feColorMatrix values="0 0 0 0 0.94
+                             0 0 0 0 0.91
+                             0 0 0 0 0.84
+                             0 0 0 0.6 0"/>
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#smoke-filter)"/>
+  </svg>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
 <nav class="nav">
   <div class="nav-inner">
-    <span class="brand">Bloomy's Bud Log <span class="brand-mark">est. ’24</span></span>
+    <span class="brand">
+      <span class="brand-seal"><svg viewBox="0 0 120 130"><use href="#cannabis-leaf"/></svg></span>
+      Bloomy's Bud Log
+    </span>
     <div class="nav-tabs">
       <button class="nav-tab active">Catalogue</button>
       <button class="nav-tab">Journal</button>
@@ -379,9 +544,17 @@ body{
 
 <main class="page">
 
+  <section class="hero">
+    <div class="hero-seal"><svg viewBox="0 0 120 130"><use href="#cannabis-leaf"/></svg></div>
+    <div class="hero-name">Bloomy's</div>
+    <div class="hero-rule"></div>
+    <div class="hero-title">Bud Log</div>
+    <p class="hero-sub">A field guide to the flowers you've known — search, filter, and keep notes on the strains in your apothecary. Updated daily from medbud.wiki.</p>
+  </section>
+
   <p class="h-eyebrow">521 strains catalogued</p>
-  <h1 class="h-title">A field guide to the <em>flowers you’ve known</em>.</h1>
-  <p class="h-sub">Search, filter, and keep notes on the strains in your apothecary. Updated daily from medbud.wiki.</p>
+  <h1 class="h-title">The catalogue<em>.</em></h1>
+  <p class="h-sub">Browse or search every strain currently tracked.</p>
 
   <div class="toolbar">
     <label class="search">
