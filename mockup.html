@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Bloomy's Bud Log — design mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  /* warm dark palette */
+  --bg:     #14110D;
+  --surf:   #1C1814;
+  --surf2:  #221D17;
+  --ink:    #EFE8DA;
+  --muted:  #8A8174;
+  --faint:  #5A5249;
+  --rule:   #2A241E;
+  --ac:     #6B8E4E;     /* sage — only accent */
+  --ac-soft:#6B8E4E22;
+  --alarm:  #B45B4A;     /* terracotta — destructive only */
+
+  /* type */
+  --f-display:'Fraunces',Georgia,serif;
+  --f-body:'Inter Tight','Inter',system-ui,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+
+  /* shape */
+  --r:8px;
+  --r-pill:999px;
+}
+
+html{height:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-weight:400;
+  font-size:15px;
+  line-height:1.5;
+  min-height:100%;
+  letter-spacing:-0.005em;
+}
+
+/* selection */
+::selection{background:var(--ac);color:var(--bg)}
+
+/* ----- nav ----- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(20,17,13,.92);
+  backdrop-filter:saturate(140%) blur(8px);
+  -webkit-backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-inner{
+  max-width:1080px;margin:0 auto;
+  padding:18px 28px;
+  display:flex;align-items:center;gap:24px;
+}
+.brand{
+  display:flex;align-items:baseline;gap:10px;
+  font-family:var(--f-display);
+  font-weight:400;
+  font-style:italic;
+  font-size:22px;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+  margin-right:auto;
+}
+.brand-mark{
+  font-style:normal;
+  font-family:var(--f-body);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  border-left:1px solid var(--rule);
+  padding-left:10px;
+  margin-left:2px;
+}
+.nav-tabs{
+  display:flex;gap:4px;
+}
+.nav-tab{
+  font-family:var(--f-body);
+  font-size:13px;
+  font-weight:500;
+  color:var(--muted);
+  background:transparent;
+  border:none;
+  padding:8px 14px;
+  cursor:pointer;
+  border-radius:var(--r);
+  transition:color .15s, background .15s;
+}
+.nav-tab:hover{color:var(--ink)}
+.nav-tab.active{color:var(--ink);background:var(--surf)}
+
+/* ----- page ----- */
+.page{
+  max-width:1080px;margin:0 auto;
+  padding:48px 28px 80px;
+}
+
+.h-eyebrow{
+  font-family:var(--f-mono);
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+.h-title{
+  font-family:var(--f-display);
+  font-weight:400;
+  font-size:46px;
+  line-height:1.05;
+  letter-spacing:-0.02em;
+  margin-bottom:10px;
+}
+.h-title em{
+  font-style:italic;
+  color:var(--ac);
+}
+.h-sub{
+  font-size:15px;
+  color:var(--muted);
+  max-width:560px;
+  margin-bottom:40px;
+}
+
+/* ----- toolbar ----- */
+.toolbar{
+  display:flex;gap:8px;
+  margin-bottom:28px;
+  align-items:stretch;
+  flex-wrap:wrap;
+}
+.search{
+  position:relative;flex:1;min-width:240px;
+}
+.search input{
+  width:100%;
+  background:transparent;
+  border:none;
+  border-bottom:1px solid var(--rule);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:15px;
+  padding:12px 0 12px 26px;
+  outline:none;
+  transition:border-color .15s;
+}
+.search input::placeholder{color:var(--faint)}
+.search input:focus{border-bottom-color:var(--ac)}
+.search svg{
+  position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:16px;height:16px;color:var(--muted);
+}
+.filter{
+  background:transparent;
+  color:var(--muted);
+  border:1px solid var(--rule);
+  border-radius:var(--r);
+  padding:8px 14px;
+  font-family:var(--f-body);
+  font-size:13px;
+  font-weight:500;
+  cursor:pointer;
+  transition:color .15s, border-color .15s;
+}
+.filter:hover{color:var(--ink);border-color:var(--muted)}
+.filter.on{color:var(--ac);border-color:var(--ac)}
+
+/* ----- grid ----- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:24px;
+}
+
+/* ----- card ----- */
+.card{
+  background:var(--surf);
+  border:1px solid var(--rule);
+  border-radius:var(--r);
+  padding:24px;
+  cursor:pointer;
+  transition:border-color .2s, transform .2s;
+}
+.card:hover{border-color:var(--muted)}
+.card-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:20px;
+  gap:16px;
+}
+.card-name{
+  font-family:var(--f-display);
+  font-weight:500;
+  font-size:22px;
+  line-height:1.15;
+  letter-spacing:-0.015em;
+  margin-bottom:4px;
+}
+.card-meta{
+  font-family:var(--f-mono);
+  font-size:11px;
+  color:var(--muted);
+  letter-spacing:0.02em;
+}
+.card-classification{
+  font-family:var(--f-mono);
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--ac);
+  border:1px solid var(--ac);
+  border-radius:var(--r-pill);
+  padding:3px 10px;
+  flex-shrink:0;
+  white-space:nowrap;
+}
+.stats{
+  display:flex;gap:0;
+  margin-bottom:20px;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+.stat{
+  flex:1;
+  padding:14px 0;
+  text-align:left;
+}
+.stat + .stat{
+  border-left:1px solid var(--rule);
+  padding-left:16px;
+}
+.stat-label{
+  font-family:var(--f-mono);
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+.stat-value{
+  font-family:var(--f-display);
+  font-weight:400;
+  font-size:24px;
+  line-height:1;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+}
+.stat-value .unit{
+  font-family:var(--f-mono);
+  font-size:11px;
+  color:var(--muted);
+  margin-left:2px;
+  letter-spacing:0;
+}
+
+.section-label{
+  font-family:var(--f-mono);
+  font-size:10px;
+  color:var(--faint);
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.terps{
+  display:flex;flex-wrap:wrap;gap:6px;
+  margin-bottom:18px;
+}
+.terp{
+  font-family:var(--f-body);
+  font-size:12px;
+  color:var(--muted);
+}
+.terp + .terp::before{
+  content:'·';
+  margin-right:6px;
+  color:var(--faint);
+}
+.terp.dom{color:var(--ink);font-weight:500}
+
+.effects{
+  display:flex;flex-wrap:wrap;gap:6px;
+  margin-bottom:24px;
+}
+.effect{
+  font-family:var(--f-body);
+  font-size:12px;
+  color:var(--muted);
+  border:1px solid var(--rule);
+  border-radius:var(--r-pill);
+  padding:3px 10px;
+}
+
+.log-btn{
+  width:100%;
+  background:transparent;
+  color:var(--ink);
+  border:1px solid var(--rule);
+  border-radius:var(--r);
+  padding:12px;
+  font-family:var(--f-body);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.02em;
+  cursor:pointer;
+  transition:border-color .2s, color .2s, background .2s;
+}
+.log-btn:hover{
+  border-color:var(--ac);
+  color:var(--ac);
+}
+.card.logged .log-btn{
+  background:var(--ac-soft);
+  border-color:var(--ac);
+  color:var(--ac);
+}
+.card.logged .log-btn::before{
+  content:'✓  ';
+}
+
+/* ----- legend at bottom ----- */
+.legend{
+  margin-top:80px;
+  padding-top:32px;
+  border-top:1px solid var(--rule);
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:32px;
+}
+.legend h4{
+  font-family:var(--f-mono);
+  font-size:10px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:12px;
+  font-weight:400;
+}
+.legend p{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.6;
+}
+.legend code{
+  font-family:var(--f-mono);
+  font-size:12px;
+  color:var(--ink);
+  background:var(--surf);
+  padding:1px 6px;
+  border-radius:4px;
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="brand">Bloomy's Bud Log <span class="brand-mark">est. ’24</span></span>
+    <div class="nav-tabs">
+      <button class="nav-tab active">Catalogue</button>
+      <button class="nav-tab">Journal</button>
+      <button class="nav-tab">Analysis</button>
+      <button class="nav-tab">Profile</button>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+
+  <p class="h-eyebrow">521 strains catalogued</p>
+  <h1 class="h-title">A field guide to the <em>flowers you’ve known</em>.</h1>
+  <p class="h-sub">Search, filter, and keep notes on the strains in your apothecary. Updated daily from medbud.wiki.</p>
+
+  <div class="toolbar">
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input placeholder="Search by name, producer, or terpene…">
+    </label>
+    <button class="filter on">Sativa</button>
+    <button class="filter">Indica</button>
+    <button class="filter">Hybrid</button>
+    <button class="filter">In your log</button>
+  </div>
+
+  <section class="grid">
+
+    <article class="card logged">
+      <div class="card-top">
+        <div>
+          <h2 class="card-name">Lemon Haze</h2>
+          <p class="card-meta">Tweed · sat. 2024-12-04</p>
+        </div>
+        <span class="card-classification">Sativa</span>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">THC</div>
+          <div class="stat-value">22.4<span class="unit">%</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">CBD</div>
+          <div class="stat-value">0.4<span class="unit">%</span></div>
+        </div>
+      </div>
+      <p class="section-label">Terpenes</p>
+      <p class="terps">
+        <span class="terp dom">Limonene</span>
+        <span class="terp">Pinene</span>
+        <span class="terp">Caryophyllene</span>
+        <span class="terp">Myrcene</span>
+      </p>
+      <p class="section-label">Effects</p>
+      <div class="effects">
+        <span class="effect">Uplifting</span>
+        <span class="effect">Focus</span>
+        <span class="effect">Creative</span>
+      </div>
+      <button class="log-btn">Logged 3 sessions</button>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <h2 class="card-name">Northern Lights</h2>
+          <p class="card-meta">Aurora · 7.0g · £42</p>
+        </div>
+        <span class="card-classification">Indica</span>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">THC</div>
+          <div class="stat-value">18.1<span class="unit">%</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">CBD</div>
+          <div class="stat-value">0.2<span class="unit">%</span></div>
+        </div>
+      </div>
+      <p class="section-label">Terpenes</p>
+      <p class="terps">
+        <span class="terp dom">Myrcene</span>
+        <span class="terp">Caryophyllene</span>
+        <span class="terp">Linalool</span>
+      </p>
+      <p class="section-label">Effects</p>
+      <div class="effects">
+        <span class="effect">Sedative</span>
+        <span class="effect">Pain relief</span>
+        <span class="effect">Sleep</span>
+      </div>
+      <button class="log-btn">Log a session</button>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <h2 class="card-name">Blue Dream</h2>
+          <p class="card-meta">Edison · 3.5g · £24</p>
+        </div>
+        <span class="card-classification">Hybrid</span>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">THC</div>
+          <div class="stat-value">20.0<span class="unit">%</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">CBD</div>
+          <div class="stat-value">1.2<span class="unit">%</span></div>
+        </div>
+      </div>
+      <p class="section-label">Terpenes</p>
+      <p class="terps">
+        <span class="terp dom">Myrcene</span>
+        <span class="terp">Pinene</span>
+        <span class="terp">Caryophyllene</span>
+      </p>
+      <p class="section-label">Effects</p>
+      <div class="effects">
+        <span class="effect">Balanced</span>
+        <span class="effect">Euphoric</span>
+        <span class="effect">Body buzz</span>
+      </div>
+      <button class="log-btn">Log a session</button>
+    </article>
+
+  </section>
+
+  <section class="legend">
+    <div>
+      <h4>Palette</h4>
+      <p>Background <code>#14110D</code>, ink <code>#EFE8DA</code>, sage accent <code>#6B8E4E</code>. One accent, used sparingly. No gradients.</p>
+    </div>
+    <div>
+      <h4>Typography</h4>
+      <p><code>Fraunces</code> for display (italic on emphasis), <code>Inter Tight</code> for body, <code>JetBrains Mono</code> for stats and labels.</p>
+    </div>
+    <div>
+      <h4>Shape</h4>
+      <p>Cards 8px radius, 1px hairline borders. Inputs underlined, not boxed. No backdrop blur, no kinetic decoration.</p>
+    </div>
+    <div>
+      <h4>Density</h4>
+      <p>24px gaps between cards, 24px card padding. Roughly 40% more whitespace than the current build.</p>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
