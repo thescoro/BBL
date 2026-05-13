@@ -285,24 +285,84 @@ body{
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
   <defs>
     <symbol id="cannabis-leaf" viewBox="0 0 120 130">
-      <g transform="translate(60 86)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <g transform="translate(60 86)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="miter" stroke-miterlimit="2">
         <g stroke-width="1.3">
           <!-- petiole / stem -->
-          <path d="M0 0 L0 40"/>
-          <!-- top leaflet (longest) -->
-          <path d="M0 0 C5.8 -30, 5.8 -58, 0 -80 C-5.8 -58, -5.8 -30, 0 0 Z"/>
-          <!-- upper pair ±30° -->
-          <g transform="rotate(30)"><path d="M0 0 C5.2 -26, 5.2 -52, 0 -72 C-5.2 -52, -5.2 -26, 0 0 Z"/></g>
-          <g transform="rotate(-30)"><path d="M0 0 C5.2 -26, 5.2 -52, 0 -72 C-5.2 -52, -5.2 -26, 0 0 Z"/></g>
-          <!-- middle pair ±60° -->
-          <g transform="rotate(60)"><path d="M0 0 C4.3 -21, 4.3 -41, 0 -58 C-4.3 -41, -4.3 -21, 0 0 Z"/></g>
-          <g transform="rotate(-60)"><path d="M0 0 C4.3 -21, 4.3 -41, 0 -58 C-4.3 -41, -4.3 -21, 0 0 Z"/></g>
-          <!-- bottom pair ±95° -->
-          <g transform="rotate(95)"><path d="M0 0 C3.4 -14, 3.4 -28, 0 -40 C-3.4 -28, -3.4 -14, 0 0 Z"/></g>
-          <g transform="rotate(-95)"><path d="M0 0 C3.4 -14, 3.4 -28, 0 -40 C-3.4 -28, -3.4 -14, 0 0 Z"/></g>
+          <path d="M0 0 L0 40" stroke-linecap="round"/>
+          <!-- top leaflet (longest, 5 teeth per side, serrated) -->
+          <path d="M0 0
+            L4 -8 L3 -14
+            L5.5 -24 L4 -32
+            L6 -42 L4.5 -50
+            L5 -60 L3 -67
+            L3 -72 L1.5 -77
+            L0 -80
+            L-1.5 -77 L-3 -72
+            L-3 -67 L-5 -60
+            L-4.5 -50 L-6 -42
+            L-4 -32 L-5.5 -24
+            L-3 -14 L-4 -8
+            Z"/>
+          <!-- upper pair ±30°, 4 teeth/side -->
+          <g transform="rotate(30)"><path d="M0 0
+            L4 -8 L3 -14
+            L5 -24 L4 -32
+            L5.5 -45 L3.5 -54
+            L3 -65 L1.5 -70
+            L0 -72
+            L-1.5 -70 L-3 -65
+            L-3.5 -54 L-5.5 -45
+            L-4 -32 L-5 -24
+            L-3 -14 L-4 -8
+            Z"/></g>
+          <g transform="rotate(-30)"><path d="M0 0
+            L4 -8 L3 -14
+            L5 -24 L4 -32
+            L5.5 -45 L3.5 -54
+            L3 -65 L1.5 -70
+            L0 -72
+            L-1.5 -70 L-3 -65
+            L-3.5 -54 L-5.5 -45
+            L-4 -32 L-5 -24
+            L-3 -14 L-4 -8
+            Z"/></g>
+          <!-- middle pair ±60°, 3 teeth/side -->
+          <g transform="rotate(60)"><path d="M0 0
+            L3 -8 L2 -14
+            L4.5 -25 L3 -33
+            L3.5 -45 L2 -52
+            L0 -58
+            L-2 -52 L-3.5 -45
+            L-3 -33 L-4.5 -25
+            L-2 -14 L-3 -8
+            Z"/></g>
+          <g transform="rotate(-60)"><path d="M0 0
+            L3 -8 L2 -14
+            L4.5 -25 L3 -33
+            L3.5 -45 L2 -52
+            L0 -58
+            L-2 -52 L-3.5 -45
+            L-3 -33 L-4.5 -25
+            L-2 -14 L-3 -8
+            Z"/></g>
+          <!-- bottom pair ±95°, 2 teeth/side -->
+          <g transform="rotate(95)"><path d="M0 0
+            L2.5 -10 L1.5 -16
+            L3 -28 L1.5 -34
+            L0 -40
+            L-1.5 -34 L-3 -28
+            L-1.5 -16 L-2.5 -10
+            Z"/></g>
+          <g transform="rotate(-95)"><path d="M0 0
+            L2.5 -10 L1.5 -16
+            L3 -28 L1.5 -34
+            L0 -40
+            L-1.5 -34 L-3 -28
+            L-1.5 -16 L-2.5 -10
+            Z"/></g>
         </g>
-        <!-- veins -->
-        <g stroke-width="0.7" opacity="0.55">
+        <!-- center veins -->
+        <g stroke-width="0.7" opacity="0.55" stroke-linecap="round">
           <line x1="0" y1="-4" x2="0" y2="-76"/>
           <g transform="rotate(30)"><line x1="0" y1="-4" x2="0" y2="-68"/></g>
           <g transform="rotate(-30)"><line x1="0" y1="-4" x2="0" y2="-68"/></g>
