@@ -385,6 +385,24 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .nav{z-index:50}
 .page,#toast,.sheet-wrap,.modal-wrap{position:relative;z-index:3}
 .sheet-wrap,.modal-wrap{position:fixed;z-index:150}
+
+/* Hamburger menu */
+.nav-inner{justify-content:space-between}
+.nav-select{display:none !important}
+.menu-btn{margin-left:auto;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--s3);border-radius:var(--r2);color:var(--tx);cursor:pointer;-webkit-appearance:none;transition:border-color .15s,color .15s,background .15s;padding:0}
+.menu-btn:hover{border-color:var(--ac);color:var(--ac)}
+.menu-btn[aria-expanded="true"]{border-color:var(--ac);color:var(--ac);background:rgba(107,142,78,0.08)}
+.menu-bars{display:inline-flex;flex-direction:column;justify-content:space-between;width:18px;height:12px}
+.menu-bars span{display:block;height:1.5px;width:100%;background:currentColor;border-radius:1px;transition:transform .2s ease,opacity .15s ease}
+.menu-btn[aria-expanded="true"] .menu-bars span:nth-child(1){transform:translateY(5.25px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .menu-bars span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] .menu-bars span:nth-child(3){transform:translateY(-5.25px) rotate(-45deg)}
+.menu-panel{position:absolute;top:calc(100% + 6px);right:16px;min-width:180px;background:rgba(28,24,20,0.96);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);border:1px solid var(--s3);border-radius:var(--r);box-shadow:0 12px 32px rgba(0,0,0,0.4);padding:6px;display:none;flex-direction:column;gap:2px;z-index:60}
+.menu-panel.open{display:flex}
+.menu-item{background:transparent;border:none;color:var(--tx);font-family:var(--fh);font-size:13px;font-weight:500;text-align:left;padding:10px 14px;border-radius:var(--r2);cursor:pointer;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;transition:background .12s,color .12s;letter-spacing:0.01em}
+.menu-item:hover{background:rgba(107,142,78,0.10);color:var(--ac)}
+.menu-item.active{color:var(--ac);background:rgba(107,142,78,0.08)}
+.menu-item.active::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ac);margin-right:8px;vertical-align:middle}
 </style>
 </head>
 <body>
@@ -462,7 +480,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <nav class="nav">
   <div class="nav-inner">
     <div class="brand"><span class="word-leafy">Bl<svg class="oleaf-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.2" fill="none" stroke="currentColor" stroke-width="1.4"/><use href="#cannabis-leaf-filled" x="2" y="3.5" width="20" height="16" style="color:var(--ac)"/></svg><svg class="oleaf-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.2" fill="none" stroke="currentColor" stroke-width="1.4"/><use href="#cannabis-leaf-filled" x="2" y="3.5" width="20" height="16" style="color:var(--ac)"/></svg>my's Bud Log</span></div>
-    <select class="nav-select" onchange="showTab(this.value)">
+    <select class="nav-select" onchange="showTab(this.value)" aria-hidden="true">
       <option value="browser">Strains</option>
       <option value="journal">Journal</option>
       <option value="analysis">Analysis</option>
@@ -470,6 +488,17 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <option value="backup">Backup</option>
       <option value="profile">Profile</option>
     </select>
+    <button type="button" class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="menuPanel">
+      <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+  </div>
+  <div class="menu-panel" id="menuPanel" role="menu" aria-hidden="true">
+    <button type="button" role="menuitem" class="menu-item" data-tab="browser" onclick="pickTab('browser')">Strains</button>
+    <button type="button" role="menuitem" class="menu-item" data-tab="journal" onclick="pickTab('journal')">Journal</button>
+    <button type="button" role="menuitem" class="menu-item" data-tab="analysis" onclick="pickTab('analysis')">Analysis</button>
+    <button type="button" role="menuitem" class="menu-item" data-tab="reviews" onclick="pickTab('reviews')">Reviews</button>
+    <button type="button" role="menuitem" class="menu-item" data-tab="backup" onclick="pickTab('backup')">Backup</button>
+    <button type="button" role="menuitem" class="menu-item" data-tab="profile" onclick="pickTab('profile')">Profile</button>
   </div>
 </nav>
 
@@ -1307,12 +1336,42 @@ function showTab(name) {
   document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
   document.getElementById('tab-'+name).classList.remove('hidden');
   document.querySelector('.nav-select').value=name;
+  document.querySelectorAll('.menu-item').forEach(b=>{
+    b.classList.toggle('active', b.dataset.tab===name);
+  });
   if(name==='journal') renderJournal();
   if(name==='analysis') renderAnalysis();
   if(name==='reviews') renderReviews();
   if(name==='browser') renderBrowser();
   if(name==='profile') renderProfile();
 }
+
+function toggleMenu(force){
+  const btn=document.getElementById('menuBtn');
+  const panel=document.getElementById('menuPanel');
+  const open=typeof force==='boolean' ? force : !panel.classList.contains('open');
+  panel.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+}
+function pickTab(name){
+  showTab(name);
+  toggleMenu(false);
+}
+document.addEventListener('click', function(e){
+  const panel=document.getElementById('menuPanel');
+  const btn=document.getElementById('menuBtn');
+  if(!panel || !btn) return;
+  if(!panel.classList.contains('open')) return;
+  if(panel.contains(e.target) || btn.contains(e.target)) return;
+  toggleMenu(false);
+});
+document.addEventListener('keydown', function(e){
+  if(e.key==='Escape'){
+    const panel=document.getElementById('menuPanel');
+    if(panel && panel.classList.contains('open')) toggleMenu(false);
+  }
+});
 
 // ═══ BROWSER ════════════════════════════════════════════════════════════════
 function toggleTerpDrop(){
