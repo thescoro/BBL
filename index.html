@@ -473,6 +473,38 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .lineage-name-lg{font-family:var(--fd);font-style:italic;font-weight:400;font-size:18px;color:var(--tx);line-height:1.25;margin-bottom:2px}
 .lineage-note{font-family:var(--fm);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--tx3)}
 
+/* Editorial shelves */
+.shelves{display:flex;flex-direction:column;gap:22px;margin-bottom:24px}
+.shelf{position:relative}
+.shelf-title{font-family:var(--fm);font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--s3);display:flex;align-items:baseline;gap:8px}
+.shelf-title::before{content:"";display:inline-block;width:14px;height:1px;background:var(--ac2);align-self:center;flex-shrink:0}
+.shelf-scroll{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--s3) transparent}
+.shelf-scroll::-webkit-scrollbar{height:6px}
+.shelf-scroll::-webkit-scrollbar-track{background:transparent}
+.shelf-scroll::-webkit-scrollbar-thumb{background:var(--s3);border-radius:3px}
+.shelf-card{flex:0 0 200px;scroll-snap-align:start;background:var(--s1);border:1px solid var(--s3);border-radius:var(--r);padding:14px;cursor:pointer;display:flex;flex-direction:column;gap:6px;transition:border-color .15s,transform .15s}
+.shelf-card:hover{border-color:var(--ac);transform:translateY(-1px)}
+.shelf-card .sc-bdgs{margin-bottom:2px}
+.shelf-card .sc-name{font-family:var(--fd);font-style:italic;font-weight:400;font-size:17px;line-height:1.15;color:var(--tx);overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.shelf-card .sc-producer{font-family:var(--fm);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--tx3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shelf-card .sc-foot{display:flex;justify-content:space-between;align-items:baseline;margin-top:6px;padding-top:8px;border-top:1px solid var(--s3)}
+.shelf-card .sc-type{font-family:var(--fd);font-style:italic;font-size:13px;color:var(--tx2)}
+.shelf-card .sc-thc{font-family:var(--fm);font-size:11px;font-weight:600;color:var(--ac3);letter-spacing:0.02em}
+
+/* "All Strains" divider above the paginated grid */
+.grid-header{margin:8px 0 14px}
+.grid-title{font-family:var(--fm);font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ac2);padding-bottom:8px;border-bottom:1px solid var(--s3);display:flex;align-items:baseline;gap:8px}
+.grid-title::before{content:"";display:inline-block;width:14px;height:1px;background:var(--ac2);align-self:center;flex-shrink:0}
+
+/* Pagination */
+.pager{display:flex;justify-content:center;align-items:center;gap:4px;margin-top:24px;flex-wrap:wrap}
+.pager-btn{height:36px;min-width:36px;padding:0 10px;background:transparent;border:1px solid var(--s3);border-radius:var(--r2);color:var(--tx2);font-family:var(--fm);font-size:12px;font-weight:500;letter-spacing:0.02em;cursor:pointer;-webkit-appearance:none;transition:border-color .15s,color .15s,background .15s}
+.pager-btn:hover:not(:disabled):not(.active){border-color:var(--tx3);color:var(--tx)}
+.pager-btn.active{background:rgba(107,142,78,0.10);border-color:var(--ac);color:var(--ac)}
+.pager-btn:disabled{opacity:0.3;cursor:not-allowed}
+.pager-btn.arrow{font-size:16px;line-height:1}
+.pager-ellipsis{color:var(--tx3);padding:0 4px;font-family:var(--fm);font-size:13px}
+
 /* Hamburger menu */
 .nav-inner{justify-content:space-between}
 .nav-select{display:none !important}
@@ -638,7 +670,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     </select>
     <button class="fbtn" id="cbdBtn" onclick="toggleCbd()">CBD Strains</button>
   </div>
+  <div class="shelves" id="shelves"></div>
+  <div class="grid-header" id="gridHeader"></div>
   <div class="grid" id="strainGrid"></div>
+  <div class="pager" id="pager"></div>
 </div>
 
 <!-- ═══ JOURNAL TAB ═══ -->
@@ -1517,7 +1552,128 @@ function getFiltered() {
   });
 }
 
+const PAGE_SIZE = 24;
+let currentPage = 1;
+let _lastFilterSig = '';
+
+function getFilterSig() {
+  return [
+    document.getElementById('searchQ').value,
+    document.getElementById('filterType').value,
+    document.getElementById('filterForm').value,
+    document.getElementById('filterTier').value,
+    document.getElementById('filterProd').value,
+    document.getElementById('filterThc').value,
+    getSelectedTerps().join(','),
+    !!cbdOnly,
+    document.getElementById('sortBy').value
+  ].join('|');
+}
+
+function isFilteringActive() {
+  const q = (document.getElementById('searchQ').value||'').trim();
+  const t = document.getElementById('filterType').value;
+  const f = document.getElementById('filterForm').value;
+  const tier = document.getElementById('filterTier').value;
+  const p = document.getElementById('filterProd').value;
+  const thc = document.getElementById('filterThc').value;
+  const terps = getSelectedTerps();
+  return !!(q || t || f || tier || p || (thc && thc !== '0-35') || terps.length || cbdOnly);
+}
+
+function buildShelves() {
+  const shelves = [];
+  const myAvg = {};
+  journal.forEach(e => {
+    if(!myAvg[e.strainId]) myAvg[e.strainId] = {sum:0,n:0};
+    myAvg[e.strainId].sum += e.rating; myAvg[e.strainId].n += 1;
+  });
+  const topRated = Object.entries(myAvg)
+    .map(([id,v]) => ({id, avg: v.sum/v.n, n: v.n}))
+    .filter(x => x.avg >= 4)
+    .sort((a,b) => b.avg - a.avg)
+    .slice(0,10)
+    .map(x => STRAINS.find(s => s.id === x.id))
+    .filter(Boolean);
+  if (topRated.length >= 3) shelves.push({title:'Top rated by you', strains:topRated});
+
+  const sleepIndica = STRAINS.filter(s => s.type==='Indica' && (s.terpenes||[]).some(t=>t==='Myrcene'||t==='Linalool')).slice(0,14);
+  if (sleepIndica.length >= 4) shelves.push({title:'Indica · sleep & relaxation', strains:sleepIndica});
+
+  const focusSativa = STRAINS.filter(s => s.type==='Sativa' && (s.terpenes||[]).some(t=>t==='Limonene'||t==='Pinene'||t==='Terpinolene')).slice(0,14);
+  if (focusSativa.length >= 4) shelves.push({title:'Sativa · daytime & focus', strains:focusSativa});
+
+  const highThc = [...STRAINS].filter(s => s.form !== 'Cartridge' && (s.thc||0) >= 25).sort((a,b) => (b.thc||0) - (a.thc||0)).slice(0,14);
+  if (highThc.length >= 4) shelves.push({title:'High THC selection', strains:highThc});
+
+  const craftOrganic = STRAINS.filter(s => s.tier === 'Craft Organic').slice(0,14);
+  if (craftOrganic.length >= 4) shelves.push({title:'Craft Organic spotlight', strains:craftOrganic});
+
+  return shelves;
+}
+
+function shelfCard(s) {
+  const isCart = s.form === 'Cartridge';
+  const thcStr = isCart ? `${s.thcMg||0}mg` : `${s.thc}%`;
+  return `<div class="shelf-card" data-sid="${s.id.replace(/"/g,'&quot;')}">
+    <div class="sc-bdgs">${tBadge(s.tier)}</div>
+    <div class="sc-name">${cleanCartName(s.name)}</div>
+    <div class="sc-producer">${s.producer}</div>
+    <div class="sc-foot"><span class="sc-type">${s.type||''}</span><span class="sc-thc">${thcStr}</span></div>
+  </div>`;
+}
+
+function renderShelves() {
+  const wrap = document.getElementById('shelves');
+  const header = document.getElementById('gridHeader');
+  if (!wrap) return;
+  if (isFilteringActive()) {
+    wrap.innerHTML = '';
+    wrap.style.display = 'none';
+    if (header) { header.innerHTML = ''; header.style.display = 'none'; }
+    return;
+  }
+  wrap.style.display = '';
+  wrap.innerHTML = buildShelves().map(sh => `
+    <section class="shelf">
+      <div class="shelf-title">${sh.title}</div>
+      <div class="shelf-scroll">${sh.strains.map(shelfCard).join('')}</div>
+    </section>
+  `).join('');
+  if (header) {
+    header.style.display = '';
+    header.innerHTML = `<div class="grid-title">All Strains</div>`;
+  }
+}
+
+function renderPager(total) {
+  const pager = document.getElementById('pager');
+  if (!pager) return;
+  const totalPages = Math.ceil(total / PAGE_SIZE);
+  if (totalPages <= 1) { pager.innerHTML = ''; return; }
+  const cur = currentPage;
+  const pages = [1];
+  if (cur > 3) pages.push('...');
+  for (let p = Math.max(2, cur-1); p <= Math.min(totalPages-1, cur+1); p++) pages.push(p);
+  if (cur < totalPages - 2) pages.push('...');
+  if (totalPages > 1) pages.push(totalPages);
+  pager.innerHTML = `
+    <button class="pager-btn arrow" data-page="${cur-1}" ${cur===1?'disabled':''}>‹</button>
+    ${pages.map(p => p === '...' ? `<span class="pager-ellipsis">…</span>` : `<button class="pager-btn ${p===cur?'active':''}" data-page="${p}">${p}</button>`).join('')}
+    <button class="pager-btn arrow" data-page="${cur+1}" ${cur===totalPages?'disabled':''}>›</button>
+  `;
+}
+
+function goToPage(n) {
+  currentPage = n;
+  renderBrowser();
+  const grid = document.getElementById('strainGrid');
+  if (grid) grid.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
 function renderBrowser() {
+  const sig = getFilterSig();
+  if (sig !== _lastFilterSig) { _lastFilterSig = sig; currentPage = 1; }
   const list = getFiltered();
   // Pre-build journal lookup maps (once, not per-card)
   const counts = {};
@@ -1545,8 +1701,11 @@ function renderBrowser() {
       default: return cleanCartName(a.name).localeCompare(cleanCartName(b.name));
     }
   });
-  document.getElementById('strainCount').textContent = `${list.length} of ${STRAINS.length} strains · MedBud.wiki + Weedstrain.com`;
-  document.getElementById('strainGrid').innerHTML = list.map(s => {
+  const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+  if (currentPage > totalPages) currentPage = totalPages;
+  const pageList = list.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
+  document.getElementById('strainCount').textContent = `${list.length} of ${STRAINS.length} strains${totalPages>1?` · page ${currentPage} of ${totalPages}`:''}`;
+  document.getElementById('strainGrid').innerHTML = pageList.map(s => {
     const ct = counts[s.id]||0;
     const ar = avgRatings[s.id];
     const avg = ar ? (ar.sum/ar.n).toFixed(1) : null;
@@ -1573,6 +1732,8 @@ function renderBrowser() {
       <button class="lbtn ${ct>0?'done':''}" data-log="${s.id.replace(/"/g,'&quot;')}">${ct>0?`✓ Logged ${ct}×`:'+ Log This Strain'}</button>
     </div>`;
   }).join('');
+  renderShelves();
+  renderPager(list.length);
 }
 
 function toggleCbd() {
@@ -1582,7 +1743,9 @@ function toggleCbd() {
 }
 
 // Event delegation for strain grid (avoids inline onclick with IDs)
-document.getElementById('strainGrid').addEventListener('click', function(e) {
+document.getElementById('tab-browser').addEventListener('click', function(e) {
+  const pageBtn = e.target.closest('[data-page]');
+  if(pageBtn && !pageBtn.disabled) { goToPage(Number(pageBtn.dataset.page)); return; }
   const logBtn = e.target.closest('[data-log]');
   if(logBtn) { e.stopPropagation(); openModal(logBtn.dataset.log); return; }
   const card = e.target.closest('[data-sid]');
