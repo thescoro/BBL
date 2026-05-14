@@ -505,6 +505,37 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .pager-btn.arrow{font-size:16px;line-height:1}
 .pager-ellipsis{color:var(--tx3);padding:0 4px;font-family:var(--fm);font-size:13px}
 
+/* Home tab */
+.home-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.customise-btn{height:32px;padding:0 12px;background:transparent;border:1px solid var(--s3);border-radius:var(--r2);color:var(--tx2);font-family:var(--fm);font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;-webkit-appearance:none;transition:border-color .15s,color .15s,background .15s;flex-shrink:0}
+.customise-btn:hover{border-color:var(--ac);color:var(--ac)}
+.home-section{margin-bottom:26px}
+.home-empty{font-family:var(--fh);font-size:13px;color:var(--tx2);padding:20px 0;text-align:center}
+.snap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.snap-cell{padding:14px 16px;background:var(--s1);border:1px solid var(--s3);border-radius:var(--r);text-align:left}
+.snap-val{font-family:var(--fd);font-style:italic;font-weight:400;font-size:28px;line-height:1;color:var(--tx);margin-bottom:4px}
+.snap-lbl{font-family:var(--fm);font-size:9.5px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--tx3)}
+.preset-grid{display:flex;flex-wrap:wrap;gap:8px}
+.preset-pill{height:36px;padding:0 14px;background:var(--s1);border:1px solid var(--s3);border-radius:999px;color:var(--tx);font-family:var(--fh);font-size:12px;font-weight:500;letter-spacing:0.02em;cursor:pointer;-webkit-appearance:none;transition:border-color .15s,color .15s,background .15s}
+.preset-pill:hover{border-color:var(--ac);color:var(--ac);background:rgba(107,142,78,0.06)}
+
+/* Customise sheet */
+.cust-help{font-family:var(--fh);font-size:13px;color:var(--tx2);margin:0 0 18px 0;line-height:1.5}
+.cust-body{display:flex;flex-direction:column;gap:6px}
+.cust-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;background:var(--s1);border:1px solid var(--s3);border-radius:var(--r2)}
+.cust-toggle{display:flex;align-items:center;gap:10px;cursor:pointer;flex:1}
+.cust-toggle input{-webkit-appearance:none;appearance:none;width:36px;height:20px;background:var(--s3);border-radius:999px;position:relative;cursor:pointer;transition:background .15s}
+.cust-toggle input::after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;background:var(--tx3);border-radius:50%;transition:transform .15s,background .15s}
+.cust-toggle input:checked{background:rgba(107,142,78,0.30)}
+.cust-toggle input:checked::after{transform:translateX(16px);background:var(--ac)}
+.cust-label{font-family:var(--fh);font-size:13px;color:var(--tx);font-weight:500}
+.cust-move{display:flex;gap:4px}
+.cust-arrow{width:28px;height:28px;background:transparent;border:1px solid var(--s3);border-radius:var(--r2);color:var(--tx2);font-family:var(--fm);font-size:13px;cursor:pointer;-webkit-appearance:none;transition:border-color .15s,color .15s}
+.cust-arrow:hover:not(:disabled){border-color:var(--ac);color:var(--ac)}
+.cust-arrow:disabled{opacity:0.3;cursor:not-allowed}
+.cust-foot{display:flex;gap:8px;margin-top:20px;padding-top:14px;border-top:1px solid var(--s3)}
+.cust-foot .pbtn,.cust-foot .sbtn{flex:1}
+
 /* Hamburger menu */
 .nav-inner{justify-content:space-between}
 .nav-select{display:none !important}
@@ -600,6 +631,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   <div class="nav-inner">
     <div class="brand"><span class="word-leafy">Bl<svg class="oleaf-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.2" fill="none" stroke="currentColor" stroke-width="1.4"/><use href="#cannabis-leaf-filled" x="2" y="3.5" width="20" height="16" style="color:var(--ac)"/></svg><svg class="oleaf-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.2" fill="none" stroke="currentColor" stroke-width="1.4"/><use href="#cannabis-leaf-filled" x="2" y="3.5" width="20" height="16" style="color:var(--ac)"/></svg>my's Bud Log</span></div>
     <select class="nav-select" onchange="showTab(this.value)" aria-hidden="true">
+      <option value="home">Home</option>
       <option value="browser">Strains</option>
       <option value="journal">Journal</option>
       <option value="analysis">Analysis</option>
@@ -612,6 +644,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     </button>
   </div>
   <div class="menu-panel" id="menuPanel" role="menu" aria-hidden="true">
+    <button type="button" role="menuitem" class="menu-item" data-tab="home" onclick="pickTab('home')">Home</button>
     <button type="button" role="menuitem" class="menu-item" data-tab="browser" onclick="pickTab('browser')">Strains</button>
     <button type="button" role="menuitem" class="menu-item" data-tab="journal" onclick="pickTab('journal')">Journal</button>
     <button type="button" role="menuitem" class="menu-item" data-tab="analysis" onclick="pickTab('analysis')">Analysis</button>
@@ -624,8 +657,18 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <!-- TOAST -->
 <div id="toast" class="toast"></div>
 
+<!-- ═══ HOME TAB ═══ -->
+<div id="tab-home" class="page">
+  <div class="home-head">
+    <h1 class="h1">Welcome back</h1>
+    <button class="customise-btn" type="button" onclick="openCustomise()">Customise</button>
+  </div>
+  <p class="sub" id="homeSub"></p>
+  <div id="homeSections"></div>
+</div>
+
 <!-- ═══ BROWSER TAB ═══ -->
-<div id="tab-browser" class="page">
+<div id="tab-browser" class="page hidden">
   <h1 class="h1">Strain Browser</h1>
   <p class="sub" id="strainCount"></p>
   <div class="toolbar">
@@ -670,8 +713,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     </select>
     <button class="fbtn" id="cbdBtn" onclick="toggleCbd()">CBD Strains</button>
   </div>
-  <div class="shelves" id="shelves"></div>
-  <div class="grid-header" id="gridHeader"></div>
   <div class="grid" id="strainGrid"></div>
   <div class="pager" id="pager"></div>
 </div>
@@ -750,6 +791,22 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   <h1 class="h1">Profile</h1>
   <p class="sub">Your tracking setup — what condition and symptoms BBL tailors itself to.</p>
   <div id="profileView"><!-- rendered by renderProfile() --></div>
+</div>
+
+<!-- ═══ CUSTOMISE HOME SHEET ═══ -->
+<div id="customiseSheet" class="sheet-wrap hidden">
+  <div class="sheet-ovl" onclick="closeCustomise()"></div>
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <button class="sheet-close" onclick="closeCustomise()">✕</button>
+    <div class="dsec"><div class="dstitle">Customise home</div></div>
+    <p class="cust-help">Toggle which sections appear, and use the arrows to reorder them.</p>
+    <div class="cust-body" onclick="customiseAction(event)"></div>
+    <div class="cust-foot">
+      <button type="button" class="sbtn" onclick="closeCustomise()">Cancel</button>
+      <button type="button" class="pbtn" onclick="saveCustomise()">Save</button>
+    </div>
+  </div>
 </div>
 
 <!-- ═══ DETAIL SHEET ═══ -->
@@ -1461,6 +1518,7 @@ function showTab(name) {
   document.querySelectorAll('.menu-item').forEach(b=>{
     b.classList.toggle('active', b.dataset.tab===name);
   });
+  if(name==='home') renderHome();
   if(name==='journal') renderJournal();
   if(name==='analysis') renderAnalysis();
   if(name==='reviews') renderReviews();
@@ -1732,8 +1790,240 @@ function renderBrowser() {
       <button class="lbtn ${ct>0?'done':''}" data-log="${s.id.replace(/"/g,'&quot;')}">${ct>0?`✓ Logged ${ct}×`:'+ Log This Strain'}</button>
     </div>`;
   }).join('');
-  renderShelves();
   renderPager(list.length);
+}
+
+// ═══ HOME TAB ════════════════════════════════════════════════════════════════
+const HOME_SECTIONS = [
+  {key:'snapshot',    label:"Today's snapshot"},
+  {key:'recommended', label:'Recommended for you'},
+  {key:'recent',      label:'Recently logged'},
+  {key:'topRated',    label:'Top rated by you'},
+  {key:'latest',      label:'Latest additions'},
+  {key:'filters',     label:'Quick filters'},
+];
+
+const FILTER_PRESETS = [
+  {key:'sleep',    label:'Sleep · Indica',       apply:{type:'Indica',  terps:['Myrcene','Linalool']}},
+  {key:'daytime',  label:'Daytime · Sativa',     apply:{type:'Sativa',  terps:['Limonene','Pinene']}},
+  {key:'pain',     label:'Pain relief',          apply:{type:'',        terps:['Caryophyllene','Myrcene']}},
+  {key:'anxiety',  label:'Anxiety relief',       apply:{type:'',        terps:['Linalool','Limonene']}},
+  {key:'highthc',  label:'High THC (22–28%)',    apply:{type:'',        thc:'22-28'}},
+  {key:'cbd',      label:'CBD strains',          apply:{cbd:true}},
+  {key:'craftorg', label:'Craft Organic',        apply:{tier:'Craft Organic'}},
+];
+
+function loadHomeSettings() {
+  try {
+    const raw = localStorage.getItem('bbl-home-settings');
+    if (!raw) throw 0;
+    const parsed = JSON.parse(raw);
+    const enabled = {};
+    HOME_SECTIONS.forEach(s => { enabled[s.key] = parsed.enabled?.[s.key] !== false; });
+    const order = HOME_SECTIONS.map(s => s.key)
+      .sort((a,b) => (parsed.order?.indexOf(a) ?? 99) - (parsed.order?.indexOf(b) ?? 99));
+    return {enabled, order};
+  } catch {
+    const enabled = {};
+    HOME_SECTIONS.forEach(s => enabled[s.key] = true);
+    return {enabled, order: HOME_SECTIONS.map(s => s.key)};
+  }
+}
+function saveHomeSettings(s) {
+  localStorage.setItem('bbl-home-settings', JSON.stringify(s));
+}
+
+function getLatestAdditions() {
+  let seen = [];
+  try { seen = JSON.parse(localStorage.getItem('bbl-seen-strain-ids')||'[]'); } catch {}
+  const seenSet = new Set(seen);
+  const currentIds = STRAINS.map(s => s.id);
+  const newOnes = currentIds.filter(id => !seenSet.has(id));
+  if (seen.length === 0) {
+    // first visit ever — snapshot all, treat none as new
+    localStorage.setItem('bbl-seen-strain-ids', JSON.stringify(currentIds));
+    return [];
+  }
+  return newOnes.map(id => STRAINS.find(s => s.id === id)).filter(Boolean).slice(0,20);
+}
+
+function markStrainsSeen() {
+  localStorage.setItem('bbl-seen-strain-ids', JSON.stringify(STRAINS.map(s => s.id)));
+}
+
+function homeSnapshotHTML() {
+  const total = journal.length;
+  const strains = new Set(journal.map(e => e.strainId)).size;
+  const avg = total ? (journal.reduce((a,e)=>a+e.rating,0)/total).toFixed(1) : '—';
+  return `<section class="home-section">
+    <div class="shelf-title">Today's snapshot</div>
+    <div class="snap-grid">
+      <div class="snap-cell"><div class="snap-val">${total}</div><div class="snap-lbl">Entries</div></div>
+      <div class="snap-cell"><div class="snap-val">${strains}</div><div class="snap-lbl">Strains</div></div>
+      <div class="snap-cell"><div class="snap-val">${avg}</div><div class="snap-lbl">Avg rating</div></div>
+    </div>
+  </section>`;
+}
+
+function homeShelfHTML(title, strains) {
+  if (!strains?.length) return '';
+  return `<section class="home-section">
+    <div class="shelf-title">${title}</div>
+    <div class="shelf-scroll">${strains.map(shelfCard).join('')}</div>
+  </section>`;
+}
+
+function homeRecentHTML() {
+  if (!journal.length) return '';
+  const recent = [...journal].sort((a,b) => (b.date||'').localeCompare(a.date||'')).slice(0,8);
+  const strainsById = {};
+  STRAINS.forEach(s => strainsById[s.id] = s);
+  const cards = recent.map(e => {
+    const s = strainsById[e.strainId];
+    if (!s) return '';
+    return shelfCard(s);
+  }).filter(Boolean).join('');
+  if (!cards) return '';
+  return `<section class="home-section">
+    <div class="shelf-title">Recently logged</div>
+    <div class="shelf-scroll">${cards}</div>
+  </section>`;
+}
+
+function homeRecommendedHTML() {
+  const recs = (typeof getRecommendations === 'function') ? getRecommendations() : [];
+  if (!recs.length) return '';
+  return `<section class="home-section">
+    <div class="shelf-title">Recommended for you</div>
+    <div class="shelf-scroll">${recs.slice(0,12).map(shelfCard).join('')}</div>
+  </section>`;
+}
+
+function homeTopRatedHTML() {
+  const myAvg = {};
+  journal.forEach(e => {
+    if(!myAvg[e.strainId]) myAvg[e.strainId] = {sum:0,n:0};
+    myAvg[e.strainId].sum += e.rating; myAvg[e.strainId].n += 1;
+  });
+  const top = Object.entries(myAvg)
+    .map(([id,v]) => ({id, avg: v.sum/v.n}))
+    .filter(x => x.avg >= 4)
+    .sort((a,b) => b.avg - a.avg)
+    .slice(0,10)
+    .map(x => STRAINS.find(s => s.id === x.id))
+    .filter(Boolean);
+  return homeShelfHTML('Top rated by you', top);
+}
+
+function homeLatestHTML() {
+  const latest = getLatestAdditions();
+  return homeShelfHTML('Latest additions', latest);
+}
+
+function homeFiltersHTML() {
+  return `<section class="home-section">
+    <div class="shelf-title">Quick filters</div>
+    <div class="preset-grid">
+      ${FILTER_PRESETS.map(p => `<button class="preset-pill" data-preset="${p.key}">${p.label}</button>`).join('')}
+    </div>
+  </section>`;
+}
+
+function applyPreset(key) {
+  const preset = FILTER_PRESETS.find(p => p.key === key);
+  if (!preset) return;
+  const a = preset.apply;
+  document.getElementById('searchQ').value = '';
+  document.getElementById('filterType').value = a.type || '';
+  document.getElementById('filterForm').value = '';
+  document.getElementById('filterTier').value = a.tier || '';
+  document.getElementById('filterProd').value = '';
+  document.getElementById('filterThc').value = a.thc || '0-35';
+  document.getElementById('sortBy').value = 'name';
+  // Terpenes
+  document.querySelectorAll('#terpMultiDrop input').forEach(cb => {
+    cb.checked = (a.terps||[]).includes(cb.value);
+  });
+  if (typeof onTerpCheck === 'function') onTerpCheck();
+  // CBD button
+  cbdOnly = !!a.cbd;
+  document.getElementById('cbdBtn').classList.toggle('on', cbdOnly);
+  showTab('browser');
+}
+
+function renderHome() {
+  const sub = document.getElementById('homeSub');
+  if (sub) sub.textContent = (profile?.condition && profile?.symptoms?.length)
+    ? `Personalised for ${profile.condition}`
+    : 'Your personal landing page';
+  const settings = loadHomeSettings();
+  const map = {
+    snapshot:    homeSnapshotHTML,
+    recommended: homeRecommendedHTML,
+    recent:      homeRecentHTML,
+    topRated:    homeTopRatedHTML,
+    latest:      homeLatestHTML,
+    filters:     homeFiltersHTML,
+  };
+  const html = settings.order
+    .filter(k => settings.enabled[k])
+    .map(k => map[k]?.() || '')
+    .filter(Boolean)
+    .join('');
+  document.getElementById('homeSections').innerHTML = html || `<p class="home-empty">All sections hidden — tap <strong>Customise</strong> to bring some back.</p>`;
+  // After render, snapshot current strain set so "latest" only shows future additions
+  markStrainsSeen();
+}
+
+// Customise sheet
+function openCustomise() {
+  const settings = loadHomeSettings();
+  const ordered = settings.order.map(k => HOME_SECTIONS.find(s => s.key === k)).filter(Boolean);
+  const items = ordered.map((s,i) => `
+    <div class="cust-row" data-key="${s.key}">
+      <label class="cust-toggle">
+        <input type="checkbox" ${settings.enabled[s.key] ? 'checked' : ''} data-tgl="${s.key}">
+        <span class="cust-label">${s.label}</span>
+      </label>
+      <div class="cust-move">
+        <button type="button" class="cust-arrow" data-move="up" data-i="${i}" ${i===0?'disabled':''}>↑</button>
+        <button type="button" class="cust-arrow" data-move="down" data-i="${i}" ${i===ordered.length-1?'disabled':''}>↓</button>
+      </div>
+    </div>`).join('');
+  const wrap = document.getElementById('customiseSheet');
+  wrap.querySelector('.cust-body').innerHTML = items;
+  wrap.classList.remove('hidden');
+}
+function closeCustomise() {
+  document.getElementById('customiseSheet').classList.add('hidden');
+}
+function customiseAction(e) {
+  const wrap = document.getElementById('customiseSheet');
+  const moveBtn = e.target.closest('[data-move]');
+  if (moveBtn) {
+    const i = Number(moveBtn.dataset.i);
+    const dir = moveBtn.dataset.move === 'up' ? -1 : 1;
+    const rows = [...wrap.querySelectorAll('.cust-row')];
+    const j = i + dir;
+    if (j < 0 || j >= rows.length) return;
+    rows[i].parentNode.insertBefore(rows[i], rows[j+(dir<0?0:1)] || null);
+    // Reindex arrows
+    [...wrap.querySelectorAll('.cust-row')].forEach((row, idx, all) => {
+      row.querySelector('[data-move=up]').dataset.i = idx;
+      row.querySelector('[data-move=down]').dataset.i = idx;
+      row.querySelector('[data-move=up]').disabled = idx === 0;
+      row.querySelector('[data-move=down]').disabled = idx === all.length - 1;
+    });
+  }
+}
+function saveCustomise() {
+  const wrap = document.getElementById('customiseSheet');
+  const enabled = {};
+  wrap.querySelectorAll('[data-tgl]').forEach(cb => { enabled[cb.dataset.tgl] = cb.checked; });
+  const order = [...wrap.querySelectorAll('.cust-row')].map(r => r.dataset.key);
+  saveHomeSettings({enabled, order});
+  closeCustomise();
+  renderHome();
 }
 
 function toggleCbd() {
@@ -1746,6 +2036,15 @@ function toggleCbd() {
 document.getElementById('tab-browser').addEventListener('click', function(e) {
   const pageBtn = e.target.closest('[data-page]');
   if(pageBtn && !pageBtn.disabled) { goToPage(Number(pageBtn.dataset.page)); return; }
+  const logBtn = e.target.closest('[data-log]');
+  if(logBtn) { e.stopPropagation(); openModal(logBtn.dataset.log); return; }
+  const card = e.target.closest('[data-sid]');
+  if(card) { openDetail(card.dataset.sid); }
+});
+
+document.getElementById('tab-home').addEventListener('click', function(e) {
+  const preset = e.target.closest('[data-preset]');
+  if(preset) { applyPreset(preset.dataset.preset); return; }
   const logBtn = e.target.closest('[data-log]');
   if(logBtn) { e.stopPropagation(); openModal(logBtn.dataset.log); return; }
   const card = e.target.closest('[data-sid]');
@@ -2257,6 +2556,7 @@ function loadStrains() {
   STRAINS_JSON.forEach(s => STRAINS.push({...s, id: s.code}));
   initFilters();
   renderBrowser();
+  renderHome();
 }
 
 loadData();
