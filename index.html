@@ -536,6 +536,19 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .cust-foot{display:flex;gap:8px;margin-top:20px;padding-top:14px;border-top:1px solid var(--s3)}
 .cust-foot .pbtn,.cust-foot .sbtn{flex:1}
 
+/* Welcome / onboarding step 0 */
+.welcome-mark{display:flex;justify-content:center;margin:8px 0 14px;color:var(--ac)}
+.welcome-eyebrow{font-family:var(--fm);font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ac2);text-align:center;margin-bottom:6px}
+.welcome-title{font-size:30px !important;text-align:center;margin-bottom:14px !important}
+.welcome-lede{font-family:var(--fh);font-size:14px;line-height:1.55;color:var(--tx2);text-align:center;margin:0 0 20px 0;max-width:440px;margin-left:auto;margin-right:auto}
+.welcome-list{display:flex;flex-direction:column;gap:14px;margin-bottom:18px}
+.welcome-item{display:flex;gap:14px;padding:14px 14px 14px 14px;background:transparent;border-left:1px solid var(--s3);transition:border-color .15s}
+.welcome-item:hover{border-left-color:var(--ac)}
+.welcome-num{font-family:var(--fm);font-size:10px;font-weight:500;letter-spacing:0.18em;color:var(--ac2);flex-shrink:0;width:22px;padding-top:2px}
+.welcome-body{flex:1;min-width:0}
+.welcome-h{font-family:var(--fd);font-style:italic;font-weight:400;font-size:17px;color:var(--tx);line-height:1.25;margin-bottom:4px}
+.welcome-t{font-family:var(--fh);font-size:13px;color:var(--tx2);line-height:1.55}
+
 /* Hamburger menu */
 .nav-inner{justify-content:space-between}
 .nav-select{display:none !important}
@@ -1143,14 +1156,63 @@ let _onboardingWired = false;
 function checkOnboarding() {
   if (profile && profile.setupComplete) return;
   onboardingMode = 'onboarding';
-  onboardingStep = 1;
+  onboardingStep = 0;
   onboardingCondition = (profile && profile.condition) || null;
   onboardingSymptoms = (profile && Array.isArray(profile.symptoms))
     ? profile.symptoms.slice()
     : [];
   document.getElementById('onboardingModal').classList.remove('hidden');
-  renderOnboardingStep1();
+  renderOnboardingStep0();
   wireOnboardingDelegation();
+}
+
+function renderOnboardingStep0() {
+  onboardingStep = 0;
+  document.getElementById('onboardingModalBody').innerHTML = `
+    <div class="modal-handle"></div>
+    <div class="welcome-mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="56" height="56">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.4" style="color:var(--ac)"/>
+        <use href="#cannabis-leaf-filled" x="10" y="14" width="44" height="36" style="color:var(--ac)"/>
+      </svg>
+    </div>
+    <div class="welcome-eyebrow">A personal medical cannabis journal</div>
+    <div class="mtitle welcome-title">Welcome to Bloomy's Bud Log</div>
+    <p class="welcome-lede">Track what you try, learn what works for you, and get recommendations grounded in your own data — not someone else's.</p>
+    <div class="welcome-list">
+      <div class="welcome-item">
+        <div class="welcome-num">01</div>
+        <div class="welcome-body">
+          <div class="welcome-h">Set up your profile</div>
+          <div class="welcome-t">Pick your primary condition and the symptoms you'd like to track. This tailors everything that follows.</div>
+        </div>
+      </div>
+      <div class="welcome-item">
+        <div class="welcome-num">02</div>
+        <div class="welcome-body">
+          <div class="welcome-h">Log strains as you use them</div>
+          <div class="welcome-t">Rate each session, record terpenes, and score how well it eased each symptom. Takes about a minute per entry.</div>
+        </div>
+      </div>
+      <div class="welcome-item">
+        <div class="welcome-num">03</div>
+        <div class="welcome-body">
+          <div class="welcome-h">Discover your patterns</div>
+          <div class="welcome-t">BBL analyses your journal to find which terpenes, THC ranges, and strain types help you most — and recommends untried strains that match.</div>
+        </div>
+      </div>
+    </div>
+    <div class="onb-privacy"><b>Private by design.</b> No login, no account, no upload. Everything lives in this browser — export a backup any time from the Backup tab.</div>
+    <div class="macts">
+      <button class="pbtn" type="button" onclick="renderOnboardingStep1()">Set up my profile</button>
+    </div>
+    <div class="onb-skip-wrap">
+      <button class="onb-skip" onclick="skipOnboarding()" type="button">Skip for now</button>
+    </div>
+    <div class="onb-disclaimer">BBL is a personal tracking tool, not medical advice. Always consult your prescriber for treatment decisions.</div>
+  `;
+  const body = document.getElementById('onboardingModalBody').parentElement;
+  if (body && body.scrollTop !== undefined) body.scrollTop = 0;
 }
 
 function closeOnboarding() {
@@ -1169,7 +1231,7 @@ function renderOnboardingStep1() {
       <span class="onb-cond-chev">${sel?'✓':'›'}</span>
     </button>`;
   }).join('');
-  const title = isChange ? 'Change your condition' : "Welcome to Bloomy's Bud Log";
+  const title = isChange ? 'Change your condition' : "Set up your profile";
   const subtitle = isChange
     ? 'Pick a new condition — your symptom list will reset to its defaults.'
     : "Let's set up tracking for your condition.";
