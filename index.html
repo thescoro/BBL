@@ -428,6 +428,29 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .tnote{font-family:var(--fh);font-size:12px;color:var(--tx2);line-height:1.55;margin-top:2px}
 .domlbl{font-family:var(--fm);font-size:9px;letter-spacing:0.18em;color:var(--ac);margin-left:8px;vertical-align:0.18em}
 
+/* Analysis tab: editorial card grid (no icons) */
+.acard{background:var(--s1);border:1px solid var(--s3);border-radius:var(--r);padding:18px}
+.actitle{font-family:var(--fm);font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--ac2);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--s3);display:flex;align-items:baseline;gap:8px}
+.actitle::before{content:"";display:inline-block;width:14px;height:1px;background:var(--ac2);align-self:center;flex-shrink:0}
+.ri{border-bottom:1px solid var(--s3)}
+.rname{font-family:var(--fd);font-style:italic;font-weight:400;font-size:15px;color:var(--tx)}
+.rscore{color:var(--ac3);font-weight:600;letter-spacing:0.05em}
+.symrow{margin-bottom:10px;gap:12px}
+.symlbl{font-family:var(--fh);font-size:12px;color:var(--tx);flex:1}
+.sbw{height:3px;background:var(--s3);border-radius:0}
+.sbwf{background:var(--ac3);border-radius:0}
+.syms{color:var(--ac3);font-weight:500}
+.best-card{background:transparent;border:1px solid var(--s3);border-radius:var(--r2);padding:12px}
+.best-lbl{font-family:var(--fm);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--tx3);margin-bottom:6px}
+.best-name{font-family:var(--fd);font-style:italic;font-weight:400;font-size:15px;color:var(--tx);line-height:1.2;margin-bottom:2px}
+.best-score{font-family:var(--fm);font-size:11px;color:var(--ac3)}
+.ibox{background:transparent;border:none;border-left:1px solid var(--s3);border-radius:0;padding:6px 0 6px 14px;margin-bottom:8px}
+.ibox.accent{border-left-color:var(--ac);background:transparent}
+.itxt{font-family:var(--fh);font-size:13px;color:var(--tx);line-height:1.55}
+.ihl{color:var(--ac);font-weight:600}
+.ihl2{color:var(--ac4);font-weight:600}
+.symicon,.iico,.eico,.best-icon{display:none}
+
 /* Hamburger menu */
 .nav-inner{justify-content:space-between}
 .nav-select{display:none !important}
@@ -1862,11 +1885,11 @@ function getRecommendations() {
 
 function renderRecSection() {
   const recs = getRecommendations();
-  if(!recs.length) return `<div class="acard full"><div class="actitle">🔮 Recommended For You</div><div class="rec-empty">Log more strains (rated 3+ stars) to unlock personalised recommendations.</div></div>`;
+  if(!recs.length) return `<div class="acard full"><div class="actitle">Recommended For You</div><div class="rec-empty">Log more strains (rated 3+ stars) to unlock personalised recommendations.</div></div>`;
 
   // Find the max score for percentage display
   const maxS = recs[0].score;
-  return `<div class="acard full"><div class="actitle">🔮 Recommended For You — Untried Strains</div>
+  return `<div class="acard full"><div class="actitle">Recommended For You — Untried Strains</div>
     <div style="font-size:11px;color:var(--tx3);margin-bottom:12px;font-family:var(--fm)">Based on your terpene preferences, THC sweet spot, and symptom priorities</div>
     <div class="rec-grid">${recs.map(s => {
       const pct = Math.round((s.score/maxS)*100);
@@ -1891,7 +1914,7 @@ function renderAnalysis() {
   const content = document.getElementById('analysisContent');
   if(journal.length < 2) {
     sub.textContent = '';
-    content.innerHTML = `<div class="empty"><div class="eico">📊</div><div class="etitle">Not enough data yet</div><div class="etxt">Log at least 2 strain entries to unlock insights.</div></div>`;
+    content.innerHTML = `<div class="empty"><div class="etitle">Not enough data yet</div><div class="etxt">Log at least 2 strain entries to unlock insights.</div></div>`;
     return;
   }
   // Phase 5: one call up top, reused everywhere below. Profile may be 'Other'
@@ -1921,26 +1944,26 @@ function renderAnalysis() {
   const avgR=arr=>arr.length?(arr.reduce((a,e)=>a+e.rating,0)/arr.length).toFixed(1):null;
   const aLo=avgR(lo),aHi=avgR(hi);
   content.innerHTML = `<div class="agrid">
-    <div class="acard"><div class="actitle">🏆 Top Rated Strains</div>
+    <div class="acard"><div class="actitle">Top Rated Strains</div>
       ${sums.slice(0,5).map((s,i)=>`<div class="ri"><span class="rnum">#${i+1}</span><div class="rinfo"><div class="rname">${s.name}</div><div class="rsub">${s.entries.length} log${s.entries.length!==1?'s':''}</div></div><span class="rscore">${'★'.repeat(Math.round(s.avgR))}</span></div>`).join('')}
     </div>
-    <div class="acard"><div class="actitle">📈 Avg Symptom Relief</div>
-      ${oAvg.map(s=>`<div class="symrow"><span class="symicon">${s.icon}</span><span class="symlbl">${s.label}</span><div class="sbw"><div class="sbwf" style="width:${s.avg*10}%"></div></div><span class="syms">${s.avg.toFixed(1)}</span></div>`).join('')}
+    <div class="acard"><div class="actitle">Avg Symptom Relief</div>
+      ${oAvg.map(s=>`<div class="symrow"><span class="symlbl">${s.label}</span><div class="sbw"><div class="sbwf" style="width:${s.avg*10}%"></div></div><span class="syms">${s.avg.toFixed(1)}</span></div>`).join('')}
     </div>
-    <div class="acard full"><div class="actitle">🎯 Best Strain Per Symptom</div>
-      <div class="best-grid">${bySym.map(s=>`<div class="best-card"><div class="best-icon">${s.icon}</div><div class="best-lbl">${s.label}</div><div class="best-name">${s.best?.name||'—'}</div>${s.best?`<div class="best-score">${s.best.avgS[s.key].toFixed(1)}/10</div>`:''}</div>`).join('')}</div>
+    <div class="acard full"><div class="actitle">Best Strain Per Symptom</div>
+      <div class="best-grid">${bySym.map(s=>`<div class="best-card"><div class="best-lbl">${s.label}</div><div class="best-name">${s.best?.name||'—'}</div>${s.best?`<div class="best-score">${s.best.avgS[s.key].toFixed(1)}/10</div>`:''}</div>`).join('')}</div>
     </div>
-    ${terpR.length?`<div class="acard full"><div class="actitle">🌿 Terpene Performance (your data)</div>
-      <div class="best-grid">${terpR.slice(0,6).map(({t,ar,n,symAvgs})=>{const info=TERPENE_INFO[t];const symLine=symAvgs.map(({sym,avg})=>`${sym.label.split(' / ')[0]} ${avg.toFixed(1)}`).join(' · ');return`<div class="best-card"><div class="best-icon">${info?.icon||'🌿'}</div><div class="best-lbl">${t} (${n})</div><div style="font-size:11px;color:var(--ac)">★ ${ar.toFixed(1)}</div>${symLine?`<div style="font-size:10px;color:var(--ac2)">${symLine}</div>`:''}</div>`;}).join('')}</div>
+    ${terpR.length?`<div class="acard full"><div class="actitle">Terpene Performance</div>
+      <div class="best-grid">${terpR.slice(0,6).map(({t,ar,n,symAvgs})=>{const symLine=symAvgs.map(({sym,avg})=>`${sym.label.split(' / ')[0]} ${avg.toFixed(1)}`).join(' · ');return`<div class="best-card"><div class="best-lbl">${t} (${n})</div><div style="font-size:11px;color:var(--ac)">★ ${ar.toFixed(1)}</div>${symLine?`<div style="font-size:10px;color:var(--ac2)">${symLine}</div>`:''}</div>`;}).join('')}</div>
     </div>`:''}
-    ${tyAvg.length>1?`<div class="acard"><div class="actitle">⚖️ Type Comparison</div>
-      ${tyAvg.map(({t,avg,n})=>`<div class="ri"><span style="font-size:15px">${TYPE_ICONS[t]}</span><div class="rinfo"><div class="rname">${t}</div><div class="rsub">${n} logs</div></div><span class="rscore" style="color:${TYPE_COLORS[t]}">${avg.toFixed(1)}</span></div>`).join('')}
-      <div class="ibox" style="margin-top:10px"><span class="iico">💡</span><div class="itxt">${tyAvg[0].t==='Indica'?`<span class="ihl">Indica</span> works best for you — typically better for physical relief, relaxation, and sleep.`:tyAvg[0].t==='Sativa'?`<span class="ihl">Sativa</span> works best for you — typically better for daytime energy, focus, and mood lift.`:`<span class="ihl">Hybrid</span> works best for you — balanced effects across mind and body.`}</div></div>
+    ${tyAvg.length>1?`<div class="acard"><div class="actitle">Type Comparison</div>
+      ${tyAvg.map(({t,avg,n})=>`<div class="ri"><div class="rinfo"><div class="rname">${t}</div><div class="rsub">${n} logs</div></div><span class="rscore" style="color:${TYPE_COLORS[t]}">${avg.toFixed(1)}</span></div>`).join('')}
+      <div class="ibox" style="margin-top:10px"><div class="itxt">${tyAvg[0].t==='Indica'?`<span class="ihl">Indica</span> works best for you — typically better for physical relief, relaxation, and sleep.`:tyAvg[0].t==='Sativa'?`<span class="ihl">Sativa</span> works best for you — typically better for daytime energy, focus, and mood lift.`:`<span class="ihl">Hybrid</span> works best for you — balanced effects across mind and body.`}</div></div>
     </div>`:''}
-    <div class="acard"><div class="actitle">🧪 THC Insight</div>
-      ${aLo?`<div class="ibox"><span class="iico">🌿</span><div class="itxt">Low THC (≤20%) — <span class="ihl">★ ${aLo}</span> avg · ${lo.length} logs</div></div>`:''}
-      ${aHi?`<div class="ibox"><span class="iico">🔥</span><div class="itxt">High THC (>20%) — <span class="ihl">★ ${aHi}</span> avg · ${hi.length} logs</div></div>`:''}
-      ${aLo&&aHi?`<div class="ibox" style="background:rgba(129,140,248,.08);border:1px solid rgba(129,140,248,.2)"><span class="iico">💡</span><div class="itxt">${Number(aLo)>Number(aHi)?`<span class="ihl2">Lower THC</span> works better. Consider Cannatonic, Bediol, Shark Shock or Nordle.`:`<span class="ihl2">Higher THC</span> works better. Your sweet spot appears to be above 20%.`}</div></div>`:''}
+    <div class="acard"><div class="actitle">THC Insight</div>
+      ${aLo?`<div class="ibox"><div class="itxt">Low THC (≤20%) — <span class="ihl">★ ${aLo}</span> avg · ${lo.length} logs</div></div>`:''}
+      ${aHi?`<div class="ibox"><div class="itxt">High THC (>20%) — <span class="ihl">★ ${aHi}</span> avg · ${hi.length} logs</div></div>`:''}
+      ${aLo&&aHi?`<div class="ibox accent"><div class="itxt">${Number(aLo)>Number(aHi)?`<span class="ihl2">Lower THC</span> works better. Consider Cannatonic, Bediol, Shark Shock or Nordle.`:`<span class="ihl2">Higher THC</span> works better. Your sweet spot appears to be above 20%.`}</div></div>`:''}
     </div>
     ${renderRecSection()}
   </div>`;
