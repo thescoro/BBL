@@ -8355,15 +8355,15 @@
     "form": "Flower",
     "terpeneDetails": [
       {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
         "name": "Limonene",
         "designation": "Major"
       },
       {
         "name": "Caryophyllene",
-        "designation": "Major"
-      },
-      {
-        "name": "Humulene",
         "designation": "Major"
       }
     ],
@@ -18584,31 +18584,19 @@
     "terpeneDetails": [
       {
         "name": "Pinene",
-        "designation": ""
-      },
-      {
-        "name": "Myrcene",
-        "designation": ""
+        "designation": "Major"
       },
       {
         "name": "Limonene",
-        "designation": ""
+        "designation": "Major"
       },
       {
         "name": "Caryophyllene",
-        "designation": ""
+        "designation": "Major"
       },
       {
-        "name": "Linalool",
-        "designation": ""
-      },
-      {
-        "name": "Humulene",
-        "designation": ""
-      },
-      {
-        "name": "Nerolidol",
-        "designation": ""
+        "name": "Ocimene",
+        "designation": "Major"
       }
     ],
     "schema_version": 2
