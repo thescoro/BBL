@@ -559,6 +559,19 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .toast.toast-error{border-color:var(--red) !important;color:var(--tx)}
 .toast.toast-error::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:8px;vertical-align:0.18em}
 
+/* Backup card inside Profile tab */
+.prof-backup-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid var(--s3)}
+.prof-backup-row:last-of-type{border-bottom:1px solid var(--s3)}
+.prof-backup-info{flex:1;min-width:0}
+.prof-backup-h{font-family:var(--fd);font-style:italic;font-weight:400;font-size:16px;color:var(--tx);margin-bottom:4px;line-height:1.25}
+.prof-backup-t{font-family:var(--fh);font-size:12.5px;color:var(--tx2);line-height:1.5}
+.prof-backup-warn{color:var(--red);font-weight:500}
+.prof-backup-btn{flex-shrink:0;height:36px;padding:0 14px;font-size:12px;letter-spacing:0.02em}
+.prof-backup-notes{display:flex;flex-direction:column;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--s3)}
+.prof-backup-note{display:flex;align-items:flex-start;gap:10px;font-family:var(--fh);font-size:12px;color:var(--tx2);line-height:1.55}
+.prof-backup-bullet{flex-shrink:0;width:4px;height:4px;border-radius:50%;background:var(--ac2);margin-top:8px}
+@media (max-width:520px){.prof-backup-row{flex-direction:column;align-items:stretch;gap:10px}.prof-backup-btn{width:100%}}
+
 /* Hamburger menu */
 .nav-inner{justify-content:space-between}
 .nav-select{display:none !important}
@@ -659,7 +672,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <option value="journal">Journal</option>
       <option value="analysis">Analysis</option>
       <option value="reviews">Reviews</option>
-      <option value="backup">Backup</option>
       <option value="profile">Profile</option>
     </select>
     <button type="button" class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="menuPanel">
@@ -672,7 +684,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     <button type="button" role="menuitem" class="menu-item" data-tab="journal" onclick="pickTab('journal')">Journal</button>
     <button type="button" role="menuitem" class="menu-item" data-tab="analysis" onclick="pickTab('analysis')">Analysis</button>
     <button type="button" role="menuitem" class="menu-item" data-tab="reviews" onclick="pickTab('reviews')">Reviews</button>
-    <button type="button" role="menuitem" class="menu-item" data-tab="backup" onclick="pickTab('backup')">Backup</button>
     <button type="button" role="menuitem" class="menu-item" data-tab="profile" onclick="pickTab('profile')">Profile</button>
   </div>
 </nav>
@@ -784,30 +795,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 </div>
 
 <!-- ═══ BACKUP TAB ═══ -->
-<div id="tab-backup" class="page hidden">
-  <h1 class="h1">Backup & Restore</h1>
-  <p class="sub">Your data lives on this device. Export regularly to keep it safe.</p>
-
-  <div class="acard" style="margin-bottom:14px">
-    <div class="actitle">📤 Export Journal</div>
-    <p style="font-size:13px;color:var(--tx2);margin-bottom:14px;line-height:1.6">Save all your journal entries as a JSON file. Store it in iCloud Drive or Notes to keep it safe.</p>
-    <button class="pbtn" onclick="exportData()" style="max-width:280px">Download Journal Backup</button>
-  </div>
-
-  <div class="acard" style="margin-bottom:14px">
-    <div class="actitle">📥 Import Journal</div>
-    <p style="font-size:13px;color:var(--tx2);margin-bottom:14px;line-height:1.6">Restore from a previous backup. <strong style="color:var(--red)">This will replace your current journal.</strong></p>
-    <input type="file" id="importFile" accept=".json" onchange="importData(event)" style="display:none">
-    <button class="sbtn" onclick="document.getElementById('importFile').click()">Choose Backup File…</button>
-  </div>
-
-  <div class="acard">
-    <div class="actitle">ℹ️ About Your Data</div>
-    <div class="ibox"><div class="iico">🔒</div><div class="itxt">All data is stored <span class="ihl">only on this device</span> in your browser's storage. Nothing is sent to any server.</div></div>
-    <div class="ibox"><div class="iico">⚠️</div><div class="itxt">Clearing Safari's website data will erase your journal. Export regularly as a backup.</div></div>
-    <div class="ibox"><div class="iico">📱</div><div class="itxt">To use on multiple devices, export from one and import on another.</div></div>
-  </div>
-</div>
+<!-- Hidden file input for importing a backup (lives outside any tab so importData works from Profile) -->
+<input type="file" id="importFile" accept=".json" onchange="importData(event)" style="display:none">
 
 <!-- ═══ PROFILE TAB (Phase 3) ═══ -->
 <div id="tab-profile" class="page hidden">
@@ -1484,6 +1473,29 @@ function renderProfile() {
       ${emptyNote}
       ${confirmBanner}
       <div class="onb-sym-list" id="profileSymList">${items}</div>
+    </div>
+
+    <div class="prof-card">
+      <div class="prof-card-hdr">Backup &amp; Restore</div>
+      <div class="prof-backup-row">
+        <div class="prof-backup-info">
+          <div class="prof-backup-h">Export your journal</div>
+          <div class="prof-backup-t">Save all entries as a JSON file. Store it somewhere safe like iCloud Drive or Notes.</div>
+        </div>
+        <button class="sbtn prof-backup-btn" onclick="exportData()" type="button">Download backup</button>
+      </div>
+      <div class="prof-backup-row">
+        <div class="prof-backup-info">
+          <div class="prof-backup-h">Import a backup</div>
+          <div class="prof-backup-t"><span class="prof-backup-warn">This replaces your current journal.</span> Choose a previously-exported JSON file.</div>
+        </div>
+        <button class="sbtn prof-backup-btn" onclick="document.getElementById('importFile').click()" type="button">Choose file\u2026</button>
+      </div>
+      <div class="prof-backup-notes">
+        <div class="prof-backup-note"><span class="prof-backup-bullet"></span>All data is stored only on this device \u2014 nothing is sent to any server.</div>
+        <div class="prof-backup-note"><span class="prof-backup-bullet"></span>Clearing your browser's website data will erase your journal. Export regularly.</div>
+        <div class="prof-backup-note"><span class="prof-backup-bullet"></span>To use BBL on multiple devices, export from one and import on the other.</div>
+      </div>
     </div>
   `;
 
