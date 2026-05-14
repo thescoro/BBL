@@ -414,6 +414,20 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .fbtn:hover{border-color:var(--tx3);color:var(--tx)}
 .fbtn.on{background:rgba(107,142,78,0.10);border-color:var(--ac);color:var(--ac)}
 
+/* Card metadata: stylish typographic badges (no icons) */
+.bdgs{align-items:baseline;gap:10px;margin-bottom:12px}
+.tbadge{font-family:var(--fm);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;padding:0;background:transparent;border:none;border-radius:0;position:relative}
+.tbadge::before{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:0.18em}
+.ybadge{font-family:var(--fd);font-style:italic;font-weight:400;font-size:14px;letter-spacing:0;text-transform:none;padding:0;background:transparent;border:none;border-radius:0}
+.tchips{gap:6px}
+.tch{font-family:var(--fm);font-size:9.5px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:3px 9px;background:transparent;border:1px solid var(--s3);color:var(--tx2);border-radius:3px}
+.tch.dom{background:rgba(184,155,107,0.08);border-color:var(--ac2);color:var(--ac4)}
+.ticon{display:none}
+.titem{background:transparent;border:none;border-left:1px solid var(--s3);border-radius:0;padding:6px 0 6px 12px;margin-bottom:10px}
+.tname{font-family:var(--fd);font-style:italic;font-weight:400;font-size:16px;color:var(--tx)}
+.tnote{font-family:var(--fh);font-size:12px;color:var(--tx2);line-height:1.55;margin-top:2px}
+.domlbl{font-family:var(--fm);font-size:9px;letter-spacing:0.18em;color:var(--ac);margin-left:8px;vertical-align:0.18em}
+
 /* Hamburger menu */
 .nav-inner{justify-content:space-between}
 .nav-select{display:none !important}
@@ -740,9 +754,9 @@ const TERPENE_INFO = {
   Cymene:        {icon:"🍊",note:"Citrusy, woody. Anti-inflammatory, analgesic."},
 };
 
-const TIER_COLORS = {Value:"#64748b",Core:"#0ea5e9",Craft:"#8b5cf6","Craft Organic":"#10b981","Craft Select":"#f59e0b",Premium:"#ef4444"};
-const TYPE_COLORS = {Indica:"#818cf8",Sativa:"#34d399",Hybrid:"#fb923c"};
-const TYPE_ICONS  = {Indica:"🌙",Sativa:"☀️",Hybrid:"⚖️"};
+const TIER_COLORS = {Value:"#8A8174",Core:"#7E94A5",Craft:"#A48AA8","Craft Organic":"#7FA060","Craft Select":"#C7B68E",Premium:"#B45B4A"};
+const TYPE_COLORS = {Indica:"#9B8FB5",Sativa:"#7FA060",Hybrid:"#C7B68E"};
+const TYPE_ICONS  = {Indica:"",Sativa:"",Hybrid:""};
 const SYMPTOMS = [
   {key:"pain",      label:"Pain Relief",          icon:"⚡"},
   {key:"spasticity",label:"Spasticity / Stiffness",icon:"🦿"},
@@ -1340,12 +1354,12 @@ function debouncedRender() {
   _debounceTimer = setTimeout(renderBrowser, 200);
 }
 function tBadge(tier) {
-  const c = TIER_COLORS[tier]||'#64748b';
-  return `<span class="tbadge" style="color:${c};background:${c}22;border:1px solid ${c}44">${tier}</span>`;
+  const c = TIER_COLORS[tier]||'#8A8174';
+  return `<span class="tbadge" style="color:${c}">${tier}</span>`;
 }
 function yBadge(type) {
-  const c = TYPE_COLORS[type]||'#64748b';
-  return `<span class="ybadge" style="color:${c};background:${c}18;border:1px solid ${c}35">${TYPE_ICONS[type]||''} ${type}</span>`;
+  const c = TYPE_COLORS[type]||'#8A8174';
+  return `<span class="ybadge" style="color:${c}">${type}</span>`;
 }
 function stars(v) {
   return `<div class="strow">${[1,2,3,4,5].map(n=>`<span class="ststar" style="color:${v>=n?'#fbbf24':'var(--tx3)'}">★</span>`).join('')}</div>`;
@@ -1491,7 +1505,7 @@ function renderBrowser() {
     const ct = counts[s.id]||0;
     const ar = avgRatings[s.id];
     const avg = ar ? (ar.sum/ar.n).toFixed(1) : null;
-    const tChips = (s.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}">${TERPENE_INFO[t]?.icon||'🌿'} ${t}</span>`).join('');
+    const tChips = (s.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}">${t}</span>`).join('');
     const hTags = (s.helpsWith||[]).slice(0,3).map(h=>`<span class="tag ht">${h}</span>`).join('');
     const isCart = s.form === 'Cartridge';
     const thcLbl = isCart ? 'THC' : 'THC';
@@ -1534,7 +1548,7 @@ function initFilters() {
   const prods = [...new Set(STRAINS.map(s=>s.producer))].sort();
   document.getElementById('filterProd').innerHTML = '<option value="">All Producers</option>' + prods.map(p=>`<option>${p}</option>`).join('');
   const terps = [...new Set(STRAINS.flatMap(s=>s.terpenes||[]))].sort();
-  document.getElementById('terpMultiDrop').innerHTML = terps.map(t=>`<label><input type="checkbox" value="${t}" onchange="onTerpCheck()"> ${TERPENE_INFO[t]?.icon||'🌿'} ${t}</label>`).join('') + '<div class="terp-multi-clear" onclick="clearTerpSel()">Clear selection</div>';
+  document.getElementById('terpMultiDrop').innerHTML = terps.map(t=>`<label><input type="checkbox" value="${t}" onchange="onTerpCheck()"> ${t}</label>`).join('') + '<div class="terp-multi-clear" onclick="clearTerpSel()">Clear selection</div>';
 }
 
 // ═══ DETAIL SHEET ════════════════════════════════════════════════════════════
@@ -1545,7 +1559,7 @@ function openDetail(strainId) {
   const ct = journal.filter(e=>e.strainId===strainId).length;
   const tItems = (s.terpenes||[]).map((t,i)=>{
     const info = TERPENE_INFO[t]||{icon:'🌿',note:'Cannabis terpene.'};
-    return `<div class="titem"><div class="ticon">${info.icon}</div><div><div class="tname">${t}${i===0?'<span class="domlbl">dominant</span>':''}</div><div class="tnote">${info.note}</div></div></div>`;
+    return `<div class="titem"><div><div class="tname">${t}${i===0?'<span class="domlbl">dominant</span>':''}</div><div class="tnote">${info.note}</div></div></div>`;
   }).join('');
   const isCart = s.form === 'Cartridge';
   const cartFields = isCart ? `
@@ -1698,7 +1712,7 @@ function renderJournal() {
     }
   });
   el.innerHTML = sorted.map(e=>{
-    const tChips = (e.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}">${TERPENE_INFO[t]?.icon||'🌿'} ${t}</span>`).join('');
+    const tChips = (e.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}">${t}</span>`).join('');
     // Phase 5: pills iterate the entry's OWN score keys so historical entries
     // logged under a different profile (e.g. old MS scores viewed while user
     // is now on ADHD) still render exactly what was stored at the time.
@@ -1856,8 +1870,8 @@ function renderRecSection() {
     <div style="font-size:11px;color:var(--tx3);margin-bottom:12px;font-family:var(--fm)">Based on your terpene preferences, THC sweet spot, and symptom priorities</div>
     <div class="rec-grid">${recs.map(s => {
       const pct = Math.round((s.score/maxS)*100);
-      const tChips = s.matchedTerps.map(t=>`<span class="tch dom">${TERPENE_INFO[t]?.icon||'🌿'} ${t}</span>`).join('');
-      const otherTerps = (s.terpenes||[]).filter(t=>!s.matchedTerps.includes(t)).slice(0,2).map(t=>`<span class="tch">${TERPENE_INFO[t]?.icon||'🌿'} ${t}</span>`).join('');
+      const tChips = s.matchedTerps.map(t=>`<span class="tch dom">${t}</span>`).join('');
+      const otherTerps = (s.terpenes||[]).filter(t=>!s.matchedTerps.includes(t)).slice(0,2).map(t=>`<span class="tch">${t}</span>`).join('');
       return `<div class="rec-card">
         <div class="rec-match">${pct}% match</div>
         <div class="rec-name">${cleanCartName(s.name)}</div>
