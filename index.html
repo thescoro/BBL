@@ -383,7 +383,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 
 /* Page sits above atmosphere */
 .nav{z-index:50}
-.page,#toast,.sheet-wrap,.modal-wrap{position:relative;z-index:3}
+.page,.sheet-wrap,.modal-wrap{position:relative;z-index:3}
 .sheet-wrap,.modal-wrap{position:fixed;z-index:150}
 
 /* Tighten the gap between nav and the first heading on each tab */
@@ -548,6 +548,16 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .welcome-body{flex:1;min-width:0}
 .welcome-h{font-family:var(--fd);font-style:italic;font-weight:400;font-size:17px;color:var(--tx);line-height:1.25;margin-bottom:4px}
 .welcome-t{font-family:var(--fh);font-size:13px;color:var(--tx2);line-height:1.55}
+
+/* Form validation feedback */
+@keyframes shake-x{0%,100%{transform:translateX(0)}20%{transform:translateX(-4px)}40%{transform:translateX(4px)}60%{transform:translateX(-3px)}80%{transform:translateX(2px)}}
+.field-invalid{border-color:var(--red) !important;box-shadow:0 0 0 2px rgba(180,91,74,0.18);border-radius:var(--r2);animation:shake-x 0.4s ease}
+.star-row.field-invalid,.finp.field-invalid{outline:1px solid var(--red);outline-offset:2px}
+
+/* Toast: louder and clearly visible above modals */
+.toast{font-family:var(--fh) !important;font-size:13px !important;font-weight:500 !important;padding:12px 18px !important;letter-spacing:0.01em;background:var(--s2) !important;color:var(--tx) !important;border:1px solid var(--ac) !important;box-shadow:0 12px 28px rgba(0,0,0,0.5) !important;z-index:1000 !important;max-width:calc(100vw - 32px);white-space:normal;text-align:center}
+.toast.toast-error{border-color:var(--red) !important;color:var(--tx)}
+.toast.toast-error::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:8px;vertical-align:0.18em}
 
 /* Hamburger menu */
 .nav-inner{justify-content:space-between}
@@ -1563,10 +1573,14 @@ function yBadge(type) {
 function stars(v) {
   return `<div class="strow">${[1,2,3,4,5].map(n=>`<span class="ststar" style="color:${v>=n?'#fbbf24':'var(--tx3)'}">★</span>`).join('')}</div>`;
 }
-function toast(msg) {
+function toast(msg, type) {
   const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'), 2500);
+  t.textContent = msg;
+  t.classList.remove('toast-error');
+  if(type === 'error') t.classList.add('toast-error');
+  t.classList.add('show');
+  clearTimeout(t._hideTimer);
+  t._hideTimer = setTimeout(()=>t.classList.remove('show'), type === 'error' ? 4000 : 2500);
 }
 function safeId(id) {
   return (id||'').replace(/\\/g,'\\\\').replace(/'/g,'\\u0027').replace(/"/g,'\\u0022');
@@ -2226,8 +2240,18 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 function saveEntry() {
-  if(modalRating === 0) {
-    toast('Please tap a star rating before saving');
+  const missing = [];
+  if(modalRating === 0) missing.push({field:'rating', label:'Overall rating', el:document.getElementById('starRow')});
+  if(!document.getElementById('fDate').value) missing.push({field:'date', label:'Date', el:document.getElementById('fDate')});
+  document.querySelectorAll('.field-invalid').forEach(n => n.classList.remove('field-invalid'));
+  if(missing.length){
+    missing.forEach(m => { if(m.el) m.el.classList.add('field-invalid'); });
+    const first = missing[0];
+    if(first.el && first.el.scrollIntoView) first.el.scrollIntoView({behavior:'smooth', block:'center'});
+    const msg = missing.length === 1
+      ? `Please add a ${missing[0].label.toLowerCase()} before saving`
+      : `Missing: ${missing.map(m=>m.label).join(', ')}`;
+    toast(msg, 'error');
     return;
   }
   const s = STRAINS.find(x=>x.id===currentStrainId);
