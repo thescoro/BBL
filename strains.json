@@ -14810,7 +14810,9 @@
     "type": "Hybrid",
     "terpenes": [],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Lemon"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "MO",
@@ -14828,7 +14830,9 @@
     "type": "Hybrid",
     "terpenes": [],
     "effects": [],
-    "flavours": [],
+    "flavours": [
+      "Lemon"
+    ],
     "helpsWith": [],
     "negatives": [],
     "id": "CHE",
@@ -24000,5 +24004,110 @@
     "genetics": "Blueberry × Haze",
     "schema_version": 2,
     "id": "BD5"
+  },
+  {
+    "name": "Frosted Lemon",
+    "producer": "4C Labs",
+    "code": "FL2",
+    "form": "Flower",
+    "tier": "Value",
+    "thc": 29,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene"
+    ],
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      }
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Herbal",
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "FL2"
+  },
+  {
+    "name": "Blood Orange Breeze",
+    "producer": "Dalgety",
+    "code": "BOB",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "BOB"
+  },
+  {
+    "name": "Britney's Frozen Lemon",
+    "producer": "Dalgety",
+    "code": "BFL",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "BFL"
+  },
+  {
+    "name": "Permanent Ink",
+    "producer": "Glass Pharms",
+    "code": "PI",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [
+      "Diesel",
+      "Lemon",
+      "Grape"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "PI"
   }
 ]
