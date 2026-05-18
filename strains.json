@@ -8355,15 +8355,15 @@
     "form": "Flower",
     "terpeneDetails": [
       {
-        "name": "Myrcene",
-        "designation": "Major"
-      },
-      {
         "name": "Limonene",
         "designation": "Major"
       },
       {
         "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Humulene",
         "designation": "Major"
       }
     ],
@@ -16589,19 +16589,19 @@
     "terpeneDetails": [
       {
         "name": "Myrcene",
-        "designation": "Major"
+        "designation": ""
       },
       {
         "name": "Limonene",
-        "designation": "Major"
+        "designation": ""
       },
       {
         "name": "Caryophyllene",
-        "designation": "Minor"
+        "designation": ""
       },
       {
         "name": "Linalool",
-        "designation": "Minor"
+        "designation": ""
       }
     ],
     "schema_version": 2
@@ -24109,5 +24109,85 @@
     "genetics": "",
     "schema_version": 2,
     "id": "PI"
+  },
+  {
+    "name": "Citrus Slap",
+    "producer": "Upstate",
+    "code": "CTS",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 33,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Humulene"
+    ],
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Humulene",
+        "designation": "Major"
+      }
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Berry"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "Ventura Dawg × Peanut Butter Cake",
+    "schema_version": 2,
+    "id": "CTS"
+  },
+  {
+    "name": "Ventura Dawg",
+    "producer": "Upstate",
+    "code": "VTD",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool"
+    ],
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Limonene",
+        "designation": "Major"
+      },
+      {
+        "name": "Linalool",
+        "designation": "Major"
+      }
+    ],
+    "effects": [],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "Chemdawg × SFV OG Kush",
+    "schema_version": 2,
+    "id": "VTD"
   }
 ]
