@@ -157,8 +157,13 @@ html{overflow-x:hidden}
 input[type=range]{-webkit-appearance:none;width:100%;height:5px;border-radius:3px;background:var(--s3);outline:none}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--ac);cursor:pointer;box-shadow:0 0 10px rgba(60,176,67,.6)}
 .star-row{display:flex;gap:10px}
-.star{font-size:28px;cursor:pointer;color:var(--tx3);-webkit-tap-highlight-color:transparent;transition:color .1s}
-.star.on{color:#f0c040}
+.star{position:relative;display:inline-block;width:32px;height:32px;font-size:32px;line-height:1;-webkit-tap-highlight-color:transparent}
+.star-bg{color:var(--tx3)}
+.star-fg{position:absolute;left:0;top:0;color:#f0c040;overflow:hidden;white-space:nowrap;pointer-events:none;transition:width .1s}
+.star-tap{position:absolute;top:0;width:50%;height:100%;cursor:pointer}
+.star-tap-l{left:0}
+.star-tap-r{right:0}
+@media(pointer:coarse){.star{width:40px;height:40px;font-size:40px}}
 .macts{display:flex;gap:8px;margin-top:20px}
 .pbtn{flex:1;padding:14px;background:var(--ac);color:var(--bg);border:none;border-radius:12px;font-family:var(--fh);font-size:14px;font-weight:800;cursor:pointer;-webkit-appearance:none;letter-spacing:.03em}
 .pbtn:active{opacity:.9}
@@ -233,7 +238,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .jbtn-yes{background:var(--red);color:#fff}
 .jbtn-no{background:var(--s3);color:var(--tx2)}
 .strow{display:flex;gap:2px}
-.ststar{font-size:12px}
+.ststar{position:relative;display:inline-block;font-size:12px;line-height:1}
+.ststar-bg{color:var(--tx3)}
+.ststar-fg{position:absolute;left:0;top:0;color:#fbbf24;overflow:hidden;white-space:nowrap}
 
 /* ANALYSIS */
 .agrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
@@ -1583,7 +1590,10 @@ function yBadge(type) {
   return `<span class="ybadge" style="color:${c}">${type}</span>`;
 }
 function stars(v) {
-  return `<div class="strow">${[1,2,3,4,5].map(n=>`<span class="ststar" style="color:${v>=n?'#fbbf24':'var(--tx3)'}">★</span>`).join('')}</div>`;
+  return `<div class="strow">${[1,2,3,4,5].map(n=>{
+    const fill = Math.max(0, Math.min(1, (v||0) - (n-1))) * 100;
+    return `<span class="ststar"><span class="ststar-bg">★</span><span class="ststar-fg" style="width:${fill}%">★</span></span>`;
+  }).join('')}</div>`;
 }
 function toast(msg, type) {
   const t = document.getElementById('toast');
@@ -2244,7 +2254,10 @@ function updateSlider(key, val) {
   document.getElementById('sv-'+key).textContent = val+'/10';
 }
 function renderStars() {
-  document.getElementById('starRow').innerHTML = [1,2,3,4,5].map(n=>`<span class="star ${modalRating>=n?'on':''}" onclick="setRating(${n})">★</span>`).join('');
+  document.getElementById('starRow').innerHTML = [1,2,3,4,5].map(n=>{
+    const fill = Math.max(0, Math.min(1, modalRating - (n-1))) * 100;
+    return `<span class="star"><span class="star-bg">★</span><span class="star-fg" style="width:${fill}%">★</span><span class="star-tap star-tap-l" onclick="setRating(${n-0.5})"></span><span class="star-tap star-tap-r" onclick="setRating(${n})"></span></span>`;
+  }).join('');
 }
 function setRating(n) { modalRating=n; renderStars(); }
 function closeModal() {
