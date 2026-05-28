@@ -14792,10 +14792,6 @@
       {
         "name": "Ocimene",
         "designation": ""
-      },
-      {
-        "name": "Nerolidol",
-        "designation": ""
       }
     ],
     "schema_version": 2
@@ -15125,7 +15121,20 @@
     "genetics": "Chemdawg × Unknown",
     "form": "Flower",
     "schema_version": 2,
-    "terpeneDetails": []
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Farnesene",
+        "designation": "Major"
+      }
+    ]
   },
   {
     "name": "Wedding Cake",
@@ -24189,5 +24198,151 @@
     "genetics": "Chemdawg × SFV OG Kush",
     "schema_version": 2,
     "id": "VTD"
+  },
+  {
+    "name": "Pineapple God",
+    "producer": "4C Labs",
+    "code": "PGD",
+    "form": "Flower",
+    "tier": "Craft Select",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [
+      "Butter"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "PGD"
+  },
+  {
+    "name": "Frosted Grapes",
+    "producer": "Khiron",
+    "code": "FG1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [
+      "Lemon",
+      "Grape",
+      "Butter"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "Grape Ape × Romulan",
+    "schema_version": 2,
+    "id": "FG1"
+  },
+  {
+    "name": "TBC",
+    "producer": "Khiron",
+    "code": "NZ",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 16,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [
+      "Lemon",
+      "Butter"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "NZ"
+  },
+  {
+    "name": "Frosted Lemon Angel",
+    "producer": "Khiron",
+    "code": "FLA1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Limonene",
+      "Linalool",
+      "Pinene"
+    ],
+    "terpeneDetails": [
+      {
+        "name": "Pinene",
+        "designation": ""
+      },
+      {
+        "name": "Myrcene",
+        "designation": ""
+      },
+      {
+        "name": "Limonene",
+        "designation": ""
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": ""
+      },
+      {
+        "name": "Linalool",
+        "designation": ""
+      },
+      {
+        "name": "Humulene",
+        "designation": ""
+      },
+      {
+        "name": "Terpinolene",
+        "designation": ""
+      }
+    ],
+    "effects": [],
+    "flavours": [
+      "Earthy",
+      "Citrus",
+      "Pine"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "The White Angel × Sunset Sherbet",
+    "schema_version": 2,
+    "id": "FLA1"
+  },
+  {
+    "name": "Titanimal",
+    "producer": "Khiron",
+    "code": "TA",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [
+      "Lemon",
+      "Butter"
+    ],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "Animal Cookies × Platinum Kush Mints",
+    "schema_version": 2,
+    "id": "TA"
   }
 ]
