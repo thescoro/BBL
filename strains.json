@@ -13828,7 +13828,7 @@
     "name": "Glory Glue",
     "producer": "Adven",
     "code": "GG10",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 17,
     "cbd": 0,
     "type": "Sativa",
@@ -13839,7 +13839,9 @@
       "Linalool",
       "Pinene"
     ],
-    "effects": [],
+    "effects": [
+      "Creative"
+    ],
     "flavours": [
       "Earthy",
       "Sweet",
@@ -13882,7 +13884,7 @@
     "name": "Milky Cake",
     "producer": "Adven",
     "code": "MC",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 18,
     "cbd": 0,
     "type": "Hybrid",
@@ -14791,6 +14793,10 @@
       },
       {
         "name": "Ocimene",
+        "designation": ""
+      },
+      {
+        "name": "Nerolidol",
         "designation": ""
       }
     ],
@@ -16598,19 +16604,19 @@
     "terpeneDetails": [
       {
         "name": "Myrcene",
-        "designation": ""
+        "designation": "Major"
       },
       {
         "name": "Limonene",
-        "designation": ""
+        "designation": "Major"
       },
       {
         "name": "Caryophyllene",
-        "designation": ""
+        "designation": "Minor"
       },
       {
         "name": "Linalool",
-        "designation": ""
+        "designation": "Minor"
       }
     ],
     "schema_version": 2
@@ -19073,7 +19079,7 @@
     "name": "Strawberry Guava",
     "producer": "Phant",
     "code": "SG1",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 25,
     "cbd": 0,
     "type": "Indica",
@@ -19799,11 +19805,11 @@
         "designation": "Major"
       },
       {
-        "name": "Limonene",
+        "name": "Caryophyllene",
         "designation": "Major"
       },
       {
-        "name": "Caryophyllene",
+        "name": "Linalool",
         "designation": "Major"
       }
     ],
@@ -24344,5 +24350,88 @@
     "genetics": "Animal Cookies × Platinum Kush Mints",
     "schema_version": 2,
     "id": "TA"
+  },
+  {
+    "name": "Munyunz",
+    "producer": "Upstate",
+    "code": "MYZ",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene",
+      "Terpinolene"
+    ],
+    "terpeneDetails": [
+      {
+        "name": "Myrcene",
+        "designation": "Major"
+      },
+      {
+        "name": "Caryophyllene",
+        "designation": "Major"
+      },
+      {
+        "name": "Humulene",
+        "designation": "Major"
+      },
+      {
+        "name": "Terpinolene",
+        "designation": "Major"
+      }
+    ],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Focus",
+      "Tingly",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Earthy",
+      "Berry",
+      "Floral"
+    ],
+    "helpsWith": [
+      "ADHD",
+      "Chronic Pain",
+      "Depression",
+      "Fatigue",
+      "Headache",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "(Sunset Sherbet × GMO Cookies ) × (Lilac Diesel × Gorilla Glue",
+    "schema_version": 2,
+    "id": "MYZ"
+  },
+  {
+    "name": "Rate Limit Exceeded",
+    "producer": "Curaleaf",
+    "code": "RLE",
+    "form": "Cartridge",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "RLE",
+    "thcMg": 420,
+    "cbdMg": 0,
+    "volume": "",
+    "extractType": "",
+    "terpeneSource": "",
+    "fitment": ""
   }
 ]
