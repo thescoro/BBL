@@ -7621,12 +7621,14 @@
     "name": "Biscuit Runtz",
     "producer": "Tilray Medical",
     "code": "BR",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 33,
     "cbd": 0,
     "type": "Indica",
     "terpenes": [],
-    "effects": [],
+    "effects": [
+      "Creative"
+    ],
     "flavours": [
       "Mango"
     ],
@@ -17589,7 +17591,7 @@
     "name": "Orange Kush Cake",
     "producer": "Althea",
     "code": "OKC",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 18,
     "cbd": 0,
     "type": "Hybrid",
@@ -19767,7 +19769,7 @@
     "name": "Gorilla Glue #4",
     "producer": "Noidecs",
     "code": "GG43",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 21,
     "cbd": 0,
     "type": "Sativa",
