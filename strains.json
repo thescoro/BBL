@@ -2587,7 +2587,7 @@
     "name": "Black Jelly",
     "producer": "Aurora (Pedanios)",
     "code": "BLY",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 27,
     "cbd": 0,
     "type": "Indica",
@@ -9461,7 +9461,7 @@
     "name": "Mazar-i-Sharif",
     "producer": "Noidecs",
     "code": "MAZ",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 19,
     "cbd": 0,
     "type": "Indica",
@@ -10931,7 +10931,7 @@
     "name": "Warlock",
     "producer": "Grow Pharma",
     "code": "WAR",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 8,
     "cbd": 0,
     "type": "Indica",
@@ -14548,7 +14548,7 @@
       },
       {
         "name": "Farnesene",
-        "designation": "Major"
+        "designation": "Minor"
       }
     ],
     "schema_version": 2
@@ -14680,7 +14680,7 @@
     "name": "Wedding Cake",
     "producer": "Peace Naturals",
     "code": "WC1",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 27,
     "cbd": 0,
     "type": "Indica",
@@ -17729,12 +17729,14 @@
     "name": "Hollywood",
     "producer": "Althea",
     "code": "HOL1",
-    "tier": "Core",
+    "tier": "Craft",
     "thc": 20,
     "cbd": 0,
     "type": "Hybrid",
     "terpenes": [],
-    "effects": [],
+    "effects": [
+      "Creative"
+    ],
     "flavours": [
       "Lemon"
     ],
