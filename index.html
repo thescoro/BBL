@@ -662,6 +662,31 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   ::-webkit-scrollbar-thumb{background:var(--s3);border-radius:5px;border:2px solid var(--bg)}
   ::-webkit-scrollbar-thumb:hover{background:var(--tx3)}
 }
+
+/* Smoke turned up: the v2 atmosphere was too faint to notice — stronger
+   haze, brighter drift blobs, plus two wisps that slowly rise and curl */
+.smoke{opacity:0.45}
+.blob-1{opacity:0.30}
+.blob-2{opacity:0.28}
+.blob-3{opacity:0.22}
+.blob-4{opacity:0.24}
+.wisp{position:absolute;border-radius:50%;filter:blur(55px);will-change:transform,opacity;opacity:0}
+.wisp-1{width:340px;height:560px;left:10%;bottom:-35%;background:radial-gradient(ellipse at center,#C7CDC0 0%,transparent 65%);animation:wisp-rise-1 52s linear infinite}
+.wisp-2{width:280px;height:480px;right:6%;bottom:-32%;background:radial-gradient(ellipse at center,#AEB5A5 0%,transparent 65%);animation:wisp-rise-2 67s linear infinite;animation-delay:9s}
+@keyframes wisp-rise-1{
+  0%{transform:translate(0,0) rotate(0deg) scale(1);opacity:0}
+  12%{opacity:.34}
+  50%{transform:translate(70px,-55vh) rotate(8deg) scale(1.25);opacity:.22}
+  85%{opacity:.08}
+  100%{transform:translate(-40px,-110vh) rotate(-6deg) scale(1.5);opacity:0}
+}
+@keyframes wisp-rise-2{
+  0%{transform:translate(0,0) rotate(0deg) scale(1);opacity:0}
+  14%{opacity:.28}
+  50%{transform:translate(-80px,-50vh) rotate(-9deg) scale(1.3);opacity:.18}
+  100%{transform:translate(50px,-105vh) rotate(7deg) scale(1.55);opacity:0}
+}
+@media (prefers-reduced-motion:reduce){.wisp{animation:none}}
 </style>
 </head>
 <body>
@@ -720,6 +745,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
   <div class="blob blob-4"></div>
+  <div class="wisp wisp-1"></div>
+  <div class="wisp wisp-2"></div>
 </div>
 
 <!-- INSTALL BANNER -->
