@@ -596,6 +596,72 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .menu-item:hover{background:rgba(107,142,78,0.10);color:var(--ac)}
 .menu-item.active{color:var(--ac);background:rgba(107,142,78,0.08)}
 .menu-item.active::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ac);margin-right:8px;vertical-align:middle}
+
+/* ════════════════════════════════════════════════════════════════
+   v3 POLISH — type-tinted cards, terpene hues, THC meter, calm motion
+   (research + rationale: vault › bloomy-bud-log › website-visual-polish)
+   ════════════════════════════════════════════════════════════════ */
+
+/* Strain-type identity: hairline top accent in the type's colour
+   (Indica violet / Sativa green / Hybrid tan — same hues as TYPE_COLORS) */
+.card,.shelf-card{border-top:2px solid var(--s3)}
+.card[data-type="Indica"],.shelf-card[data-type="Indica"]{border-top-color:rgba(155,143,181,.6)}
+.card[data-type="Sativa"],.shelf-card[data-type="Sativa"]{border-top-color:rgba(127,160,96,.6)}
+.card[data-type="Hybrid"],.shelf-card[data-type="Hybrid"]{border-top-color:rgba(199,182,142,.55)}
+
+/* Terpene chips: hue per flavour family (Leafly-style visual language) */
+.t-pepper{--th:155,143,181;--tc:#A99BC0}
+.t-earth{--th:126,148,165;--tc:#9BB0C0}
+.t-citrus{--th:194,166,90;--tc:#CDB060}
+.t-floral{--th:176,143,166;--tc:#C09BB0}
+.t-pine{--th:127,160,96;--tc:#8FB57D}
+.t-fruit{--th:194,142,92;--tc:#C29B6C}
+.t-mint{--th:143,181,160;--tc:#8FB5A0}
+.tch[class*=" t-"]{color:var(--tc);border-color:rgba(var(--th),.32);background:rgba(var(--th),.06)}
+.tch.dom[class*=" t-"]{background:rgba(var(--th),.16);border-color:rgba(var(--th),.55);color:var(--tc)}
+
+/* THC meter: hairline strength bar inside the stat pill */
+.pmeter{display:block;height:2px;background:rgba(255,255,255,.07);border-radius:2px;margin-top:5px;overflow:hidden}
+.pmeter i{display:block;height:100%;background:linear-gradient(90deg,var(--ac3),var(--ac2));border-radius:2px}
+
+/* Depth: cards lift gently on hover (pointer devices only) */
+@media (hover:hover){
+  .card{transition:border-color .2s,transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.35)}
+}
+
+/* Calm motion: staggered card entrance, sheet slide-up, button feedback */
+@media (prefers-reduced-motion:no-preference){
+  @keyframes card-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .grid .card{animation:card-in .3s ease backwards}
+  .grid .card:nth-child(2){animation-delay:.03s}
+  .grid .card:nth-child(3){animation-delay:.06s}
+  .grid .card:nth-child(4){animation-delay:.09s}
+  .grid .card:nth-child(5){animation-delay:.12s}
+  .grid .card:nth-child(6){animation-delay:.15s}
+  .grid .card:nth-child(n+7){animation-delay:.18s}
+  @keyframes sheet-up{from{transform:translateY(26px);opacity:.5}to{transform:none;opacity:1}}
+  @keyframes ovl-in{from{opacity:0}to{opacity:1}}
+  .sheet-wrap:not(.hidden) .sheet,.modal-wrap:not(.hidden) .modal{animation:sheet-up .3s cubic-bezier(.21,.8,.35,1)}
+  .sheet-wrap:not(.hidden) .sheet-ovl,.modal-wrap:not(.hidden) .modal-ovl{animation:ovl-in .22s ease}
+  .lbtn:active,.pbtn:active,.sbtn:active,.fbtn:active,.pager-btn:active,.preset-pill:active,.rec-log:active,.customise-btn:active{transform:scale(.97)}
+  .lbtn,.pbtn,.sbtn,.rec-log,.customise-btn{transition:transform .12s ease,border-color .15s,color .15s,background .15s}
+}
+
+/* Nav: shadow appears once the page scrolls under it */
+.nav{transition:box-shadow .25s ease}
+.nav.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.45)}
+
+/* Keyboard focus: visible ring without affecting mouse/touch */
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+
+/* Desktop scrollbars match the theme */
+@media (hover:hover){
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-track{background:transparent}
+  ::-webkit-scrollbar-thumb{background:var(--s3);border-radius:5px;border:2px solid var(--bg)}
+  ::-webkit-scrollbar-thumb:hover{background:var(--tx3)}
+}
 </style>
 </head>
 <body>
@@ -912,6 +978,12 @@ const TERPENE_INFO = {
 
 const TIER_COLORS = {Value:"#8A8174",Core:"#7E94A5",Craft:"#A48AA8","Craft Organic":"#7FA060","Craft Select":"#C7B68E",Premium:"#B45B4A"};
 const TYPE_COLORS = {Indica:"#9B8FB5",Sativa:"#7FA060",Hybrid:"#C7B68E"};
+// Terpene → flavour family, for colour-coded chips (Leafly-style visual language)
+const TERP_FAMILY = {Caryophyllene:'pepper',Myrcene:'earth',Limonene:'citrus',Linalool:'floral',Pinene:'pine',Humulene:'earth',Ocimene:'mint',Terpinolene:'fruit',Nerolidol:'floral',Farnesene:'fruit',Bisabolol:'floral',Guaiol:'pine',Carene:'pine',Valencene:'citrus',Geraniol:'floral',Eucalyptol:'mint',Terpineol:'floral'};
+function terpClass(t){
+  const f = TERP_FAMILY[t] || TERP_FAMILY[Object.keys(TERP_FAMILY).find(k=>(t||'').includes(k))] || '';
+  return f ? ' t-'+f : '';
+}
 const TYPE_ICONS  = {Indica:"",Sativa:"",Hybrid:""};
 const SYMPTOMS = [
   {key:"pain",      label:"Pain Relief",          icon:"⚡"},
@@ -1771,7 +1843,7 @@ function buildShelves() {
 function shelfCard(s) {
   const isCart = s.form === 'Cartridge';
   const thcStr = isCart ? `${s.thcMg||0}mg` : `${s.thc}%`;
-  return `<div class="shelf-card" data-sid="${s.id.replace(/"/g,'&quot;')}">
+  return `<div class="shelf-card" data-type="${s.type||''}" data-sid="${s.id.replace(/"/g,'&quot;')}">
     <div class="sc-bdgs">${tBadge(s.tier)}</div>
     <div class="sc-name">${cleanCartName(s.name)}</div>
     <div class="sc-producer">${s.producer}</div>
@@ -1865,20 +1937,21 @@ function renderBrowser() {
     const ct = counts[s.id]||0;
     const ar = avgRatings[s.id];
     const avg = ar ? (ar.sum/ar.n).toFixed(1) : null;
-    const tChips = (s.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}">${t}</span>`).join('');
+    const tChips = (s.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}${terpClass(t)}">${t}</span>`).join('');
     const hTags = (s.helpsWith||[]).slice(0,3).map(h=>`<span class="tag ht">${h}</span>`).join('');
     const isCart = s.form === 'Cartridge';
     const thcLbl = isCart ? 'THC' : 'THC';
     const thcStr = isCart ? `${s.thcMg||0}mg` : `${s.thc}%`;
     const cbdStr = isCart ? `${s.cbdMg||0}mg` : `${s.cbd}%`;
     const showCbd = isCart ? ((s.cbdMg||0) > 0) : (s.cbd > 0);
-    return `<div class="card ${ct>0?'logged':''}" data-sid="${s.id.replace(/"/g,'&quot;')}">
+    const thcPct = Math.max(0, Math.min(100, isCart ? (s.thcMg||0)/8.5 : (s.thc||0)/32*100));
+    return `<div class="card ${ct>0?'logged':''}" data-type="${s.type||''}" data-sid="${s.id.replace(/"/g,'&quot;')}">
       ${isCart?`<span class="cart-badge">CART</span>`:''}
       <div class="cname">${cleanCartName(s.name)}</div>
       <div class="cmeta">${s.producer}</div>
       <div class="bdgs">${tBadge(s.tier)} ${yBadge(s.type)}</div>
       <div class="stats">
-        <div class="pill"><span class="plbl">${thcLbl}</span><span class="pval thc">${thcStr}</span></div>
+        <div class="pill"><span class="plbl">${thcLbl}</span><span class="pval thc">${thcStr}</span><span class="pmeter"><i style="width:${thcPct.toFixed(0)}%"></i></span></div>
         ${showCbd?`<div class="pill"><span class="plbl">CBD</span><span class="pval cbd">${cbdStr}</span></div>`:''}
         ${avg?`<div class="pill"><span class="plbl">Your avg</span><span class="pval" style="color:#fbbf24;font-size:14px">★ ${avg}</span></div>`:''}
       </div>
@@ -2676,6 +2749,9 @@ loadStrains();
 initReviewFilters();
 checkInstall();
 checkOnboarding();
+addEventListener('scroll', () => {
+  document.querySelector('.nav').classList.toggle('scrolled', scrollY > 8);
+}, {passive:true});
 </script>
 </body>
 </html>
