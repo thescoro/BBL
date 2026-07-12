@@ -31189,7 +31189,13 @@
     "thc": 30,
     "cbd": 0.5,
     "type": "Indica",
-    "terpenes": [],
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -37383,7 +37389,7 @@
     "schema_version": 2,
     "id": "JH4",
     "thcMg": 420,
-    "cbdMg": 0,
+    "cbdMg": 200,
     "volume": "",
     "extractType": "",
     "terpeneSource": "",
