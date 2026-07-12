@@ -1867,9 +1867,11 @@ def clean_existing_data(strains):
     ]
     # Names beginning with an English stopword — always a truncated scrape
     # ("or All Vape" from 4C Labs OAV was real product that's been discontinued
-    # and its lingering record has a corrupt name).
+    # and its lingering record has a corrupt name). "The" is deliberately not
+    # in the list: real strains are named "The Big Mango", "The Don", etc.,
+    # and MediBud feed names don't truncate the way scraped pages did.
     broken_name_pattern = re.compile(
-        r'^(?:or|and|the|of|for|with|in|on|at|by|to|a|an)\s+',
+        r'^(?:or|and|of|for|with|in|on|at|by|to|a|an)\s+',
         re.IGNORECASE
     )
 
