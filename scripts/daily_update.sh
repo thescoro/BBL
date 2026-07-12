@@ -8,7 +8,7 @@ cd "$(dirname "$0")/.."
 git pull --rebase --quiet
 python3 scripts/update_strains.py
 
-if git diff --quiet -- strains.json index.html; then
+if git diff --quiet -- strains.json reviews.json index.html; then
   echo "✅ No new strain data — everything is up to date."
 else
   git add strains.json reviews.json index.html

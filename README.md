@@ -12,15 +12,19 @@ This folder contains the scraper that keeps Bloomy's Bud Log up to date.
    cartridges; oils/capsules/edibles are skipped)
 3. Any **new** strains are enriched with terpene, effect, and flavour data
    from **Weedstrain.com** and **AllBud.com**
-4. The updated data is saved to `strains.json` and embedded into `index.html`
-5. If anything changed, the bot commits and pushes automatically
+4. **Patient reviews** are fetched from MediBud's review API (only strains
+   that have reviews get a request; photos/videos are skipped)
+5. The updated data is saved to `strains.json` / `reviews.json` and
+   embedded into `index.html`
+6. If anything changed, the bot commits and pushes automatically
 
 > **History:** the original source was MedBud.wiki page scraping, but that
 > site started returning HTTP 402 ("payment required for automated content
 > access") to all bots in June 2026. MediBud.co.uk mirrors the same
 > catalogue (its records link back to medbud.wiki) via an open JSON feed.
-> YouTube reviews also came from medbud.wiki, so `reviews.json` is frozen
-> at its last good state (May 2026).
+> The reviews tab showed YouTube reviews scraped from medbud.wiki; those
+> went behind the same 402 wall, so as of July 2026 the tab shows MediBud
+> patient reviews instead.
 
 ## Manual trigger
 

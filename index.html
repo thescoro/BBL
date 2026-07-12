@@ -315,6 +315,18 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .yt-meta{font-size:10px;color:var(--tx3);font-family:var(--fm);margin-top:2px}
 .yt-med{font-size:11px;color:var(--ac2);font-family:var(--fm);margin-top:3px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 
+/* Patient review cards (MediBud) */
+.pr-card{display:flex;flex-direction:column;gap:8px;padding:14px;background:var(--s2);border-radius:12px;border:1px solid var(--b1)}
+.pr-head{display:flex;align-items:center;gap:10px}
+.pr-score{width:44px;height:44px;border-radius:10px;background:var(--s3);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:var(--ac2);flex-shrink:0;font-family:var(--fm)}
+.pr-titles{min-width:0}
+.pr-strain{font-size:13px;font-weight:700;color:var(--tx)}
+.pr-meta{font-size:10px;color:var(--tx3);font-family:var(--fm);margin-top:2px}
+.pr-text{font-size:12px;color:var(--tx2);line-height:1.5}
+.pr-subs{display:flex;flex-wrap:wrap;gap:6px}
+.pr-sub{font-size:10px;font-family:var(--fm);color:var(--tx3);background:var(--s3);border-radius:6px;padding:2px 7px;text-transform:capitalize}
+.pr-user{font-size:11px;color:var(--tx3);font-style:italic}
+
 /* REVIEWS TAB — wider cards, larger thumbs */
 .rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:10px}
 @media(max-width:600px){.rev-grid{grid-template-columns:1fr;gap:6px}
@@ -891,8 +903,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 
 <!-- ═══ REVIEWS TAB ═══ -->
 <div id="tab-reviews" class="page hidden">
-  <h1 class="h1">YouTube Reviews</h1>
-  <p class="sub">Latest patient medication reviews from MedBud</p>
+  <h1 class="h1">Patient Reviews</h1>
+  <p class="sub">Patient medication reviews from MediBud</p>
   <div class="toolbar">
     <div class="search-wrap">
       <span class="search-ico">🔍</span>
@@ -2748,27 +2760,30 @@ function renderReviews() {
   const q = document.getElementById('reviewSearch').value.toLowerCase();
   const prod = document.getElementById('reviewProd').value;
   let reviews = REVIEWS_JSON.filter(r => {
-    if(q && !r.title.toLowerCase().includes(q)
-        && !(r.channel||'').toLowerCase().includes(q)
-        && !(r.medication||'').toLowerCase().includes(q)
+    if(q && !(r.strain||'').toLowerCase().includes(q)
+        && !(r.user||'').toLowerCase().includes(q)
+        && !(r.text||'').toLowerCase().includes(q)
         && !(r.producer||'').toLowerCase().includes(q)) return false;
     if(prod && !(r.producer||'').toLowerCase().includes(prod.toLowerCase())) return false;
     return true;
   });
   document.getElementById('reviewCount').textContent = `${reviews.length} of ${REVIEWS_JSON.length} reviews`;
+  const subs = r => ['taste','smell','effect','looks'].filter(k=>r[k]!=null)
+    .map(k=>`<span class="pr-sub">${k} ${r[k]}</span>`).join('');
   document.getElementById('reviewGrid').innerHTML = reviews.length ? reviews.map(r => `
-    <a class="yt-card" href="${r.url}" target="_blank" rel="noopener">
-      <div class="yt-thumb">
-        <img src="https://img.youtube.com/vi/${r.videoId}/mqdefault.jpg" alt="" loading="lazy">
-        <div class="yt-play"></div>
+    <div class="pr-card">
+      <div class="pr-head">
+        <div class="pr-score">${Number(r.rating||0).toFixed(1)}</div>
+        <div class="pr-titles">
+          <div class="pr-strain">${r.strain||'Unknown strain'}</div>
+          <div class="pr-meta">${r.producer||''}${r.date?' · '+r.date:''}</div>
+        </div>
       </div>
-      <div class="yt-info">
-        <div class="yt-title">${r.title||'Watch Review'}</div>
-        <div class="yt-meta">${r.channel||'YouTube'}${r.published?' \u00b7 '+r.published:''}</div>
-        <div class="yt-med">${r.producer||''}${r.medication?' \u2014 '+r.medication:''}</div>
-      </div>
-    </a>
-  `).join('') : '<div class="empty"><div class="eico">▶</div><div class="etitle">No reviews found</div><div class="etxt">Try a different search term, or check back after the next weekly update.</div></div>';
+      ${r.text?`<div class="pr-text">${r.text}</div>`:''}
+      ${subs(r)?`<div class="pr-subs">${subs(r)}</div>`:''}
+      <div class="pr-user">— ${r.user||'Anonymous'}</div>
+    </div>
+  `).join('') : '<div class="empty"><div class="eico">💬</div><div class="etitle">No reviews found</div><div class="etxt">Try a different search term, or check back after the next daily update.</div></div>';
 }
 
 // ═══ INIT ════════════════════════════════════════════════════════════════════

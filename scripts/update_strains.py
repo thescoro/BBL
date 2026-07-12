@@ -341,6 +341,8 @@ def discover_cart_urls(producer_slug):
 # single polite request.
 
 MEDIBUD_API = "https://www.medibud.co.uk/api/strains"
+MEDIBUD_REVIEWS_SUMMARY = "https://www.medibud.co.uk/api/reviews/summary"
+MEDIBUD_STRAIN_REVIEWS = "https://www.medibud.co.uk/api/strains/{}/reviews"
 
 # Brand strings in the feed that differ from the producer names already in
 # strains.json. Only needed when the record's sourceUrl slug isn't in
@@ -457,19 +459,99 @@ def medibud_producer(source_url, brand, form):
     return MEDIBUD_BRAND_ALIASES.get(clean.lower(), clean)
 
 
+def _medibud_hash(s):
+    """
+    Replicate MediBud's client-side strain-id hash: a Java-style 31-hash
+    over the id string, wrapped to signed 32-bit, absolute value. The
+    reviews API is keyed by this hash rather than the strain id.
+    """
+    o = 0
+    for ch in s:
+        o = (o * 31 + ord(ch)) & 0xFFFFFFFF
+    if o >= 0x80000000:
+        o -= 0x100000000
+    return abs(o)
+
+
+def fetch_medibud_reviews(meta_by_hash):
+    """
+    Fetch patient reviews from MediBud. The summary endpoint says which
+    strains have reviews (keyed by hashed strain id), so only those get a
+    follow-up request. Media attachments and avatars are dropped — they're
+    embedded base64 blobs, tens of MB per strain.
+
+    meta_by_hash maps hashed strain id -> {"strain", "producer"} for
+    labelling; unknown hashes are kept with empty labels.
+    Returns a flat list of review dicts, newest first.
+    """
+    resp = requests.get(MEDIBUD_REVIEWS_SUMMARY, headers=HTTP_HEADERS,
+                        timeout=60)
+    resp.raise_for_status()
+    summary = resp.json()
+
+    reviews = []
+    for hkey in summary:
+        r = requests.get(MEDIBUD_STRAIN_REVIEWS.format(hkey),
+                         headers=HTTP_HEADERS, timeout=60)
+        r.raise_for_status()
+        meta = meta_by_hash.get(str(hkey), {})
+        for rv in r.json().get("reviews", []):
+            def _clean(v):
+                # Patient-written text goes into the page via innerHTML —
+                # strip angle brackets so it can't carry markup.
+                return re.sub(r'[<>]', '', str(v or '')).strip()
+            reviews.append({
+                "strain": meta.get("strain", ""),
+                "producer": meta.get("producer", ""),
+                "user": _clean(rv.get("user")) or "Anonymous",
+                "rating": rv.get("rating") or rv.get("overall") or 0,
+                "taste": rv.get("taste"),
+                "smell": rv.get("smell"),
+                "effect": rv.get("effect"),
+                "looks": rv.get("looks"),
+                "date": _clean(rv.get("date")),
+                "text": _clean(rv.get("text")),
+            })
+        time.sleep(0.5)
+
+    def _date_key(rv):
+        try:
+            from datetime import datetime
+            return datetime.strptime(rv["date"], "%d %b %Y")
+        except Exception:
+            from datetime import datetime
+            return datetime.min
+    reviews.sort(key=_date_key, reverse=True)
+    return reviews
+
+
 def fetch_medibud_strains():
     """
     Fetch the full catalogue from MediBud's JSON API and map each record to
     the intermediate dict format the merge step expects. Oils, capsules and
     edibles are skipped — the site only tracks flower and vape cartridges.
     Raises on network/HTTP errors so the caller can fail the run loudly.
+
+    Returns (records, meta_by_hash) where meta_by_hash maps the hashed id
+    of EVERY feed entry (including skipped forms) to display labels, for
+    the reviews fetcher.
     """
     resp = requests.get(MEDIBUD_API, headers=HTTP_HEADERS, timeout=60)
     resp.raise_for_status()
     payload = resp.json()
 
     records = []
+    meta_by_hash = {}
     for x in payload.get("strains", []):
+        raw_name = x.get("name", "")
+        pname, _ = parse_medibud_name(raw_name)
+        label = pname or re.sub(
+            r'[®™]|\s*Medical Cannabis(\s+[A-Za-z]+)*\s*$', '', raw_name).strip()
+        meta_by_hash[str(_medibud_hash(x.get("id", "")))] = {
+            "strain": label,
+            "producer": medibud_producer(x.get("sourceUrl", ""),
+                                         x.get("brand", ""), "Flower"),
+        }
         src = x.get("sourceUrl", "")
         if "/strains/" in src:
             form = "Flower"
@@ -513,7 +595,7 @@ def fetch_medibud_strains():
             rec["thc"] = int(thc) if float(thc) == int(thc) else float(thc)
             rec["cbd"] = int(cbd) if float(cbd) == int(cbd) else float(cbd)
         records.append(rec)
-    return records
+    return records, meta_by_hash
 
 
 # ---------------------------------------------------------------------------
@@ -2434,7 +2516,7 @@ async def main():
     # 2. Fetch the MediBud API feed (one request replaces page scraping)
     print("\n\U0001f50d Fetching MediBud strain feed...")
     try:
-        feed = fetch_medibud_strains()
+        feed, meta_by_hash = fetch_medibud_strains()
     except Exception as e:
         print(f"  \u274c MediBud API fetch failed: {e}")
         return 1
@@ -2569,8 +2651,17 @@ async def main():
             record["fitment"] = s.get("fitment", "")
         result.append(record)
 
-    # 6. YouTube reviews — medbud.wiki 402s automated access now,
-    # so reviews.json stays frozen at its last good state.
+    # 6. Patient reviews from MediBud (replaced YouTube reviews 2026-07 —
+    # medbud.wiki's reviews page sits behind the same 402 wall as its
+    # strain pages). A fetch failure keeps the existing reviews.json.
+    print("\n\U0001f4ac Fetching patient reviews from MediBud...")
+    try:
+        reviews = fetch_medibud_reviews(meta_by_hash)
+        print(f"  {len(reviews)} reviews across "
+              f"{len({r['strain'] for r in reviews})} strains")
+    except Exception as e:
+        print(f"  ⚠ Review fetch failed ({e}) — keeping existing reviews.json")
+        reviews = None
 
     # 7. Final deduplication
     result = clean_existing_data(result)
@@ -2580,11 +2671,18 @@ async def main():
     with open(strains_path, 'w') as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
 
-    # 9. Reviews are not re-saved — see step 6.
+    # 9. Save reviews
+    if reviews is not None:
+        reviews_path = strains_path.parent / "reviews.json"
+        print(f"\U0001f4be Saving {len(reviews)} reviews...")
+        with open(reviews_path, 'w') as f:
+            json.dump(reviews, f, indent=2, ensure_ascii=False)
 
     # 10. Update HTML
     if html_path.exists():
         update_html(str(html_path), result)
+        if reviews is not None:
+            update_reviews_html(str(html_path), reviews)
 
     added = len(result) - len(existing)
     flowers = sum(1 for s in result if s.get("form", "Flower") == "Flower")
