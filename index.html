@@ -326,6 +326,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .pr-subs{display:flex;flex-wrap:wrap;gap:6px}
 .pr-sub{font-size:10px;font-family:var(--fm);color:var(--tx3);background:var(--s3);border-radius:6px;padding:2px 7px;text-transform:capitalize}
 .pr-user{font-size:11px;color:var(--tx3);font-style:italic}
+.pill-tap{cursor:pointer;transition:transform .1s}
+.pill-tap:active{transform:scale(.95)}
 
 /* REVIEWS TAB — wider cards, larger thumbs */
 .rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:10px}
@@ -1996,6 +1998,7 @@ function renderBrowser() {
     const cbdStr = isCart ? `${s.cbdMg||0}mg` : `${s.cbd}%`;
     const showCbd = isCart ? ((s.cbdMg||0) > 0) : (s.cbd > 0);
     const thcPct = Math.max(0, Math.min(100, isCart ? (s.thcMg||0)/8.5 : (s.thc||0)/32*100));
+    const rvs = reviewStatsFor(s);
     return `<div class="card ${ct>0?'logged':''}" data-type="${s.type||''}" data-sid="${s.id.replace(/"/g,'&quot;')}">
       ${isCart?`<span class="cart-badge">CART</span>`:''}
       <div class="cname">${cleanCartName(s.name)}</div>
@@ -2005,6 +2008,7 @@ function renderBrowser() {
         <div class="pill"><span class="plbl">${thcLbl}</span><span class="pval thc">${thcStr}</span><span class="pmeter"><i style="width:${thcPct.toFixed(0)}%"></i></span></div>
         ${showCbd?`<div class="pill"><span class="plbl">CBD</span><span class="pval cbd">${cbdStr}</span></div>`:''}
         ${avg?`<div class="pill"><span class="plbl">Your avg</span><span class="pval" style="color:#fbbf24;font-size:14px">★ ${avg}</span></div>`:''}
+        ${rvs?`<div class="pill pill-tap" data-rv="${s.name.replace(/"/g,'&quot;')}" data-rv-prod="${(s.producer||'').replace(/"/g,'&quot;')}" title="See patient reviews"><span class="plbl">Patients (${rvs.n})</span><span class="pval" style="color:var(--ac2);font-size:14px">★ ${rvs.avg}</span></div>`:''}
       </div>
       ${tChips?`<div class="tchips">${tChips}</div>`:''}
       ${hTags?`<div class="tags">${hTags}</div>`:''}
@@ -2260,6 +2264,8 @@ document.getElementById('tab-browser').addEventListener('click', function(e) {
   if(pageBtn && !pageBtn.disabled) { goToPage(Number(pageBtn.dataset.page)); return; }
   const logBtn = e.target.closest('[data-log]');
   if(logBtn) { e.stopPropagation(); openModal(logBtn.dataset.log); return; }
+  const rvBadge = e.target.closest('[data-rv]');
+  if(rvBadge) { e.stopPropagation(); openStrainReviews(rvBadge.dataset.rv, rvBadge.dataset.rvProd); return; }
   const card = e.target.closest('[data-sid]');
   if(card) { openDetail(card.dataset.sid); }
 });
@@ -2269,6 +2275,8 @@ document.getElementById('tab-home').addEventListener('click', function(e) {
   if(preset) { applyPreset(preset.dataset.preset); return; }
   const logBtn = e.target.closest('[data-log]');
   if(logBtn) { e.stopPropagation(); openModal(logBtn.dataset.log); return; }
+  const rvBadge = e.target.closest('[data-rv]');
+  if(rvBadge) { e.stopPropagation(); openStrainReviews(rvBadge.dataset.rv, rvBadge.dataset.rvProd); return; }
   const card = e.target.closest('[data-sid]');
   if(card) { openDetail(card.dataset.sid); }
 });
@@ -2309,6 +2317,7 @@ function openDetail(strainId) {
       <div class="pill"><span class="plbl">THC</span><span class="pval thc">${s.thc}%</span></div>
       ${s.cbd>0?`<div class="pill"><span class="plbl">CBD</span><span class="pval cbd">${s.cbd}%</span></div>`:''}
       <div class="pill"><span class="plbl">Ratio</span><span class="pval" style="font-size:12px;color:var(--tx2)">${s.cbd>0?`T${s.thc}:C${s.cbd}`:'THC-dom'}</span></div>
+      ${reviewStatsFor(s)?`<div class="pill pill-tap" onclick="openStrainReviewsCurrent()" title="See patient reviews"><span class="plbl">Patients (${reviewStatsFor(s).n})</span><span class="pval" style="color:var(--ac2);font-size:14px">★ ${reviewStatsFor(s).avg}</span></div>`:''}
     </div>`:''}
     ${s.genetics?`<div class="dsec"><div class="dstitle">Genetics / Lineage</div><div class="lineage-full"><div class="lineage-name-lg">${s.genetics}</div><div class="lineage-note">Parent strains</div></div></div>`:''}
     ${tItems?`<div class="dsec"><div class="dstitle">Terpene Profile</div>${tItems}</div>`:''}
@@ -2754,6 +2763,38 @@ const REVIEWS_JSON = [{"strain":"Miracle Alien Cookies","producer":"4C Labs","us
 function initReviewFilters() {
   const prods = [...new Set(REVIEWS_JSON.map(r=>r.producer).filter(Boolean))].sort();
   document.getElementById('reviewProd').innerHTML = '<option value="">All Producers</option>' + prods.map(p=>`<option>${p}</option>`).join('');
+}
+
+// ═══ PATIENT REVIEW SCORES (MediBud) ═════════════════════════════════════════
+// Average patient score per strain, matched by accent/punctuation-insensitive
+// name+producer so "Blue Pavé" and "Blue Pave" land on the same key.
+let _rvStats = null;
+function _rvNorm(s){ return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,''); }
+function reviewStatsFor(s){
+  if(!_rvStats){
+    _rvStats = {};
+    REVIEWS_JSON.forEach(r=>{
+      const k = _rvNorm(r.strain)+'|'+_rvNorm(r.producer);
+      if(!_rvStats[k]) _rvStats[k] = {sum:0,n:0};
+      _rvStats[k].sum += Number(r.rating)||0;
+      _rvStats[k].n++;
+    });
+  }
+  const st = _rvStats[_rvNorm(s.name)+'|'+_rvNorm(s.producer)];
+  return st ? {avg:(st.sum/st.n).toFixed(1), n:st.n} : null;
+}
+function openStrainReviews(name, producer){
+  const inp = document.getElementById('reviewSearch');
+  if(inp) inp.value = name;
+  const prod = document.getElementById('reviewProd');
+  if(prod) prod.value = [...prod.options].some(o=>o.value===producer) ? producer : '';
+  showTab('reviews');
+}
+function openStrainReviewsCurrent(){
+  const s = STRAINS.find(x=>x.id===currentStrainId);
+  if(!s) return;
+  closeDetail();
+  openStrainReviews(s.name, s.producer);
 }
 
 function renderReviews() {
