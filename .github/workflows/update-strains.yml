@@ -1,21 +1,16 @@
 # =============================================================================
-# Bloomy's Bud Log — Auto-Update Strains (MediBud Feed Edition)
+# Bloomy's Bud Log — Update Strains (manual fallback only)
 # =============================================================================
-# Runs daily (6am UTC). Fetches the full strain catalogue from
-# medibud.co.uk's JSON API (medbud.wiki blocks automated access with HTTP
-# 402 since June 2026), then enriches new strains via Weedstrain/AllBud.
-#
-# The updater exits non-zero if the feed is missing or suspiciously small,
-# so a broken source fails the workflow loudly instead of staying green.
-#
-# Can also be triggered manually from the Actions tab.
+# The daily update runs from the home server's cron (scripts/daily_update.sh)
+# because medibud.co.uk sits behind Cloudflare, which 403s GitHub's
+# datacenter IPs. This workflow exists only for manual runs from the
+# Actions tab — expect it to fail on the feed fetch unless MediBud
+# unblocks datacenter traffic.
 # =============================================================================
 
 name: Update Strain Data
 
 on:
-  schedule:
-    - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:

@@ -4,7 +4,9 @@ This folder contains the scraper that keeps Bloomy's Bud Log up to date.
 
 ## How it works
 
-1. **GitHub Actions** runs `update_strains.py` daily at **6am UTC**
+1. The **home server's cron** runs `scripts/daily_update.sh` daily at **6am**
+   (GitHub Actions can't: medibud.co.uk is behind Cloudflare, which blocks
+   requests from datacenter IPs with 403 — residential IPs work fine)
 2. The script fetches the full catalogue from **MediBud.co.uk's JSON API**
    (strain names, producers, THC/CBD, type, terpenes — flower and vape
    cartridges; oils/capsules/edibles are skipped)
@@ -22,14 +24,15 @@ This folder contains the scraper that keeps Bloomy's Bud Log up to date.
 
 ## Manual trigger
 
-Go to **Actions** → **Update Strain Data** → **Run workflow** to trigger it manually.
+Run `~/BBL/scripts/daily_update.sh` on the home server. (The Actions
+workflow still exists but will 403 on the feed fetch from GitHub's IPs.)
 
 ## Failure alerts
 
 If the MediBud feed goes missing or comes back suspiciously small, the
-updater exits non-zero and the workflow run **fails loudly** (red ✗) —
-GitHub emails the repo owner on scheduled-workflow failures. Green runs
-mean data was genuinely checked, not just that the script didn't crash.
+updater exits non-zero instead of quietly committing nothing. Cron output
+lands in `~/BBL/update.log` — check it if the site stops picking up new
+strains.
 
 ## Important notes
 
