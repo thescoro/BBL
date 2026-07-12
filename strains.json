@@ -38709,5 +38709,30 @@
     "extractType": "Rosin",
     "terpeneSource": "",
     "fitment": ""
+  },
+  {
+    "name": "The Big Mango",
+    "producer": "Mystery Mountain",
+    "code": "MNG",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 7,
+    "cbd": 10,
+    "type": "Sativa",
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Limonene",
+      "Linalool",
+      "Farnesene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "MNG"
   }
 ]
