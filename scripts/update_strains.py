@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-Bloomy's Bud Log — Strain Data Updater (Hybrid Edition)
-=========================================================
-- Step 1: Uses simple HTTP requests to discover strain page URLs from each
-  producer's index page (these links ARE in the static HTML).
-- Step 2: Uses Playwright headless browser to visit each individual strain
-  page and extract the JS-rendered data (terpenes, THC/CBD, type, etc.).
-- Step 3: Falls back to Weedstrain.com for any strains still missing terpenes.
-- Step 4: Scrapes YouTube reviews from MedBud's central reviews page.
-- Step 5: Merges with existing strains.json (never deletes, only adds/updates).
+Bloomy's Bud Log — Strain Data Updater (MediBud Feed Edition)
+==============================================================
+- Step 1: Fetches the full strain catalogue from medibud.co.uk's JSON API
+  in a single request (medbud.wiki blocks automated access with HTTP 402
+  since June 2026 — MediBud mirrors the same catalogue).
+- Step 2: Falls back to Weedstrain.com for new strains missing terpenes,
+  and enriches new flowers with AllBud (effects, flavours, helpsWith).
+- Step 3: Merges with existing strains.json (never deletes, only adds/updates).
+- Note: YouTube reviews came from medbud.wiki and are frozen at their last
+  good state; reviews.json is no longer rewritten.
 
 Usage:  python scripts/update_strains.py
 Debug:  python scripts/update_strains.py --debug <medbud-strain-url>
@@ -28,6 +29,7 @@ import json
 import re
 import sys
 import time
+import unicodedata
 from pathlib import Path
 
 import requests
@@ -327,6 +329,191 @@ def discover_cart_urls(producer_slug):
             full = (MEDBUD_BASE + href if href.startswith('/') else href).rstrip('/') + '/'
             urls.add(full)
     return sorted(urls)
+
+
+# ---------------------------------------------------------------------------
+# MediBud API feed (primary source since 2026-07)
+# ---------------------------------------------------------------------------
+# medbud.wiki started returning HTTP 402 to all automated access in June
+# 2026, killing the page scraper above. medibud.co.uk tracks the same
+# catalogue (its records even link back to medbud.wiki) and serves the whole
+# thing as one JSON feed, so discovery + Playwright scraping collapse into a
+# single polite request.
+
+MEDIBUD_API = "https://www.medibud.co.uk/api/strains"
+
+# Brand strings in the feed that differ from the producer names already in
+# strains.json. Only needed when the record's sourceUrl slug isn't in
+# PRODUCERS / CART_PRODUCERS.
+MEDIBUD_BRAND_ALIASES = {
+    "aurora": "Aurora (Pedanios)",
+    "tilray": "Tilray Medical",
+    "somai": "Somai Pharmaceuticals",
+    "ips": "IPS",
+    "4c labs": "4C Labs",
+    "dank of england medical": "DOE Medical",
+}
+
+# Feed terpene labels that need folding onto KNOWN_TERPENES vocabulary.
+MEDIBUD_TERPENE_ALIASES = {
+    "Alpha-Pinene": "Pinene",
+    "Beta-Pinene": "Pinene",
+    "Alpha-Farnesene": "Farnesene",
+    "Beta-Farnesene": "Farnesene",
+    "Z-Nerolidol": "Nerolidol",
+}
+
+# Words that sit where a product code would but aren't one.
+_NOT_A_CODE = {"rosin", "resin", "distillate", "live", "hash", "full",
+               "broad", "spectrum", "mini", "buds", "plain", "olive"}
+
+# T28 / C15 / T600c200 / T600:C200 potency designations, including
+# ranged forms like T28-T30 and T24-25.
+_POTENCY_RE = re.compile(
+    r'\b[TC]\d+(?:\.\d+)?(?:-T?\d+(?:\.\d+)?)?(?::?C\d+(?:\.\d+)?)?\b',
+    re.IGNORECASE)
+
+
+def merge_key(name, producer, form):
+    """
+    Dedup key tolerant of the cosmetic differences between sources:
+    accents (Pavé vs Pave), punctuation (M.A.C. vs MAC), stray potency
+    tokens, and — for carts — extract-type words the old scraper left in
+    names ("Hash Rosin T750 Wedding Cake" vs "Wedding Cake").
+    """
+    n = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode()
+    n = _POTENCY_RE.sub(' ', n)
+    if form == "Cartridge":
+        n = re.sub(r'\b(hash|rosin|resin|distillate|live)\b', ' ', n,
+                   flags=re.IGNORECASE)
+    n = re.sub(r'[^a-z0-9]+', '', n.lower())
+    p = unicodedata.normalize('NFKD', producer).encode('ascii', 'ignore').decode()
+    p = re.sub(r'[^a-z0-9]+', '', p.lower())
+    return (n, p, form.lower())
+
+
+def parse_medibud_name(raw):
+    """
+    Extract (strain_name, code) from a MediBud product name, e.g.
+      "IPS CM T28 Cherry Mints Medical Cannabis Flower" -> ("Cherry Mints", "CM")
+      "Hexacan® HEXA02 T18 Lemon Jane Medical Cannabis Flower" -> ("Lemon Jane", "HEXA02")
+      "Hash Rosin T750c50 Wedding Cake" -> ("Wedding Cake", "")
+    Returns (None, "") when no usable strain name can be recovered
+    (e.g. unflavoured products named only by potency, like "T100c200").
+    """
+    if not raw:
+        return None, ""
+    n = re.sub(r'[®™]', '', raw)
+    n = re.sub(r'\s*Medical Cannabis(\s+[A-Za-z]+)*\s*$', '', n).strip()
+
+    m = _POTENCY_RE.search(n)
+    if not m:
+        return None, ""
+
+    name = n[m.end():].strip(' -–—·')
+    name = re.sub(r'\s*\(cross\)\s*$', '', name, flags=re.IGNORECASE).strip()
+    # Occasionally a second potency token trails the name
+    parts = name.split()
+    while parts and _POTENCY_RE.fullmatch(parts[-1]):
+        parts.pop()
+    name = ' '.join(parts)
+
+    # The token right before the potency is usually the product code
+    # ("SCK T25", "HEXA02 T18") — but extract-type words land there too
+    # ("Rosin T750c50"), and long words are brand fragments, not codes.
+    code = ""
+    before = n[:m.start()].split()
+    if before:
+        cand = before[-1]
+        if (re.match(r'^[A-Za-z][A-Za-z0-9\-]{1,5}$', cand)
+                and cand.lower() not in _NOT_A_CODE
+                and (cand.isupper() or any(c.isdigit() for c in cand)
+                     or len(cand) <= 4)):
+            code = cand.upper()
+
+    if not name or len(name) > 50 or not re.search(r'[A-Za-z]{2}', name):
+        return None, code
+    return name, code
+
+
+def medibud_producer(source_url, brand, form):
+    """
+    Resolve a producer display name for a MediBud API record. The record's
+    sourceUrl carries the MedBud producer slug, which maps onto the same
+    PRODUCERS tables the old scraper used — that keeps names identical to
+    the existing 534 records so the merge dedupes instead of duplicating.
+    Falls back to the feed's brand string for producers we've never seen.
+    """
+    m = re.search(r'medbud\.wiki/(?:strains|vape-cartridges)/([^/]+)/',
+                  source_url or '')
+    if m:
+        slug = m.group(1)
+        table = CART_PRODUCERS if form == "Cartridge" else PRODUCERS
+        if slug in table:
+            return table[slug]
+        if slug in PRODUCERS:
+            return PRODUCERS[slug]
+    clean = re.sub(r'[®™]', '', brand or '').strip()
+    return MEDIBUD_BRAND_ALIASES.get(clean.lower(), clean)
+
+
+def fetch_medibud_strains():
+    """
+    Fetch the full catalogue from MediBud's JSON API and map each record to
+    the intermediate dict format the merge step expects. Oils, capsules and
+    edibles are skipped — the site only tracks flower and vape cartridges.
+    Raises on network/HTTP errors so the caller can fail the run loudly.
+    """
+    resp = requests.get(MEDIBUD_API, headers=HTTP_HEADERS, timeout=60)
+    resp.raise_for_status()
+    payload = resp.json()
+
+    records = []
+    for x in payload.get("strains", []):
+        src = x.get("sourceUrl", "")
+        if "/strains/" in src:
+            form = "Flower"
+        elif "/vape-cartridges/" in src:
+            form = "Cartridge"
+        else:
+            continue
+
+        name, code = parse_medibud_name(x.get("name", ""))
+        if not name:
+            continue
+        producer = medibud_producer(src, x.get("brand", ""), form)
+        if not producer:
+            continue
+
+        terpenes = []
+        for t in (x.get("terpenes") or []):
+            t = MEDIBUD_TERPENE_ALIASES.get(t, t)
+            if t in KNOWN_TERPENES and t not in terpenes:
+                terpenes.append(t)
+
+        rec = {
+            "name": name,
+            "producer": producer,
+            "code": code,
+            "form": form,
+            "tier": "Core",
+            "type": x.get("type") or "Hybrid",
+            "terpenes": terpenes,
+        }
+        thc = x.get("thc") or 0
+        cbd = x.get("cbd") or 0
+        if form == "Cartridge":
+            # Cart potency in the feed is total mg, not percent
+            rec["thcMg"] = int(thc)
+            rec["cbdMg"] = int(cbd)
+            em = re.search(r'\b(Hash Rosin|Live Resin|Rosin|Resin|Distillate)\b',
+                           x.get("name", ""), re.IGNORECASE)
+            rec["extractType"] = em.group(1).title() if em else ""
+        else:
+            rec["thc"] = int(thc) if float(thc) == int(thc) else float(thc)
+            rec["cbd"] = int(cbd) if float(cbd) == int(cbd) else float(cbd)
+        records.append(rec)
+    return records
 
 
 # ---------------------------------------------------------------------------
@@ -2235,228 +2422,153 @@ async def main():
     existing_codes = set()
     for s in existing:
         # Key includes form so flower and cart with same name/producer are distinct
-        key = (s["name"].lower(), s["producer"].lower(), s.get("form", "Flower").lower())
+        key = merge_key(s["name"], s["producer"], s.get("form", "Flower"))
         existing_by_key[key] = s
         existing_codes.add(s.get("code", s.get("id", "")))
     flower_count = sum(1 for s in existing if s.get("form", "Flower") == "Flower")
     cart_count = sum(1 for s in existing if s.get("form") == "Cartridge")
     print(f"  Loaded {len(existing)} existing records ({flower_count} flower, {cart_count} cartridges)")
 
-    # 2. Discover strain page URLs via HTTP
-    # all_urls maps: url -> (producer_name, form)  where form is "Flower" or "Cartridge"
-    print("\n\U0001f50d Discovering strain pages (HTTP)...")
-    all_urls = {}
-    for slug, producer in PRODUCERS.items():
-        urls = discover_strain_urls(slug)
-        if urls:
-            print(f"  \U0001f4e6 {producer}: {len(urls)} flower pages")
-            for u in urls:
-                all_urls[u] = (producer, "Flower")
-        else:
-            print(f"  \U0001f4e6 {producer}: \u2717 not found")
-        time.sleep(0.5)
+    # 2. Fetch the MediBud API feed (one request replaces page scraping)
+    print("\n\U0001f50d Fetching MediBud strain feed...")
+    try:
+        feed = fetch_medibud_strains()
+    except Exception as e:
+        print(f"  \u274c MediBud API fetch failed: {e}")
+        return 1
+    flower_feed = sum(1 for r in feed if r["form"] == "Flower")
+    cart_feed = len(feed) - flower_feed
+    print(f"  Feed: {len(feed)} products ({flower_feed} flower, {cart_feed} cartridges)")
 
-    print("\n\U0001f50d Discovering cartridge pages (HTTP)...")
-    cart_found = 0
-    for slug, producer in CART_PRODUCERS.items():
-        urls = discover_cart_urls(slug)
-        if urls:
-            print(f"  \U0001f50b {producer}: {len(urls)} cartridge pages")
-            for u in urls:
-                all_urls[u] = (producer, "Cartridge")
-            cart_found += len(urls)
-        # Don't log "not found" for carts — many producers won't have carts
-        time.sleep(0.5)
-    if cart_found == 0:
-        print("  (no cartridge pages discovered)")
+    # A short feed means the API broke, moved, or locked us out \u2014 fail the
+    # run loudly rather than silently committing nothing (the MedBud 402
+    # outage went unnoticed for six weeks because runs stayed green).
+    if flower_feed < 200:
+        print("  \u274c Feed suspiciously small \u2014 refusing to continue.")
+        return 1
 
-    flower_urls = sum(1 for v in all_urls.values() if v[1] == "Flower")
-    cart_urls = sum(1 for v in all_urls.values() if v[1] == "Cartridge")
-    print(f"\n  Total pages to scrape: {len(all_urls)} ({flower_urls} flower, {cart_urls} cartridges)")
-
-    if not all_urls:
-        print("  \u26a0 No pages discovered \u2014 keeping existing data")
-        return 0
-
-    # 3. Scrape with Playwright (parallel)
-    print("\n\U0001f310 Scraping strain pages with headless browser (4 parallel)...")
+    # 3. Merge feed into existing records
     new_strains = []
     seen_new = set()
-    results_lock = asyncio.Lock()
-    progress = {"done": 0, "total": len(all_urls)}
-    CONCURRENCY = 4
-
-    async def scrape_one(browser, surl, producer, form):
-        context = await browser.new_context(user_agent=HTTP_HEADERS["User-Agent"])
-        pg = await context.new_page()
-        try:
+    for data in feed:
+        prod = data["producer"]
+        form = data["form"]
+        key = merge_key(data["name"], prod, form)
+        if key in existing_by_key:
+            ex = existing_by_key[key]
             if form == "Cartridge":
-                data = await scrape_cart_page_pw(pg, surl, producer)
+                # Backfill cart-specific numeric fields if missing
+                if data.get("thcMg", 0) > 0 and ex.get("thcMg", 0) == 0:
+                    ex["thcMg"] = data["thcMg"]
+                if data.get("cbdMg", 0) > 0 and ex.get("cbdMg", 0) == 0:
+                    ex["cbdMg"] = data["cbdMg"]
+                if data.get("extractType") and not ex.get("extractType"):
+                    ex["extractType"] = data["extractType"]
             else:
-                data = await scrape_strain_page_pw(pg, surl, producer)
-        except Exception:
-            data = None
-        finally:
-            await context.close()
-        async with results_lock:
-            progress["done"] += 1
-            if progress["done"] % 50 == 0:
-                print(f"    ... processed {progress['done']}/{progress['total']} pages")
-        return data, producer, form
-
-    async def worker(browser, queue):
-        while not queue.empty():
-            try:
-                item = queue.get_nowait()
-            except asyncio.QueueEmpty:
-                break
-            surl, (producer, form) = item
-            data, prod, form = await scrape_one(browser, surl, producer, form)
-            queue.task_done()
-            if not data or not data.get("name"):
-                continue
-            async with results_lock:
-                key = (data["name"].lower(), prod.lower(), form.lower())
-                if key in existing_by_key:
-                    ex = existing_by_key[key]
-                    if form == "Cartridge":
-                        # Backfill cart-specific numeric fields if missing
-                        if data.get("thcMg", 0) > 0 and ex.get("thcMg", 0) == 0:
-                            ex["thcMg"] = data["thcMg"]
-                        if data.get("cbdMg", 0) > 0 and ex.get("cbdMg", 0) == 0:
-                            ex["cbdMg"] = data["cbdMg"]
-                        for field in ["volume", "extractType", "terpeneSource", "fitment"]:
-                            if data.get(field) and not ex.get(field):
-                                ex[field] = data[field]
-                    else:
-                        if data.get("thc", 0) > 0 and ex.get("thc", 0) == 0:
-                            ex["thc"] = data["thc"]
-                        if data.get("cbd", 0) > 0 and ex.get("cbd", 0) == 0:
-                            ex["cbd"] = data["cbd"]
-                    # Update terpenes if new data has more
-                    if data.get("terpenes") and len(data["terpenes"]) > len(ex.get("terpenes", [])):
-                        ex["terpenes"] = data["terpenes"]
-                    # Always update terpeneDetails when available (structural > none)
-                    if data.get("terpeneDetails"):
-                        ex["terpeneDetails"] = data["terpeneDetails"]
-                    if data.get("tier") != "Core" and ex.get("tier", "Core") == "Core":
-                        ex["tier"] = data["tier"]
-                    # Fill in missing fields
-                    for field in ["effects", "flavours", "helpsWith", "negatives", "genetics"]:
-                        if data.get(field) and not ex.get(field):
-                            ex[field] = data[field]
-                    # Bump schema version on re-scrape
-                    ex["schema_version"] = 2
-                elif key not in seen_new:
-                    seen_new.add(key)
-                    new_strains.append(data)
-                    terp_str = ', '.join(data['terpenes'][:3]) if data.get('terpenes') else 'no terpenes yet'
-                    if form == "Cartridge":
-                        potency = f"THC {data.get('thcMg', 0)}mg"
-                        if data.get('volume'):
-                            potency += f" {data['volume']}"
-                        print(f"    \U0001f50b {data['name']} ({prod}, {potency}, {terp_str})")
-                    else:
-                        print(f"    \u271a {data['name']} ({prod}, THC {data.get('thc', 0)}%, {terp_str})")
-
-    async with async_playwright() as pw:
-        browser = await pw.chromium.launch(headless=True)
-
-        queue = asyncio.Queue()
-        for item in all_urls.items():
-            queue.put_nowait(item)
-        workers_list = [asyncio.create_task(worker(browser, queue)) for _ in range(CONCURRENCY)]
-        await asyncio.gather(*workers_list)
-
-        print(f"\n  New unique strains: {len(new_strains)}")
-
-        # 4. Weedstrain fallback (for terpenes and genetics) — FLOWER ONLY
-        # Weedstrain doesn't track cartridges, so skip cart records to avoid
-        # mismatching them against flower strains with the same name.
-        flower_new = [s for s in new_strains if s.get("form") != "Cartridge"]
-        missing_terps = [s for s in flower_new if not s.get("terpenes")]
-        missing_genetics = [s for s in flower_new if s.get("terpenes") and not s.get("genetics")]
-        fallback_strains = missing_terps + missing_genetics
-        if fallback_strains:
-            print(f"\n\U0001f52c Weedstrain fallback for {len(fallback_strains)} strains ({len(missing_terps)} missing terpenes, {len(missing_genetics)} missing genetics)...")
-            for s in fallback_strains:
-                ws = scrape_weedstrain(s["name"])
-                if ws:
-                    for k in ["terpenes", "effects", "flavours", "helpsWith", "negatives", "genetics"]:
-                        if not s.get(k) and ws.get(k):
-                            s[k] = ws[k]
-                    if ws.get("terpenes"):
-                        print(f"  \u2713 {s['name']}: {', '.join(ws['terpenes'])}{' | ' + ws['genetics'] if ws.get('genetics') else ''}")
-                    elif ws.get("genetics"):
-                        print(f"  \u2713 {s['name']}: genetics={ws['genetics']}")
-                    else:
-                        print(f"  \u2717 {s['name']}")
-                else:
-                    print(f"  \u2717 {s['name']}")
-                time.sleep(0.5)
-
-        # 4b. AllBud enrichment (helpsWith, effects, flavours, genetics) — FLOWER ONLY
-        # MedBud provides no helpsWith data; AllBud is our primary source.
-        # Runs on all new flowers regardless of existing data (union merge for helpsWith).
-        if flower_new:
-            print(f"\n\U0001f4da AllBud enrichment for {len(flower_new)} new flowers...")
-            allbud_hits = 0
-            for s in flower_new:
-                ab = scrape_allbud(s["name"], s.get("thc", 0), s.get("type", "Hybrid"))
-                if ab:
-                    # Union merge for helpsWith
-                    existing_helps = set(s.get("helpsWith", []))
-                    for tag in ab.get("helpsWith", []):
-                        if tag not in existing_helps:
-                            existing_helps.add(tag)
-                            s.setdefault("helpsWith", []).append(tag)
-                    # Fill-if-empty for other fields
-                    for field in ["effects", "flavours", "negatives", "genetics"]:
-                        if ab.get(field) and not s.get(field):
-                            s[field] = ab[field]
-                    allbud_hits += 1
-                    helps_str = ', '.join(s.get('helpsWith', [])[:5])
-                    print(f"  \u2713 {s['name']}: {helps_str}")
-                else:
-                    print(f"  \u2717 {s['name']}")
-                time.sleep(1)  # Rate limit: 1 req/sec (polite)
-            print(f"  AllBud: {allbud_hits}/{len(flower_new)} matched")
-
-        # 5. Merge
-        result = list(existing)
-        for s in new_strains:
-            raw_code = s.get("code", "")
-            code = raw_code if is_valid_code(raw_code) and raw_code not in existing_codes else make_code(s["name"], existing_codes)
-            if code not in existing_codes:
-                existing_codes.add(code)
-            form = s.get("form", "Flower")
-            record = {
-                "name": s["name"], "producer": s["producer"], "code": code,
-                "form": form,
-                "tier": s.get("tier", "Core"),
-                "thc": s.get("thc", 0), "cbd": s.get("cbd", 0),
-                "type": s.get("type", "Hybrid"),
-                "terpenes": s.get("terpenes", []),
-                "terpeneDetails": s.get("terpeneDetails", []),
-                "effects": s.get("effects", []),
-                "flavours": s.get("flavours", []), "helpsWith": s.get("helpsWith", []),
-                "negatives": s.get("negatives", []), "genetics": s.get("genetics", ""),
-                "schema_version": 2,
-                "id": code,
-            }
+                if data.get("thc", 0) > 0 and ex.get("thc", 0) == 0:
+                    ex["thc"] = data["thc"]
+                if data.get("cbd", 0) > 0 and ex.get("cbd", 0) == 0:
+                    ex["cbd"] = data["cbd"]
+            # Update terpenes if the feed has more. The feed carries no
+            # terpeneDetails / tier / effects, so those stay untouched.
+            if data.get("terpenes") and len(data["terpenes"]) > len(ex.get("terpenes", [])):
+                ex["terpenes"] = data["terpenes"]
+        elif key not in seen_new:
+            seen_new.add(key)
+            new_strains.append(data)
+            terp_str = ', '.join(data['terpenes'][:3]) if data.get('terpenes') else 'no terpenes yet'
             if form == "Cartridge":
-                record["thcMg"] = s.get("thcMg", 0)
-                record["cbdMg"] = s.get("cbdMg", 0)
-                record["volume"] = s.get("volume", "")
-                record["extractType"] = s.get("extractType", "")
-                record["terpeneSource"] = s.get("terpeneSource", "")
-                record["fitment"] = s.get("fitment", "")
-            result.append(record)
+                print(f"    \U0001f50b {data['name']} ({prod}, THC {data.get('thcMg', 0)}mg, {terp_str})")
+            else:
+                print(f"    \u271a {data['name']} ({prod}, THC {data.get('thc', 0)}%, {terp_str})")
 
-        # 6. YouTube reviews (separate file, not per-strain)
-        yt_reviews = await scrape_youtube_reviews(browser)
+    print(f"\n  New unique strains: {len(new_strains)}")
 
-        await browser.close()
+    # 4. Weedstrain fallback (for terpenes and genetics) — FLOWER ONLY
+    # Weedstrain doesn't track cartridges, so skip cart records to avoid
+    # mismatching them against flower strains with the same name.
+    flower_new = [s for s in new_strains if s.get("form") != "Cartridge"]
+    missing_terps = [s for s in flower_new if not s.get("terpenes")]
+    missing_genetics = [s for s in flower_new if s.get("terpenes") and not s.get("genetics")]
+    fallback_strains = missing_terps + missing_genetics
+    if fallback_strains:
+        print(f"\n\U0001f52c Weedstrain fallback for {len(fallback_strains)} strains ({len(missing_terps)} missing terpenes, {len(missing_genetics)} missing genetics)...")
+        for s in fallback_strains:
+            ws = scrape_weedstrain(s["name"])
+            if ws:
+                for k in ["terpenes", "effects", "flavours", "helpsWith", "negatives", "genetics"]:
+                    if not s.get(k) and ws.get(k):
+                        s[k] = ws[k]
+                if ws.get("terpenes"):
+                    print(f"  \u2713 {s['name']}: {', '.join(ws['terpenes'])}{' | ' + ws['genetics'] if ws.get('genetics') else ''}")
+                elif ws.get("genetics"):
+                    print(f"  \u2713 {s['name']}: genetics={ws['genetics']}")
+                else:
+                    print(f"  \u2717 {s['name']}")
+            else:
+                print(f"  \u2717 {s['name']}")
+            time.sleep(0.5)
+
+    # 4b. AllBud enrichment (helpsWith, effects, flavours, genetics) — FLOWER ONLY
+    # MedBud provides no helpsWith data; AllBud is our primary source.
+    # Runs on all new flowers regardless of existing data (union merge for helpsWith).
+    if flower_new:
+        print(f"\n\U0001f4da AllBud enrichment for {len(flower_new)} new flowers...")
+        allbud_hits = 0
+        for s in flower_new:
+            ab = scrape_allbud(s["name"], s.get("thc", 0), s.get("type", "Hybrid"))
+            if ab:
+                # Union merge for helpsWith
+                existing_helps = set(s.get("helpsWith", []))
+                for tag in ab.get("helpsWith", []):
+                    if tag not in existing_helps:
+                        existing_helps.add(tag)
+                        s.setdefault("helpsWith", []).append(tag)
+                # Fill-if-empty for other fields
+                for field in ["effects", "flavours", "negatives", "genetics"]:
+                    if ab.get(field) and not s.get(field):
+                        s[field] = ab[field]
+                allbud_hits += 1
+                helps_str = ', '.join(s.get('helpsWith', [])[:5])
+                print(f"  \u2713 {s['name']}: {helps_str}")
+            else:
+                print(f"  \u2717 {s['name']}")
+            time.sleep(1)  # Rate limit: 1 req/sec (polite)
+        print(f"  AllBud: {allbud_hits}/{len(flower_new)} matched")
+
+    # 5. Merge
+    result = list(existing)
+    for s in new_strains:
+        raw_code = s.get("code", "")
+        code = raw_code if is_valid_code(raw_code) and raw_code not in existing_codes else make_code(s["name"], existing_codes)
+        if code not in existing_codes:
+            existing_codes.add(code)
+        form = s.get("form", "Flower")
+        record = {
+            "name": s["name"], "producer": s["producer"], "code": code,
+            "form": form,
+            "tier": s.get("tier", "Core"),
+            "thc": s.get("thc", 0), "cbd": s.get("cbd", 0),
+            "type": s.get("type", "Hybrid"),
+            "terpenes": s.get("terpenes", []),
+            "terpeneDetails": s.get("terpeneDetails", []),
+            "effects": s.get("effects", []),
+            "flavours": s.get("flavours", []), "helpsWith": s.get("helpsWith", []),
+            "negatives": s.get("negatives", []), "genetics": s.get("genetics", ""),
+            "schema_version": 2,
+            "id": code,
+        }
+        if form == "Cartridge":
+            record["thcMg"] = s.get("thcMg", 0)
+            record["cbdMg"] = s.get("cbdMg", 0)
+            record["volume"] = s.get("volume", "")
+            record["extractType"] = s.get("extractType", "")
+            record["terpeneSource"] = s.get("terpeneSource", "")
+            record["fitment"] = s.get("fitment", "")
+        result.append(record)
+
+    # 6. YouTube reviews — medbud.wiki 402s automated access now,
+    # so reviews.json stays frozen at its last good state.
 
     # 7. Final deduplication
     result = clean_existing_data(result)
@@ -2466,16 +2578,11 @@ async def main():
     with open(strains_path, 'w') as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
 
-    # 9. Save reviews
-    reviews_path = strains_path.parent / "reviews.json"
-    print(f"\U0001f4be Saving {len(yt_reviews)} reviews...")
-    with open(reviews_path, 'w') as f:
-        json.dump(yt_reviews, f, indent=2, ensure_ascii=False)
+    # 9. Reviews are not re-saved — see step 6.
 
     # 10. Update HTML
     if html_path.exists():
         update_html(str(html_path), result)
-        update_reviews_html(str(html_path), yt_reviews)
 
     added = len(result) - len(existing)
     flowers = sum(1 for s in result if s.get("form", "Flower") == "Flower")
