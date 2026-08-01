@@ -40131,5 +40131,530 @@
     "genetics": "",
     "schema_version": 2,
     "id": "SM3"
+  },
+  {
+    "name": "Banana Kush",
+    "producer": "Clearleaf",
+    "code": "BAK",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Bisabolol",
+      "Geraniol"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Body High",
+      "Creative",
+      "Euphoria",
+      "Happy",
+      "Relaxing",
+      "Sleepy"
+    ],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "ADHD",
+      "Depression",
+      "Chronic Pain",
+      "Headache",
+      "Insomnia",
+      "Cramps",
+      "PTSD"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "BAK"
+  },
+  {
+    "name": "Lava Cake",
+    "producer": "N!CE",
+    "code": "LC5",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Hungry",
+      "Sleepy",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "ADHD",
+      "Chronic Pain",
+      "Headache",
+      "Insomnia",
+      "Migraine",
+      "Nausea"
+    ],
+    "negatives": [
+      "Paranoid"
+    ],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "LC5"
+  },
+  {
+    "name": "Chiqui Milkshake",
+    "producer": "N!CE",
+    "code": "CM3",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0.5,
+    "type": "Indica",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "CM3"
+  },
+  {
+    "name": "Lemon Cherry Gelato",
+    "producer": "N!CE",
+    "code": "LCG4",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Happy",
+      "Relaxing",
+      "Sociable",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Anxiety",
+      "Chronic Pain"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "LCG4"
+  },
+  {
+    "name": "Beluga",
+    "producer": "CannFX",
+    "code": "BEL",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "BEL"
+  },
+  {
+    "name": "Blue Gelatti",
+    "producer": "Lot420",
+    "code": "BG1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "BG1"
+  },
+  {
+    "name": "Familiar Fruit",
+    "producer": "Curaleaf",
+    "code": "FFT",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 7,
+    "cbd": 10,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [
+      "Calming",
+      "Creative",
+      "Focus",
+      "Happy",
+      "Relaxing",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Candy",
+      "Cherry",
+      "Fruity",
+      "Sugary",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "ADHD",
+      "Depression",
+      "Headache",
+      "Inflammation",
+      "Nausea",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "OG Kush F3 × Cherrywine",
+    "schema_version": 2,
+    "id": "FFT"
+  },
+  {
+    "name": "Crumbled Lime",
+    "producer": "Upstate",
+    "code": "CBL",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Bisabolol",
+      "Geraniol",
+      "Camphene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Euphoria",
+      "Focus",
+      "Happy",
+      "Relaxing",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Anxiety",
+      "Headache",
+      "Migraine"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "CBL"
+  },
+  {
+    "name": "Waffle Cone",
+    "producer": "Upstate",
+    "code": "WFC",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Bisabolol",
+      "Geraniol",
+      "Camphene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Relaxing",
+      "Tingly",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Depression",
+      "ADHD",
+      "Chronic Pain",
+      "Cramps",
+      "Inflammation",
+      "Muscle Spasms"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "WFC"
+  },
+  {
+    "name": "Baked Animal",
+    "producer": "Upstate",
+    "code": "BKA",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "BKA"
+  },
+  {
+    "name": "Durban Kush",
+    "producer": "N!CE",
+    "code": "DK1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0.5,
+    "type": "Sativa",
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Body High",
+      "Happy",
+      "Relaxing",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Depression",
+      "ADHD",
+      "Chronic Pain",
+      "Inflammation",
+      "Muscle Spasms",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "DK1"
+  },
+  {
+    "name": "Georgia Pie",
+    "producer": "Mamedica",
+    "code": "GGP",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Bisabolol",
+      "Geraniol",
+      "Camphene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Body High",
+      "Hungry",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Sweet",
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "ADHD",
+      "Depression",
+      "Insomnia",
+      "Nausea"
+    ],
+    "negatives": [
+      "Paranoid"
+    ],
+    "genetics": "Gellati × Kush Mints",
+    "schema_version": 2,
+    "id": "GGP"
+  },
+  {
+    "name": "Pucker-Up",
+    "producer": "Upstate",
+    "code": "PKU",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0.5,
+    "type": "Sativa",
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Caryophyllene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "PKU"
+  },
+  {
+    "name": "Crescendo",
+    "producer": "Sundaze",
+    "code": "CSD",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Euphoria",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Tingly",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Cherry",
+      "Fruity",
+      "Sweet",
+      "Woody"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "CSD"
+  },
+  {
+    "name": "White Truffle",
+    "producer": "Hilltop Leaf",
+    "code": "WHTR",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Bisabolol",
+      "Geraniol",
+      "Camphene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Aroused",
+      "Body High",
+      "Creative",
+      "Relaxing",
+      "Sleepy",
+      "Tingly"
+    ],
+    "flavours": [
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Anxiety",
+      "Chronic Pain",
+      "Cramps",
+      "Insomnia",
+      "Nausea"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "WHTR"
+  },
+  {
+    "name": "The Big Apple",
+    "producer": "Soma OG",
+    "code": "TBA",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "TBA"
   }
 ]
