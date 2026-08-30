@@ -24341,7 +24341,7 @@
     "form": "Flower",
     "tier": "Core",
     "thc": 30,
-    "cbd": 0,
+    "cbd": 0.5,
     "type": "Hybrid",
     "terpenes": [],
     "terpeneDetails": [],
@@ -33037,7 +33037,13 @@
     "thc": 26,
     "cbd": 0.5,
     "type": "Indica",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool",
+      "Humulene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -33057,9 +33063,10 @@
     "cbd": 0.5,
     "type": "Hybrid",
     "terpenes": [
-      "Myrcene",
-      "Bisabolol",
-      "Geraniol"
+      "Limonene",
+      "Caryophyllene",
+      "Linalool",
+      "Carene"
     ],
     "terpeneDetails": [],
     "effects": [],
@@ -33087,7 +33094,11 @@
     "thc": 18,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Caryophyllene",
+      "Linalool",
+      "Humulene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -33860,7 +33871,11 @@
     "thc": 23,
     "cbd": 0.5,
     "type": "Sativa",
-    "terpenes": [],
+    "terpenes": [
+      "Caryophyllene",
+      "Linalool",
+      "Farnesene"
+    ],
     "terpeneDetails": [],
     "effects": [
       "Aroused",
@@ -33944,7 +33959,11 @@
     "thc": 28,
     "cbd": 0.5,
     "type": "Indica",
-    "terpenes": [],
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Humulene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -40656,5 +40675,1225 @@
     "genetics": "",
     "schema_version": 2,
     "id": "TBA"
+  },
+  {
+    "name": "Keisei Valley Cheese",
+    "producer": "Vida",
+    "code": "KVC",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "KVC"
+  },
+  {
+    "name": "Banana Drip",
+    "producer": "Topz N' Popz",
+    "code": "BD9",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0.5,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "BD9"
+  },
+  {
+    "name": "Cap Junky",
+    "producer": "TNSC",
+    "code": "CJ4",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 23,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool",
+      "Humulene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Tingly",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Diesel",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Chronic Pain",
+      "Cramps",
+      "Muscle Spasms"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "CJ4"
+  },
+  {
+    "name": "Moonshine",
+    "producer": "Vida",
+    "code": "MOO1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0.5,
+    "type": "Sativa",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "MOO1"
+  },
+  {
+    "name": "Oreo Mist Kush",
+    "producer": "Vida",
+    "code": "OMK",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "OMK"
+  },
+  {
+    "name": "Mango Crush",
+    "producer": "Vida",
+    "code": "MC4",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0.5,
+    "type": "Indica",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Relaxing",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Fruity",
+      "Herbal",
+      "Sweet",
+      "Tropical"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Depression",
+      "Fatigue",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "MC4"
+  },
+  {
+    "name": "Perfect Pair",
+    "producer": "Tnsc",
+    "code": "PP5",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [
+      "Euphoria",
+      "Happy",
+      "Sociable",
+      "Tingly",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Candy",
+      "Cherry",
+      "Chocolate",
+      "Creamy",
+      "Fruity",
+      "Spicy",
+      "Sugary",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Chronic Pain",
+      "Depression",
+      "Eye Pressure",
+      "Fatigue",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "PP5"
+  },
+  {
+    "name": "Jaffa 360",
+    "producer": "TNSC",
+    "code": "JAFA",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool",
+      "Humulene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "JAFA"
+  },
+  {
+    "name": "Topanga Twist",
+    "producer": "TNSC",
+    "code": "TT2",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "TT2"
+  },
+  {
+    "name": "AK Pie",
+    "producer": "Island Genetics",
+    "code": "AP1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Ocimene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "AP1"
+  },
+  {
+    "name": "Moneybags",
+    "producer": "Vida",
+    "code": "MON",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0.5,
+    "type": "Indica",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "MON"
+  },
+  {
+    "name": "El Chivo",
+    "producer": "All Nations",
+    "code": "EC1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Body High",
+      "Calming",
+      "Relaxing",
+      "Sleepy",
+      "Tingly",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Blueberry",
+      "Diesel",
+      "Flowery",
+      "Fruity",
+      "Spicy",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "OG Kush Breath Headb × XGrape Gas",
+    "schema_version": 2,
+    "id": "EC1"
+  },
+  {
+    "name": "Jack Herer",
+    "producer": "Lot420",
+    "code": "JH6",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Bisabolol",
+      "Geraniol",
+      "Camphene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Focus",
+      "Sociable",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Anxiety",
+      "Fatigue",
+      "Headache",
+      "Migraine"
+    ],
+    "negatives": [
+      "Paranoid"
+    ],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "JH6"
+  },
+  {
+    "name": "Noir Diamant",
+    "producer": "Barongo",
+    "code": "ND1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "ND1"
+  },
+  {
+    "name": "Human After All",
+    "producer": "Green Britannia",
+    "code": "HAA",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "HAA"
+  },
+  {
+    "name": "Nordic Zest",
+    "producer": "Khiron",
+    "code": "NZ1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 16,
+    "cbd": 0.5,
+    "type": "Sativa",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "NZ1"
+  },
+  {
+    "name": "Garlic Mushroom Onion",
+    "producer": "EcoCann",
+    "code": "GMO2",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0.5,
+    "type": "Indica",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [
+      "Body High",
+      "Calming",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Anise",
+      "Candy",
+      "Herbal",
+      "Sage",
+      "Spicy",
+      "Sweet"
+    ],
+    "helpsWith": [
+      "Loss of Appetite",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia",
+      "Nausea",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "GMO2"
+  },
+  {
+    "name": "Sugar Punch",
+    "producer": "Khiron",
+    "code": "SP4",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Bisabolol",
+      "Geraniol",
+      "Camphene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Creative",
+      "Happy",
+      "Relaxing"
+    ],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Anxiety",
+      "Chronic Pain",
+      "Eye Pressure",
+      "Fatigue",
+      "Migraine",
+      "PTSD"
+    ],
+    "negatives": [
+      "Paranoid"
+    ],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "SP4"
+  },
+  {
+    "name": "Eve",
+    "producer": "Curaleaf",
+    "code": "EVE",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 1,
+    "cbd": 9,
+    "type": "Sativa",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [
+      "Euphoria",
+      "Happy",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Herbal",
+      "Pine",
+      "Spicy",
+      "Woody"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Inflammation",
+      "Muscle Spasms",
+      "Nausea"
+    ],
+    "negatives": [],
+    "genetics": "Afghani #1 × Burmese landrace",
+    "schema_version": 2,
+    "id": "EVE"
+  },
+  {
+    "name": "Mariposa",
+    "producer": "Australian Natural Therapeutics Group",
+    "code": "MPA",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 16,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool",
+      "Humulene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "MPA"
+  },
+  {
+    "name": "Cake City",
+    "producer": "Tofino Ripper",
+    "code": "CC9",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0.5,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool",
+      "Humulene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Euphoria",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Creamy",
+      "Dank",
+      "Flowery",
+      "Skunky",
+      "Sweet",
+      "Vanilla"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Cramps",
+      "Depression",
+      "Insomnia",
+      "Muscle Spasms",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "CC9"
+  },
+  {
+    "name": "Cherry Vanilla Balanced",
+    "producer": "Glass Pharms",
+    "code": "CVB",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 10,
+    "cbd": 11,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Ocimene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "CVB"
+  },
+  {
+    "name": "Moroccan Peaches",
+    "producer": "Herdade das Barrocas",
+    "code": "MPS",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 26,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Calming",
+      "Creative",
+      "Euphoria",
+      "Happy",
+      "Motivation",
+      "Sociable",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Citrus",
+      "Creamy",
+      "Fruity",
+      "Orange",
+      "Peach",
+      "Spicy",
+      "Sweet",
+      "Tree Fruit"
+    ],
+    "helpsWith": [
+      "Cramps",
+      "Depression",
+      "Fatigue",
+      "Headache",
+      "Migraine",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "Spanish Barbara × Lemon Tree Skorange",
+    "schema_version": 2,
+    "id": "MPS"
+  },
+  {
+    "name": "Tigerz Eye",
+    "producer": "PureArc",
+    "code": "TE",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0.5,
+    "type": "Indica",
+    "terpenes": [
+      "Bisabolol",
+      "Geraniol",
+      "Camphene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [
+      "Berry",
+      "Diesel",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "TE"
+  },
+  {
+    "name": "Apple Runtz",
+    "producer": "Hÿ5",
+    "code": "APZ",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 33,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Bisabolol",
+      "Geraniol"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Creative",
+      "Energetic",
+      "Euphoria",
+      "Happy",
+      "Sociable",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Diesel"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Anxiety",
+      "Loss of Appetite",
+      "Fatigue",
+      "Nausea"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "APZ"
+  },
+  {
+    "name": "Iced Lemonada",
+    "producer": "Mystery Mountain",
+    "code": "LMD",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0.5,
+    "type": "Sativa",
+    "terpenes": [
+      "Myrcene",
+      "Ocimene",
+      "Terpinolene",
+      "Farnesene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "LMD"
+  },
+  {
+    "name": "Lemon Cookies",
+    "producer": "Mystery Mountain",
+    "code": "LC6",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0.5,
+    "type": "Sativa",
+    "terpenes": [
+      "Pinene",
+      "Limonene",
+      "Linalool"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Calming",
+      "Euphoria",
+      "Happy",
+      "Relaxing",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Diesel"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Fatigue",
+      "Inflammation",
+      "Insomnia"
+    ],
+    "negatives": [
+      "Paranoid"
+    ],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "LC6"
+  },
+  {
+    "name": "Wookies",
+    "producer": "Mystery Mountain",
+    "code": "WKS",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 32,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool",
+      "Farnesene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Calming",
+      "Creative",
+      "Euphoria",
+      "Relaxing",
+      "Sleepy",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Sweet",
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "ADHD",
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "Insomnia"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "WKS"
+  },
+  {
+    "name": "Bubble Bath",
+    "producer": "Ghost Drops",
+    "code": "BBA",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Calming",
+      "Euphoria",
+      "Happy",
+      "Relaxing"
+    ],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Diesel"
+    ],
+    "helpsWith": [
+      "Stress",
+      "ADHD",
+      "Arthritis",
+      "Depression",
+      "Headache",
+      "Insomnia",
+      "Migraine"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "BBA"
+  },
+  {
+    "name": "Punchsicle",
+    "producer": "Ghost Drops",
+    "code": "MMK",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 29,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "MMK"
+  },
+  {
+    "name": "Orange Cream",
+    "producer": "Phant",
+    "code": "OC1",
+    "form": "Cartridge",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "OC1",
+    "thcMg": 850,
+    "cbdMg": 0,
+    "volume": "",
+    "extractType": "",
+    "terpeneSource": "",
+    "fitment": ""
+  },
+  {
+    "name": "Mango",
+    "producer": "Phant",
+    "code": "MA",
+    "form": "Cartridge",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "MA",
+    "thcMg": 850,
+    "cbdMg": 0,
+    "volume": "",
+    "extractType": "",
+    "terpeneSource": "",
+    "fitment": ""
+  },
+  {
+    "name": "Blackberry Kush",
+    "producer": "Phant",
+    "code": "BLK",
+    "form": "Cartridge",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "BLK",
+    "thcMg": 850,
+    "cbdMg": 0,
+    "volume": "",
+    "extractType": "Live Resin",
+    "terpeneSource": "",
+    "fitment": ""
+  },
+  {
+    "name": "OG Kush",
+    "producer": "Phant",
+    "code": "OK6",
+    "form": "Cartridge",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "OK6",
+    "thcMg": 850,
+    "cbdMg": 0,
+    "volume": "",
+    "extractType": "Live Resin",
+    "terpeneSource": "",
+    "fitment": ""
+  },
+  {
+    "name": "Donny Burger",
+    "producer": "Upstate",
+    "code": "DB1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Hungry",
+      "Relaxing",
+      "Tingly",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Chronic Pain",
+      "Inflammation",
+      "Insomnia"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "DB1"
+  },
+  {
+    "name": "Human After All",
+    "producer": "Jersey Craft",
+    "code": "HAA1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 31,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Terpineol"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "HAA1"
+  },
+  {
+    "name": "Gelato Runtz",
+    "producer": "Sundaze",
+    "code": "GRZ",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Body High",
+      "Euphoria",
+      "Hungry",
+      "Relaxing",
+      "Sociable",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Chronic Pain",
+      "Fatigue",
+      "Nausea"
+    ],
+    "negatives": [
+      "Paranoid"
+    ],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "GRZ"
+  },
+  {
+    "name": "Devil's Oreoz",
+    "producer": "Sundaze",
+    "code": "DVO",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Humulene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "DVO"
+  },
+  {
+    "name": "Platinum Pop Rocks",
+    "producer": "Sanavera",
+    "code": "PPR",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0.5,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "PPR"
   }
 ]
