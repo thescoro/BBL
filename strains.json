@@ -26056,7 +26056,12 @@
     "thc": 24,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Terpinolene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -31214,7 +31219,12 @@
     "thc": 25,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Humulene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -34668,7 +34678,12 @@
     "thc": 27,
     "cbd": 0.5,
     "type": "Indica",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Humulene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -35498,7 +35513,12 @@
     "thc": 26,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool",
+      "Farnesene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -39058,7 +39078,11 @@
     "thc": 25,
     "cbd": 0.5,
     "type": "Indica",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -39077,7 +39101,11 @@
     "thc": 25,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -40843,9 +40871,14 @@
     "form": "Flower",
     "tier": "Core",
     "thc": 25,
-    "cbd": 0,
+    "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
     "terpeneDetails": [],
     "effects": [
       "Euphoria",
@@ -41895,5 +41928,112 @@
     "genetics": "",
     "schema_version": 2,
     "id": "PPR"
+  },
+  {
+    "name": "Pave Breath",
+    "producer": "HighGreens",
+    "code": "PB2",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "PB2"
+  },
+  {
+    "name": "Pink Drip",
+    "producer": "Topz N' Popz",
+    "code": "PD3",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 22,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool",
+      "Farnesene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Body High",
+      "Calming",
+      "Euphoria",
+      "Happy",
+      "Mellow",
+      "Relaxing",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Creamy",
+      "Fruity",
+      "Mint",
+      "Strawberry",
+      "Sweet",
+      "Vanilla"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Chronic Pain",
+      "Depression",
+      "PTSD",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "Uncle John's Skunk × Animal Mints BX1",
+    "schema_version": 2,
+    "id": "PD3"
+  },
+  {
+    "name": "Sunset Runtz",
+    "producer": "Topz N' Popz",
+    "code": "SR1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool",
+      "Humulene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Creative",
+      "Euphoria",
+      "Happy",
+      "Relaxing",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Diesel"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Anxiety",
+      "Chronic Pain",
+      "Nausea"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "SR1"
   }
 ]
