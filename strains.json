@@ -12086,7 +12086,11 @@
     "thc": 26,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Caryophyllene"
+    ],
     "effects": [],
     "flavours": [
       "Lemon"
@@ -12483,7 +12487,11 @@
     "thc": 28,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
     "effects": [
       "Creative",
       "Euphoria",
@@ -18488,7 +18496,11 @@
     "thc": 27,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
     "effects": [],
     "flavours": [
       "Lemon"
@@ -39668,7 +39680,12 @@
     "thc": 21,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -40333,7 +40350,11 @@
     "thc": 29,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
