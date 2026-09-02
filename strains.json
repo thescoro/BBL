@@ -24250,7 +24250,7 @@
     "form": "Flower",
     "tier": "Core",
     "thc": 30,
-    "cbd": 0,
+    "cbd": 0.5,
     "type": "Indica",
     "terpenes": [],
     "terpeneDetails": [],
@@ -37211,7 +37211,12 @@
     "thc": 26,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Terpinolene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -37455,7 +37460,12 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -37505,7 +37515,13 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -37655,7 +37671,11 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -37680,7 +37700,11 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Caryophyllene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -39947,7 +39971,11 @@
     "thc": 23,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Farnesene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -42056,5 +42084,94 @@
     "genetics": "",
     "schema_version": 2,
     "id": "SR1"
+  },
+  {
+    "name": "Chem De La Chem",
+    "producer": "420 Pharma",
+    "code": "CDL3",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Bisabolol",
+      "Geraniol",
+      "Camphene"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Euphoria",
+      "Focus",
+      "Sociable",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Citrus",
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Chronic Pain",
+      "Fatigue"
+    ],
+    "negatives": [
+      "Paranoid"
+    ],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "CDL3"
+  },
+  {
+    "name": "RS-11",
+    "producer": "Papers",
+    "code": "RS-ELV",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 24,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "RS-ELV"
+  },
+  {
+    "name": "Watermelon Ice",
+    "producer": "Easy Dose",
+    "code": "WTM",
+    "form": "Cartridge",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Ocimene",
+      "Eucalyptol"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "WTM",
+    "thcMg": 500,
+    "cbdMg": 500,
+    "volume": "",
+    "extractType": "",
+    "terpeneSource": "",
+    "fitment": ""
   }
 ]
