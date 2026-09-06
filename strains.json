@@ -40427,7 +40427,11 @@
     "thc": 7,
     "cbd": 10,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
     "terpeneDetails": [],
     "effects": [
       "Calming",
@@ -49916,5 +49920,83 @@
     "genetics": "",
     "schema_version": 2,
     "id": "TOC"
+  },
+  {
+    "name": "Jet Fuel Apricot (17% THC)",
+    "producer": "IPS",
+    "code": "JFA2",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 17,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "JFA2"
+  },
+  {
+    "name": "Mandarin Cookies (21% THC)",
+    "producer": "IPS",
+    "code": "MC22",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 21,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Myrcene",
+      "Bisabolol",
+      "Geraniol"
+    ],
+    "terpeneDetails": [],
+    "effects": [
+      "Body High",
+      "Relaxing",
+      "Tingly",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Berry",
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression",
+      "ADHD",
+      "Chronic Pain",
+      "Fatigue",
+      "Headache"
+    ],
+    "negatives": [
+      "Paranoid"
+    ],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "MC22"
+  },
+  {
+    "name": "Pava Breath",
+    "producer": "High Greens",
+    "code": "PB3",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "PB3"
   }
 ]
