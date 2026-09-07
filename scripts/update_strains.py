@@ -2859,9 +2859,19 @@ async def main():
     # A short feed means the API broke, moved, or locked us out \u2014 fail the
     # run loudly rather than silently committing nothing (the MedBud 402
     # outage went unnoticed for six weeks because runs stayed green).
-    if flower_feed < 200:
-        print("  \u274c Feed suspiciously small \u2014 refusing to continue.")
-        return 1
+    #
+    # The floors are per-form because a single category can vanish on its
+    # own: if /oils/ moves or its names change shape, the flower count stays
+    # perfectly healthy while the oils quietly drain out of the catalogue.
+    # Each floor sits near half the current count \u2014 loose enough to ride out
+    # normal range churn, tight enough to catch a category going dark or a
+    # name-parser regression halving what gets recognised.
+    for form_name, floor in (("Flower", 200), ("Oil", 60)):
+        seen = sum(1 for r in feed if r["form"] == form_name)
+        if seen < floor:
+            print(f"  \u274c Only {seen} {form_name.lower()} records in the feed "
+                  f"(expected at least {floor}) \u2014 refusing to continue.")
+            return 1
 
     # 3. Merge feed into existing records
     new_strains = []
