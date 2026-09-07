@@ -344,6 +344,16 @@ MEDIBUD_API = "https://www.medibud.co.uk/api/strains"
 MEDIBUD_REVIEWS_SUMMARY = "https://www.medibud.co.uk/api/reviews/summary"
 MEDIBUD_STRAIN_REVIEWS = "https://www.medibud.co.uk/api/strains/{}/reviews"
 
+# Minimum records per form the feed must carry before a run is allowed to
+# touch the catalogue. Floors are per-form because a single category can
+# vanish on its own: if /oils/ moves or its names change shape, the flower
+# count stays perfectly healthy while the oils quietly drain out on the next
+# run. Each sits near half the current count (~1000 flower, ~157 carts,
+# ~123 oils) \u2014 loose enough to ride out normal range churn, tight enough to
+# catch a category going dark or a name-parser regression halving what gets
+# recognised. Enforced in main(); raise a floor when a range grows.
+MEDIBUD_FEED_FLOORS = (("Flower", 200), ("Cartridge", 80), ("Oil", 60))
+
 # Brand strings in the feed that differ from the producer names already in
 # strains.json. Only needed when the record's sourceUrl slug isn't in
 # PRODUCERS / CART_PRODUCERS.
@@ -2859,14 +2869,8 @@ async def main():
     # A short feed means the API broke, moved, or locked us out \u2014 fail the
     # run loudly rather than silently committing nothing (the MedBud 402
     # outage went unnoticed for six weeks because runs stayed green).
-    #
-    # The floors are per-form because a single category can vanish on its
-    # own: if /oils/ moves or its names change shape, the flower count stays
-    # perfectly healthy while the oils quietly drain out of the catalogue.
-    # Each floor sits near half the current count \u2014 loose enough to ride out
-    # normal range churn, tight enough to catch a category going dark or a
-    # name-parser regression halving what gets recognised.
-    for form_name, floor in (("Flower", 200), ("Cartridge", 80), ("Oil", 60)):
+    # Floors and their reasoning live on MEDIBUD_FEED_FLOORS.
+    for form_name, floor in MEDIBUD_FEED_FLOORS:
         seen = sum(1 for r in feed if r["form"] == form_name)
         if seen < floor:
             print(f"  \u274c Only {seen} {form_name.lower()} records in the feed "
