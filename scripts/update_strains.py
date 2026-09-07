@@ -2866,7 +2866,7 @@ async def main():
     # Each floor sits near half the current count \u2014 loose enough to ride out
     # normal range churn, tight enough to catch a category going dark or a
     # name-parser regression halving what gets recognised.
-    for form_name, floor in (("Flower", 200), ("Oil", 60)):
+    for form_name, floor in (("Flower", 200), ("Cartridge", 80), ("Oil", 60)):
         seen = sum(1 for r in feed if r["form"] == form_name)
         if seen < floor:
             print(f"  \u274c Only {seen} {form_name.lower()} records in the feed "
