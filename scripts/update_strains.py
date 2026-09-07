@@ -354,6 +354,11 @@ MEDIBUD_BRAND_ALIASES = {
     "ips": "IPS",
     "4c labs": "4C Labs",
     "dank of england medical": "DOE Medical",
+    # Oil-only producers — these brands appear nowhere in the flower or cart
+    # catalogues, so there is no PRODUCERS slug to fall back on.
+    "mrx medical": "MRX Medical",
+    "british cannabis": "British Cannabis",
+    "martindale pharma": "Martindale Pharma",
 }
 
 # Feed terpene labels that need folding onto KNOWN_TERPENES vocabulary.
@@ -382,9 +387,15 @@ def merge_key(name, producer, form):
     accents (Pavé vs Pave), punctuation (M.A.C. vs MAC), stray potency
     tokens, and — for carts — extract-type words the old scraper left in
     names ("Hash Rosin T750 Wedding Cake" vs "Wedding Cake").
+
+    Oils are the exception to the potency stripping: most have no strain
+    name, so the T:C ratio *is* the product identity. Stripping it would
+    collapse every Curaleaf oil onto one key ("fullspectrum") and let the
+    merge silently discard 40-odd distinct products.
     """
     n = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode()
-    n = _POTENCY_RE.sub(' ', n)
+    if form != "Oil":
+        n = _POTENCY_RE.sub(' ', n)
     if form == "Cartridge":
         n = re.sub(r'\b(hash|rosin|resin|distillate|live)\b', ' ', n,
                    flags=re.IGNORECASE)
@@ -438,6 +449,183 @@ def parse_medibud_name(raw):
     return name, code
 
 
+# ---------------------------------------------------------------------------
+# Oil name parsing
+#
+# Oil product names are shaped nothing like flower or cart names:
+#   "Curaleaf® Peppermint T10:C10 Full Spectrum Oil Medical Cannabis (30ml) (10mg)"
+# Three differences drive this separate parser:
+#   1. The potency ratio IS the identity — 143 of 198 oils in the feed carry
+#      no strain name at all, just a producer and a T:C ratio.
+#   2. Trailing parentheticals mix bottle volume with dose/measured potency,
+#      and the "Medical Cannabis" suffix sits *before* them, so
+#      parse_medibud_name's end-anchored strip never fires.
+#   3. A base or flavour modifier ("Peppermint", "Olive") can sit on either
+#      side of the ratio, and it genuinely distinguishes two products.
+# ---------------------------------------------------------------------------
+
+_OIL_SPECTRUM_RE = re.compile(
+    r'\b(Full\s+Spectrum|Broad\s+Spectrum|Isolate)\b', re.IGNORECASE)
+# T20 / T20:C1 / T20c1 / T10-C10 / C100. Anchored on a word boundary so the
+# malformed "Tc100" style names fall through and get skipped.
+_OIL_RATIO_RE = re.compile(
+    r'\bT(\d+(?:\.\d+)?)\s*[:\-]?\s*C(\d+(?:\.\d+)?)\b'
+    r'|\bT(\d+(?:\.\d+)?)\b'
+    r'|\bC(\d+(?:\.\d+)?)\b', re.IGNORECASE)
+_OIL_PAREN_RE = re.compile(r'\(([^)]*)\)')
+_OIL_VOLUME_RE = re.compile(r'^\s*(\d+(?:\.\d+)?)\s*ml\s*$', re.IGNORECASE)
+# Words that carry no distinguishing information once form, producer, ratio
+# and spectrum are shown as their own fields.
+_OIL_NOISE_WORDS = {
+    "oil", "oils", "medical", "cannabis", "medicine", "medicines", "pharma",
+    "pharmaceuticals", "extract", "extracts", "drops", "solution", "spectrum",
+    "full", "broad", "isolate", "alt", "cross",
+}
+
+
+def _oil_strip_brand(tokens, brand):
+    """Drop leading tokens that merely repeat the record's brand string."""
+    brand_words = {w for w in re.sub(r'[^a-z0-9 ]', ' ', (brand or '').lower()).split() if w}
+    if not brand_words:
+        return tokens
+    out = list(tokens)
+    while out and re.sub(r'[^a-z0-9]', '', out[0].lower()) in brand_words:
+        out.pop(0)
+    return out
+
+
+def parse_oil_name(raw, brand=""):
+    """
+    Parse a MediBud oil product name into its distinguishing parts.
+
+    Returns (name, ratio, volumes, spectrum):
+      "Curaleaf® Peppermint T10:C10 Full Spectrum Oil Medical Cannabis (30ml) (10mg)"
+        -> ("Peppermint T10:C10 Full Spectrum", "T10:C10", ["30ml"], "Full Spectrum")
+      "Grow® Pharma T20 Full Spectrum Oil Medical Cannabis (30ml) (10ml)"
+        -> ("T20 Full Spectrum", "T20", ["10ml", "30ml"], "Full Spectrum")
+      "British Cannabis® Medicines T20 OG Kush Full Spectrum Oil ... (2mg) (10ml)"
+        -> ("OG Kush T20 Full Spectrum", "T20", ["10ml"], "Full Spectrum")
+
+    Returns (None, "", [], "") when no ratio can be recovered — an oil with
+    no ratio has no identity to catalogue it under.
+
+    Only "ml" parentheticals are kept as volumes. The "mg" ones are dropped
+    on purpose: the feed uses them inconsistently, sometimes for measured
+    potency ("Lumir T25 ... (24.4mg)") and sometimes for something that
+    matches neither ratio nor volume ("Curaleaf T20 ... (1mg)").
+    """
+    if not raw:
+        return None, "", [], ""
+    n = re.sub(r'[®™]', '', raw)
+
+    # 1. Pull volumes out of the trailing parentheticals, then drop them all.
+    volumes = []
+    for tok in _OIL_PAREN_RE.findall(n):
+        m = _OIL_VOLUME_RE.match(tok)
+        if m:
+            vol = f"{m.group(1)}ml"
+            if vol not in volumes:
+                volumes.append(vol)
+    volumes.sort(key=lambda v: float(v[:-2]))
+    n = _OIL_PAREN_RE.sub(' ', n)
+
+    # 2. Drop the "Medical Cannabis [Oil]" boilerplate wherever it sits.
+    n = re.sub(r'\bMedical\s+Cannabis\b', ' ', n, flags=re.IGNORECASE)
+
+    # 3. Spectrum is its own field; remember it, then remove it from the text.
+    spectrum = ""
+    sm = _OIL_SPECTRUM_RE.search(n)
+    if sm:
+        spectrum = ' '.join(w.capitalize() for w in sm.group(1).split())
+        n = n[:sm.start()] + ' ' + n[sm.end():]
+
+    # 4. The ratio. Normalise T20c1 / T20:C1 / T20-C10 onto one "T20:C1" form.
+    rm = _OIL_RATIO_RE.search(n)
+    if not rm:
+        return None, "", volumes, spectrum
+
+    def _num(v):
+        f = float(v)
+        return str(int(f)) if f == int(f) else str(f)
+
+    if rm.group(1) is not None:
+        ratio = f"T{_num(rm.group(1))}:C{_num(rm.group(2))}"
+    elif rm.group(3) is not None:
+        ratio = f"T{_num(rm.group(3))}"
+    else:
+        ratio = f"C{_num(rm.group(4))}"
+    n = n[:rm.start()] + ' ' + n[rm.end():]
+
+    # 5. Whatever survives on either side of the ratio is the strain name or
+    #    base/flavour modifier. Order is preserved, so "Peppermint T10:C10"
+    #    and "T20 OG Kush" both come out reading correctly.
+    tokens = _oil_strip_brand(n.split(), brand)
+    kept = []
+    for t in tokens:
+        bare = re.sub(r'[^A-Za-z0-9#]', '', t)
+        if not bare:
+            continue
+        if bare.lower() in _OIL_NOISE_WORDS:
+            continue
+        # Mixed letter+digit tokens are feed junk ("V1vzwma8"), never names.
+        if re.search(r'[A-Za-z]', bare) and re.search(r'\d', bare):
+            continue
+        kept.append(t.strip(' -–—·'))
+
+    label = ' '.join(w for w in kept if w)
+    label = re.sub(r'\s{2,}', ' ', label).strip(' -–—·')
+    if len(label) > 40:
+        label = ""
+
+    name = ' '.join(x for x in (label, ratio, spectrum) if x)
+    return name, ratio, volumes, spectrum
+
+
+def oil_code(producer, label, ratio, spectrum, used):
+    """
+    Build a stable, readable code for an oil: producer initials, strain or
+    flavour initials, the compacted ratio, and a spectrum letter —
+    "CPT10C10F" = Curaleaf Peppermint T10:C10 Full Spectrum.
+
+    Oils can't use make_code(): it takes word initials, and almost every oil
+    name starts with the same two words, so every code would collide and
+    degrade into "TFS1, TFS2, TFS3...". The code is shown on the detail
+    sheet and used in ?strain= deep links, so it needs to mean something.
+    """
+    pi = ''.join(w[0] for w in re.split(r'[^A-Za-z]+', producer or '') if w)[:2].upper()
+    li = ''.join(w[0] for w in re.split(r'[^A-Za-z0-9]+', label or '') if w)[:3].upper()
+    rc = re.sub(r'[^A-Z0-9]', '', (ratio or '').upper())
+    si = {"Full Spectrum": "F", "Broad Spectrum": "B", "Isolate": "I"}.get(spectrum, "")
+    base = f"{pi}{li}{rc}{si}"[:10] or "OIL"
+    code, i = base, 1
+    while code in used:
+        suf = str(i)
+        code = f"{base[:10 - len(suf)]}{suf}"
+        i += 1
+    used.add(code)
+    return code
+
+
+def oil_ratio_matches(rec, ratio):
+    """
+    True when a feed record's mg/ml numbers agree with the ratio in its own
+    name. The feed occasionally contradicts itself — "T20 Gelato #41" is
+    listed with thc 50 on one of its four rows — so when volume variants of
+    one product disagree, the rows that corroborate their own name win.
+    """
+    m = re.match(r'^T(\d+(?:\.\d+)?)(?::C(\d+(?:\.\d+)?))?$', ratio or '')
+    if m:
+        t = float(m.group(1))
+        c = float(m.group(2)) if m.group(2) else None
+        if float(rec.get("thc") or 0) != t:
+            return False
+        return c is None or float(rec.get("cbd") or 0) == c
+    m = re.match(r'^C(\d+(?:\.\d+)?)$', ratio or '')
+    if m:
+        return float(rec.get("cbd") or 0) == float(m.group(1))
+    return False
+
+
 def medibud_producer(source_url, brand, form):
     """
     Resolve a producer display name for a MediBud API record. The record's
@@ -446,11 +634,16 @@ def medibud_producer(source_url, brand, form):
     the existing 534 records so the merge dedupes instead of duplicating.
     Falls back to the feed's brand string for producers we've never seen.
     """
-    m = re.search(r'medbud\.wiki/(?:strains|vape-cartridges)/([^/]+)/',
+    m = re.search(r'medbud\.wiki/(?:strains|vape-cartridges|oils)/([^/]+)/',
                   source_url or '')
     if m:
         slug = m.group(1)
         table = CART_PRODUCERS if form == "Cartridge" else PRODUCERS
+        if form == "Oil":
+            # Oil slugs are pharmacy brands, not the cultivator slugs in
+            # PRODUCERS — go straight to the brand-alias fallback below
+            # unless the slug happens to be a producer we already know.
+            table = PRODUCERS
         if slug in table:
             return table[slug]
         if slug in PRODUCERS:
@@ -528,9 +721,14 @@ def fetch_medibud_reviews(meta_by_hash):
 def fetch_medibud_strains():
     """
     Fetch the full catalogue from MediBud's JSON API and map each record to
-    the intermediate dict format the merge step expects. Oils, capsules and
-    edibles are skipped — the site only tracks flower and vape cartridges.
+    the intermediate dict format the merge step expects. Capsules, edibles
+    and extracts are skipped — they carry no terpene, effect or condition
+    data, so there is nothing for the catalogue to match on.
     Raises on network/HTTP errors so the caller can fail the run loudly.
+
+    Oils are deduplicated before they are returned: the feed lists the same
+    oil once per bottle size (Curaleaf's T10:C10 appears three times), so
+    198 rows collapse to ~125 products with their volumes gathered up.
 
     Returns (records, meta_by_hash) where meta_by_hash maps the hashed id
     of EVERY feed entry (including skipped forms) to display labels, for
@@ -541,6 +739,7 @@ def fetch_medibud_strains():
     payload = resp.json()
 
     records = []
+    oil_rows = []
     meta_by_hash = {}
     for x in payload.get("strains", []):
         raw_name = x.get("name", "")
@@ -557,6 +756,9 @@ def fetch_medibud_strains():
             form = "Flower"
         elif "/vape-cartridges/" in src:
             form = "Cartridge"
+        elif "/oils/" in src:
+            oil_rows.append(x)
+            continue
         else:
             continue
 
@@ -595,7 +797,91 @@ def fetch_medibud_strains():
             rec["thc"] = int(thc) if float(thc) == int(thc) else float(thc)
             rec["cbd"] = int(cbd) if float(cbd) == int(cbd) else float(cbd)
         records.append(rec)
+
+    records.extend(build_oil_records(oil_rows))
     return records, meta_by_hash
+
+
+def build_oil_records(oil_rows):
+    """
+    Turn raw /oils/ feed rows into deduplicated catalogue records.
+
+    Grouping key is (producer, parsed name), and the parsed name already
+    carries the ratio, flavour/base modifier and spectrum — everything that
+    distinguishes two oils from one producer. What it deliberately does not
+    carry is bottle size, so the volume variants land in one group and their
+    sizes are collected into a list.
+
+    Potency is stored as thcMgMl/cbdMgMl and NOT as thc/cbd. An oil's "T20"
+    is 20mg/ml, not 20%; writing it into thc would put it straight into the
+    THC-% filter, the sort, the high-THC shelf and the recommender's
+    average, all of which read that field as a percentage.
+    """
+    groups = {}
+    for x in oil_rows:
+        name, ratio, volumes, spectrum = parse_oil_name(
+            x.get("name", ""), x.get("brand", ""))
+        if not name:
+            continue
+        # An unlabelled oil is a truncated feed name, not a distinct product:
+        # Curaleaf list "Peppermint T20:C40" and "Peppermint T20:C40 Full
+        # Spectrum" as separate rows for the same oil. Defaulting the blank
+        # to Full Spectrum merges them, and still keeps the genuinely
+        # different Isolate lines apart (Grow Pharma sell both at T20:C1).
+        if not spectrum:
+            spectrum = "Full Spectrum"
+            name = f"{name} Full Spectrum"
+        producer = medibud_producer(x.get("sourceUrl", ""), x.get("brand", ""), "Oil")
+        if not producer:
+            continue
+        g = groups.setdefault((producer, name), {
+            "rows": [], "ratio": ratio, "volumes": [], "spectrum": spectrum})
+        g["rows"].append(x)
+        for v in volumes:
+            if v not in g["volumes"]:
+                g["volumes"].append(v)
+
+    used_codes = set()
+    out = []
+    for (producer, name), g in sorted(groups.items()):
+        ratio, spectrum = g["ratio"], g["spectrum"]
+        rows = g["rows"]
+        # Prefer rows whose mg/ml agree with the ratio in their own name,
+        # then rows that actually carry terpenes.
+        trusted = [r for r in rows if oil_ratio_matches(r, ratio)] or rows
+        canon = max(trusted, key=lambda r: len(r.get("terpenes") or []))
+
+        terpenes = []
+        for r in trusted:
+            for t in (r.get("terpenes") or []):
+                t = MEDIBUD_TERPENE_ALIASES.get(t, t)
+                if t in KNOWN_TERPENES and t not in terpenes:
+                    terpenes.append(t)
+
+        label = name
+        for part in (ratio, spectrum):
+            label = label.replace(part, " ")
+        label = re.sub(r"\s{2,}", " ", label).strip()
+
+        thc = float(canon.get("thc") or 0)
+        cbd = float(canon.get("cbd") or 0)
+        g["volumes"].sort(key=lambda v: float(v[:-2]))
+        out.append({
+            "name": name,
+            "producer": producer,
+            "code": oil_code(producer, label, ratio, spectrum, used_codes),
+            "form": "Oil",
+            # Oils have no cultivation tier; an empty tier renders no badge.
+            "tier": "",
+            "type": canon.get("type") or "Hybrid",
+            "terpenes": terpenes,
+            "thcMgMl": int(thc) if thc == int(thc) else thc,
+            "cbdMgMl": int(cbd) if cbd == int(cbd) else cbd,
+            "ratio": ratio,
+            "spectrum": spectrum,
+            "volumes": g["volumes"],
+        })
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -1881,6 +2167,12 @@ def clean_existing_data(strains):
             s.setdefault("extractType", "")
             s.setdefault("terpeneSource", "")
             s.setdefault("fitment", "")
+        elif s["form"] == "Oil":
+            s.setdefault("thcMgMl", 0)
+            s.setdefault("cbdMgMl", 0)
+            s.setdefault("ratio", "")
+            s.setdefault("spectrum", "")
+            s.setdefault("volumes", [])
 
     # 1. Fix strain names that have page artefacts
     bad_patterns = [
@@ -1909,6 +2201,14 @@ def clean_existing_data(strains):
     for s in strains:
         original = s.get("name", "")
         fixed = original
+
+        # Oil names are built by parse_oil_name, not scraped off a page, and
+        # the ratio they lead with is the product identity rather than a code
+        # prefix. Running them through this would turn every Curaleaf oil
+        # into "Full Spectrum" and the dedup below would then collapse ~50
+        # distinct products into one.
+        if s.get("form") == "Oil":
+            continue
 
         # Strip page artefacts
         for pat in bad_patterns:
@@ -2010,6 +2310,12 @@ def clean_existing_data(strains):
         form_l = s.get("form", "Flower").lower()
         if form_l == "cartridge":
             key = (name_l, prod_l, form_l, s.get("thcMg", 0), s.get("cbdMg", 0))
+        elif form_l == "oil":
+            # Same reasoning as carts: potency is part of an oil's identity,
+            # and its spectrum separates the isolate line from the full
+            # spectrum one at the same ratio.
+            key = (name_l, prod_l, form_l, s.get("thcMgMl", 0),
+                   s.get("cbdMgMl", 0), s.get("spectrum", ""))
         else:
             key = (name_l, prod_l, form_l)
         if key in seen:
@@ -2271,6 +2577,13 @@ async def reenrich(strains_path):
             skipped += 1
             continue
         form = s.get("form", "Flower")
+        if form == "Oil":
+            # Oil records come from the JSON feed fully formed; there is no
+            # per-oil MedBud page shaped like a strain or cart page to
+            # re-scrape, and slugifying an oil name would build a URL that
+            # resolves to an unrelated flower page.
+            skipped += 1
+            continue
         strain_slug = slugify(s["name"])
         if not strain_slug:
             skipped += 1
@@ -2526,7 +2839,9 @@ async def main():
         existing_codes.add(s.get("code", s.get("id", "")))
     flower_count = sum(1 for s in existing if s.get("form", "Flower") == "Flower")
     cart_count = sum(1 for s in existing if s.get("form") == "Cartridge")
-    print(f"  Loaded {len(existing)} existing records ({flower_count} flower, {cart_count} cartridges)")
+    oil_count = sum(1 for s in existing if s.get("form") == "Oil")
+    print(f"  Loaded {len(existing)} existing records ({flower_count} flower, "
+          f"{cart_count} cartridges, {oil_count} oils)")
 
     # 2. Fetch the MediBud API feed (one request replaces page scraping)
     print("\n\U0001f50d Fetching MediBud strain feed...")
@@ -2536,8 +2851,10 @@ async def main():
         print(f"  \u274c MediBud API fetch failed: {e}")
         return 1
     flower_feed = sum(1 for r in feed if r["form"] == "Flower")
-    cart_feed = len(feed) - flower_feed
-    print(f"  Feed: {len(feed)} products ({flower_feed} flower, {cart_feed} cartridges)")
+    cart_feed = sum(1 for r in feed if r["form"] == "Cartridge")
+    oil_feed = sum(1 for r in feed if r["form"] == "Oil")
+    print(f"  Feed: {len(feed)} products ({flower_feed} flower, "
+          f"{cart_feed} cartridges, {oil_feed} oils)")
 
     # A short feed means the API broke, moved, or locked us out \u2014 fail the
     # run loudly rather than silently committing nothing (the MedBud 402
@@ -2563,6 +2880,23 @@ async def main():
                     ex["cbdMg"] = data["cbdMg"]
                 if data.get("extractType") and not ex.get("extractType"):
                     ex["extractType"] = data["extractType"]
+            elif form == "Oil":
+                if data.get("thcMgMl", 0) > 0 and ex.get("thcMgMl", 0) == 0:
+                    ex["thcMgMl"] = data["thcMgMl"]
+                if data.get("cbdMgMl", 0) > 0 and ex.get("cbdMgMl", 0) == 0:
+                    ex["cbdMgMl"] = data["cbdMgMl"]
+                for f in ("ratio", "spectrum"):
+                    if data.get(f) and not ex.get(f):
+                        ex[f] = data[f]
+                # Volumes are additive: the feed drops and re-adds bottle
+                # sizes over time and we don't want to lose known ones.
+                vols = list(ex.get("volumes") or [])
+                for v in data.get("volumes", []):
+                    if v not in vols:
+                        vols.append(v)
+                if vols:
+                    vols.sort(key=lambda s: float(s[:-2]))
+                    ex["volumes"] = vols
             else:
                 if data.get("thc", 0) > 0 and ex.get("thc", 0) == 0:
                     ex["thc"] = data["thc"]
@@ -2578,15 +2912,19 @@ async def main():
             terp_str = ', '.join(data['terpenes'][:3]) if data.get('terpenes') else 'no terpenes yet'
             if form == "Cartridge":
                 print(f"    \U0001f50b {data['name']} ({prod}, THC {data.get('thcMg', 0)}mg, {terp_str})")
+            elif form == "Oil":
+                print(f"    \U0001f9f4 {data['name']} ({prod}, THC {data.get('thcMgMl', 0)}mg/ml, {terp_str})")
             else:
                 print(f"    \u271a {data['name']} ({prod}, THC {data.get('thc', 0)}%, {terp_str})")
 
     print(f"\n  New unique strains: {len(new_strains)}")
 
     # 4. Weedstrain fallback (for terpenes and genetics) — FLOWER ONLY
-    # Weedstrain doesn't track cartridges, so skip cart records to avoid
-    # mismatching them against flower strains with the same name.
-    flower_new = [s for s in new_strains if s.get("form") != "Cartridge"]
+    # Weedstrain tracks neither cartridges nor oils, so match on form
+    # explicitly. An "!= Cartridge" test would sweep oils in here and let
+    # "T20 OG Kush" oil silently inherit OG Kush *flower*'s terpenes,
+    # genetics and effects.
+    flower_new = [s for s in new_strains if s.get("form", "Flower") == "Flower"]
     missing_terps = [s for s in flower_new if not s.get("terpenes")]
     missing_genetics = [s for s in flower_new if s.get("terpenes") and not s.get("genetics")]
     fallback_strains = missing_terps + missing_genetics
@@ -2664,6 +3002,12 @@ async def main():
             record["extractType"] = s.get("extractType", "")
             record["terpeneSource"] = s.get("terpeneSource", "")
             record["fitment"] = s.get("fitment", "")
+        elif form == "Oil":
+            record["thcMgMl"] = s.get("thcMgMl", 0)
+            record["cbdMgMl"] = s.get("cbdMgMl", 0)
+            record["ratio"] = s.get("ratio", "")
+            record["spectrum"] = s.get("spectrum", "")
+            record["volumes"] = s.get("volumes", [])
         result.append(record)
 
     # 6. Patient reviews from MediBud (replaced YouTube reviews 2026-07 —
@@ -2702,9 +3046,10 @@ async def main():
     added = len(result) - len(existing)
     flowers = sum(1 for s in result if s.get("form", "Flower") == "Flower")
     carts = sum(1 for s in result if s.get("form") == "Cartridge")
+    oils = sum(1 for s in result if s.get("form") == "Oil")
     print(f"\n{'='*60}")
     print(f"\u2705 Done! {len(result)} records ({'+' if added >= 0 else ''}{added} new)")
-    print(f"   \U0001f33f Flower: {flowers}   \U0001f50b Cartridges: {carts}")
+    print(f"   \U0001f33f Flower: {flowers}   \U0001f50b Cartridges: {carts}   \U0001f9f4 Oils: {oils}")
     print(f"{'='*60}")
     return 0
 
