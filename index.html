@@ -419,6 +419,16 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .toolbar > .terp-multi{display:block;position:relative}
 .toolbar > .terp-multi > .terp-multi-btn{width:100%;max-width:none}
 @media (max-width:600px){.toolbar{grid-template-columns:repeat(2,1fr)}}
+
+/* Active-filter chips: make it obvious when results are being hidden */
+.afbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:-8px 0 16px}
+.aflbl{font-family:var(--fm);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx2);margin-right:2px}
+.afchip{display:inline-flex;align-items:center;gap:6px;padding:4px 6px 4px 10px;border-radius:20px;background:rgba(184,155,107,.10);border:1px solid rgba(184,155,107,.30);color:var(--ac4);font-family:var(--fm);font-size:11px;line-height:1.5}
+.afchip b{font-weight:700;color:var(--tx)}
+.afchip .afx{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border:0;border-radius:50%;background:rgba(184,155,107,.18);color:var(--ac4);font-size:12px;line-height:1;cursor:pointer;padding:0;-webkit-appearance:none;transition:background .15s,color .15s}
+.afchip .afx:hover{background:var(--red);color:#fff}
+.afclear{padding:4px 12px;border-radius:20px;background:transparent;border:1px solid var(--b2);color:var(--tx2);font-family:var(--fh);font-size:11px;font-weight:700;cursor:pointer;-webkit-appearance:none;transition:all .2s}
+.afclear:hover{color:var(--tx);border-color:var(--ac3)}
 .search{width:100%;height:40px;padding:0 14px 0 40px;background:var(--s1);border:1px solid var(--s3);border-radius:var(--r);color:var(--tx);font-family:var(--fh);font-size:14px;font-weight:400;letter-spacing:0.01em;transition:border-color .15s,background .15s;-webkit-appearance:none;outline:none}
 .search:focus{border-color:var(--ac);background:var(--s2)}
 .search::placeholder{color:var(--tx3);font-weight:400}
@@ -873,6 +883,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
     </select>
     <button class="fbtn" id="cbdBtn" onclick="toggleCbd()">CBD Strains</button>
   </div>
+  <div class="afbar" id="activeFilters" hidden></div>
   <div class="grid" id="strainGrid"></div>
   <div class="pager" id="pager"></div>
 </div>
@@ -1952,6 +1963,81 @@ function goToPage(n) {
   if (grid) grid.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
+const afEsc = v => String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+const THC_LABELS = {
+  '0-5':'CBD-dominant','0-15':'Low THC (\u226415%)','15-22':'Medium (15\u201322%)',
+  '22-28':'High (22\u201328%)','28-35':'Very High (28%+)'
+};
+
+// One chip per active filter so it's obvious what is hiding results.
+function activeFilterChips() {
+  const chips = [];
+  const q = (document.getElementById('searchQ').value||'').trim();
+  if(q) chips.push({key:'q', label:'Search', val:q});
+  const pairs = [
+    ['filterType','Type'], ['filterForm','Form'],
+    ['filterTier','Tier'], ['filterProd','Producer']
+  ];
+  pairs.forEach(([id,label]) => {
+    const v = document.getElementById(id).value;
+    if(v) chips.push({key:id, label, val:v});
+  });
+  getSelectedTerps().forEach(t => chips.push({key:'terp:'+t, label:'Terpene', val:t}));
+  const thc = document.getElementById('filterThc').value;
+  if(thc && thc !== '0-35') chips.push({key:'filterThc', label:'THC', val:THC_LABELS[thc]||thc});
+  if(cbdOnly) chips.push({key:'cbd', label:'', val:'CBD strains only'});
+  return chips;
+}
+
+function clearOneFilter(key) {
+  if(key === 'q') document.getElementById('searchQ').value = '';
+  else if(key === 'cbd') {
+    cbdOnly = false;
+    document.getElementById('cbdBtn').classList.remove('on');
+  }
+  else if(key.startsWith('terp:')) {
+    const t = key.slice(5);
+    document.querySelectorAll('#terpMultiDrop input').forEach(cb => { if(cb.value === t) cb.checked = false; });
+    onTerpCheck(); // already re-renders
+    return;
+  }
+  else if(key === 'filterThc') document.getElementById('filterThc').value = '0-35';
+  else document.getElementById(key).value = '';
+  renderBrowser();
+}
+
+function clearAllFilters() {
+  document.getElementById('searchQ').value = '';
+  ['filterType','filterForm','filterTier','filterProd'].forEach(id => { document.getElementById(id).value = ''; });
+  document.getElementById('filterThc').value = '0-35';
+  cbdOnly = false;
+  document.getElementById('cbdBtn').classList.remove('on');
+  document.querySelectorAll('#terpMultiDrop input:checked').forEach(cb => cb.checked = false);
+  onTerpCheck(); // re-renders
+}
+
+function renderActiveFilters(shown, total) {
+  const bar = document.getElementById('activeFilters');
+  if(!bar) return;
+  const chips = activeFilterChips();
+  if(!chips.length) { bar.hidden = true; bar.innerHTML = ''; return; }
+  const hidden = total - shown;
+  bar.hidden = false;
+  bar.innerHTML =
+    `<span class="aflbl">${chips.length} filter${chips.length>1?'s':''} active` +
+    `${hidden>0?` \u00b7 ${hidden} hidden`:''}</span>` +
+    chips.map(c => `<span class="afchip">${c.label?`${c.label} <b>${afEsc(c.val)}</b>`:`<b>${afEsc(c.val)}</b>`}` +
+      `<button class="afx" title="Remove this filter" data-af="${afEsc(c.key)}">\u00d7</button></span>`).join('') +
+    `<button class="afclear" data-af-clear="1">Clear all</button>`;
+}
+
+document.addEventListener('click', function(e) {
+  const x = e.target.closest('[data-af]');
+  if(x) { clearOneFilter(x.getAttribute('data-af')); return; }
+  if(e.target.closest('[data-af-clear]')) clearAllFilters();
+});
+
 function renderBrowser() {
   const sig = getFilterSig();
   if (sig !== _lastFilterSig) { _lastFilterSig = sig; currentPage = 1; }
@@ -2016,6 +2102,7 @@ function renderBrowser() {
       <button class="lbtn ${ct>0?'done':''}" data-log="${s.id.replace(/"/g,'&quot;')}">${ct>0?`✓ Logged ${ct}×`:'+ Log This Strain'}</button>
     </div>`;
   }).join('');
+  renderActiveFilters(list.length, STRAINS.length);
   renderPager(list.length);
 }
 
