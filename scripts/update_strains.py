@@ -1778,11 +1778,27 @@ async def scrape_youtube_reviews(browser):
 # ---------------------------------------------------------------------------
 # HTML updater
 # ---------------------------------------------------------------------------
+def js_embed(data):
+    r"""Serialise data for embedding inside a <script> block.
+
+    json.dumps escapes quotes but leaves "<" alone, so a value containing
+    "</script>" would close the block early and let the rest of the string be
+    parsed as HTML. Escaping "<" and ">" as \u-sequences keeps the JSON
+    equivalent while making that impossible. U+2028/U+2029 are escaped too:
+    they are valid JSON but illegal raw inside a JS string literal.
+    """
+    out = json.dumps(data, ensure_ascii=True, separators=(',', ':'))
+    return (out.replace("'", "\\u0027")
+               .replace('<', '\\u003c')
+               .replace('>', '\\u003e')
+               .replace('\u2028', '\\u2028')
+               .replace('\u2029', '\\u2029'))
+
+
 def update_html(html_path, strains):
     with open(html_path) as f:
         html = f.read()
-    js_json = json.dumps(strains, ensure_ascii=True, separators=(',', ':'))
-    js_json = js_json.replace("'", "\\u0027")
+    js_json = js_embed(strains)
     marker = 'const STRAINS_JSON = '
     start = html.find(marker)
     if start < 0:
@@ -1812,8 +1828,7 @@ def update_reviews_html(html_path, reviews):
     """Inject REVIEWS_JSON into index.html using bracket-depth matching."""
     with open(html_path) as f:
         html = f.read()
-    js_json = json.dumps(reviews, ensure_ascii=True, separators=(',', ':'))
-    js_json = js_json.replace("'", "\\u0027")
+    js_json = js_embed(reviews)
     marker = 'const REVIEWS_JSON = '
     start = html.find(marker)
     if start < 0:

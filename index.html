@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- GitHub Pages cannot set HTTP response headers, so the policy goes here.
+     Note: frame-ancestors is ignored in a meta tag; clickjacking is not covered.
+     The app is entirely self-contained (no fetch/XHR, no third-party scripts),
+     so connect-src 'none' means injected script has no channel to send data out. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1136,6 +1142,15 @@ const DEFAULT_SYMPTOMS_BY_CONDITION = {
   'other':              []
 };
 
+// ═══ ESCAPING ════════════════════════════════════════════════════════════════
+// Strain and review text comes from the MediBud feed (review text is written by
+// patients on another site) and journal text is typed by the user. All of it is
+// rendered via innerHTML, so every interpolation of that data must go through
+// esc() or the page will execute markup it was only meant to display.
+const esc = v => String(v ?? '')
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+  .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+
 // ═══ STRAINS (loaded from strains.json at runtime) ═════════════════════════
 // To update the catalogue, edit strains.json — do not edit here.
 let STRAINS = []; // populated by loadStrains() on init
@@ -1719,11 +1734,11 @@ function debouncedRender() {
 }
 function tBadge(tier) {
   const c = TIER_COLORS[tier]||'#8A8174';
-  return `<span class="tbadge" style="color:${c}">${tier}</span>`;
+  return `<span class="tbadge" style="color:${c}">${esc(tier)}</span>`;
 }
 function yBadge(type) {
   const c = TYPE_COLORS[type]||'#8A8174';
-  return `<span class="ybadge" style="color:${c}">${type}</span>`;
+  return `<span class="ybadge" style="color:${c}">${esc(type)}</span>`;
 }
 function stars(v) {
   return `<div class="strow">${[1,2,3,4,5].map(n=>{
@@ -1907,11 +1922,11 @@ function buildShelves() {
 function shelfCard(s) {
   const isCart = s.form === 'Cartridge';
   const thcStr = isCart ? `${s.thcMg||0}mg` : `${s.thc}%`;
-  return `<div class="shelf-card" data-type="${s.type||''}" data-sid="${s.id.replace(/"/g,'&quot;')}">
+  return `<div class="shelf-card" data-type="${esc(s.type||'')}" data-sid="${esc(s.id)}">
     <div class="sc-bdgs">${tBadge(s.tier)}</div>
-    <div class="sc-name">${cleanCartName(s.name)}</div>
-    <div class="sc-producer">${s.producer}</div>
-    <div class="sc-foot"><span class="sc-type">${s.type||''}</span><span class="sc-thc">${thcStr}</span></div>
+    <div class="sc-name">${esc(cleanCartName(s.name))}</div>
+    <div class="sc-producer">${esc(s.producer)}</div>
+    <div class="sc-foot"><span class="sc-type">${esc(s.type||'')}</span><span class="sc-thc">${thcStr}</span></div>
   </div>`;
 }
 
@@ -1962,8 +1977,6 @@ function goToPage(n) {
   const grid = document.getElementById('strainGrid');
   if (grid) grid.scrollIntoView({behavior:'smooth', block:'start'});
 }
-
-const afEsc = v => String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 
 const THC_LABELS = {
   '0-5':'CBD-dominant','0-15':'Low THC (\u226415%)','15-22':'Medium (15\u201322%)',
@@ -2027,8 +2040,8 @@ function renderActiveFilters(shown, total) {
   bar.innerHTML =
     `<span class="aflbl">${chips.length} filter${chips.length>1?'s':''} active` +
     `${hidden>0?` \u00b7 ${hidden} hidden`:''}</span>` +
-    chips.map(c => `<span class="afchip">${c.label?`${c.label} <b>${afEsc(c.val)}</b>`:`<b>${afEsc(c.val)}</b>`}` +
-      `<button class="afx" title="Remove this filter" data-af="${afEsc(c.key)}">\u00d7</button></span>`).join('') +
+    chips.map(c => `<span class="afchip">${c.label?`${c.label} <b>${esc(c.val)}</b>`:`<b>${esc(c.val)}</b>`}` +
+      `<button class="afx" title="Remove this filter" data-af="${esc(c.key)}">\u00d7</button></span>`).join('') +
     `<button class="afclear" data-af-clear="1">Clear all</button>`;
 }
 
@@ -2076,8 +2089,8 @@ function renderBrowser() {
     const ct = counts[s.id]||0;
     const ar = avgRatings[s.id];
     const avg = ar ? (ar.sum/ar.n).toFixed(1) : null;
-    const tChips = (s.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}${terpClass(t)}">${t}</span>`).join('');
-    const hTags = (s.helpsWith||[]).slice(0,3).map(h=>`<span class="tag ht">${h}</span>`).join('');
+    const tChips = (s.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}${terpClass(t)}">${esc(t)}</span>`).join('');
+    const hTags = (s.helpsWith||[]).slice(0,3).map(h=>`<span class="tag ht">${esc(h)}</span>`).join('');
     const isCart = s.form === 'Cartridge';
     const thcLbl = isCart ? 'THC' : 'THC';
     const thcStr = isCart ? `${s.thcMg||0}mg` : `${s.thc}%`;
@@ -2085,20 +2098,20 @@ function renderBrowser() {
     const showCbd = isCart ? ((s.cbdMg||0) > 0) : (s.cbd > 0);
     const thcPct = Math.max(0, Math.min(100, isCart ? (s.thcMg||0)/8.5 : (s.thc||0)/32*100));
     const rvs = reviewStatsFor(s);
-    return `<div class="card ${ct>0?'logged':''}" data-type="${s.type||''}" data-sid="${s.id.replace(/"/g,'&quot;')}">
+    return `<div class="card ${ct>0?'logged':''}" data-type="${esc(s.type||'')}" data-sid="${esc(s.id)}">
       ${isCart?`<span class="cart-badge">CART</span>`:''}
-      <div class="cname">${cleanCartName(s.name)}</div>
-      <div class="cmeta">${s.producer}</div>
+      <div class="cname">${esc(cleanCartName(s.name))}</div>
+      <div class="cmeta">${esc(s.producer)}</div>
       <div class="bdgs">${tBadge(s.tier)} ${yBadge(s.type)}</div>
       <div class="stats">
         <div class="pill"><span class="plbl">${thcLbl}</span><span class="pval thc">${thcStr}</span><span class="pmeter"><i style="width:${thcPct.toFixed(0)}%"></i></span></div>
         ${showCbd?`<div class="pill"><span class="plbl">CBD</span><span class="pval cbd">${cbdStr}</span></div>`:''}
         ${avg?`<div class="pill"><span class="plbl">Your avg</span><span class="pval" style="color:#fbbf24;font-size:14px">★ ${avg}</span></div>`:''}
-        ${rvs?`<div class="pill pill-tap" data-rv="${s.name.replace(/"/g,'&quot;')}" data-rv-prod="${(s.producer||'').replace(/"/g,'&quot;')}" title="See patient reviews"><span class="plbl">Patients (${rvs.n})</span><span class="pval" style="color:var(--ac2);font-size:14px">★ ${rvs.avg}</span></div>`:''}
+        ${rvs?`<div class="pill pill-tap" data-rv="${esc(s.name)}" data-rv-prod="${esc(s.producer||'')}" title="See patient reviews"><span class="plbl">Patients (${rvs.n})</span><span class="pval" style="color:var(--ac2);font-size:14px">★ ${rvs.avg}</span></div>`:''}
       </div>
       ${tChips?`<div class="tchips">${tChips}</div>`:''}
       ${hTags?`<div class="tags">${hTags}</div>`:''}
-      ${s.genetics?`<div class="lineage-mini" style="pointer-events:none"><span class="lineage-lbl">Lineage</span> <span class="lineage-name">${s.genetics}</span></div>`:''}
+      ${s.genetics?`<div class="lineage-mini" style="pointer-events:none"><span class="lineage-lbl">Lineage</span> <span class="lineage-name">${esc(s.genetics)}</span></div>`:''}
       <button class="lbtn ${ct>0?'done':''}" data-log="${s.id.replace(/"/g,'&quot;')}">${ct>0?`✓ Logged ${ct}×`:'+ Log This Strain'}</button>
     </div>`;
   }).join('');
@@ -2370,9 +2383,9 @@ document.getElementById('tab-home').addEventListener('click', function(e) {
 
 function initFilters() {
   const prods = [...new Set(STRAINS.map(s=>s.producer))].sort();
-  document.getElementById('filterProd').innerHTML = '<option value="">All Producers</option>' + prods.map(p=>`<option>${p}</option>`).join('');
+  document.getElementById('filterProd').innerHTML = '<option value="">All Producers</option>' + prods.map(p=>`<option>${esc(p)}</option>`).join('');
   const terps = [...new Set(STRAINS.flatMap(s=>s.terpenes||[]))].sort();
-  document.getElementById('terpMultiDrop').innerHTML = terps.map(t=>`<label><input type="checkbox" value="${t}" onchange="onTerpCheck()"> ${t}</label>`).join('') + '<div class="terp-multi-clear" onclick="clearTerpSel()">Clear selection</div>';
+  document.getElementById('terpMultiDrop').innerHTML = terps.map(t=>`<label><input type="checkbox" value="${esc(t)}" onchange="onTerpCheck()"> ${esc(t)}</label>`).join('') + '<div class="terp-multi-clear" onclick="clearTerpSel()">Clear selection</div>';
 }
 
 // ═══ DETAIL SHEET ════════════════════════════════════════════════════════════
@@ -2383,22 +2396,22 @@ function openDetail(strainId) {
   const ct = journal.filter(e=>e.strainId===strainId).length;
   const tItems = (s.terpenes||[]).map((t,i)=>{
     const info = TERPENE_INFO[t]||{icon:'🌿',note:'Cannabis terpene.'};
-    return `<div class="titem"><div><div class="tname">${t}${i===0?'<span class="domlbl">dominant</span>':''}</div><div class="tnote">${info.note}</div></div></div>`;
+    return `<div class="titem"><div><div class="tname">${esc(t)}${i===0?'<span class="domlbl">dominant</span>':''}</div><div class="tnote">${esc(info.note)}</div></div></div>`;
   }).join('');
   const isCart = s.form === 'Cartridge';
   const cartFields = isCart ? `
     <div class="cart-fields">
       <div class="cart-field big"><div class="clbl">THC</div><div class="cval">${s.thcMg||0}mg</div></div>
       ${(s.cbdMg||0)>0?`<div class="cart-field big"><div class="clbl">CBD</div><div class="cval">${s.cbdMg}mg</div></div>`:''}
-      ${s.volume?`<div class="cart-field"><div class="clbl">Volume</div><div class="cval">${s.volume}</div></div>`:''}
-      ${s.extractType?`<div class="cart-field"><div class="clbl">Extract</div><div class="cval">${s.extractType}</div></div>`:''}
-      ${s.terpeneSource?`<div class="cart-field"><div class="clbl">Terpene Source</div><div class="cval">${s.terpeneSource}</div></div>`:''}
-      ${s.fitment?`<div class="cart-field"><div class="clbl">Fitment</div><div class="cval">${s.fitment}</div></div>`:''}
+      ${s.volume?`<div class="cart-field"><div class="clbl">Volume</div><div class="cval">${esc(s.volume)}</div></div>`:''}
+      ${s.extractType?`<div class="cart-field"><div class="clbl">Extract</div><div class="cval">${esc(s.extractType)}</div></div>`:''}
+      ${s.terpeneSource?`<div class="cart-field"><div class="clbl">Terpene Source</div><div class="cval">${esc(s.terpeneSource)}</div></div>`:''}
+      ${s.fitment?`<div class="cart-field"><div class="clbl">Fitment</div><div class="cval">${esc(s.fitment)}</div></div>`:''}
     </div>` : '';
   document.getElementById('detailContent').innerHTML = `
     <div class="bdgs">${tBadge(s.tier)} ${yBadge(s.type)} ${isCart?'<span class="cart-badge" style="position:static;display:inline-block">CART</span>':''}</div>
-    <div class="dname">${cleanCartName(s.name)}</div>
-    <div class="cmeta" style="margin-bottom:14px">${s.producer} · ${s.code}</div>
+    <div class="dname">${esc(cleanCartName(s.name))}</div>
+    <div class="cmeta" style="margin-bottom:14px">${esc(s.producer)} · ${esc(s.code)}</div>
     ${cartFields}
     ${!isCart?`<div class="stats">
       <div class="pill"><span class="plbl">THC</span><span class="pval thc">${s.thc}%</span></div>
@@ -2406,12 +2419,12 @@ function openDetail(strainId) {
       <div class="pill"><span class="plbl">Ratio</span><span class="pval" style="font-size:12px;color:var(--tx2)">${s.cbd>0?`T${s.thc}:C${s.cbd}`:'THC-dom'}</span></div>
       ${reviewStatsFor(s)?`<div class="pill pill-tap" onclick="openStrainReviewsCurrent()" title="See patient reviews"><span class="plbl">Patients (${reviewStatsFor(s).n})</span><span class="pval" style="color:var(--ac2);font-size:14px">★ ${reviewStatsFor(s).avg}</span></div>`:''}
     </div>`:''}
-    ${s.genetics?`<div class="dsec"><div class="dstitle">Genetics / Lineage</div><div class="lineage-full"><div class="lineage-name-lg">${s.genetics}</div><div class="lineage-note">Parent strains</div></div></div>`:''}
+    ${s.genetics?`<div class="dsec"><div class="dstitle">Genetics / Lineage</div><div class="lineage-full"><div class="lineage-name-lg">${esc(s.genetics)}</div><div class="lineage-note">Parent strains</div></div></div>`:''}
     ${tItems?`<div class="dsec"><div class="dstitle">Terpene Profile</div>${tItems}</div>`:''}
-    ${(s.effects||[]).length?`<div class="dsec"><div class="dstitle">Effects</div><div class="tags">${s.effects.map(e=>`<span class="tag et">${e}</span>`).join('')}</div></div>`:''}
-    ${(s.flavours||[]).length?`<div class="dsec"><div class="dstitle">Flavours</div><div class="tags">${s.flavours.map(f=>`<span class="tag ft">${f}</span>`).join('')}</div></div>`:''}
-    ${(s.helpsWith||[]).length?`<div class="dsec"><div class="dstitle">Reported to help with</div><div class="tags">${s.helpsWith.map(h=>`<span class="tag ht">${h}</span>`).join('')}</div></div>`:''}
-    ${(s.negatives||[]).length?`<div class="dsec"><div class="dstitle">Side effects reported</div><div class="tags">${s.negatives.map(n=>`<span class="tag nt">${n}</span>`).join('')}</div></div>`:''}
+    ${(s.effects||[]).length?`<div class="dsec"><div class="dstitle">Effects</div><div class="tags">${s.effects.map(e=>`<span class="tag et">${esc(e)}</span>`).join('')}</div></div>`:''}
+    ${(s.flavours||[]).length?`<div class="dsec"><div class="dstitle">Flavours</div><div class="tags">${s.flavours.map(f=>`<span class="tag ft">${esc(f)}</span>`).join('')}</div></div>`:''}
+    ${(s.helpsWith||[]).length?`<div class="dsec"><div class="dstitle">Reported to help with</div><div class="tags">${s.helpsWith.map(h=>`<span class="tag ht">${esc(h)}</span>`).join('')}</div></div>`:''}
+    ${(s.negatives||[]).length?`<div class="dsec"><div class="dstitle">Side effects reported</div><div class="tags">${s.negatives.map(n=>`<span class="tag nt">${esc(n)}</span>`).join('')}</div></div>`:''}
     <div class="div"></div>
     <button class="lbtn ${ct>0?'done':''}" onclick="closeDetail();openModal('${safeId(s.id)}')">${ct>0?`✓ Logged ${ct}× — Log Again`:'+ Log This Strain'}</button>
     <div class="src-note">Sources: MedBud.wiki · Weedstrain.com</div>
@@ -2550,7 +2563,7 @@ function renderJournal() {
     }
   });
   el.innerHTML = sorted.map(e=>{
-    const tChips = (e.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}">${t}</span>`).join('');
+    const tChips = (e.terpenes||[]).slice(0,3).map((t,i)=>`<span class="tch ${i===0?'dom':''}">${esc(t)}</span>`).join('');
     // Phase 5: pills iterate the entry's OWN score keys so historical entries
     // logged under a different profile (e.g. old MS scores viewed while user
     // is now on ADHD) still render exactly what was stored at the time.
@@ -2564,10 +2577,10 @@ function renderJournal() {
       <div class="jetop">
         <div style="flex:1;min-width:0">
           <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-            <span style="font-weight:700;font-size:14px">${cleanCartName(e.strainName)}</span>
+            <span style="font-weight:700;font-size:14px">${esc(cleanCartName(e.strainName))}</span>
             ${e.type?yBadge(e.type):''}${e.tier?tBadge(e.tier):''}
           </div>
-          <div class="jemeta">${e.producer} · THC ${e.thc}%${e.cbd?` · CBD ${e.cbd}%`:''} · ${e.date} · ${e.timeOfDay}${e.dose?` · ${e.dose}g`:''}</div>
+          <div class="jemeta">${esc(e.producer)} · THC ${esc(e.thc)}%${e.cbd?` · CBD ${esc(e.cbd)}%`:''} · ${esc(e.date)} · ${esc(e.timeOfDay)}${e.dose?` · ${esc(e.dose)}g`:''}</div>
           <div style="margin-top:4px">${stars(e.rating)}</div>
           ${tChips?`<div class="tchips" style="margin-top:5px">${tChips}</div>`:''}
         </div>
@@ -2577,8 +2590,8 @@ function renderJournal() {
         </div>
       </div>
       <div class="jscores">${scorePills}</div>
-      ${e.sideEffects?`<div style="font-size:11px;color:var(--red);margin-top:5px">⚠️ ${e.sideEffects}</div>`:''}
-      ${e.notes?`<div class="jnote">"${e.notes}"</div>`:''}
+      ${e.sideEffects?`<div style="font-size:11px;color:var(--red);margin-top:5px">⚠️ ${esc(e.sideEffects)}</div>`:''}
+      ${e.notes?`<div class="jnote">"${esc(e.notes)}"</div>`:''}
     </div>`;
   }).join('');
 }
@@ -2708,14 +2721,14 @@ function renderRecSection() {
     <div style="font-size:11px;color:var(--tx3);margin-bottom:12px;font-family:var(--fm)">Based on your terpene preferences, THC sweet spot, and symptom priorities</div>
     <div class="rec-grid">${recs.map(s => {
       const pct = Math.round((s.score/maxS)*100);
-      const tChips = s.matchedTerps.map(t=>`<span class="tch dom">${t}</span>`).join('');
-      const otherTerps = (s.terpenes||[]).filter(t=>!s.matchedTerps.includes(t)).slice(0,2).map(t=>`<span class="tch">${t}</span>`).join('');
+      const tChips = s.matchedTerps.map(t=>`<span class="tch dom">${esc(t)}</span>`).join('');
+      const otherTerps = (s.terpenes||[]).filter(t=>!s.matchedTerps.includes(t)).slice(0,2).map(t=>`<span class="tch">${esc(t)}</span>`).join('');
       return `<div class="rec-card">
         <div class="rec-match">${pct}% match</div>
-        <div class="rec-name">${cleanCartName(s.name)}</div>
-        <div class="rec-meta">${s.producer} · ${s.form==='Cartridge'?`${s.thcMg||0}mg THC${(s.cbdMg||0)>0?` · ${s.cbdMg}mg CBD`:''}`:`THC ${s.thc}%${s.cbd?` · CBD ${s.cbd}%`:''}`} · ${s.type}</div>
+        <div class="rec-name">${esc(cleanCartName(s.name))}</div>
+        <div class="rec-meta">${esc(s.producer)} · ${s.form==='Cartridge'?`${s.thcMg||0}mg THC${(s.cbdMg||0)>0?` · ${s.cbdMg}mg CBD`:''}`:`THC ${s.thc}%${s.cbd?` · CBD ${s.cbd}%`:''}`} · ${s.type}</div>
         <div class="tchips" style="margin-bottom:6px">${tChips}${otherTerps}</div>
-        ${(s.helpsWith||[]).length?`<div class="tags" style="margin-bottom:8px">${(s.helpsWith||[]).slice(0,3).map(h=>`<span class="tag ht">${h}</span>`).join('')}</div>`:''}
+        ${(s.helpsWith||[]).length?`<div class="tags" style="margin-bottom:8px">${(s.helpsWith||[]).slice(0,3).map(h=>`<span class="tag ht">${esc(h)}</span>`).join('')}</div>`:''}
         <div class="rec-reason">Matches your top terpenes: <strong>${s.matchedTerps.join(', ')}</strong></div>
         <button class="rec-log" onclick="openModal(\u0027${safeId(s.id)}\u0027)">+ Log This Strain</button>
       </div>`;
@@ -2760,13 +2773,13 @@ function renderAnalysis() {
   const aLo=avgR(lo),aHi=avgR(hi);
   content.innerHTML = `<div class="agrid">
     <div class="acard"><div class="actitle">Top Rated Strains</div>
-      ${sums.slice(0,5).map((s,i)=>`<div class="ri"><span class="rnum">#${i+1}</span><div class="rinfo"><div class="rname">${s.name}</div><div class="rsub">${s.entries.length} log${s.entries.length!==1?'s':''}</div></div><span class="rscore">${'★'.repeat(Math.round(s.avgR))}</span></div>`).join('')}
+      ${sums.slice(0,5).map((s,i)=>`<div class="ri"><span class="rnum">#${i+1}</span><div class="rinfo"><div class="rname">${esc(s.name)}</div><div class="rsub">${s.entries.length} log${s.entries.length!==1?'s':''}</div></div><span class="rscore">${'★'.repeat(Math.round(s.avgR))}</span></div>`).join('')}
     </div>
     <div class="acard"><div class="actitle">Avg Symptom Relief</div>
       ${oAvg.map(s=>`<div class="symrow"><span class="symlbl">${s.label}</span><div class="sbw"><div class="sbwf" style="width:${s.avg*10}%"></div></div><span class="syms">${s.avg.toFixed(1)}</span></div>`).join('')}
     </div>
     <div class="acard full"><div class="actitle">Best Strain Per Symptom</div>
-      <div class="best-grid">${bySym.map(s=>`<div class="best-card"><div class="best-lbl">${s.label}</div><div class="best-name">${s.best?.name||'—'}</div>${s.best?`<div class="best-score">${s.best.avgS[s.key].toFixed(1)}/10</div>`:''}</div>`).join('')}</div>
+      <div class="best-grid">${bySym.map(s=>`<div class="best-card"><div class="best-lbl">${s.label}</div><div class="best-name">${esc(s.best?.name||'—')}</div>${s.best?`<div class="best-score">${s.best.avgS[s.key].toFixed(1)}/10</div>`:''}</div>`).join('')}</div>
     </div>
     ${terpR.length?`<div class="acard full"><div class="actitle">Terpene Performance</div>
       <div class="best-grid">${terpR.slice(0,6).map(({t,ar,n,symAvgs})=>{const symLine=symAvgs.map(({sym,avg})=>`${sym.label.split(' / ')[0]} ${avg.toFixed(1)}`).join(' · ');return`<div class="best-card"><div class="best-lbl">${t} (${n})</div><div style="font-size:11px;color:var(--ac)">★ ${ar.toFixed(1)}</div>${symLine?`<div style="font-size:10px;color:var(--ac2)">${symLine}</div>`:''}</div>`;}).join('')}</div>
@@ -2849,7 +2862,7 @@ const REVIEWS_JSON = [{"strain":"Wappa","producer":"Redecan","user":"Gizmo","rat
 
 function initReviewFilters() {
   const prods = [...new Set(REVIEWS_JSON.map(r=>r.producer).filter(Boolean))].sort();
-  document.getElementById('reviewProd').innerHTML = '<option value="">All Producers</option>' + prods.map(p=>`<option>${p}</option>`).join('');
+  document.getElementById('reviewProd').innerHTML = '<option value="">All Producers</option>' + prods.map(p=>`<option>${esc(p)}</option>`).join('');
 }
 
 // ═══ PATIENT REVIEW SCORES (MediBud) ═════════════════════════════════════════
@@ -2897,19 +2910,19 @@ function renderReviews() {
   });
   document.getElementById('reviewCount').textContent = `${reviews.length} of ${REVIEWS_JSON.length} reviews`;
   const subs = r => ['taste','smell','effect','looks'].filter(k=>r[k]!=null)
-    .map(k=>`<span class="pr-sub">${k} ${r[k]}</span>`).join('');
+    .map(k=>`<span class="pr-sub">${esc(k)} ${esc(r[k])}</span>`).join('');
   document.getElementById('reviewGrid').innerHTML = reviews.length ? reviews.map(r => `
     <div class="pr-card">
       <div class="pr-head">
         <div class="pr-score">${Number(r.rating||0).toFixed(1)}</div>
         <div class="pr-titles">
-          <div class="pr-strain">${r.strain||'Unknown strain'}</div>
-          <div class="pr-meta">${r.producer||''}${r.date?' · '+r.date:''}</div>
+          <div class="pr-strain">${esc(r.strain||'Unknown strain')}</div>
+          <div class="pr-meta">${esc(r.producer||'')}${r.date?' · '+esc(r.date):''}</div>
         </div>
       </div>
-      ${r.text?`<div class="pr-text">${r.text}</div>`:''}
+      ${r.text?`<div class="pr-text">${esc(r.text)}</div>`:''}
       ${subs(r)?`<div class="pr-subs">${subs(r)}</div>`:''}
-      <div class="pr-user">— ${r.user||'Anonymous'}</div>
+      <div class="pr-user">— ${esc(r.user||'Anonymous')}</div>
     </div>
   `).join('') : '<div class="empty"><div class="eico">💬</div><div class="etitle">No reviews found</div><div class="etxt">Try a different search term, or check back after the next daily update.</div></div>';
 }
