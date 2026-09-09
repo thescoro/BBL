@@ -42760,7 +42760,7 @@
     "form": "Flower",
     "tier": "Core",
     "thc": 28,
-    "cbd": 0,
+    "cbd": 0.5,
     "type": "Hybrid",
     "terpenes": [
       "Myrcene",
@@ -47007,7 +47007,11 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Caryophyllene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -47501,7 +47505,11 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -51822,7 +51830,9 @@
     "cbdMgMl": 10,
     "ratio": "T10:C10",
     "spectrum": "Full Spectrum",
-    "volumes": []
+    "volumes": [
+      "30ml"
+    ]
   },
   {
     "name": "T10:C10 Full Spectrum",
@@ -51910,7 +51920,9 @@
     "cbdMgMl": 0,
     "ratio": "T20",
     "spectrum": "Full Spectrum",
-    "volumes": []
+    "volumes": [
+      "30ml"
+    ]
   },
   {
     "name": "T20:C10 Full Spectrum",
@@ -52301,7 +52313,10 @@
     "cbdMgMl": 7,
     "ratio": "T100",
     "spectrum": "Full Spectrum",
-    "volumes": []
+    "volumes": [
+      "10ml",
+      "30ml"
+    ]
   },
   {
     "name": "T10:C10 Full Spectrum",
@@ -52719,7 +52734,9 @@
     "cbdMgMl": 80,
     "ratio": "T20:C80",
     "spectrum": "Isolate",
-    "volumes": []
+    "volumes": [
+      "30ml"
+    ]
   },
   {
     "name": "Combination T5:C10 Isolate",
@@ -54355,7 +54372,9 @@
     "thc": 0,
     "cbd": 0,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Caryophyllene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -54367,6 +54386,297 @@
     "thcMgMl": 20,
     "cbdMgMl": 1,
     "ratio": "T20:C1",
+    "spectrum": "Full Spectrum",
+    "volumes": [
+      "10ml"
+    ]
+  },
+  {
+    "name": "GMO Cookies Medical Cannabis Flower (18% THC)",
+    "producer": "Together Pharmacy",
+    "code": "GCM1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 18,
+    "cbd": 0.5,
+    "type": "Indica",
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "GCM1"
+  },
+  {
+    "name": "Banana Cake",
+    "producer": "Green Joÿ",
+    "code": "BC13",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 32,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [
+      "Calming",
+      "Happy",
+      "Hungry",
+      "Relaxing",
+      "Uplifting"
+    ],
+    "flavours": [
+      "Banana",
+      "Buttery",
+      "Creamy",
+      "Fruity",
+      "Honey",
+      "Sugary",
+      "Sweet",
+      "Tree Fruit"
+    ],
+    "helpsWith": [
+      "Anxiety",
+      "Loss of Appetite",
+      "Depression",
+      "Headache",
+      "Migraine",
+      "Nausea",
+      "Stress"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "BC13"
+  },
+  {
+    "name": "African Green Mamba (25% THC)",
+    "producer": "Four",
+    "code": "AGM3",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 25,
+    "cbd": 0.5,
+    "type": "Sativa",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "AGM3"
+  },
+  {
+    "name": "Chem-Mog (27% THC)",
+    "producer": "Dalgety",
+    "code": "CMOG",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "CMOG"
+  },
+  {
+    "name": "Pava Breath (30% THC)",
+    "producer": "High Greens",
+    "code": "PB31",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 30,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "PB31"
+  },
+  {
+    "name": "Wedding Pop Triangle (840mg) (1g)",
+    "producer": "Curaleaf",
+    "code": "WPT10",
+    "form": "Cartridge",
+    "tier": "Core",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "WPT10",
+    "thcMg": 840,
+    "cbdMg": 0,
+    "volume": "",
+    "extractType": "",
+    "terpeneSource": "",
+    "fitment": ""
+  },
+  {
+    "name": "T25:C25 Full Spectrum",
+    "producer": "Circle",
+    "code": "CT25C25F",
+    "form": "Oil",
+    "tier": "",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Terpinolene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "CT25C25F",
+    "thcMgMl": 25,
+    "cbdMgMl": 25,
+    "ratio": "T25:C25",
+    "spectrum": "Full Spectrum",
+    "volumes": [
+      "30ml"
+    ]
+  },
+  {
+    "name": "T50 Full Spectrum",
+    "producer": "Circle",
+    "code": "TFS",
+    "form": "Oil",
+    "tier": "",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [
+      "Caryophyllene",
+      "Humulene",
+      "Terpinolene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "TFS",
+    "thcMgMl": 50,
+    "cbdMgMl": 0,
+    "ratio": "T50",
+    "spectrum": "Full Spectrum",
+    "volumes": [
+      "30ml"
+    ]
+  },
+  {
+    "name": "Khiriox T25:C1 Full Spectrum",
+    "producer": "Khiron",
+    "code": "KKT25C1F",
+    "form": "Oil",
+    "tier": "",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "KKT25C1F",
+    "thcMgMl": 25,
+    "cbdMgMl": 1,
+    "ratio": "T25:C1",
+    "spectrum": "Full Spectrum",
+    "volumes": []
+  },
+  {
+    "name": "C100 Isolate",
+    "producer": "Somai Pharmaceuticals",
+    "code": "SPC100I",
+    "form": "Oil",
+    "tier": "",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "SPC100I",
+    "thcMgMl": 1,
+    "cbdMgMl": 50,
+    "ratio": "C100",
+    "spectrum": "Isolate",
+    "volumes": [
+      "30ml"
+    ]
+  },
+  {
+    "name": "T10:C10 Full Spectrum",
+    "producer": "Wellford",
+    "code": "WT10C10F",
+    "form": "Oil",
+    "tier": "",
+    "thc": 0,
+    "cbd": 0,
+    "type": "Sativa",
+    "terpenes": [
+      "Caryophyllene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "WT10C10F",
+    "thcMgMl": 10,
+    "cbdMgMl": 10,
+    "ratio": "T10:C10",
     "spectrum": "Full Spectrum",
     "volumes": [
       "10ml"
