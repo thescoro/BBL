@@ -63241,9 +63241,13 @@
     "form": "Flower",
     "tier": "Core",
     "thc": 26,
-    "cbd": 0,
+    "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Myrcene",
+      "Limonene",
+      "Linalool"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -63302,9 +63306,13 @@
     "form": "Flower",
     "tier": "Core",
     "thc": 28,
-    "cbd": 0,
+    "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Humulene"
+    ],
     "terpeneDetails": [],
     "effects": [
       "Body High",
@@ -63547,9 +63555,15 @@
     "form": "Flower",
     "tier": "Core",
     "thc": 31,
-    "cbd": 0,
+    "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Limonene",
+      "Terpinolene",
+      "Geraniol"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
