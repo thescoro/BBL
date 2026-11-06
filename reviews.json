@@ -228,7 +228,7 @@
     "text": "This stuff look terrible smells amd tastes , it's certainly not something i would expect from supposedly medical grade cannabis. It smells like hay, it looks like hay, it tastes like hay. But if you can get past all of that, the effects are okay."
   },
   {
-    "strain": "White Runtz Medical Cannabis Flower (28% THC)",
+    "strain": "White Runtz Medical Cannabis Flower (27% THC)",
     "producer": "Craft Botanics",
     "user": "big dave1",
     "rating": 7.5,
@@ -312,7 +312,7 @@
     "text": "Beautiful 💚"
   },
   {
-    "strain": "Citroli",
+    "strain": "Citroli Medical Cannabis Flower (25% THC)",
     "producer": "4C Labs",
     "user": "ricky_kell@msn.com",
     "rating": 7,
@@ -444,18 +444,6 @@
     "text": "Banging for 24%. Kept it back and use sparingly with my other strains."
   },
   {
-    "strain": "Superboof Medical Cannabis Flower (22% THC)",
-    "producer": "Curo",
-    "user": "LilP420",
-    "rating": 3,
-    "taste": 2.5,
-    "smell": 5,
-    "effect": 3.5,
-    "looks": 1.5,
-    "date": "5 Sept 2026",
-    "text": "It’s a budget strain for a reason, only positive could be considered was the smell, however I just personally wasn’t a fan."
-  },
-  {
     "strain": "Purple Punch (1g)",
     "producer": "Sundaze",
     "user": "Andymg350",
@@ -478,6 +466,18 @@
     "looks": 8.5,
     "date": "30 Sept 2026",
     "text": "Smells very earthy from the bag but that taste is lovely when vaped also they are not smalls supposed to be but perfectly fine"
+  },
+  {
+    "strain": "Superboof Medical Cannabis Flower (22% THC)",
+    "producer": "Curo",
+    "user": "LilP420",
+    "rating": 3,
+    "taste": 2.5,
+    "smell": 5,
+    "effect": 3.5,
+    "looks": 1.5,
+    "date": "5 Sept 2026",
+    "text": "It’s a budget strain for a reason, only positive could be considered was the smell, however I just personally wasn’t a fan."
   },
   {
     "strain": "GMO Grape Ape",
