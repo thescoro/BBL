@@ -41099,7 +41099,11 @@
     "thc": 30,
     "cbd": 0.5,
     "type": "Indica",
-    "terpenes": [],
+    "terpenes": [
+      "Pinene",
+      "Myrcene",
+      "Limonene"
+    ],
     "terpeneDetails": [],
     "effects": [],
     "flavours": [],
@@ -60919,7 +60923,12 @@
     "thc": 22,
     "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Pinene",
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
     "terpeneDetails": [],
     "effects": [
       "Calming",
@@ -64187,7 +64196,7 @@
     "thcMg": 800,
     "cbdMg": 0,
     "volume": "",
-    "extractType": "",
+    "extractType": "Live Resin",
     "terpeneSource": "",
     "fitment": ""
   },
@@ -67876,9 +67885,13 @@
     "form": "Flower",
     "tier": "Core",
     "thc": 25,
-    "cbd": 0,
+    "cbd": 0.5,
     "type": "Hybrid",
-    "terpenes": [],
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool"
+    ],
     "terpeneDetails": [],
     "effects": [
       "Aroused",
@@ -70111,5 +70124,48 @@
     "genetics": "",
     "schema_version": 2,
     "id": "WIM"
+  },
+  {
+    "name": "Britz Medical Cannabis Flower (27% THC)",
+    "producer": "DOE Medical",
+    "code": "BRITZ",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 27,
+    "cbd": 0.5,
+    "type": "Indica",
+    "terpenes": [
+      "Limonene",
+      "Caryophyllene",
+      "Linalool",
+      "Farnesene"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "BRITZ"
+  },
+  {
+    "name": "Pink Gasoline (20% THC)",
+    "producer": "Big Narstie Medical",
+    "code": "PG26",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 20,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [],
+    "helpsWith": [],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "PG26"
   }
 ]
