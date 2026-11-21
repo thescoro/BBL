@@ -70167,5 +70167,57 @@
     "genetics": "",
     "schema_version": 2,
     "id": "PG26"
+  },
+  {
+    "name": "TBC",
+    "producer": "Blossom Genetics",
+    "code": "POM",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Linalool"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "POM"
+  },
+  {
+    "name": "TBC",
+    "producer": "Mystery Mountain",
+    "code": "TBC1",
+    "form": "Flower",
+    "tier": "Core",
+    "thc": 28,
+    "cbd": 0.5,
+    "type": "Hybrid",
+    "terpenes": [
+      "Linalool"
+    ],
+    "terpeneDetails": [],
+    "effects": [],
+    "flavours": [
+      "Lemon"
+    ],
+    "helpsWith": [
+      "Stress",
+      "Depression"
+    ],
+    "negatives": [],
+    "genetics": "",
+    "schema_version": 2,
+    "id": "TBC1"
   }
 ]
